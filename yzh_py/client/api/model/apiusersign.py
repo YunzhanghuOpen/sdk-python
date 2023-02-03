@@ -303,7 +303,7 @@ class GetApiUserSignStatusResponse(BaseRequest):
     :type signed_at: string
     :param signed_at: 签约时间
     
-    :type status: int
+    :type status: string
     :param status: 用户签约状态
     """
     def __init__(self, signed_at=None, status=None):
@@ -329,14 +329,14 @@ class GetApiUserSignStatusResponse(BaseRequest):
     def get_status(self):
         """ Get 用户签约状态
 
-        :return: int, status
+        :return: string, status
         """
         return self.status
 
     def set_status(self, status):
         """ Set 用户签约状态
 
-        :type status: int
+        :type status: string
         :param status: 用户签约状态
         """
         self.status = status 

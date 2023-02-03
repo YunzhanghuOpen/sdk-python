@@ -74,6 +74,8 @@ if __name__ == "__main__":
         channel="微信",
         data_type="encryption"
     )
+    # 自定义 request-id
+    # request.request_id = "XXXXX"
     client = PaymentClient(config)
     resp = client.get_order(request)
 

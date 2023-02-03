@@ -1001,7 +1001,7 @@ class NotifyInvoiceDoneRequest(BaseRequest):
     """
     
     :type application_id: string
-    :param application_id: 发票申请编号
+    :param application_id: 发票申请单 ID
     
     :type invoice_apply_id: string
     :param invoice_apply_id: 发票申请编号
@@ -1072,17 +1072,17 @@ class NotifyInvoiceDoneRequest(BaseRequest):
         self.reject_reason = reject_reason
 
     def get_application_id(self):
-        """ Get 发票申请编号
+        """ Get 发票申请单 ID
 
         :return: string, application_id
         """
         return self.application_id
 
     def set_application_id(self, application_id):
-        """ Set 发票申请编号
+        """ Set 发票申请单 ID
 
         :type application_id: string
-        :param application_id: 发票申请编号
+        :param application_id: 发票申请单 ID
         """
         self.application_id = application_id
 
