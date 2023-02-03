@@ -1,6 +1,6 @@
-from src.base.base_client import *
-from src.util.utils import *
-from src.model.h5usersign import *
+from .model.h5usersign import *
+from ..base import *
+from ...utils import *
 
 
 class H5UsersignClient(BaseClient):

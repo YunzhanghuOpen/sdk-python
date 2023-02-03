@@ -37,14 +37,14 @@ def decrypt(des3key, data):
     return pyDes.triple_des(des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5).decrypt(base64.b64decode(data))
 
 
-def verfy_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
-    signPairs = "data=" + data + "&mess=" + mess + "&timestamp=" + timestamp + "&key=" + app_key
-    rsa.verify(signPairs, signature, public_key)
+def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
+    sign_pairs = "data=" + data + "&mess=" + mess + "&timestamp=" + timestamp + "&key=" + app_key
+    rsa.verify(sign_pairs, signature, public_key)
 
 
-def verfy_sign_hmac(des3key, app_key, data, mess, timestamp, signature):
-    signPairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, app_key).encode('utf-8')
-    return hmac.new(app_key.encode('utf-8'), msg=signPairs, digestmod=hashlib.sha256).hexdigest() == signature
+def verify_sign_hmac(des3key, app_key, data, mess, timestamp, signature):
+    sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, app_key)
+    return hmac.new(app_key.encode('utf-8'), msg=sign_pairs, digestmod=hashlib.sha256).hexdigest() == signature
 
 
 def gen_key():
@@ -95,11 +95,11 @@ class EncryptRsa(Encrypt):
             pyDes.triple_des(self.__des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5).encrypt(data))
 
     def sign(self, mess, timestamp, encrypt_data):
-        signPairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (
+        sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (
             bytes.decode(encrypt_data), mess, timestamp, self.__app_key)
         signer = Signature_pkcs1_v1_5.new(self.__private_key)
         digest = SHA256.new()
-        digest.update(signPairs.encode("utf8"))
+        digest.update(sign_pairs.encode("utf8"))
         sign = signer.sign(digest)
         return base64.b64encode(sign)
 
@@ -126,8 +126,13 @@ class ReqMessage(object):
         timestamp = int(time.time())
         mess = ''.join(random.sample('1234567890abcdefghijklmnopqrstuvwxy', 10))
         encrypt_data = self.__encrypt.encrypt(self.data)
-        return {"data": encrypt_data, "mess": mess, 'timestamp': timestamp,
-                "sign": self.__encrypt.sign(mess, timestamp, encrypt_data), "sign_type": self.__encrypt.encrypt_type()}
+        return {
+            "data": encrypt_data,
+            "mess": mess,
+            'timestamp': timestamp,
+            "sign": self.__encrypt.sign(mess, timestamp, encrypt_data),
+            "sign_type": self.__encrypt.encrypt_type()
+        }
 
 
 class RespMessage(object):
@@ -135,7 +140,7 @@ class RespMessage(object):
     RespMessage 返回信息
     """
 
-    def __init__(self, des3key, content, req_data, req_param):
+    def __init__(self, des3key, content, req_data, req_param, headers):
         self.__des3key = des3key
         self.__content = content
         dic = json.loads(content)
@@ -144,12 +149,14 @@ class RespMessage(object):
         self.__code = dic['code'] if 'code' in dic else None
         self.__message = dic['message'] if 'message' in dic else None
         self.__data = dic['data'] if 'data' in dic else None
+        self.__request_id = headers['request-id']
 
     def decrypt(self):
         if self.__data is None:
             return self
 
-        if self.__des3key is not None and self.__req_param is not None and 'data_type' in self.__req_param and \
+        if self.__des3key is not None and self.__req_param is not None \
+                and 'data_type' in self.__req_param and \
                 self.__req_param['data_type'] == 'encryption':
             self.__data = json.loads(decrypt(self.__des3key, self.__data))
         return self
@@ -169,3 +176,7 @@ class RespMessage(object):
     @property
     def content(self):
         return self.__content
+
+    @property
+    def request_id(self):
+        return self.__request_id
