@@ -503,4 +503,105 @@ class H5UserReleaseResponse(BaseRequest):
         :type status: string
         :param status: 是否解约成功
         """
-        self.status = status
+        self.status = status 
+
+class NotifyH5UserSignRequest(BaseRequest):
+    """
+    
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+    
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+    
+    :type real_name: string
+    :param real_name: 姓名
+    
+    :type id_card: string
+    :param id_card: 证件号码
+    
+    :type phone: string
+    :param phone: 预签约手机号
+    """
+    def __init__(self, dealer_id=None, broker_id=None, real_name=None, id_card=None, phone=None):
+        super().__init__() 
+        self.dealer_id = dealer_id 
+        self.broker_id = broker_id 
+        self.real_name = real_name 
+        self.id_card = id_card 
+        self.phone = phone
+
+    def get_dealer_id(self):
+        """ Get 平台企业 ID
+
+        :return: string, dealer_id
+        """
+        return self.dealer_id
+
+    def set_dealer_id(self, dealer_id):
+        """ Set 平台企业 ID
+
+        :type dealer_id: string
+        :param dealer_id: 平台企业 ID
+        """
+        self.dealer_id = dealer_id
+
+    def get_broker_id(self):
+        """ Get 综合服务主体 ID
+
+        :return: string, broker_id
+        """
+        return self.broker_id
+
+    def set_broker_id(self, broker_id):
+        """ Set 综合服务主体 ID
+
+        :type broker_id: string
+        :param broker_id: 综合服务主体 ID
+        """
+        self.broker_id = broker_id
+
+    def get_real_name(self):
+        """ Get 姓名
+
+        :return: string, real_name
+        """
+        return self.real_name
+
+    def set_real_name(self, real_name):
+        """ Set 姓名
+
+        :type real_name: string
+        :param real_name: 姓名
+        """
+        self.real_name = real_name
+
+    def get_id_card(self):
+        """ Get 证件号码
+
+        :return: string, id_card
+        """
+        return self.id_card
+
+    def set_id_card(self, id_card):
+        """ Set 证件号码
+
+        :type id_card: string
+        :param id_card: 证件号码
+        """
+        self.id_card = id_card
+
+    def get_phone(self):
+        """ Get 预签约手机号
+
+        :return: string, phone
+        """
+        return self.phone
+
+    def set_phone(self, phone):
+        """ Set 预签约手机号
+
+        :type phone: string
+        :param phone: 预签约手机号
+        """
+        self.phone = phone

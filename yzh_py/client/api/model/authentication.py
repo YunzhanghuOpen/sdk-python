@@ -700,6 +700,145 @@ class UserExemptedInfoResponse(BaseRequest):
         """
         self.ok = ok 
 
+class NotifyUserExemptedInfoRequest(BaseRequest):
+    """
+    
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+    
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+    
+    :type real_name: string
+    :param real_name: 姓名
+    
+    :type id_card: string
+    :param id_card: 证件号
+    
+    :type status: string
+    :param status: 审核状态
+    
+    :type ref: string
+    :param ref: 流水号
+    
+    :type comment: string
+    :param comment: 审核信息
+    """
+    def __init__(self, broker_id=None, dealer_id=None, real_name=None, id_card=None, status=None, ref=None, comment=None):
+        super().__init__() 
+        self.broker_id = broker_id 
+        self.dealer_id = dealer_id 
+        self.real_name = real_name 
+        self.id_card = id_card 
+        self.status = status 
+        self.ref = ref 
+        self.comment = comment
+
+    def get_broker_id(self):
+        """ Get 综合服务主体 ID
+
+        :return: string, broker_id
+        """
+        return self.broker_id
+
+    def set_broker_id(self, broker_id):
+        """ Set 综合服务主体 ID
+
+        :type broker_id: string
+        :param broker_id: 综合服务主体 ID
+        """
+        self.broker_id = broker_id
+
+    def get_dealer_id(self):
+        """ Get 平台企业 ID
+
+        :return: string, dealer_id
+        """
+        return self.dealer_id
+
+    def set_dealer_id(self, dealer_id):
+        """ Set 平台企业 ID
+
+        :type dealer_id: string
+        :param dealer_id: 平台企业 ID
+        """
+        self.dealer_id = dealer_id
+
+    def get_real_name(self):
+        """ Get 姓名
+
+        :return: string, real_name
+        """
+        return self.real_name
+
+    def set_real_name(self, real_name):
+        """ Set 姓名
+
+        :type real_name: string
+        :param real_name: 姓名
+        """
+        self.real_name = real_name
+
+    def get_id_card(self):
+        """ Get 证件号
+
+        :return: string, id_card
+        """
+        return self.id_card
+
+    def set_id_card(self, id_card):
+        """ Set 证件号
+
+        :type id_card: string
+        :param id_card: 证件号
+        """
+        self.id_card = id_card
+
+    def get_status(self):
+        """ Get 审核状态
+
+        :return: string, status
+        """
+        return self.status
+
+    def set_status(self, status):
+        """ Set 审核状态
+
+        :type status: string
+        :param status: 审核状态
+        """
+        self.status = status
+
+    def get_ref(self):
+        """ Get 流水号
+
+        :return: string, ref
+        """
+        return self.ref
+
+    def set_ref(self, ref):
+        """ Set 流水号
+
+        :type ref: string
+        :param ref: 流水号
+        """
+        self.ref = ref
+
+    def get_comment(self):
+        """ Get 审核信息
+
+        :return: string, comment
+        """
+        return self.comment
+
+    def set_comment(self, comment):
+        """ Set 审核信息
+
+        :type comment: string
+        :param comment: 审核信息
+        """
+        self.comment = comment 
+
 class UserWhiteCheckRequest(BaseRequest):
     """
     

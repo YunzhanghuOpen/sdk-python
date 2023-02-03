@@ -2139,6 +2139,69 @@ class GetEleReceiptFileResponse(BaseRequest):
 class NotifyOrderRequest(BaseRequest):
     """
     
+    :type notify_id: string
+    :param notify_id: 通知 ID
+    
+    :type notify_time: string
+    :param notify_time: 通知时间
+    
+    :type data: NotifyOrderData
+    :param data: 返回数据
+    """
+    def __init__(self, notify_id=None, notify_time=None, data=None):
+        super().__init__() 
+        self.notify_id = notify_id 
+        self.notify_time = notify_time 
+        self.data = data
+
+    def get_notify_id(self):
+        """ Get 通知 ID
+
+        :return: string, notify_id
+        """
+        return self.notify_id
+
+    def set_notify_id(self, notify_id):
+        """ Set 通知 ID
+
+        :type notify_id: string
+        :param notify_id: 通知 ID
+        """
+        self.notify_id = notify_id
+
+    def get_notify_time(self):
+        """ Get 通知时间
+
+        :return: string, notify_time
+        """
+        return self.notify_time
+
+    def set_notify_time(self, notify_time):
+        """ Set 通知时间
+
+        :type notify_time: string
+        :param notify_time: 通知时间
+        """
+        self.notify_time = notify_time
+
+    def get_data(self):
+        """ Get 返回数据
+
+        :return: NotifyOrderData, data
+        """
+        return self.data
+
+    def set_data(self, data):
+        """ Set 返回数据
+
+        :type data: NotifyOrderData
+        :param data: 返回数据
+        """
+        self.data = data 
+
+class NotifyOrderData(BaseRequest):
+    """
+    
     :type order_id: string
     :param order_id: 平台企业订单号
     
@@ -2214,22 +2277,10 @@ class NotifyOrderRequest(BaseRequest):
     :type project_id: string
     :param project_id: 项目标识
     
-    :type anchor_id: string
-    :param anchor_id: 新就业形态劳动者 ID，该字段已废弃
-    
-    :type notes: string
-    :param notes: 描述信息，该字段已废弃
-    
-    :type sys_amount: string
-    :param sys_amount: 系统支付金额，该字段已废弃
-    
-    :type tax: string
-    :param tax: 税费，该字段已废弃
-    
-    :type sys_fee: string
-    :param sys_fee: 系统支付费用，该字段已废弃
+    :type user_id: string
+    :param user_id: 平台企业用户 ID
     """
-    def __init__(self, order_id=None, pay=None, broker_id=None, dealer_id=None, real_name=None, card_no=None, id_card=None, phone_no=None, status=None, status_detail=None, status_message=None, status_detail_message=None, broker_amount=None, ref=None, broker_bank_bill=None, withdraw_platform=None, created_at=None, finished_time=None, broker_fee=None, broker_real_fee=None, broker_deduct_fee=None, pay_remark=None, user_fee=None, bank_name=None, project_id=None, anchor_id=None, notes=None, sys_amount=None, tax=None, sys_fee=None):
+    def __init__(self, order_id=None, pay=None, broker_id=None, dealer_id=None, real_name=None, card_no=None, id_card=None, phone_no=None, status=None, status_detail=None, status_message=None, status_detail_message=None, broker_amount=None, ref=None, broker_bank_bill=None, withdraw_platform=None, created_at=None, finished_time=None, broker_fee=None, broker_real_fee=None, broker_deduct_fee=None, pay_remark=None, user_fee=None, bank_name=None, project_id=None, user_id=None):
         super().__init__() 
         self.order_id = order_id 
         self.pay = pay 
@@ -2256,11 +2307,7 @@ class NotifyOrderRequest(BaseRequest):
         self.user_fee = user_fee 
         self.bank_name = bank_name 
         self.project_id = project_id 
-        self.anchor_id = anchor_id 
-        self.notes = notes 
-        self.sys_amount = sys_amount 
-        self.tax = tax 
-        self.sys_fee = sys_fee
+        self.user_id = user_id
 
     def get_order_id(self):
         """ Get 平台企业订单号
@@ -2637,80 +2684,20 @@ class NotifyOrderRequest(BaseRequest):
         """
         self.project_id = project_id
 
-    def get_anchor_id(self):
-        """ Get 新就业形态劳动者 ID，该字段已废弃
+    def get_user_id(self):
+        """ Get 平台企业用户 ID
 
-        :return: string, anchor_id
+        :return: string, user_id
         """
-        return self.anchor_id
+        return self.user_id
 
-    def set_anchor_id(self, anchor_id):
-        """ Set 新就业形态劳动者 ID，该字段已废弃
+    def set_user_id(self, user_id):
+        """ Set 平台企业用户 ID
 
-        :type anchor_id: string
-        :param anchor_id: 新就业形态劳动者 ID，该字段已废弃
+        :type user_id: string
+        :param user_id: 平台企业用户 ID
         """
-        self.anchor_id = anchor_id
-
-    def get_notes(self):
-        """ Get 描述信息，该字段已废弃
-
-        :return: string, notes
-        """
-        return self.notes
-
-    def set_notes(self, notes):
-        """ Set 描述信息，该字段已废弃
-
-        :type notes: string
-        :param notes: 描述信息，该字段已废弃
-        """
-        self.notes = notes
-
-    def get_sys_amount(self):
-        """ Get 系统支付金额，该字段已废弃
-
-        :return: string, sys_amount
-        """
-        return self.sys_amount
-
-    def set_sys_amount(self, sys_amount):
-        """ Set 系统支付金额，该字段已废弃
-
-        :type sys_amount: string
-        :param sys_amount: 系统支付金额，该字段已废弃
-        """
-        self.sys_amount = sys_amount
-
-    def get_tax(self):
-        """ Get 税费，该字段已废弃
-
-        :return: string, tax
-        """
-        return self.tax
-
-    def set_tax(self, tax):
-        """ Set 税费，该字段已废弃
-
-        :type tax: string
-        :param tax: 税费，该字段已废弃
-        """
-        self.tax = tax
-
-    def get_sys_fee(self):
-        """ Get 系统支付费用，该字段已废弃
-
-        :return: string, sys_fee
-        """
-        return self.sys_fee
-
-    def set_sys_fee(self, sys_fee):
-        """ Set 系统支付费用，该字段已废弃
-
-        :type sys_fee: string
-        :param sys_fee: 系统支付费用，该字段已废弃
-        """
-        self.sys_fee = sys_fee 
+        self.user_id = user_id 
 
 class CreateBatchOrderRequest(BaseRequest):
     """
@@ -2719,16 +2706,16 @@ class CreateBatchOrderRequest(BaseRequest):
     :param batch_id: 平台企业批次号
     
     :type dealer_id: string
-    :param dealer_id: 平台企业ID
+    :param dealer_id: 平台企业 ID
     
     :type broker_id: string
-    :param broker_id: 综合服务主体ID
+    :param broker_id: 综合服务主体 ID
     
     :type channel: string
     :param channel: 支付路径
     
     :type wx_app_id: string
-    :param wx_app_id: 平台企业的微信AppID
+    :param wx_app_id: 平台企业的微信 AppID
     
     :type total_pay: string
     :param total_pay: 订单总金额
@@ -2766,32 +2753,32 @@ class CreateBatchOrderRequest(BaseRequest):
         self.batch_id = batch_id
 
     def get_dealer_id(self):
-        """ Get 平台企业ID
+        """ Get 平台企业 ID
 
         :return: string, dealer_id
         """
         return self.dealer_id
 
     def set_dealer_id(self, dealer_id):
-        """ Set 平台企业ID
+        """ Set 平台企业 ID
 
         :type dealer_id: string
-        :param dealer_id: 平台企业ID
+        :param dealer_id: 平台企业 ID
         """
         self.dealer_id = dealer_id
 
     def get_broker_id(self):
-        """ Get 综合服务主体ID
+        """ Get 综合服务主体 ID
 
         :return: string, broker_id
         """
         return self.broker_id
 
     def set_broker_id(self, broker_id):
-        """ Set 综合服务主体ID
+        """ Set 综合服务主体 ID
 
         :type broker_id: string
-        :param broker_id: 综合服务主体ID
+        :param broker_id: 综合服务主体 ID
         """
         self.broker_id = broker_id
 
@@ -2811,17 +2798,17 @@ class CreateBatchOrderRequest(BaseRequest):
         self.channel = channel
 
     def get_wx_app_id(self):
-        """ Get 平台企业的微信AppID
+        """ Get 平台企业的微信 AppID
 
         :return: string, wx_app_id
         """
         return self.wx_app_id
 
     def set_wx_app_id(self, wx_app_id):
-        """ Set 平台企业的微信AppID
+        """ Set 平台企业的微信 AppID
 
         :type wx_app_id: string
-        :param wx_app_id: 平台企业的微信AppID
+        :param wx_app_id: 平台企业的微信 AppID
         """
         self.wx_app_id = wx_app_id
 
@@ -2886,7 +2873,7 @@ class BatchOrderInfo(BaseRequest):
     :param card_no: 收款账号
     
     :type openid: string
-    :param openid: 微信用户openid
+    :param openid: 微信用户 openid
     
     :type phone_no: string
     :param phone_no: 手机号
@@ -2977,17 +2964,17 @@ class BatchOrderInfo(BaseRequest):
         self.card_no = card_no
 
     def get_openid(self):
-        """ Get 微信用户openid
+        """ Get 微信用户 openid
 
         :return: string, openid
         """
         return self.openid
 
     def set_openid(self, openid):
-        """ Set 微信用户openid
+        """ Set 微信用户 openid
 
         :type openid: string
-        :param openid: 微信用户openid
+        :param openid: 微信用户 openid
         """
         self.openid = openid
 
@@ -3180,10 +3167,10 @@ class ConfirmBatchOrderRequest(BaseRequest):
     :param batch_id: 平台企业批次号
     
     :type dealer_id: string
-    :param dealer_id: 平台企业ID
+    :param dealer_id: 平台企业 ID
     
     :type broker_id: string
-    :param broker_id: 综合服务主体ID
+    :param broker_id: 综合服务主体 ID
     
     :type channel: string
     :param channel: 支付路径
@@ -3211,32 +3198,32 @@ class ConfirmBatchOrderRequest(BaseRequest):
         self.batch_id = batch_id
 
     def get_dealer_id(self):
-        """ Get 平台企业ID
+        """ Get 平台企业 ID
 
         :return: string, dealer_id
         """
         return self.dealer_id
 
     def set_dealer_id(self, dealer_id):
-        """ Set 平台企业ID
+        """ Set 平台企业 ID
 
         :type dealer_id: string
-        :param dealer_id: 平台企业ID
+        :param dealer_id: 平台企业 ID
         """
         self.dealer_id = dealer_id
 
     def get_broker_id(self):
-        """ Get 综合服务主体ID
+        """ Get 综合服务主体 ID
 
         :return: string, broker_id
         """
         return self.broker_id
 
     def set_broker_id(self, broker_id):
-        """ Set 综合服务主体ID
+        """ Set 综合服务主体 ID
 
         :type broker_id: string
-        :param broker_id: 综合服务主体ID
+        :param broker_id: 综合服务主体 ID
         """
         self.broker_id = broker_id
 
