@@ -1,6 +1,6 @@
-from src.base.base_client import *
-from src.util.utils import *
-from src.model.apiusersign import *
+from .model.apiusersign import *
+from ..base import *
+from ...utils import *
 
 
 class ApiusersignClient(BaseClient):

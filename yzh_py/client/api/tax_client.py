@@ -1,6 +1,6 @@
-from src.base.base_client import *
-from src.util.utils import *
-from src.model.tax import *
+from .model.tax import *
+from ..base import *
+from ...utils import *
 
 
 class TaxClient(BaseClient):

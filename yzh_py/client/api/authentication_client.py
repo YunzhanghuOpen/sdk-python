@@ -1,6 +1,6 @@
-from src.base.base_client import *
-from src.util.utils import *
-from src.model.authentication import *
+from .model.authentication import *
+from ..base import *
+from ...utils import *
 
 
 class AuthenticationClient(BaseClient):

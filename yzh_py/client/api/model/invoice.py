@@ -1,4 +1,4 @@
-from src.base.base_request import *
+from ...base import BaseRequest
  
 
 class GetInvoiceStatRequest(BaseRequest):
