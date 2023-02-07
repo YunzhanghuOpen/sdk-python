@@ -62,7 +62,17 @@ Openssl-> rsa -in private_key.pem -pubout -out pubkey.pem
 3. 在您的代码中引用对应模块代码，可参考示例
 
 
-### 快速使用
+## 快速使用
+
+### 示例功能列表
+
+- [用户信息验证](./example/authentication_example.py)
+- [H5 签约](./example/h5usersign_example.py) or [API 签约](./example/apiusersign_example.py)
+- [个体工商户注册（新经济 H5）](./example/bizlicxjjh5_example.py) or [个体工商户注册（新经济 H5+API）](./example/bizlicxjjh5api_example.py)
+- [实时支付](./example/payment_example.py)
+- [异步通知](./example/notify_example.py)
+- [对账文件获取](./example/dataservice_example.py)
+- [发票开具](./example/invoice_example.py)
 
 #### 示例
 
