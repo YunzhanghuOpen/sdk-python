@@ -28,7 +28,7 @@ class BaseClient(object):
                 config.app_key, config.des3key)
         if encrypt_type == "rsa":
             self.__encrypt = EncryptRsa(
-                config.app_key, config.public_key, config.private_key, config.des3key)
+                config.app_key, config.yzh_public_key, config.dealer_private_key, config.des3key)
 
         self.__dealer_id = config.dealer_id
         self.__base_url = config.host
