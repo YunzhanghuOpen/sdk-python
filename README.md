@@ -14,7 +14,7 @@
 
 使用云账户 SDK for Python 前，您需先获取 dealer_id、broker_id、3DES Key、App Key 信息。    
 获取方式：使用开户邮件中的账号登录【[云账户综合服务平台](https://service.yunzhanghu.com/user/login)】，选择“业务中心 > 业务管理 > 对接信息”，查看并获取以上配置信息。  
-![获取配置信息](https://infra-engineering-yos-prod.obs.cn-north-1.myhuaweicloud.com/3edacfcb8f2f689d3ee6e9e7aba983139a8ec869-duijiexinxi.png)
+![获取配置信息](https://yos.yunzhanghu.com/getobject/duijiexinxi.png?isAttachment=false&fileID=9487bd54b93a5abf49003c2b8ce7e069bfa24220&signature=X%2BR7PocQgPqSpR2xM1TgYU6lAapr%2FB9p3aFof03Gcfw%3D)
 
 #### 2、生成密钥
 
@@ -40,13 +40,27 @@ Openssl-> rsa -in private_key.pem -pubout -out pubkey.pem
 #### 3、配置密钥
 
 登录【[云账户综合服务平台](https://service.yunzhanghu.com/user/login)】，选择“业务中心 > 业务管理 > 对接信息”，单击页面右上角的“编辑”，配置平台企业公钥。
-![配置平台企业公钥信息](https://infra-engineering-yos-prod.obs.cn-north-1.myhuaweicloud.com/6cfd4c1c6560b7ae99d5c3cb358aea23b9433c58-dujiexinxi-2.png)
+![配置平台企业公钥信息](https://yos.yunzhanghu.com/getobject/dujiexinxi-2.png?isAttachment=false&fileID=84e3cd1684a61c1e32eb0e7b7f43390cd053206b&signature=mqW8Zbk7h3gYXfzjR99pK%2B0pgVLcLly3VjBB2KsqDvQ%3D)
 
-### 安装Python SDK
 
-1、pip install yzh_py 
+## 安装 Python SDK
 
-如有特殊需求需要源码，请联系云账户技术支持。
+### 通过 PIP 安装
+
+通过 PIP 获取安装是使用 SDK 的推荐方法，PIP 是  Python 的包管理工具。关于 PIP 详细可参考[ PIP 官网](https://pypi.org/) 。
+
+1. 执行以下安装命令：
+
+   > pip install yzh_py
+
+2. 在您的代码中引用对应模块代码，可参考示例。
+
+### 通过源码包安装
+
+1. 前往 [Github 仓库](https://github.com/YunzhanghuOpen/sdk-python) 下载源码压缩包
+2. 解压源码包到您项目合适的位置
+3. 在您的代码中引用对应模块代码，可参考示例
+
 
 ### 快速使用
 
