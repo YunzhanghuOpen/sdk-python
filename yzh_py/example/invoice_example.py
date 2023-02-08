@@ -3,6 +3,7 @@ from yzh_py.client.api.model.invoice import *
 from yzh_py.client.api.invoice_client import InvoiceClient
 from yzh_py.example.utils.configinit import init_config
 
+# 发票开具
 if __name__ == '__main__':
     InvoiceClient = InvoiceClient(config=init_config())
     # 查询平台企业已开具和待开具发票金额

@@ -3,6 +3,7 @@ from yzh_py.client.api.model.bizlicxjjh5api import *
 from yzh_py.client.api.bizlicxjjh5api_client import Bizlicxjjh5ApiClient
 from yzh_py.example.utils.configinit import init_config
 
+# 云账户新经济 H5+API
 if __name__ == '__main__':
     Bizlicxjjh5ApiClient = Bizlicxjjh5ApiClient(config=init_config())
     # 工商实名信息录入

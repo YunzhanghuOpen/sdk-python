@@ -3,6 +3,7 @@ from yzh_py.client.api.model.authentication import *
 from yzh_py.client.api.authentication_client import AuthenticationClient
 from yzh_py.example.utils.configinit import init_config
 
+# 用户信息验证
 if __name__ == '__main__':
     AuthenticationClient = AuthenticationClient(config=init_config())
     # 银行卡四要素鉴权请求（下发短信验证码）

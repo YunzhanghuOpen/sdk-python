@@ -3,6 +3,7 @@ from yzh_py.client.api.model.tax import *
 from yzh_py.client.api.tax_client import TaxClient
 from yzh_py.example.utils.configinit import init_config
 
+# 个人所得税扣缴明细表
 if __name__ == '__main__':
 
     TaxClient = TaxClient(config=init_config())

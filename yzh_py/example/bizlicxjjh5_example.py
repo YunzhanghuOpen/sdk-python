@@ -3,6 +3,7 @@ from yzh_py.client.api.model.bizlicxjjh5 import *
 from yzh_py.client.api.bizlicxjjh5_client import Bizlicxjjh5Client
 from yzh_py.example.utils.configinit import init_config
 
+# 云账户新经济 H5
 if __name__ == '__main__':
     Bizlicxjjh5Client = Bizlicxjjh5Client(config=init_config())
     # 预启动

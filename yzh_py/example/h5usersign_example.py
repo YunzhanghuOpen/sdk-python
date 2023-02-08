@@ -3,6 +3,7 @@ from yzh_py.client.api.model.h5usersign import *
 from yzh_py.client.api.h5usersign_client import H5UsersignClient
 from yzh_py.example.utils.configinit import init_config
 
+# H5 签约
 if __name__ == '__main__':
     H5UsersignClient = H5UsersignClient(config=init_config())
     # H5 预申请签约接口

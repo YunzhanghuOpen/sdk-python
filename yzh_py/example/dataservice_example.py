@@ -3,6 +3,7 @@ from yzh_py.client.api.model.dataservice import *
 from yzh_py.client.api.dataservice_client import DataserviceClient
 from yzh_py.example.utils.configinit import init_config
 
+# 对账文件获取
 if __name__ == '__main__':
     DataserviceClient = DataserviceClient(config=init_config())
     # 查询日订单文件
