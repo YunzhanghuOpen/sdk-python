@@ -127,9 +127,3 @@ if __name__ == '__main__':
     confirmbatchorderrequest_res = PaymentClient.confirm_batch_order(confirmbatchorderrequest)
     print("批次确认返回：", confirmbatchorderrequest_res.code, confirmbatchorderrequest_res.message,
           confirmbatchorderrequest_res.data)
-
-
-
-
-
-

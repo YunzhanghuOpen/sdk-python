@@ -95,15 +95,3 @@ if __name__ == '__main__':
     getbankcardinforequest_res = AuthenticationClient.get_bank_card_info(getbankcardinforequest)
     print("银行卡信息查询接口返回：", getbankcardinforequest_res.code, getbankcardinforequest_res.message,
           getbankcardinforequest_res.data)
-
-
-
-
-
-
-
-
-
-
-
-

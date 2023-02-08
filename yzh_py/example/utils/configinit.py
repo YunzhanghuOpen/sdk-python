@@ -3,22 +3,22 @@ from yzh_py.config import *
 
 
 def init_config():
-    # dealer_id 平台企业 ID
+    # 平台企业 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     dealer_id = "xxx"
-    # broker_id 综合服务主体 ID
+    # 综合服务主体 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     broker_id = "xxx"
-    # sign_type 签名类型
+    # 签名方式，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取，默认为 RSA 签名方式。rsa：RSA 签名方式   sha256：HMAC 签名方式
     sign_type = "xxx"
-    # app_key
+    # 平台企业 App Key，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     app_key = "xxx"
-    # des3key
+    # 平台企业 3DES Key，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     des3key = "xxx"
-    # dealer_private_key 平台企业私钥
+    # 平台企业私钥，自行生成 RSA 公私钥，公钥请配置在“云账户综合服务平台 > 业务中心 > 业务管理 > 对接信息 > 平台企业公钥”，私钥请妥善保存，谨防泄露。
     dealer_private_key = '''
     -----BEGIN PRIVATE KEY-----
     xxx
     '''
-    # yzh_public_key 云账户公钥
+    # 云账户公钥，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     yzh_public_key = '''
     xxx
     '''
