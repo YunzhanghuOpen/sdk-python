@@ -5,7 +5,7 @@ from gevent import pywsgi
 from yzh_py.message import verify_sign_rsa, decrypt
 from yzh_py.example.utils.configinit import init_config
 
-# 支付异步通知
+# 异步通知
 
 app = Flask(__name__)
 

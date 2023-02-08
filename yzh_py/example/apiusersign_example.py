@@ -13,7 +13,7 @@ if __name__ == '__main__':
     )
     apiusesigncontractrequest_res = ApiusersignClient.api_use_sign_contract(
         apiusesigncontractrequest)
-    print("获取协议预览 URL返回：", apiusesigncontractrequest_res.code, apiusesigncontractrequest_res.message,
+    print("获取协议预览 URL 返回：", apiusesigncontractrequest_res.code, apiusesigncontractrequest_res.message,
           apiusesigncontractrequest_res.data)
 
     # 用户签约
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     print("获取用户签约状态返回：", getapiusersignstatusrequest_res.code, getapiusersignstatusrequest_res.message,
           getapiusersignstatusrequest_res.data)
 
-    # 用户解约（测试账号专用接口）
+    # 用户解约
     apiusersignreleaserequest = ApiUserSignReleaseRequest(
         broker_id="",
         dealer_id="",
@@ -49,5 +49,5 @@ if __name__ == '__main__':
     )
     apiusersignreleaserequest_res = ApiusersignClient.api_user_sign_release(
         apiusersignreleaserequest)
-    print("用户解约（测试账号专用接口）返回：", apiusersignreleaserequest_res.code, apiusersignreleaserequest_res.message,
+    print("用户解约返回：", apiusersignreleaserequest_res.code, apiusersignreleaserequest_res.message,
           apiusersignreleaserequest_res.data)

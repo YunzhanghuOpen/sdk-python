@@ -16,16 +16,16 @@ if __name__ == '__main__':
     print("查询平台企业已开具和待开具发票金额返回：", getinvoicestatrequest_res.code, getinvoicestatrequest_res.message,
           getinvoicestatrequest_res.data)
 
-    # 查询可开票额度和开票信息
+    # 查询可开具发票额度和发票开具信息
     getinvoiceamountrequest = GetInvoiceAmountRequest(
         broker_id="",
         dealer_id="",
     )
     getinvoiceamountrequest_res = InvoiceClient.get_invoice_amount(getinvoiceamountrequest)
-    print("查询可开票额度和开票信息返回：", getinvoiceamountrequest_res.code, getinvoiceamountrequest_res.message,
+    print("查询可开具发票额度和发票开具信息返回：", getinvoiceamountrequest_res.code, getinvoiceamountrequest_res.message,
           getinvoiceamountrequest_res.data)
 
-    # 开票申请
+    # 发票开具申请
     applyinvoicerequest = ApplyInvoiceRequest(
         invoice_apply_id="",
         broker_id="",
@@ -37,15 +37,15 @@ if __name__ == '__main__':
         remark="",
     )
     applyinvoicerequest_res = InvoiceClient.apply_invoice(applyinvoicerequest)
-    print("开票申请返回：", applyinvoicerequest_res.code, applyinvoicerequest_res.message, applyinvoicerequest_res.data)
+    print("发票开具申请返回：", applyinvoicerequest_res.code, applyinvoicerequest_res.message, applyinvoicerequest_res.data)
 
-    # 查询开票申请状态
+    # 查询发票开具申请状态
     getinvoicestatusrequest = GetInvoiceStatusRequest(
         invoice_apply_id="",
         application_id="",
     )
     getinvoicestatusrequest_res = InvoiceClient.get_invoice_status(getinvoicestatusrequest)
-    print("查询开票申请状态返回：", getinvoicestatusrequest_res.code, getinvoicestatusrequest_res.message,
+    print("查询发票开具申请状态返回：", getinvoicestatusrequest_res.code, getinvoicestatusrequest_res.message,
           getinvoicestatusrequest_res.data)
 
     # 下载 PDF 版发票

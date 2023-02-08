@@ -6,7 +6,7 @@ from yzh_py.example.utils.configinit import init_config
 # 实时支付
 if __name__ == '__main__':
     PaymentClient = PaymentClient(config=init_config())
-    # 银行卡实时下单
+    # 银行卡实时支付
     createbankpayorderrequest = CreateBankpayOrderRequest(
         order_id="",
         dealer_id="",
@@ -21,9 +21,9 @@ if __name__ == '__main__':
         project_id="",
     )
     createbankpayorderrequest_res=PaymentClient.create_bankpay_order(createbankpayorderrequest)
-    print("银行卡实时下单返回：", createbankpayorderrequest_res.code,createbankpayorderrequest_res.message,createbankpayorderrequest_res.data)
+    print("银行卡实时支付返回：", createbankpayorderrequest_res.code,createbankpayorderrequest_res.message,createbankpayorderrequest_res.data)
 
-    # 支付宝实时下单
+    # 支付宝实时支付
     createalipayorderrequest = CreateAlipayOrderRequest(
         order_id="",
         dealer_id="",
@@ -39,9 +39,9 @@ if __name__ == '__main__':
         check_name="",
     )
     createalipayorderrequest_res=PaymentClient.create_alipay_order(createalipayorderrequest)
-    print("支付宝实时下单返回：", createalipayorderrequest_res.code,createalipayorderrequest_res.message,createalipayorderrequest_res.data)
+    print("支付宝实时支付返回：", createalipayorderrequest_res.code,createalipayorderrequest_res.message,createalipayorderrequest_res.data)
 
-    # 微信实时下单
+    # 微信实时支付
     createwxpayorderrequest = CreateWxpayOrderRequest(
         order_id="",
         dealer_id="",
@@ -59,7 +59,7 @@ if __name__ == '__main__':
         notes="",
     )
     createwxpayorderrequest_res = PaymentClient.create_wxpay_order(createwxpayorderrequest)
-    print("微信实时下单返回：", createwxpayorderrequest_res.code, createwxpayorderrequest_res.message, createwxpayorderrequest_res.data)
+    print("微信实时支付返回：", createwxpayorderrequest_res.code, createwxpayorderrequest_res.message, createwxpayorderrequest_res.data)
 
     # 查询单笔订单信息
     getorderrequest = GetOrderRequest(
@@ -69,24 +69,6 @@ if __name__ == '__main__':
     )
     getorderrequest_res = PaymentClient.get_order(getorderrequest)
     print("查询单笔订单信息返回：", getorderrequest_res.code, getorderrequest_res.message, getorderrequest_res.data)
-
-    # 查询平台企业汇款信息
-    getdealervarechargeaccountrequest = GetDealerVARechargeAccountRequest(
-        broker_id="",
-        dealer_id="",
-    )
-    getdealervarechargeaccountrequest_res = PaymentClient.get_dealer_v_a_recharge_account(getdealervarechargeaccountrequest)
-    print("查询平台企业汇款信息返回：", getdealervarechargeaccountrequest_res.code, getdealervarechargeaccountrequest_res.message,getdealervarechargeaccountrequest_res.data)
-
-    # 取消待支付订单
-    cancelorderrequest = CancelOrderRequest(
-        dealer_id="",
-        order_id="",
-        ref="",
-        channel="",
-    )
-    cancelorderrequest_res = PaymentClient.cancel_order(cancelorderrequest)
-    print("取消待支付订单返回：", cancelorderrequest_res.code, cancelorderrequest_res.message, cancelorderrequest_res.data)
 
     # 查询平台企业余额
     listaccountrequest = ListAccountRequest(
@@ -101,7 +83,26 @@ if __name__ == '__main__':
         ref="",
     )
     getelereceiptfilerequest_res = PaymentClient.get_ele_receipt_file(getelereceiptfilerequest)
-    print("查询电子回单返回：", getelereceiptfilerequest_res.code, getelereceiptfilerequest_res.message,getelereceiptfilerequest_res.data)
+    print("查询电子回单返回：", getelereceiptfilerequest_res.code, getelereceiptfilerequest_res.message,
+          getelereceiptfilerequest_res.data)
+
+    # 取消待支付订单
+    cancelorderrequest = CancelOrderRequest(
+        dealer_id="",
+        order_id="",
+        ref="",
+        channel="",
+    )
+    cancelorderrequest_res = PaymentClient.cancel_order(cancelorderrequest)
+    print("取消待支付订单返回：", cancelorderrequest_res.code, cancelorderrequest_res.message, cancelorderrequest_res.data)
+
+    # 查询平台企业汇款信息
+    getdealervarechargeaccountrequest = GetDealerVARechargeAccountRequest(
+        broker_id="",
+        dealer_id="",
+    )
+    getdealervarechargeaccountrequest_res = PaymentClient.get_dealer_v_a_recharge_account(getdealervarechargeaccountrequest)
+    print("查询平台企业汇款信息返回：", getdealervarechargeaccountrequest_res.code, getdealervarechargeaccountrequest_res.message,getdealervarechargeaccountrequest_res.data)
 
     # 批次下单
     createbatchorderrequest = CreateBatchOrderRequest(

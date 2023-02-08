@@ -44,6 +44,14 @@ if __name__ == '__main__':
     print("查询日订单数据返回：", listdailyorderrequest_res.code, listdailyorderrequest_res.message,
           listdailyorderrequest_res.data)
 
+    # 查询日订单文件（支付和退款订单）
+    getdailyorderfilev2request = GetDailyOrderFileV2Request(
+        order_date="",
+    )
+    getdailyorderfilev2request_res = DataserviceClient.get_daily_order_file_v2(getdailyorderfilev2request)
+    print("查询日订单文件（支付和退款订单）返回：", getdailyorderfilev2request_res.code, getdailyorderfilev2request_res.message,
+          getdailyorderfilev2request_res.data)
+
     # 查询日流水数据
     listdailybillrequest = ListDailyBillRequest(
         bill_date="",
@@ -54,13 +62,7 @@ if __name__ == '__main__':
     listdailybillrequest_res = DataserviceClient.list_daily_bill(listdailybillrequest)
     print("查询日流水数据返回：", listdailybillrequest_res.code, listdailybillrequest_res.message, listdailybillrequest_res.data)
 
-    # 查询日订单文件（支付和退款订单）
-    getdailyorderfilev2request = GetDailyOrderFileV2Request(
-        order_date="",
-    )
-    getdailyorderfilev2request_res = DataserviceClient.get_daily_order_file_v2(getdailyorderfilev2request)
-    print("查询日订单文件（支付和退款订单）返回：", getdailyorderfilev2request_res.code, getdailyorderfilev2request_res.message,
-          getdailyorderfilev2request_res.data)
+
 
     # 获取余额日账单
     listbalancedailystatementrequest = ListBalanceDailyStatementRequest(

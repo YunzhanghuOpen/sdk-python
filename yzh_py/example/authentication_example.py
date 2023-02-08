@@ -17,7 +17,7 @@ if __name__ == '__main__':
     print("银行卡四要素鉴权请求（下发短信验证码）返回：", bankcardfourauthverifyrequest_res.code, bankcardfourauthverifyrequest_res.message,
           bankcardfourauthverifyrequest_res.data)
 
-    # 银行卡四要素确认鉴权（上传短信验证码）
+    # 银行卡四要素确认请求（上传短信验证码）
     bankcardfourauthconfirmrequest = BankCardFourAuthConfirmRequest(
         card_no="",
         id_card="",
@@ -88,11 +88,11 @@ if __name__ == '__main__':
     print("查看免验证用户名单是否存在返回：", userwhitecheckrequest_res.code, userwhitecheckrequest_res.message,
           userwhitecheckrequest_res.data)
 
-    # 银行卡信息查询接口
+    # 银行卡信息查询
     getbankcardinforequest = GetBankCardInfoRequest(
         card_no="",
         bank_name="",
     )
     getbankcardinforequest_res = AuthenticationClient.get_bank_card_info(getbankcardinforequest)
-    print("银行卡信息查询接口返回：", getbankcardinforequest_res.code, getbankcardinforequest_res.message,
+    print("银行卡信息查询返回：", getbankcardinforequest_res.code, getbankcardinforequest_res.message,
           getbankcardinforequest_res.data)
