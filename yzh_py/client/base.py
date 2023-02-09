@@ -70,7 +70,6 @@ class BaseClient(object):
         if resp is None:
             raise ValueError('resp is None')
 
-        # 抛出status异常
         resp.raise_for_status()
         return RespMessage(self.__des3key, resp.text, req_data,
                            req_param, headers).decrypt()

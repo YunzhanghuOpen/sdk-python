@@ -32,10 +32,10 @@ class Encrypt(abc.ABC):
 
 
 def decrypt(des3key, data):
-    """ 3des 加密
+    """ 3DES 加密
 
     :type des3key: string
-    :param des3key: 3des加密秘钥
+    :param des3key: 3DES加密秘钥
 
     :type data: string
     :param data: 待加密数据
@@ -54,7 +54,7 @@ def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
     :param public_key: 云账户公钥
 
     :type app_key: string
-    :param app_key: app_key
+    :param app_key: App Key
 
     :type public_key: string
     :param public_key: 云账户公钥
@@ -78,10 +78,10 @@ def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
 
 
 def verify_sign_hmac(app_key, data, mess, timestamp, signature):
-    """sha256 验签
+    """HMAC 验签
 
     :type app_key: string
-    :param app_key: app_key
+    :param app_key: App Key
 
     :type data: string
     :param data: data

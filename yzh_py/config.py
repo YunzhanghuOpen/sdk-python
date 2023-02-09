@@ -12,10 +12,10 @@ class Config(object):
     :param sign_type: 签名类型
 
     :type app_key: string
-    :param app_key: app_key
+    :param app_key: App Key
 
     :type des3key: string
-    :param des3key: des3key
+    :param des3key: 3DES Key
 
     :type dealer_private_key: string
     :param dealer_private_key: 平台企业私钥
