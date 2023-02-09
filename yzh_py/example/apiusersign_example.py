@@ -39,7 +39,7 @@ if __name__ == '__main__':
     print("获取用户签约状态返回：", getapiusersignstatusrequest_res.code, getapiusersignstatusrequest_res.message,
           getapiusersignstatusrequest_res.data)
 
-    # 用户解约
+    # 用户解约（测试账号专用）
     apiusersignreleaserequest = ApiUserSignReleaseRequest(
         broker_id="",
         dealer_id="",

@@ -39,7 +39,7 @@ if __name__ == '__main__':
     print("获取用户签约状态返回：", geth5usersignstatusrequest_res.code, geth5usersignstatusrequest_res.message,
           geth5usersignstatusrequest_res.data)
 
-    # 用户解约
+    # 用户解约（测试账号专用）
     h5userreleaserequest = H5UserReleaseRequest(
         broker_id="",
         dealer_id="",
