@@ -39,7 +39,7 @@ if __name__ == '__main__':
     print("获取用户签约状态返回：", geth5usersignstatusrequest_res.code, geth5usersignstatusrequest_res.message,
           geth5usersignstatusrequest_res.data)
 
-    # 用户解约（测试账号专用）
+    # 用户解约（测试账号专用接口）
     h5userreleaserequest = H5UserReleaseRequest(
         broker_id="",
         dealer_id="",
@@ -48,5 +48,5 @@ if __name__ == '__main__':
         certificate_type="",
     )
     h5userreleaserequest_res = H5UsersignClient.h5_user_release(h5userreleaserequest)
-    print("用户解约（测试账号专用）返回：", h5userreleaserequest_res.code, h5userreleaserequest_res.message,
+    print("用户解约（测试账号专用接口）返回：", h5userreleaserequest_res.code, h5userreleaserequest_res.message,
           h5userreleaserequest_res.data)

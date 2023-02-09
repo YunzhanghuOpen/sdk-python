@@ -38,7 +38,7 @@ if __name__ == '__main__':
     print("获取用户签约状态返回：", getapiusersignstatusrequest_res.code, getapiusersignstatusrequest_res.message,
           getapiusersignstatusrequest_res.data)
 
-    # 用户解约（测试账号专用）
+    # 用户解约（测试账号专用接口）
     apiusersignreleaserequest = ApiUserSignReleaseRequest(
         broker_id="",
         dealer_id="",
@@ -48,5 +48,5 @@ if __name__ == '__main__':
     )
     apiusersignreleaserequest_res = ApiusersignClient.api_user_sign_release(
         apiusersignreleaserequest)
-    print("用户解约（测试账号专用）返回：", apiusersignreleaserequest_res.code, apiusersignreleaserequest_res.message,
+    print("用户解约（测试账号专用接口）返回：", apiusersignreleaserequest_res.code, apiusersignreleaserequest_res.message,
           apiusersignreleaserequest_res.data)
