@@ -19,7 +19,7 @@ class InvoiceClient(BaseClient):
         return self._get("/api/payment/v1/invoice-stat", request.request_id, Utils.copy_dict(request.__dict__))
 
     def get_invoice_amount(self, request: GetInvoiceAmountRequest):
-        """ 查询可开票额度和开票信息
+        """ 查询可开具发票额度和发票开具信息
    
         :type request: GetInvoiceAmountRequest
         :param request: the GetInvoiceAmountRequest request parameters class.
@@ -29,7 +29,7 @@ class InvoiceClient(BaseClient):
         return self._post("/api/invoice/v2/invoice-amount", request.request_id, Utils.copy_dict(request.__dict__))
 
     def apply_invoice(self, request: ApplyInvoiceRequest):
-        """ 开票申请
+        """ 发票开具申请
    
         :type request: ApplyInvoiceRequest
         :param request: the ApplyInvoiceRequest request parameters class.
@@ -39,7 +39,7 @@ class InvoiceClient(BaseClient):
         return self._post("/api/invoice/v2/apply", request.request_id, Utils.copy_dict(request.__dict__))
 
     def get_invoice_status(self, request: GetInvoiceStatusRequest):
-        """ 查询开票申请状态
+        """ 查询发票开具申请状态
    
         :type request: GetInvoiceStatusRequest
         :param request: the GetInvoiceStatusRequest request parameters class.

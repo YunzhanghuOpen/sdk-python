@@ -19,7 +19,7 @@ class AuthenticationClient(BaseClient):
         return self._post("/authentication/verify-request", request.request_id, Utils.copy_dict(request.__dict__))
 
     def bank_card_four_auth_confirm(self, request: BankCardFourAuthConfirmRequest):
-        """ 银行卡四要素确认鉴权（上传短信验证码）
+        """ 银行卡四要素确认请求（上传短信验证码）
    
         :type request: BankCardFourAuthConfirmRequest
         :param request: the BankCardFourAuthConfirmRequest request parameters class.
