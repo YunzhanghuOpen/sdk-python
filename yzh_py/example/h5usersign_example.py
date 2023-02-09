@@ -48,5 +48,5 @@ if __name__ == '__main__':
         certificate_type="",
     )
     h5userreleaserequest_res = H5UsersignClient.h5_user_release(h5userreleaserequest)
-    print("用户解约：", h5userreleaserequest_res.code, h5userreleaserequest_res.message,
+    print("用户解约（测试账号专用）返回：", h5userreleaserequest_res.code, h5userreleaserequest_res.message,
           h5userreleaserequest_res.data)

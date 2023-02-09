@@ -49,5 +49,5 @@ if __name__ == '__main__':
     )
     apiusersignreleaserequest_res = ApiusersignClient.api_user_sign_release(
         apiusersignreleaserequest)
-    print("用户解约返回：", apiusersignreleaserequest_res.code, apiusersignreleaserequest_res.message,
+    print("用户解约（测试账号专用）返回：", apiusersignreleaserequest_res.code, apiusersignreleaserequest_res.message,
           apiusersignreleaserequest_res.data)
