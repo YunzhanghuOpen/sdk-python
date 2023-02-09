@@ -46,6 +46,7 @@ def decrypt(des3key, data):
     key = bytes(des3key[0:8], encoding="utf8")
     return pyDes.triple_des(des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5).decrypt(base64.b64decode(data))
 
+
 def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
     """ RSA 公钥验签
 
@@ -75,6 +76,7 @@ def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
     sign_pairs = "data=" + data + "&mess=" + mess + "&timestamp=" + timestamp + "&key=" + app_key
     rsa.verify(sign_pairs, signature, public_key)
 
+
 def verify_sign_hmac(app_key, data, mess, timestamp, signature):
     """sha256 验签
 
@@ -97,6 +99,15 @@ def verify_sign_hmac(app_key, data, mess, timestamp, signature):
     """
     sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, app_key)
     return hmac.new(app_key.encode('utf-8'), msg=sign_pairs, digestmod=hashlib.sha256).hexdigest() == signature
+
+
+def notifyDecoder(public_key, app_key, des3key, data, mess, timestamp, signature):
+    res_data, verify_result = "", False
+    if verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
+        res_data = decrypt(des3key, data)
+        verify_result = True
+    return verify_result, res_data
+
 
 class EncryptHmac(Encrypt):
     def __init__(self, app_key, des3key):

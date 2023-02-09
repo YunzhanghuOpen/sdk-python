@@ -2,7 +2,7 @@
 
 from flask import Flask, request
 from gevent import pywsgi
-from yzh_py.message import verify_sign_rsa, decrypt
+from yzh_py.message import notifyDecoder
 from yzh_py.example.utils.configinit import init_config
 
 # 异步通知
@@ -23,16 +23,14 @@ def yzh_notify():
         sign = request.form['sign']
         sign_type = request.form['sign_type']
         print(
-            "【异步通知】data:{} mess:{} timestamp:{} sign_type:{} sign:{}".format(data, mess, timestamp, sign_type, sign), )
-        # 验证签名
-        if verify_sign_rsa(config.yzh_public_key, config.app_key, data, mess, timestamp, sign):
-            # 验签通过，解密
-            res_data = decrypt(config.des3key, data)
-            #  业务逻辑处理
-            #  TodoList
-            #  。。。
+            "【异步通知】data:{} mess:{} timestamp:{} sign_type:{} sign:{}".format(data, mess, timestamp, sign_type, sign))
+        # 验证签名+解密
+        verify_result, res_data = notifyDecoder(config.yzh_public_key, config.app_key, config.des3key, data, mess, timestamp, sign)
+        if verify_result:
+            # 业务逻辑处理
+            # ToDo List
+            # 。。。
             resp = "success"
-
     return resp
 
 

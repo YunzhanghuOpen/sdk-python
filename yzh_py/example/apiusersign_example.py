@@ -11,8 +11,7 @@ if __name__ == '__main__':
         dealer_id="",
         broker_id="",
     )
-    apiusesigncontractrequest_res = ApiusersignClient.api_use_sign_contract(
-        apiusesigncontractrequest)
+    apiusesigncontractrequest_res = ApiusersignClient.api_use_sign_contract(apiusesigncontractrequest)
     print("获取协议预览 URL 返回：", apiusesigncontractrequest_res.code, apiusesigncontractrequest_res.message,
           apiusesigncontractrequest_res.data)
 
