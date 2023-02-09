@@ -66,13 +66,13 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 
 ### 示例功能列表
 
-- [用户信息验证](./example/authentication_example.py)
-- [H5 签约](./example/h5usersign_example.py) or [API 签约](./example/apiusersign_example.py)
-- [个体工商户注册（新经济 H5）](./example/bizlicxjjh5_example.py) or [个体工商户注册（新经济 H5+API）](./example/bizlicxjjh5api_example.py)
-- [实时支付](./example/payment_example.py)
-- [异步通知](./example/notify_example.py)
-- [对账文件获取](./example/dataservice_example.py)
-- [发票开具](./example/invoice_example.py)
+- [用户信息验证](./yzh_py/example/authentication_example.py)
+- [H5 签约](./yzh_py/example/h5usersign_example.py) or [API 签约](./yzh_py/example/apiusersign_example.py)
+- [个体工商户注册（新经济 H5）](./yzh_py/example/bizlicxjjh5_example.py) or [个体工商户注册（新经济 H5+API）](./yzh_py/example/bizlicxjjh5api_example.py)
+- [实时支付](./yzh_py/example/payment_example.py)
+- [异步通知](./yzh_py/example/notify_example.py)
+- [对账文件获取](./yzh_py/example/dataservice_example.py)
+- [发票开具](./yzh_py/example/invoice_example.py)
 
 #### 示例
 
