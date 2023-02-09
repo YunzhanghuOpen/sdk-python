@@ -5,7 +5,6 @@ from yzh_py.example.utils.configinit import init_config
 
 # 个人所得税扣缴明细表
 if __name__ == '__main__':
-
     TaxClient = TaxClient(config=init_config())
     # 下载个人所得税扣缴明细表
     gettaxfilerequest = GetTaxFileRequest(

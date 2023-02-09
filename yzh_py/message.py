@@ -35,7 +35,7 @@ def decrypt(des3key, data):
     """ 3DES 加密
 
     :type des3key: string
-    :param des3key: 3DES加密秘钥
+    :param des3key: 3DES 加密秘钥
 
     :type data: string
     :param data: 待加密数据
@@ -55,9 +55,6 @@ def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
 
     :type app_key: string
     :param app_key: App Key
-
-    :type public_key: string
-    :param public_key: 云账户公钥
 
     :type data: string
     :param data: data
