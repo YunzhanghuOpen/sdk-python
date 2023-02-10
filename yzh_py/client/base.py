@@ -14,7 +14,7 @@ class BaseClient(object):
         :param config: 配置信息
 
         :type timeout: int
-        :param timeout: 非必填
+        :param timeout: 请求超时时间。非必填，默认 30 秒
         """
 
         encrypt_type = config.sign_type
@@ -81,7 +81,7 @@ class BaseRequest(object):
 
     @property
     def request_id(self):
-        """ Get 请求ID
+        """ Get 请求 ID
 
         :return: str, dealer_id
         """
@@ -91,9 +91,9 @@ class BaseRequest(object):
 
     @request_id.setter
     def request_id(self, request_id):
-        """ Set 请求ID
+        """ Set 请求 ID
 
         :type request_id: str
-        :param request_id: 请求ID
+        :param request_id: 请求 ID
         """
         self.__request_id = request_id
