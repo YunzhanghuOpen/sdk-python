@@ -6,7 +6,7 @@
 
 ### 环境要求
 
-云账户 SDK for Python 支持 Python3 及以上版本。
+云账户 SDK for Python 支持 Python3.0 及以上版本。
 
 ### 配置密钥
 
@@ -47,9 +47,9 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 
 ### 通过 PIP 安装
 
-通过 PIP 获取安装是使用 SDK 的推荐方法，PIP 是  Python 的包管理工具。关于 PIP 详细可参考[ PIP 官网](https://pypi.org/) 。
+推荐通过 Python 包管理工具 PIP 获取并安装 Python SDK。PIP 详细介绍请参考[ PIP 官网](https://pypi.org/) 。
 
-1. 执行以下安装命令：
+1. 执行以下命令安装云账户Python SDK：
 
    > pip install yzh_py
 
@@ -58,7 +58,7 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 ### 通过源码包安装
 
 1. 前往 [Github 仓库](https://github.com/YunzhanghuOpen/sdk-python) 下载源码压缩包
-2. 解压源码包到您项目合适的位置
+2. 解压源码包到您项目的合适位置
 3. 在您的代码中引用对应模块代码，可参考示例
 
 
@@ -68,7 +68,7 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 
 - [用户信息验证](./yzh_py/example/authentication_example.py)
 - [H5 签约](./yzh_py/example/h5usersign_example.py) or [API 签约](./yzh_py/example/apiusersign_example.py)
-- [个体工商户注册（新经济 H5）](./yzh_py/example/bizlicxjjh5_example.py) or [个体工商户注册（新经济 H5+API）](./yzh_py/example/bizlicxjjh5api_example.py)
+- [个体工商户注册（云账户新经济 H5）](./yzh_py/example/bizlicxjjh5_example.py) or [个体工商户注册（云账户新经济 H5+API）](./yzh_py/example/bizlicxjjh5api_example.py)
 - [实时支付](./yzh_py/example/payment_example.py)
 - [异步通知](./yzh_py/example/notify_example.py)
 - [对账文件获取](./yzh_py/example/dataservice_example.py)
@@ -89,12 +89,12 @@ if __name__ == "__main__":
     broker_id = "xxx"
     # 签名方式，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取，默认为 RSA 签名方式。
     # rsa：RSA 签名方式   sha256：HMAC 签名方式
-    sign_type = "xxx"
+    sign_type = "rsa"
     # 平台企业 App Key，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     app_key = "xxx"
     # 平台企业 3DES Key，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     des3key = "xxx"
-    # 平台企业私钥，自行生成 RSA 公私钥，公钥请配置在“云账户综合服务平台 > 业务中心 > 业务管理 > 对接信息 > 平台企业公钥”，私钥请妥善保存，谨防泄露。
+    # 平台企业私钥，自行生成 RSA 公私钥，私钥请妥善保存，谨防泄露。平台企业公钥请登录云账户综合服务平台配置，选择“业务中心 > 业务管理 > 对接信息”，单击页面右上角的“编辑”，完成平台企业公钥配置。
     dealer_private_key = '''
     -----BEGIN PRIVATE KEY-----
     xxx

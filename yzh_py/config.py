@@ -9,7 +9,7 @@ class Config(object):
     :param dealer_id: 平台企业 ID
 
     :type sign_type: string
-    :param sign_type: 签名类型
+    :param sign_type: 签名方式
 
     :type app_key: string
     :param app_key: App Key

@@ -20,7 +20,10 @@ requirements = [
 ]
 
 long_description = """
-Python SDK for 云账户 
+云账户综合服务平台官方 SDK For Python，基于 Python3 开发，支持 Python3.0 及以上版本。
+Copyright © 2013 - 2023 云账户技术（天津）有限公司 版权所有
+云账户开放平台：https://open.yunzhanghu.com
+
 """
 
 packages = [
