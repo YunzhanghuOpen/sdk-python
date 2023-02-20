@@ -15,7 +15,7 @@ if __name__ == '__main__':
         certificate_type="",
     )
     h5userpresignrequest_res = H5UsersignClient.h5_user_presign(h5userpresignrequest)
-    print("H5 预申请签约返回：", h5userpresignrequest_res.code, h5userpresignrequest_res.message,
+    print("预申请签约返回：", h5userpresignrequest_res.code, h5userpresignrequest_res.message,
           h5userpresignrequest_res.data)
 
     # 申请签约

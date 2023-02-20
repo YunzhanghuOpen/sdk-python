@@ -35,7 +35,7 @@ def decrypt(des3key, data):
     """ 3DES 加密
 
     :type des3key: string
-    :param des3key: 3DES 加密密钥
+    :param des3key: 3DES 密钥
 
     :type data: string
     :param data: 待加密数据
@@ -60,7 +60,7 @@ def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
     :param data: data
 
     :type mess: string
-    :param data: 自定义随机字符
+    :param data: 自定义随机字符串
 
     :type timestamp: int
     :param data: 时间戳
@@ -84,13 +84,13 @@ def verify_sign_hmac(app_key, data, mess, timestamp, signature):
     :param data: data
 
     :type mess: string
-    :param data: 自定义随机字符
+    :param data: 自定义随机字符串
 
     :type timestamp: int
     :param data: 时间戳
 
     :type signature: string
-    :param signature: 签名异步通知
+    :param signature: 异步通知签名
 
     :return: 校验结果
     """

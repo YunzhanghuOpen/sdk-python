@@ -62,7 +62,7 @@ if __name__ == '__main__':
     listdailybillrequest_res = DataserviceClient.list_daily_bill(listdailybillrequest)
     print("查询日流水数据返回：", listdailybillrequest_res.code, listdailybillrequest_res.message, listdailybillrequest_res.data)
 
-    # 获取余额日账单
+    # 获取余额日账单数据
     listbalancedailystatementrequest = ListBalanceDailyStatementRequest(
         statement_date="",
     )
