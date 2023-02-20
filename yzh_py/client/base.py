@@ -19,7 +19,7 @@ class BaseClient(object):
 
         encrypt_type = config.sign_type
         if encrypt_type != "sha256" and encrypt_type != "rsa":
-            raise ValueError('wrong encrypt type')
+            raise ValueError('wrong sign type')
 
         self.__des3key = config.des3key
         self.__encrypt = None

@@ -68,5 +68,5 @@ if __name__ == '__main__':
     )
     listbalancedailystatementrequest_res = DataserviceClient.list_balance_daily_statement(
         listbalancedailystatementrequest)
-    print("获取余额日账单返回：", listbalancedailystatementrequest_res.code, listbalancedailystatementrequest_res.message,
+    print("获取余额日账单数据返回：", listbalancedailystatementrequest_res.code, listbalancedailystatementrequest_res.message,
           listbalancedailystatementrequest_res.data)

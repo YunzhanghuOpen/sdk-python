@@ -60,13 +60,13 @@ def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
     :param data: data
 
     :type mess: string
-    :param data: 自定义随机字符串
+    :param data: 随机字符串
 
     :type timestamp: int
     :param data: 时间戳
 
     :type signature: string
-    :param signature: 签名异步通知
+    :param signature: 异步通知签名
 
     :return: 校验结果
     """
@@ -84,7 +84,7 @@ def verify_sign_hmac(app_key, data, mess, timestamp, signature):
     :param data: data
 
     :type mess: string
-    :param data: 自定义随机字符串
+    :param data: 随机字符串
 
     :type timestamp: int
     :param data: 时间戳
