@@ -110,11 +110,15 @@ class H5UserPresignResponse(BaseRequest):
     
     :type token: string
     :param token: H5 签约 token
+    
+    :type status: int
+    :param status: 签约状态
     """
-    def __init__(self, uid=None, token=None):
+    def __init__(self, uid=None, token=None, status=None):
         super().__init__() 
         self.uid = uid 
-        self.token = token
+        self.token = token 
+        self.status = status
 
     def get_uid(self):
         """ Get 用户 ID（废弃字段）
@@ -144,7 +148,22 @@ class H5UserPresignResponse(BaseRequest):
         :type token: string
         :param token: H5 签约 token
         """
-        self.token = token 
+        self.token = token
+
+    def get_status(self):
+        """ Get 签约状态
+
+        :return: int, status
+        """
+        return self.status
+
+    def set_status(self, status):
+        """ Set 签约状态
+
+        :type status: int
+        :param status: 签约状态
+        """
+        self.status = status 
 
 class H5UserSignRequest(BaseRequest):
     """

@@ -69,7 +69,7 @@ class DataserviceClient(BaseClient):
         return self._get("/api/dataservice/v2/recharge-record", request.request_id, Utils.copy_dict(request.__dict__))
 
     def list_balance_daily_statement(self, request: ListBalanceDailyStatementRequest):
-        """ 获取余额日账单
+        """ 查询余额日账单数据
    
         :type request: ListBalanceDailyStatementRequest
         :param request: the ListBalanceDailyStatementRequest request parameters class.

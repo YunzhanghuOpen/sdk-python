@@ -9,7 +9,7 @@ class PaymentClient(BaseClient):
     
 
     def create_bankpay_order(self, request: CreateBankpayOrderRequest):
-        """ 银行卡实时下单
+        """ 银行卡实时支付
    
         :type request: CreateBankpayOrderRequest
         :param request: the CreateBankpayOrderRequest request parameters class.
@@ -19,7 +19,7 @@ class PaymentClient(BaseClient):
         return self._post("/api/payment/v1/order-bankpay", request.request_id, Utils.copy_dict(request.__dict__))
 
     def create_alipay_order(self, request: CreateAlipayOrderRequest):
-        """ 支付宝实时下单
+        """ 支付宝实时支付
    
         :type request: CreateAlipayOrderRequest
         :param request: the CreateAlipayOrderRequest request parameters class.
@@ -29,7 +29,7 @@ class PaymentClient(BaseClient):
         return self._post("/api/payment/v1/order-alipay", request.request_id, Utils.copy_dict(request.__dict__))
 
     def create_wxpay_order(self, request: CreateWxpayOrderRequest):
-        """ 微信实时下单
+        """ 微信实时支付
    
         :type request: CreateWxpayOrderRequest
         :param request: the CreateWxpayOrderRequest request parameters class.

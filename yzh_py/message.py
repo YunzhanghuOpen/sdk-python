@@ -32,28 +32,78 @@ class Encrypt(abc.ABC):
 
 
 def decrypt(des3key, data):
+    """ 3DES 加密
+
+    :type des3key: string
+    :param des3key: 3DES 密钥
+
+    :type data: string
+    :param data: 待加密数据
+
+    :return: 加密结果
+    """
     data = bytes(data, encoding="utf8")
     key = bytes(des3key[0:8], encoding="utf8")
     return pyDes.triple_des(des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5).decrypt(base64.b64decode(data))
 
 
 def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
+    """ RSA 公钥验签
+
+    :type public_key: string
+    :param public_key: 云账户公钥
+
+    :type app_key: string
+    :param app_key: App Key
+
+    :type data: string
+    :param data: data
+
+    :type mess: string
+    :param data: 随机字符串
+
+    :type timestamp: int
+    :param data: 时间戳
+
+    :type signature: string
+    :param signature: 异步通知签名
+
+    :return: 校验结果
+    """
     sign_pairs = "data=" + data + "&mess=" + mess + "&timestamp=" + timestamp + "&key=" + app_key
     rsa.verify(sign_pairs, signature, public_key)
 
 
-def verify_sign_hmac(des3key, app_key, data, mess, timestamp, signature):
+def verify_sign_hmac(app_key, data, mess, timestamp, signature):
+    """HMAC 验签
+
+    :type app_key: string
+    :param app_key: App Key
+
+    :type data: string
+    :param data: data
+
+    :type mess: string
+    :param data: 随机字符串
+
+    :type timestamp: int
+    :param data: 时间戳
+
+    :type signature: string
+    :param signature: 异步通知签名
+
+    :return: 校验结果
+    """
     sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, app_key)
     return hmac.new(app_key.encode('utf-8'), msg=sign_pairs, digestmod=hashlib.sha256).hexdigest() == signature
 
 
-def gen_key():
-    x = RSA.generate(2048)
-    s_key = x.export_key()  # 私钥
-    g_key = x.publickey().export_key()  # 公钥
-    public_key = g_key.decode("utf-8")
-    private_key = s_key.decode("utf-8")
-    return public_key, private_key
+def notifyDecoder(public_key, app_key, des3key, data, mess, timestamp, signature):
+    res_data, verify_result = "", False
+    if verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
+        res_data = decrypt(des3key, data)
+        verify_result = True
+    return verify_result, res_data
 
 
 class EncryptHmac(Encrypt):
