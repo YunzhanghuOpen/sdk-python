@@ -528,6 +528,9 @@ class DealerOrderInfo(BaseRequest):
     :type status: string
     :param status: 订单状态
     
+    :type status_message: string
+    :param status_message: 订单状态码描述
+    
     :type status_detail: string
     :param status_detail: 订单详情
     
@@ -552,7 +555,7 @@ class DealerOrderInfo(BaseRequest):
     :type finished_time: string
     :param finished_time: 完成时间
     """
-    def __init__(self, broker_id=None, dealer_id=None, order_id=None, ref=None, batch_id=None, real_name=None, card_no=None, broker_amount=None, broker_fee=None, bill=None, status=None, status_detail=None, status_detail_message=None, statement_id=None, fee_statement_id=None, bal_statement_id=None, channel=None, created_at=None, finished_time=None):
+    def __init__(self, broker_id=None, dealer_id=None, order_id=None, ref=None, batch_id=None, real_name=None, card_no=None, broker_amount=None, broker_fee=None, bill=None, status=None, status_message=None, status_detail=None, status_detail_message=None, statement_id=None, fee_statement_id=None, bal_statement_id=None, channel=None, created_at=None, finished_time=None):
         super().__init__() 
         self.broker_id = broker_id 
         self.dealer_id = dealer_id 
@@ -565,6 +568,7 @@ class DealerOrderInfo(BaseRequest):
         self.broker_fee = broker_fee 
         self.bill = bill 
         self.status = status 
+        self.status_message = status_message 
         self.status_detail = status_detail 
         self.status_detail_message = status_detail_message 
         self.statement_id = statement_id 
@@ -738,6 +742,21 @@ class DealerOrderInfo(BaseRequest):
         :param status: 订单状态
         """
         self.status = status
+
+    def get_status_message(self):
+        """ Get 订单状态码描述
+
+        :return: string, status_message
+        """
+        return self.status_message
+
+    def set_status_message(self, status_message):
+        """ Set 订单状态码描述
+
+        :type status_message: string
+        :param status_message: 订单状态码描述
+        """
+        self.status_message = status_message
 
     def get_status_detail(self):
         """ Get 订单详情
@@ -947,13 +966,13 @@ class ListDailyBillResponse(BaseRequest):
     :type total_num: int
     :param total_num: 总条数
     
-    :type bills: list
-    :param bills: 条目信息
+    :type list: list
+    :param list: 条目信息
     """
-    def __init__(self, total_num=None, bills=None):
+    def __init__(self, total_num=None, list=None):
         super().__init__() 
         self.total_num = total_num 
-        self.bills = bills
+        self.list = list
 
     def get_total_num(self):
         """ Get 总条数
@@ -970,20 +989,20 @@ class ListDailyBillResponse(BaseRequest):
         """
         self.total_num = total_num
 
-    def get_bills(self):
+    def get_list(self):
         """ Get 条目信息
 
-        :return: list, bills
+        :return: list, list
         """
-        return self.bills
+        return self.list
 
-    def set_bills(self, bills):
+    def set_list(self, list):
         """ Set 条目信息
 
-        :type bills: list
-        :param bills: 条目信息
+        :type list: list
+        :param list: 条目信息
         """
-        self.bills = bills 
+        self.list = list 
 
 class DealerBillInfo(BaseRequest):
     """
