@@ -17,7 +17,7 @@ class H5UserPresignRequest(BaseRequest):
     :param id_card: 证件号码
     
     :type certificate_type: int
-    :param certificate_type: 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证
+    :param certificate_type: 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证 9：港澳居民居住证 10：台湾居民居住证 11：外国人永久居留身份证 12：外国人工作许可证
     """
     def __init__(self, dealer_id=None, broker_id=None, real_name=None, id_card=None, certificate_type=None):
         super().__init__() 
@@ -88,17 +88,17 @@ class H5UserPresignRequest(BaseRequest):
         self.id_card = id_card
 
     def get_certificate_type(self):
-        """ Get 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证
+        """ Get 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证 9：港澳居民居住证 10：台湾居民居住证 11：外国人永久居留身份证 12：外国人工作许可证
 
         :return: int, certificate_type
         """
         return self.certificate_type
 
     def set_certificate_type(self, certificate_type):
-        """ Set 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证
+        """ Set 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证 9：港澳居民居住证 10：台湾居民居住证 11：外国人永久居留身份证 12：外国人工作许可证
 
         :type certificate_type: int
-        :param certificate_type: 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证
+        :param certificate_type: 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证 9：港澳居民居住证 10：台湾居民居住证 11：外国人永久居留身份证 12：外国人工作许可证
         """
         self.certificate_type = certificate_type 
 
@@ -414,7 +414,7 @@ class H5UserReleaseRequest(BaseRequest):
     :param id_card: 证件号码
     
     :type certificate_type: int
-    :param certificate_type: 证件类型   0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证
+    :param certificate_type: 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证 9：港澳居民居住证 10：台湾居民居住证 11：外国人永久居留身份证 12：外国人工作许可证
     """
     def __init__(self, broker_id=None, dealer_id=None, real_name=None, id_card=None, certificate_type=None):
         super().__init__() 
@@ -485,17 +485,17 @@ class H5UserReleaseRequest(BaseRequest):
         self.id_card = id_card
 
     def get_certificate_type(self):
-        """ Get 证件类型   0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证
+        """ Get 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证 9：港澳居民居住证 10：台湾居民居住证 11：外国人永久居留身份证 12：外国人工作许可证
 
         :return: int, certificate_type
         """
         return self.certificate_type
 
     def set_certificate_type(self, certificate_type):
-        """ Set 证件类型   0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证
+        """ Set 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证 9：港澳居民居住证 10：台湾居民居住证 11：外国人永久居留身份证 12：外国人工作许可证
 
         :type certificate_type: int
-        :param certificate_type: 证件类型   0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证
+        :param certificate_type: 证件类型 0：身份证 2：港澳居民来往内地通行证 3：护照 5：台湾居民来往大陆通行证 9：港澳居民居住证 10：台湾居民居住证 11：外国人永久居留身份证 12：外国人工作许可证
         """
         self.certificate_type = certificate_type 
 
