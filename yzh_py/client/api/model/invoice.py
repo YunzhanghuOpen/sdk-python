@@ -74,13 +74,13 @@ class GetInvoiceStatResponse(BaseRequest):
     :param broker_id: 综合服务主体 ID
     
     :type invoiced: string
-    :param invoiced: 已开具发票金额
+    :param invoiced: 已开发票金额
     
     :type invoicing: string
     :param invoicing: 开票中发票金额
     
     :type not_invoiced: string
-    :param not_invoiced: 待开具发票金额
+    :param not_invoiced: 待开发票金额
     """
     def __init__(self, dealer_id=None, broker_id=None, invoiced=None, invoicing=None, not_invoiced=None):
         super().__init__() 
@@ -121,17 +121,17 @@ class GetInvoiceStatResponse(BaseRequest):
         self.broker_id = broker_id
 
     def get_invoiced(self):
-        """ Get 已开具发票金额
+        """ Get 已开发票金额
 
         :return: string, invoiced
         """
         return self.invoiced
 
     def set_invoiced(self, invoiced):
-        """ Set 已开具发票金额
+        """ Set 已开发票金额
 
         :type invoiced: string
-        :param invoiced: 已开具发票金额
+        :param invoiced: 已开发票金额
         """
         self.invoiced = invoiced
 
@@ -151,17 +151,17 @@ class GetInvoiceStatResponse(BaseRequest):
         self.invoicing = invoicing
 
     def get_not_invoiced(self):
-        """ Get 待开具发票金额
+        """ Get 待开发票金额
 
         :return: string, not_invoiced
         """
         return self.not_invoiced
 
     def set_not_invoiced(self, not_invoiced):
-        """ Set 待开具发票金额
+        """ Set 待开发票金额
 
         :type not_invoiced: string
-        :param not_invoiced: 待开具发票金额
+        :param not_invoiced: 待开发票金额
         """
         self.not_invoiced = not_invoiced 
 
