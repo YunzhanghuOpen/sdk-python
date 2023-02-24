@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from yzh_py.client.api.model.payment import *
-from yzh_py.client.api.payment_client import PaymentClient
-from yzh_py.example.utils.configinit import init_config
+from yunzhanghu_sdk.client.api.model.payment import *
+from yunzhanghu_sdk.client.api.payment_client import PaymentClient
+from yunzhanghu_sdk.example.utils.configinit import init_config
 
 # 实时支付
 if __name__ == '__main__':

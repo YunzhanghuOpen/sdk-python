@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from yzh_py.client.api.model.authentication import *
-from yzh_py.client.api.authentication_client import AuthenticationClient
-from yzh_py.example.utils.configinit import init_config
+from yunzhanghu_sdk.client.api.model.authentication import *
+from yunzhanghu_sdk.client.api.authentication_client import AuthenticationClient
+from yunzhanghu_sdk.example.utils.configinit import init_config
 
 # 用户信息验证
 if __name__ == '__main__':

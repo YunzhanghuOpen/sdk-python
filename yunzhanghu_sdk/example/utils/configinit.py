@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from yzh_py.config import *
+from yunzhanghu_sdk.config import *
 
 
 def init_config():

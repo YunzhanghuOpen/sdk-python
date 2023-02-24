@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from yzh_py.client.api.model.apiusersign import *
-from yzh_py.client.api.apiusersign_client import ApiusersignClient
-from yzh_py.example.utils.configinit import init_config
+from yunzhanghu_sdk.client.api.model.apiusersign import *
+from yunzhanghu_sdk.client.api.apiusersign_client import ApiusersignClient
+from yunzhanghu_sdk.example.utils.configinit import init_config
 
 # API 签约
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from yzh_py.client.api.model.invoice import *
-from yzh_py.client.api.invoice_client import InvoiceClient
-from yzh_py.example.utils.configinit import init_config
+from yunzhanghu_sdk.client.api.model.invoice import *
+from yunzhanghu_sdk.client.api.invoice_client import InvoiceClient
+from yunzhanghu_sdk.example.utils.configinit import init_config
 
 # 发票开具
 if __name__ == '__main__':

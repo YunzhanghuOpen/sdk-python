@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from yzh_py.client.api.model.dataservice import *
-from yzh_py.client.api.dataservice_client import DataserviceClient
-from yzh_py.example.utils.configinit import init_config
+from yunzhanghu_sdk.client.api.model.dataservice import *
+from yunzhanghu_sdk.client.api.dataservice_client import DataserviceClient
+from yunzhanghu_sdk.example.utils.configinit import init_config
 
 # 对账文件获取
 if __name__ == '__main__':

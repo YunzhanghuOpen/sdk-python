@@ -2,8 +2,8 @@
 
 from flask import Flask, request
 from gevent import pywsgi
-from yzh_py.message import notifyDecoder
-from yzh_py.example.utils.configinit import init_config
+from yunzhanghu_sdk.message import notifyDecoder
+from yunzhanghu_sdk.example.utils.configinit import init_config
 
 # 异步通知
 

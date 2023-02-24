@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from yzh_py.client.api.model.bizlicxjjh5 import *
-from yzh_py.client.api.bizlicxjjh5_client import Bizlicxjjh5Client
-from yzh_py.example.utils.configinit import init_config
+from yunzhanghu_sdk.client.api.model.bizlicxjjh5 import *
+from yunzhanghu_sdk.client.api.bizlicxjjh5_client import Bizlicxjjh5Client
+from yunzhanghu_sdk.example.utils.configinit import init_config
 
 # 云账户新经济 H5
 if __name__ == '__main__':

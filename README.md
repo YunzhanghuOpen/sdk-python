@@ -51,7 +51,7 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 
 1. 执行以下命令安装云账户 Python SDK：
 
-   > pip install yzh_py
+   > pip install yunzhanghu_sdk
 
 2. 在您的代码中引用对应模块代码，可参考示例。
 
@@ -66,21 +66,21 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 
 ### 示例功能列表
 
-- [用户信息验证](./yzh_py/example/authentication_example.py)
-- [H5 签约](./yzh_py/example/h5usersign_example.py) or [API 签约](./yzh_py/example/apiusersign_example.py)
-- [个体工商户注册（云账户新经济 H5）](./yzh_py/example/bizlicxjjh5_example.py) or [个体工商户注册（云账户新经济 H5+API）](./yzh_py/example/bizlicxjjh5api_example.py)
-- [实时支付](./yzh_py/example/payment_example.py)
-- [异步通知](./yzh_py/example/notify_example.py)
-- [对账文件获取](./yzh_py/example/dataservice_example.py)
-- [发票开具](./yzh_py/example/invoice_example.py)
+- [用户信息验证](yunzhanghu_sdk/example/authentication_example.py)
+- [H5 签约](yunzhanghu_sdk/example/h5usersign_example.py) or [API 签约](yunzhanghu_sdk/example/apiusersign_example.py)
+- [个体工商户注册（云账户新经济 H5）](yunzhanghu_sdk/example/bizlicxjjh5_example.py) or [个体工商户注册（云账户新经济 H5+API）](yunzhanghu_sdk/example/bizlicxjjh5api_example.py)
+- [实时支付](yunzhanghu_sdk/example/payment_example.py)
+- [异步通知](yunzhanghu_sdk/example/notify_example.py)
+- [对账文件获取](yunzhanghu_sdk/example/dataservice_example.py)
+- [发票开具](yunzhanghu_sdk/example/invoice_example.py)
 
 #### 示例
 
 ```
 
-from yzh_py.client.api.model.payment import GetOrderRequest
-from yzh_py.client.api.payment_client import PaymentClient
-from yzh_py.config import *
+from yunzhanghu_sdk.client.api.model.payment import GetOrderRequest
+from yunzhanghu_sdk.client.api.payment_client import PaymentClient
+from yunzhanghu_sdk.config import *
 
 if __name__ == "__main__":
     # 平台企业 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
