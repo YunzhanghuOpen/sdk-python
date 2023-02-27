@@ -51,7 +51,7 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 
 1. 执行以下命令安装云账户 Python SDK：
 
-   > pip install yunzhanghu-sdk
+   > pip install yunzhanghu_sdk
 
 2. 在您的代码中引用对应模块代码，可参考示例。
 
