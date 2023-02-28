@@ -33,7 +33,7 @@ if __name__ == '__main__':
         notify_url="",
         color="",
         return_url="",
-        custom_title="",
+        customer_title="",
     )
     h5apigetstarturlrequest_res = Bizlicxjjh5ApiClient.h5_a_p_i_get_start_url(h5apigetstarturlrequest)
     print("预启动返回：", h5apigetstarturlrequest_res.code, h5apigetstarturlrequest_res.message,

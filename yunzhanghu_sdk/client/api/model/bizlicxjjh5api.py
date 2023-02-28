@@ -265,10 +265,10 @@ class H5APIGetStartUrlRequest(BaseRequest):
     :type return_url: string
     :param return_url: 跳转 URL
     
-    :type custom_title: int
-    :param custom_title: H5 页面 Title
+    :type customer_title: int
+    :param customer_title: H5 页面 Title
     """
-    def __init__(self, dealer_id=None, broker_id=None, dealer_user_id=None, client_type=None, notify_url=None, color=None, return_url=None, custom_title=None):
+    def __init__(self, dealer_id=None, broker_id=None, dealer_user_id=None, client_type=None, notify_url=None, color=None, return_url=None, customer_title=None):
         super().__init__() 
         self.dealer_id = dealer_id 
         self.broker_id = broker_id 
@@ -277,7 +277,7 @@ class H5APIGetStartUrlRequest(BaseRequest):
         self.notify_url = notify_url 
         self.color = color 
         self.return_url = return_url 
-        self.custom_title = custom_title
+        self.customer_title = customer_title
 
     def get_dealer_id(self):
         """ Get 平台企业 ID
@@ -384,20 +384,20 @@ class H5APIGetStartUrlRequest(BaseRequest):
         """
         self.return_url = return_url
 
-    def get_custom_title(self):
+    def get_customer_title(self):
         """ Get H5 页面 Title
 
-        :return: int, custom_title
+        :return: int, customer_title
         """
-        return self.custom_title
+        return self.customer_title
 
-    def set_custom_title(self, custom_title):
+    def set_customer_title(self, customer_title):
         """ Set H5 页面 Title
 
-        :type custom_title: int
-        :param custom_title: H5 页面 Title
+        :type customer_title: int
+        :param customer_title: H5 页面 Title
         """
-        self.custom_title = custom_title 
+        self.customer_title = customer_title 
 
 class H5APIGetStartUrlResponse(BaseRequest):
     """
