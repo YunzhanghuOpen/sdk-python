@@ -48,7 +48,7 @@ class PaymentClient(BaseClient):
         """
         return self._get("/api/payment/v1/query-order", request.request_id, Utils.copy_dict(request.__dict__))
 
-    def get_dealer_v_a_recharge_account(self, request: GetDealerVARechargeAccountRequest):
+    def get_dealer_va_recharge_account(self, request: GetDealerVARechargeAccountRequest):
         """ 查询平台企业汇款信息
    
         :type request: GetDealerVARechargeAccountRequest

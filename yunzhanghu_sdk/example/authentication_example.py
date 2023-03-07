@@ -57,7 +57,7 @@ if __name__ == '__main__':
         id_card="",
         real_name="",
     )
-    idcardverifyrequest_res = AuthenticationClient.i_d_card_verify(idcardverifyrequest)
+    idcardverifyrequest_res = AuthenticationClient.id_card_verify(idcardverifyrequest)
     print("身份证实名验证返回：", idcardverifyrequest_res.code, idcardverifyrequest_res.message, idcardverifyrequest_res.data)
 
     # 上传免验证用户名单信息

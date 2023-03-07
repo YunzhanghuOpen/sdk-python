@@ -48,7 +48,7 @@ class AuthenticationClient(BaseClient):
         """
         return self._post("/authentication/verify-bankcard-three-factor", request.request_id, Utils.copy_dict(request.__dict__))
 
-    def i_d_card_verify(self, request: IDCardVerifyRequest):
+    def id_card_verify(self, request: IDCardVerifyRequest):
         """ 身份证实名验证
    
         :type request: IDCardVerifyRequest
