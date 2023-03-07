@@ -35,7 +35,7 @@ if __name__ == '__main__':
         return_url="",
         customer_title="",
     )
-    h5apigetstarturlrequest_res = Bizlicxjjh5ApiClient.h5_a_p_i_get_start_url(h5apigetstarturlrequest)
+    h5apigetstarturlrequest_res = Bizlicxjjh5ApiClient.h5_api_get_start_url(h5apigetstarturlrequest)
     print("预启动返回：", h5apigetstarturlrequest_res.code, h5apigetstarturlrequest_res.message,
           h5apigetstarturlrequest_res.data)
 
@@ -48,6 +48,6 @@ if __name__ == '__main__':
         real_name="",
         open_id="",
     )
-    h5apiecocityaicstatusrequest_res = Bizlicxjjh5ApiClient.h5_a_p_i_eco_city_aic_status(h5apiecocityaicstatusrequest)
+    h5apiecocityaicstatusrequest_res = Bizlicxjjh5ApiClient.h5_api_eco_city_aic_status(h5apiecocityaicstatusrequest)
     print("查询个体工商户状态返回：", h5apiecocityaicstatusrequest_res.code, h5apiecocityaicstatusrequest_res.message,
           h5apiecocityaicstatusrequest_res.data)

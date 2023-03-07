@@ -101,7 +101,7 @@ if __name__ == '__main__':
         broker_id="",
         dealer_id="",
     )
-    getdealervarechargeaccountrequest_res = PaymentClient.get_dealer_v_a_recharge_account(getdealervarechargeaccountrequest)
+    getdealervarechargeaccountrequest_res = PaymentClient.get_dealer_va_recharge_account(getdealervarechargeaccountrequest)
     print("查询平台企业汇款信息返回：", getdealervarechargeaccountrequest_res.code, getdealervarechargeaccountrequest_res.message,getdealervarechargeaccountrequest_res.data)
 
     # 批次下单
