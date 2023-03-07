@@ -18,7 +18,7 @@ class Bizlicxjjh5ApiClient(BaseClient):
         """
         return self._post("/api/aic/new-economy/api-h5/v1/collect", request.request_id, Utils.copy_dict(request.__dict__))
 
-    def h5_a_p_i_get_start_url(self, request: H5APIGetStartUrlRequest):
+    def h5_api_get_start_url(self, request: H5APIGetStartUrlRequest):
         """ 预启动
    
         :type request: H5APIGetStartUrlRequest
@@ -28,7 +28,7 @@ class Bizlicxjjh5ApiClient(BaseClient):
         """
         return self._get("/api/aic/new-economy/api-h5/v1/h5url", request.request_id, Utils.copy_dict(request.__dict__))
 
-    def h5_a_p_i_eco_city_aic_status(self, request: H5APIEcoCityAicStatusRequest):
+    def h5_api_eco_city_aic_status(self, request: H5APIEcoCityAicStatusRequest):
         """ 查询个体工商户状态
    
         :type request: H5APIEcoCityAicStatusRequest
