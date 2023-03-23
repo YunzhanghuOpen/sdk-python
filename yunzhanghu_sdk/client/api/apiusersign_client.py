@@ -9,8 +9,22 @@ class ApiUserSignServiceClient(BaseClient):
     def __init__(self, config):
         super().__init__(config)
 
-    def api_user_sign_contract(self, request: ApiUserSignContractRequest):
+    def api_use_sign_contract(self, request: ApiUseSignContractRequest):
         """ 获取协议预览 URL
+
+        :type request: ApiUseSignContractRequest
+        :param request: the ApiUseSignContractRequest request parameters class.
+
+        :return: ApiUseSignContractResponse
+        """
+        return self._get(
+            "/api/sign/v1/user/contract",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
+
+    def api_user_sign_contract(self, request: ApiUserSignContractRequest):
+        """ 获取协议预览 URL V2
 
         :type request: ApiUserSignContractRequest
         :param request: the ApiUserSignContractRequest request parameters class.

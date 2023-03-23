@@ -126,7 +126,7 @@ if __name__ == "__main__":
         channel="微信",
         data_type="encryption"
     )
-    # 自定义 request-id
+    # 建议自定义并将 request-id 记录在日志中
     # request.request_id = "XXXXX"
     client = PaymentClient(config)
     resp = client.get_order(request)
