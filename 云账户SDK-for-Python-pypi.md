@@ -1,21 +1,21 @@
 # 云账户 SDK for Python
 
 欢迎使用云账户 SDK for Python。
-云账户是一家专注为平台企业和新就业形态劳动者提供高质量灵活就业服务的新时代企业。云账户 SDK 对云账户综合服务平台 API 接口进行封装，让您不必担心过多参数请求，帮助您快速接入到云账户综合服务平台。云账户 SDK for Python 为您提供签约、下单、回调、数据查询等功能，帮助您完成与云账户综合服务平台的接口对接及业务开发。 如果您在使用过程中遇到任何问题，请在当前 GitHub 提交 Issues，或发送邮件至技术支持组 [techsupport@yunzhanghu.com](mailto:techsupport@yunzhanghu.com)。
+云账户是一家专注为平台企业和新就业形态劳动者提供高质量灵活就业服务的新时代企业。云账户 SDK 对云账户综合服务平台 API 接口进行封装，帮助您快速接入到云账户综合服务平台。云账户 SDK for Python 为您提供签约、下单、回调、数据查询等功能，帮助您完成与云账户综合服务平台的接口对接及业务开发。 如果您在使用过程中遇到任何问题，请在当前 GitHub 提交 Issues，或发送邮件至技术支持组 [techsupport@yunzhanghu.com](mailto:techsupport@yunzhanghu.com)。
 
 ### 环境要求
 
-云账户 SDK for Python 支持 Python3.0 及以上版本。
+云账户 SDK for Python 支持 Python 3.0 及以上版本。
 
 ### 快速使用
 
 #### 通过 PIP 安装
 
-1. 执行以下命令安装云账户 Python SDK：
+1. 执行以下命令安装云账户 SDK for Python：
 
-   > pip install yunzhanghu_sdk
+   > pip3 install yunzhanghu_sdk
 
-2. 在您的代码中引用对应模块代码，可参考示例。
+2. 在您的代码中引用对应模块代码，具体引用方式可参考下文示例
 
 #### 通过源码包安装
 
@@ -26,6 +26,10 @@
 #### 示例
 
 ```
+#提示：
+   #为了保护秘钥安全，建议将密钥配置到环境变量中或者配置文件中。
+   #请勿在代码中使用硬编码密钥，可能导致密钥暴露，存在安全隐患。
+
 from yunzhanghu_sdk.client.api.model.payment import GetOrderRequest
 from yunzhanghu_sdk.client.api.payment_client import PaymentClient
 from yunzhanghu_sdk.config import *

@@ -38,7 +38,7 @@ class Config(object):
             self.dealer_private_key = self.dealer_private_key.strip()
         if self.yzh_public_key is not None:
             self.yzh_public_key = self.yzh_public_key.strip()
-        if self.sign_type != "sha256" and self.sign_type != "rsa":
-            raise ValueError('wrong sign type')
+        if self.sign_type not in ("sha256", "rsa"):
+            raise ValueError('sign_type error! signType must be rsa or sha256!')
         if self.host is None:
             self.host = "https://api-service.yunzhanghu.com"

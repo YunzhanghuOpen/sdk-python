@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from yunzhanghu_sdk.client.api.model.bizlicxjjh5 import *
-from yunzhanghu_sdk.client.api.bizlicxjjh5_client import Bizlicxjjh5Client
+from yunzhanghu_sdk.client.api.bizlicxjjh5_client import BizlicXjjH5ServiceClient
 from yunzhanghu_sdk.example.utils.configinit import init_config
 
-# 云账户新经济 H5
+# 个体工商户注册（云账户新经济 H5）
 if __name__ == '__main__':
-    Bizlicxjjh5Client = Bizlicxjjh5Client(config=init_config())
+    Bizlicxjjh5Client = BizlicXjjH5ServiceClient(config=init_config())
     # 预启动
-    h5getstarturlrequest = H5GetStartUrlRequest(
+    req = H5GetStartUrlRequest(
         dealer_id="",
         broker_id="",
         dealer_user_id="",
@@ -17,11 +17,11 @@ if __name__ == '__main__':
         return_url="",
         customer_title="",
     )
-    h5getstarturlrequest_res = Bizlicxjjh5Client.h5_get_start_url(h5getstarturlrequest)
-    print("预启动返回：", h5getstarturlrequest_res.code, h5getstarturlrequest_res.message, h5getstarturlrequest_res.data)
+    resp = Bizlicxjjh5Client.h5_get_start_url(req)
+    print("预启动返回：", resp.code, resp.message, resp.data)
 
     # 查询个体工商户状态
-    h5ecocityaicstatusrequest = H5EcoCityAicStatusRequest(
+    req = H5EcoCityAicStatusRequest(
         dealer_id="",
         broker_id="",
         dealer_user_id="",
@@ -29,6 +29,5 @@ if __name__ == '__main__':
         real_name="",
         open_id="",
     )
-    h5ecocityaicstatusrequest_res = Bizlicxjjh5Client.h5_eco_city_aic_status(h5ecocityaicstatusrequest)
-    print("查询个体工商户状态返回：", h5ecocityaicstatusrequest_res.code, h5ecocityaicstatusrequest_res.message,
-          h5ecocityaicstatusrequest_res.data)
+    resp = Bizlicxjjh5Client.h5_eco_city_aic_status(req)
+    print("查询个体工商户状态返回：", resp.code, resp.message, resp.data)

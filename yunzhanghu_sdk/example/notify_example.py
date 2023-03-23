@@ -2,7 +2,7 @@
 
 from flask import Flask, request
 from gevent import pywsgi
-from yunzhanghu_sdk.message import notifyDecoder
+from yunzhanghu_sdk.message import notify_decoder
 from yunzhanghu_sdk.example.utils.configinit import init_config
 
 # 异步通知
@@ -25,7 +25,7 @@ def yzh_notify():
         print(
             "【异步通知】data:{} mess:{} timestamp:{} sign_type:{} sign:{}".format(data, mess, timestamp, sign_type, sign))
         # 验证签名+解密
-        verify_result, res_data = notifyDecoder(config.yzh_public_key, config.app_key, config.des3key, data, mess, timestamp, sign)
+        verify_result, res_data = notify_decoder(config.yzh_public_key, config.app_key, config.des3key, data, mess, timestamp, sign)
         if verify_result:
             # 业务逻辑处理
             # ToDo List

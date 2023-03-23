@@ -7,26 +7,24 @@ from yunzhanghu_sdk.example.utils.configinit import init_config
 if __name__ == '__main__':
     InvoiceClient = InvoiceClient(config=init_config())
     # 查询平台企业已开具和待开具发票金额
-    getinvoicestatrequest = GetInvoiceStatRequest(
+    req = GetInvoiceStatRequest(
         broker_id="",
         dealer_id="",
         year="",
     )
-    getinvoicestatrequest_res = InvoiceClient.get_invoice_stat(getinvoicestatrequest)
-    print("查询平台企业已开具和待开具发票金额返回：", getinvoicestatrequest_res.code, getinvoicestatrequest_res.message,
-          getinvoicestatrequest_res.data)
+    resp = InvoiceClient.get_invoice_stat(req)
+    print("查询平台企业已开具和待开具发票金额返回：", resp.code, resp.message, resp.data)
 
     # 查询可开具发票额度和发票开具信息
-    getinvoiceamountrequest = GetInvoiceAmountRequest(
+    req = GetInvoiceAmountRequest(
         broker_id="",
         dealer_id="",
     )
-    getinvoiceamountrequest_res = InvoiceClient.get_invoice_amount(getinvoiceamountrequest)
-    print("查询可开具发票额度和发票开具信息返回：", getinvoiceamountrequest_res.code, getinvoiceamountrequest_res.message,
-          getinvoiceamountrequest_res.data)
+    resp = InvoiceClient.get_invoice_amount(req)
+    print("查询可开具发票额度和发票开具信息返回：", resp.code, resp.message, resp.data)
 
     # 发票开具申请
-    applyinvoicerequest = ApplyInvoiceRequest(
+    req = ApplyInvoiceRequest(
         invoice_apply_id="",
         broker_id="",
         dealer_id="",
@@ -36,32 +34,37 @@ if __name__ == '__main__':
         goods_services_name="",
         remark="",
     )
-    applyinvoicerequest_res = InvoiceClient.apply_invoice(applyinvoicerequest)
-    print("发票开具申请返回：", applyinvoicerequest_res.code, applyinvoicerequest_res.message, applyinvoicerequest_res.data)
+    resp = InvoiceClient.apply_invoice(req)
+    print("发票开具申请返回：", resp.code, resp.message, resp.data)
 
     # 查询发票开具申请状态
-    getinvoicestatusrequest = GetInvoiceStatusRequest(
+    req = GetInvoiceStatusRequest(
         invoice_apply_id="",
         application_id="",
     )
-    getinvoicestatusrequest_res = InvoiceClient.get_invoice_status(getinvoicestatusrequest)
-    print("查询发票开具申请状态返回：", getinvoicestatusrequest_res.code, getinvoicestatusrequest_res.message,
-          getinvoicestatusrequest_res.data)
+    resp = InvoiceClient.get_invoice_status(req)
+    print("查询发票开具申请状态返回：", resp.code, resp.message, resp.data)
+
+    # 查询发票信息
+    req = GetInvoiceInformationRequest(
+        invoice_apply_id="",
+        application_id="",
+    )
+    resp = InvoiceClient.get_invoice_information(req)
+    print("查询发票信息返回：", resp.code, resp.message, resp.data)
 
     # 下载 PDF 版发票
-    getinvoicefilerequest = GetInvoiceFileRequest(
+    req = GetInvoiceFileRequest(
         invoice_apply_id="",
         application_id="",
     )
-    getinvoicefilerequest_res = InvoiceClient.get_invoice_file(getinvoicefilerequest)
-    print("下载 PDF 版发票返回：", getinvoicefilerequest_res.code, getinvoicefilerequest_res.message,
-          getinvoicefilerequest_res.data)
+    resp = InvoiceClient.get_invoice_file(req)
+    print("下载 PDF 版发票返回：", resp.code, resp.message, resp.data)
 
     # 发送发票扫描件压缩包下载链接邮件
-    sendreminderemailrequest = SendReminderEmailRequest(
+    req = SendReminderEmailRequest(
         invoice_apply_id="",
         application_id="",
     )
-    sendreminderemailrequest_res = InvoiceClient.send_reminder_email(sendreminderemailrequest)
-    print("发送发票扫描件压缩包下载链接邮件返回：", sendreminderemailrequest_res.code, sendreminderemailrequest_res.message,
-          sendreminderemailrequest_res.data)
+    resp = InvoiceClient.send_reminder_email(req)
+    print("发送发票扫描件压缩包下载链接邮件返回：", resp.code, resp.message, resp.data)
