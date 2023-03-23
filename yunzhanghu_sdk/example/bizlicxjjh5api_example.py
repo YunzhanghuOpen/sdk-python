@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from yunzhanghu_sdk.client.api.model.bizlicxjjh5api import *
-from yunzhanghu_sdk.client.api.bizlicxjjh5api_client import Bizlicxjjh5ApiClient
+from yunzhanghu_sdk.client.api.bizlicxjjh5api_client import BizlicXjjH5APIServiceClient
 from yunzhanghu_sdk.example.utils.configinit import init_config
 
-# 云账户新经济 H5+API
+# 个体工商户注册（云账户新经济 H5+API）
 if __name__ == '__main__':
-    Bizlicxjjh5ApiClient = Bizlicxjjh5ApiClient(config=init_config())
+    Bizlicxjjh5ApiClient = BizlicXjjH5APIServiceClient(config=init_config())
     # 工商实名信息录入
-    h5precollectbizlicmsgrequest = H5PreCollectBizlicMsgRequest(
+    req = H5PreCollectBizlicMsgRequest(
         dealer_id="",
         broker_id="",
         dealer_user_id="",
@@ -20,12 +20,11 @@ if __name__ == '__main__':
         id_card_validity_start="",
         id_card_validity_end="",
     )
-    h5precollectbizlicmsgrequest_res = Bizlicxjjh5ApiClient.h5_pre_collect_bizlic_msg(h5precollectbizlicmsgrequest)
-    print("工商实名信息录入返回：", h5precollectbizlicmsgrequest_res.code, h5precollectbizlicmsgrequest_res.message,
-          h5precollectbizlicmsgrequest_res.data)
+    resp = Bizlicxjjh5ApiClient.h5_pre_collect_bizlic_msg(req)
+    print("工商实名信息录入返回：", resp.code, resp.message, resp.data)
 
     # 预启动
-    h5apigetstarturlrequest = H5APIGetStartUrlRequest(
+    req = H5APIGetStartUrlRequest(
         dealer_id="",
         broker_id="",
         dealer_user_id="",
@@ -35,12 +34,11 @@ if __name__ == '__main__':
         return_url="",
         customer_title="",
     )
-    h5apigetstarturlrequest_res = Bizlicxjjh5ApiClient.h5_api_get_start_url(h5apigetstarturlrequest)
-    print("预启动返回：", h5apigetstarturlrequest_res.code, h5apigetstarturlrequest_res.message,
-          h5apigetstarturlrequest_res.data)
+    resp = Bizlicxjjh5ApiClient.h5_api_get_start_url(req)
+    print("预启动返回：", resp.code, resp.message, resp.data)
 
     # 查询个体工商户状态
-    h5apiecocityaicstatusrequest = H5APIEcoCityAicStatusRequest(
+    req = H5APIEcoCityAicStatusRequest(
         dealer_id="",
         broker_id="",
         dealer_user_id="",
@@ -48,6 +46,5 @@ if __name__ == '__main__':
         real_name="",
         open_id="",
     )
-    h5apiecocityaicstatusrequest_res = Bizlicxjjh5ApiClient.h5_api_eco_city_aic_status(h5apiecocityaicstatusrequest)
-    print("查询个体工商户状态返回：", h5apiecocityaicstatusrequest_res.code, h5apiecocityaicstatusrequest_res.message,
-          h5apiecocityaicstatusrequest_res.data)
+    resp = Bizlicxjjh5ApiClient.h5_api_eco_city_aic_status(req)
+    print("查询个体工商户状态返回：", resp.code, resp.message, resp.data)

@@ -18,16 +18,16 @@ class BaseClient(object):
         """
 
         encrypt_type = config.sign_type
-        if encrypt_type != "sha256" and encrypt_type != "rsa":
-            raise ValueError('wrong sign type')
+        if encrypt_type not in("sha256", "rsa"):
+            raise ValueError('sign_type error! signType must be rsa or sha256!')
 
         self.__des3key = config.des3key
         self.__encrypt = None
         if encrypt_type == "sha256":
-            self.__encrypt = EncryptHmac(
+            self.__encrypt = Des3EncryptAndHmacSign (
                 config.app_key, config.des3key)
         if encrypt_type == "rsa":
-            self.__encrypt = EncryptRsa(
+            self.__encrypt = Des3EncryptAndRSASign(
                 config.app_key, config.yzh_public_key, config.dealer_private_key, config.des3key)
 
         self.__dealer_id = config.dealer_id
