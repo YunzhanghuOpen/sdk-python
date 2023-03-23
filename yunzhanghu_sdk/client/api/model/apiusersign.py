@@ -3,7 +3,7 @@
 from ...base import BaseRequest
 
 
-class ApiUserSignContractRequest(BaseRequest):
+class ApiUseSignContractRequest(BaseRequest):
     """
     获取协议预览 URL 请求
 
@@ -23,9 +23,49 @@ class ApiUserSignContractRequest(BaseRequest):
         self.broker_id = broker_id
 
 
-class ApiUserSignContractResponse(BaseRequest):
+class ApiUseSignContractResponse(BaseRequest):
     """
     获取协议预览 URL 返回
+
+    :type url: string
+    :param url: 预览跳转 URL
+
+    :type title: string
+    :param title: 协议名称
+    """
+    def __init__(
+        self,
+        url=None,
+        title=None
+    ):
+        super().__init__()
+        self.url = url
+        self.title = title
+
+
+class ApiUserSignContractRequest(BaseRequest):
+    """
+    获取协议预览 URL 请求 V2
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+    """
+    def __init__(
+        self,
+        dealer_id=None,
+        broker_id=None
+    ):
+        super().__init__()
+        self.dealer_id = dealer_id
+        self.broker_id = broker_id
+
+
+class ApiUserSignContractResponse(BaseRequest):
+    """
+    获取协议预览 URL 返回 V2
 
     :type url: string
     :param url: 预览跳转 URL
