@@ -22,13 +22,13 @@ class BaseClient(object):
             raise ValueError('sign_type error! signType must be rsa or sha256!')
 
         self.__des3key = config.des3key
+        self.__app_key = config.app_key
+
         self.__encrypt = None
         if encrypt_type == "sha256":
-            self.__encrypt = Des3EncryptAndHmacSign (
-                config.app_key, config.des3key)
+            self.__encrypt = HmacSigner(config.app_key)
         if encrypt_type == "rsa":
-            self.__encrypt = Des3EncryptAndRSASign(
-                config.app_key, config.yzh_public_key, config.dealer_private_key, config.des3key)
+            self.__encrypt = RSASigner(config.app_key, config.yzh_public_key, config.dealer_private_key)
 
         self.__dealer_id = config.dealer_id
         self.__base_url = config.host
@@ -54,8 +54,8 @@ class BaseClient(object):
             requests.request(method=method,
                              url=self.__base_url + url,
                              headers=headers,
-                             data=ReqMessage(self.__encrypt, data).pack(),
-                             params=ReqMessage(self.__encrypt, param).pack(),
+                             data=ReqMessage(self.__encrypt, data, self.__des3key).pack(),
+                             params=ReqMessage(self.__encrypt, param, self.__des3key).pack(),
                              timeout=self.__timeout))
 
     def _post(self, url, request_id, data):

@@ -17,66 +17,87 @@ from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5 as Signature_pkcs1_v1_5
 
 
-class Signer(abc.ABC):
-    @abc.abstractmethod
-    def encrypt(self, data):
-        return NotImplemented
+class TripleDes(object):
+    """ 3DES 加解密 """
 
-    @abc.abstractmethod
-    def sign(self, mess, timestamp, data):
-        return NotImplemented
+    def __init__(self, data, de3key):
+        self.__data = data
+        self.__des3key = de3key
 
-    @abc.abstractmethod
-    def encrypt_type(self):
-        return NotImplemented
-
-
-class Des3EncryptAndHmacSign(Signer):
-    def __init__(self, app_key, des3key):
-        self.__app_key = app_key
-        self.__des3key = des3key
-
-    def encrypt_type(self):
-        return "sha256"
-
-    def encrypt(self, data):
-        data = bytes(data, encoding="utf8")
+    def encrypt(self):
+        data = bytes(self.__data, encoding="utf8")
         key = bytes(self.__des3key[0:8], encoding="utf8")
         return base64.b64encode(
             pyDes.triple_des(self.__des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5).encrypt(data))
 
-    def sign(self, mess, timestamp, encrypt_data):
+    def decrypt(self):
+        data = bytes(self.__data, encoding="utf8")
+        key = bytes(self.__des3key[0:8], encoding="utf8")
+        return pyDes.triple_des(self.__des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5).decrypt(
+            base64.b64decode(data))
+
+
+class Signer(abc.ABC):
+    """ 签名 """
+
+    @abc.abstractmethod
+    def sign_type(self):
+        return NotImplemented
+
+    @abc.abstractmethod
+    def sign(self, data, mess, timestamp):
+        return NotImplemented
+
+    @abc.abstractmethod
+    def verify_sign(self, data, mess, timestamp, signature):
+        return NotImplemented
+
+
+class HmacSigner(Signer):
+    """ Hamc 签名 """
+
+    def __init__(self, app_key):
+        self.__app_key = app_key
+
+    def sign_type(self):
+        return "sha256"
+
+    def sign(self, data, mess, timestamp):
         signPairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (
-            str(encrypt_data, encoding="utf-8"), mess, timestamp, self.__app_key)
+            str(data, encoding="utf-8"), mess, timestamp, self.__app_key)
         app_key = bytes(self.__app_key, encoding="utf8")
         signPairs = bytes(signPairs, encoding="utf8")
         return hmac.new(app_key, msg=signPairs, digestmod=hashlib.sha256).hexdigest()
 
+    def verify_sign(self, data, mess, timestamp, signature):
+        sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, self.__app_key)
+        return hmac.new(self.__app_key.encode('utf-8'), msg=sign_pairs,
+                        digestmod=hashlib.sha256).hexdigest() == signature
 
-class Des3EncryptAndRSASign(Signer):
-    def __init__(self, app_key, public_key, private_key, des3key):
+
+class RSASigner(Signer):
+    """ RSA 签名 """
+
+    def __init__(self, app_key, public_key, private_key):
         self.__public_key = RSA.importKey(public_key)
         self.__private_key = RSA.importKey(private_key)
         self.__app_key = app_key
-        self.__des3key = des3key
 
-    def encrypt_type(self):
+    def sign_type(self):
         return "rsa"
 
-    def encrypt(self, data):
-        data = bytes(data, encoding="utf8")
-        key = bytes(self.__des3key[0:8], encoding="utf8")
-        return base64.b64encode(
-            pyDes.triple_des(self.__des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5).encrypt(data))
-
-    def sign(self, mess, timestamp, encrypt_data):
+    def sign(self, data, mess, timestamp):
         sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (
-            bytes.decode(encrypt_data), mess, timestamp, self.__app_key)
+            str(data, encoding="utf-8"), mess, timestamp, self.__app_key)
         signer = Signature_pkcs1_v1_5.new(self.__private_key)
         digest = SHA256.new()
         digest.update(sign_pairs.encode("utf8"))
         sign = signer.sign(digest)
         return base64.b64encode(sign)
+
+    def verify_sign(self, data, mess, timestamp, signature):
+        sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, self.__app_key)
+        rsa.verify(sign_pairs, signature, self.__public_key)
 
 
 class ReqMessage(object):
@@ -84,7 +105,7 @@ class ReqMessage(object):
     ReqMessage 请求消息体
     """
 
-    def __init__(self, encrypt, data):
+    def __init__(self, encrypt, data, des3key):
         """
         :param encrypt: 加密方式
         :type data: {} 请求信息
@@ -92,6 +113,7 @@ class ReqMessage(object):
         """
         self.__encrypt = encrypt
         self.data = None
+        self.__des3key = des3key
         if data is not None:
             self.data = json.dumps(data, ensure_ascii=False)
 
@@ -100,13 +122,13 @@ class ReqMessage(object):
             return None
         timestamp = int(time.time())
         mess = ''.join(random.sample('1234567890abcdefghijklmnopqrstuvwxy', 10))
-        encrypt_data = self.__encrypt.encrypt(self.data)
+        encrypt_data = TripleDes(self.data, self.__des3key).encrypt()
         return {
             "data": encrypt_data,
             "mess": mess,
             'timestamp': timestamp,
-            "sign": self.__encrypt.sign(mess, timestamp, encrypt_data),
-            "sign_type": self.__encrypt.encrypt_type()
+            "sign": self.__encrypt.sign(encrypt_data, mess, timestamp),
+            "sign_type": self.__encrypt.sign_type()
         }
 
 
@@ -133,7 +155,7 @@ class RespMessage(object):
         if self.__des3key is not None and self.__req_param is not None \
                 and 'data_type' in self.__req_param and \
                 self.__req_param['data_type'] == 'encryption':
-            self.__data = json.loads(triple_des_decrypt(self.__des3key, self.__data))
+            self.__data = json.loads(TripleDes(self.__data, self.__des3key).decrypt())
         return self
 
     @property
@@ -157,76 +179,9 @@ class RespMessage(object):
         return self.__request_id
 
 
-def triple_des_decrypt(des3key, data):
-    """ 3DES 解密
-
-    :type des3key: string
-    :param des3key: 3DES 密钥
-
-    :type data: string
-    :param data: 待解密数据
-
-    :return: 解密结果
-    """
-    data = bytes(data, encoding="utf8")
-    key = bytes(des3key[0:8], encoding="utf8")
-    return pyDes.triple_des(des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5).decrypt(base64.b64decode(data))
-
-
-def verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
-    """ RSA 公钥验签
-
-    :type public_key: string
-    :param public_key: 云账户公钥
-
-    :type app_key: string
-    :param app_key: App Key
-
-    :type data: string
-    :param data: data
-
-    :type mess: string
-    :param data: 随机字符串
-
-    :type timestamp: int
-    :param data: 时间戳
-
-    :type signature: string
-    :param signature: 异步通知签名
-
-    :return: 校验结果
-    """
-    sign_pairs = "data=" + data + "&mess=" + mess + "&timestamp=" + timestamp + "&key=" + app_key
-    rsa.verify(sign_pairs, signature, public_key)
-
-
-def verify_sign_hmac(app_key, data, mess, timestamp, signature):
-    """HMAC 验签
-
-    :type app_key: string
-    :param app_key: App Key
-
-    :type data: string
-    :param data: data
-
-    :type mess: string
-    :param data: 随机字符串
-
-    :type timestamp: int
-    :param data: 时间戳
-
-    :type signature: string
-    :param signature: 异步通知签名
-
-    :return: 校验结果
-    """
-    sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, app_key)
-    return hmac.new(app_key.encode('utf-8'), msg=sign_pairs, digestmod=hashlib.sha256).hexdigest() == signature
-
-
 def notify_decoder(public_key, app_key, des3key, data, mess, timestamp, signature):
     res_data, verify_result = "", False
-    if verify_sign_rsa(public_key, app_key, data, mess, timestamp, signature):
-        res_data = triple_des_decrypt(des3key, data)
+    if RSASigner(app_key, public_key, "").verify_sign(data, mess, timestamp, signature):
+        res_data = TripleDes(data, des3key).decrypt()
         verify_result = True
     return verify_result, res_data
