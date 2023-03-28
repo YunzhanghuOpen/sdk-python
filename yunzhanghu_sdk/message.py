@@ -181,7 +181,7 @@ class RespMessage(object):
 
 def notify_decoder(public_key, app_key, des3key, data, mess, timestamp, signature):
     res_data, verify_result = "", False
-    if RSASigner(app_key, public_key, "").verify_sign(data, mess, timestamp, signature):
+    if RSASigner(app_key, public_key, None).verify_sign(data, mess, timestamp, signature):
         res_data = TripleDes(data, des3key).decrypt()
         verify_result = True
     return verify_result, res_data

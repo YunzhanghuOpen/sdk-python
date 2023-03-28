@@ -17,18 +17,16 @@ class BaseClient(object):
         :param timeout: 请求超时时间。非必填，默认 30 秒
         """
 
-        encrypt_type = config.sign_type
-        if encrypt_type not in("sha256", "rsa"):
-            raise ValueError('sign_type error! signType must be rsa or sha256!')
+        sign_type = config.sign_type
 
         self.__des3key = config.des3key
         self.__app_key = config.app_key
 
         self.__encrypt = None
-        if encrypt_type == "sha256":
+        if sign_type == "sha256":
             self.__encrypt = HmacSigner(config.app_key)
-        if encrypt_type == "rsa":
-            self.__encrypt = RSASigner(config.app_key, config.yzh_public_key, config.dealer_private_key)
+        if sign_type == "rsa":
+            self.__encrypt = RSASigner(config.app_key)
 
         self.__dealer_id = config.dealer_id
         self.__base_url = config.host
