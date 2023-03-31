@@ -26,7 +26,7 @@ class BaseClient(object):
         if sign_type == "sha256":
             self.__encrypt = HmacSigner(config.app_key)
         if sign_type == "rsa":
-            self.__encrypt = RSASigner(config.app_key)
+            self.__encrypt = RSASigner(config.app_key, config.yzh_public_key, config.dealer_private_key)
 
         self.__dealer_id = config.dealer_id
         self.__base_url = config.host
@@ -36,17 +36,17 @@ class BaseClient(object):
         if type(request_id) is not str or request_id == "":
             request_id = str(int(time.time()))
         return {
-            'dealer-id': self.__dealer_id,
-            'request-id': request_id,
+            "dealer-id": self.__dealer_id,
+            "request-id": request_id,
             "Content-Type": "application/x-www-form-urlencoded",
             "User-Agent": "yunzhanghu-sdk-python/%s/%s/%s" % (
                 __version__, platform.platform(), platform.python_version()),
         }
 
     def __request(self, method, url, **kwargs):
-        data = kwargs['data'] if 'data' in kwargs else None
-        param = kwargs['param'] if 'param' in kwargs else None
-        headers = self.__header(kwargs['request_id'])
+        data = kwargs.get("data", None)
+        param = kwargs.get("param", None)
+        headers = self.__header(kwargs["request_id"])
         return self.__handle_resp(
             data, param, headers,
             requests.request(method=method,
@@ -57,16 +57,16 @@ class BaseClient(object):
                              timeout=self.__timeout))
 
     def _post(self, url, request_id, data):
-        kwargs = {'data': data, 'request_id': request_id}
-        return self.__request(method='POST', url=url, **kwargs)
+        kwargs = {"data": data, "request_id": request_id}
+        return self.__request(method="POST", url=url, **kwargs)
 
     def _get(self, url, request_id, param):
-        kwargs = {'param': param, 'request_id': request_id}
-        return self.__request(method='GET', url=url, **kwargs)
+        kwargs = {"param": param, "request_id": request_id}
+        return self.__request(method="GET", url=url, **kwargs)
 
     def __handle_resp(self, req_data, req_param, headers, resp):
         if resp is None:
-            raise ValueError('resp is None')
+            raise ValueError("resp is None")
 
         resp.raise_for_status()
         return RespMessage(self.__des3key, resp.text, req_data,

@@ -122,9 +122,9 @@ if __name__ == "__main__":
     )
     # 获取订单详情
     request = GetOrderRequest(
-        order_id="232211231231231",
-        channel="微信",
-        data_type="encryption"
+        order_id="",
+        channel="",
+        data_type=""
     )
     # 建议自定义并将 request-id 记录在日志中
     # request.request_id = "XXXXX"

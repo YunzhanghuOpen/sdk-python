@@ -33,8 +33,8 @@ class TripleDes(object):
     def decrypt(self):
         data = bytes(self.__data, encoding="utf8")
         key = bytes(self.__des3key[0:8], encoding="utf8")
-        return pyDes.triple_des(self.__des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5).decrypt(
-            base64.b64decode(data))
+        return pyDes.triple_des(self.__des3key, pyDes.CBC, key, pad=None, padmode=pyDes.PAD_PKCS5) \
+            .decrypt(base64.b64decode(data))
 
 
 class Signer(abc.ABC):
@@ -54,7 +54,7 @@ class Signer(abc.ABC):
 
 
 class HmacSigner(Signer):
-    """ Hamc 签名 """
+    """ Hmac 签名 """
 
     def __init__(self, app_key):
         self.__app_key = app_key
@@ -63,15 +63,15 @@ class HmacSigner(Signer):
         return "sha256"
 
     def sign(self, data, mess, timestamp):
-        signPairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (
+        sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (
             str(data, encoding="utf-8"), mess, timestamp, self.__app_key)
         app_key = bytes(self.__app_key, encoding="utf8")
-        signPairs = bytes(signPairs, encoding="utf8")
-        return hmac.new(app_key, msg=signPairs, digestmod=hashlib.sha256).hexdigest()
+        sign_pairs = bytes(sign_pairs, encoding="utf8")
+        return hmac.new(app_key, msg=sign_pairs, digestmod=hashlib.sha256).hexdigest()
 
     def verify_sign(self, data, mess, timestamp, signature):
         sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, self.__app_key)
-        return hmac.new(self.__app_key.encode('utf-8'), msg=sign_pairs,
+        return hmac.new(self.__app_key.encode("utf-8"), msg=sign_pairs,
                         digestmod=hashlib.sha256).hexdigest() == signature
 
 
@@ -112,21 +112,21 @@ class ReqMessage(object):
         :param data: 请求信息
         """
         self.__encrypt = encrypt
-        self.data = None
+        self.__data = None
         self.__des3key = des3key
         if data is not None:
-            self.data = json.dumps(data, ensure_ascii=False)
+            self.__data = json.dumps(data, ensure_ascii=False)
 
     def pack(self):
-        if self.data is None:
+        if self.__data is None:
             return None
         timestamp = int(time.time())
-        mess = ''.join(random.sample('1234567890abcdefghijklmnopqrstuvwxy', 10))
-        encrypt_data = TripleDes(self.data, self.__des3key).encrypt()
+        mess = "".join(random.sample("1234567890abcdefghijklmnopqrstuvwxy", 10))
+        encrypt_data = TripleDes(self.__data, self.__des3key).encrypt()
         return {
             "data": encrypt_data,
             "mess": mess,
-            'timestamp': timestamp,
+            "timestamp": timestamp,
             "sign": self.__encrypt.sign(encrypt_data, mess, timestamp),
             "sign_type": self.__encrypt.sign_type()
         }
@@ -143,9 +143,9 @@ class RespMessage(object):
         dic = json.loads(content)
         self.__req_param = req_param
         self.__req_data = req_data
-        self.__code = dic['code'] if 'code' in dic else None
-        self.__message = dic['message'] if 'message' in dic else None
-        self.__data = dic['data'] if 'data' in dic else None
+        self.__code = dic.get("code", None)
+        self.__message = dic.get("message", None)
+        self.__data = dic.get("data")
         self.__request_id = headers['request-id']
 
     def decrypt(self):
@@ -153,8 +153,7 @@ class RespMessage(object):
             return self
 
         if self.__des3key is not None and self.__req_param is not None \
-                and 'data_type' in self.__req_param and \
-                self.__req_param['data_type'] == 'encryption':
+                and self.__req_param.get('data_type', '') == 'encryption':
             self.__data = json.loads(TripleDes(self.__data, self.__des3key).decrypt())
         return self
 
