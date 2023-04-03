@@ -6,7 +6,7 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 个人所得税扣缴明细表
 if __name__ == "__main__":
-    tax_client = TaxClient(config=init_config())
+    client = TaxClient(config=init_config())
 
     # 下载个人所得税扣缴明细表
     req = GetTaxFileRequest(
@@ -14,7 +14,7 @@ if __name__ == "__main__":
         ent_id="",
         year_month="",
     )
-    resp = tax_client.get_tax_file(req)
+    resp = client.get_tax_file(req)
     print("下载个人所得税扣缴明细表返回：", resp.code, resp.message, resp.data)
 
     # 查询纳税人是否为跨集团用户
@@ -24,5 +24,5 @@ if __name__ == "__main__":
         id_card="",
         ent_id="",
     )
-    resp = tax_client.get_user_cross(req)
+    resp = client.get_user_cross(req)
     print("查询纳税人是否为跨集团用户返回：", resp.code, resp.message, resp.data)

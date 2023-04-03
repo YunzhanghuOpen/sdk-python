@@ -146,14 +146,14 @@ class RespMessage(object):
         self.__code = dic.get("code", None)
         self.__message = dic.get("message", None)
         self.__data = dic.get("data")
-        self.__request_id = headers['request-id']
+        self.__request_id = headers["request-id"]
 
     def decrypt(self):
         if self.__data is None:
             return self
 
         if self.__des3key is not None and self.__req_param is not None \
-                and self.__req_param.get('data_type', '') == 'encryption':
+                and self.__req_param.get("data_type", "") == "encryption":
             self.__data = json.loads(TripleDes(self.__data, self.__des3key).decrypt())
         return self
 

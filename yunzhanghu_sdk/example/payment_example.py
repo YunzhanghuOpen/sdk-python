@@ -6,7 +6,7 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 实时支付
 if __name__ == "__main__":
-    payment_client = PaymentClient(config=init_config())
+    client = PaymentClient(config=init_config())
 
     # 银行卡实时支付
     req = CreateBankpayOrderRequest(
@@ -22,7 +22,7 @@ if __name__ == "__main__":
         notify_url="",
         project_id="",
     )
-    resp = payment_client.create_bankpay_order(req)
+    resp = client.create_bankpay_order(req)
     print("银行卡实时支付返回：", resp.code, resp.message, resp.data)
 
     # 支付宝实时支付
@@ -40,7 +40,7 @@ if __name__ == "__main__":
         project_id="",
         check_name="",
     )
-    resp = payment_client.create_alipay_order(req)
+    resp = client.create_alipay_order(req)
     print("支付宝实时支付返回：", resp.code, resp.message, resp.data)
 
     # 微信实时支付
@@ -60,7 +60,7 @@ if __name__ == "__main__":
         project_id="",
         notes="",
     )
-    resp = payment_client.create_wxpay_order(req)
+    resp = client.create_wxpay_order(req)
     print("微信实时支付返回：", resp.code, resp.message, resp.data)
 
     # 查询单笔订单信息
@@ -69,14 +69,14 @@ if __name__ == "__main__":
         channel="",
         data_type="",
     )
-    resp = payment_client.get_order(req)
+    resp = client.get_order(req)
     print("查询单笔订单信息返回：", resp.code, resp.message, resp.data)
 
     # 查询平台企业余额
     req = ListAccountRequest(
         dealer_id="",
     )
-    resp = payment_client.list_account(req)
+    resp = client.list_account(req)
     print("查询平台企业余额返回：", resp.code, resp.message, resp.data)
 
     # 查询电子回单
@@ -84,7 +84,7 @@ if __name__ == "__main__":
         order_id="",
         ref="",
     )
-    resp = payment_client.get_ele_receipt_file(req)
+    resp = client.get_ele_receipt_file(req)
     print("查询电子回单返回：", resp.code, resp.message, resp.data)
 
     # 取消待支付订单
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         ref="",
         channel="",
     )
-    resp = payment_client.cancel_order(req)
+    resp = client.cancel_order(req)
     print("取消待支付订单返回：", resp.code, resp.message, resp.data)
 
     # 查询平台企业汇款信息
@@ -102,7 +102,7 @@ if __name__ == "__main__":
         broker_id="",
         dealer_id="",
     )
-    resp = payment_client.get_dealer_va_recharge_account(req)
+    resp = client.get_dealer_va_recharge_account(req)
     print("查询平台企业汇款信息返回：", resp.code, resp.message, resp.data)
 
     # 批次下单
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         total_count="",
         order_list="",
     )
-    resp = payment_client.create_batch_order(req)
+    resp = client.create_batch_order(req)
     print("批次下单返回：", resp.code, resp.message, resp.data)
 
     # 批次确认
@@ -126,5 +126,5 @@ if __name__ == "__main__":
         broker_id="",
         channel="",
     )
-    resp = payment_client.confirm_batch_order(req)
+    resp = client.confirm_batch_order(req)
     print("批次确认返回：", resp.code, resp.message, resp.data)

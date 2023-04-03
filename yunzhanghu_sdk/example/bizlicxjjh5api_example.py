@@ -6,7 +6,7 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 个体工商户注册（云账户新经济 H5+API）
 if __name__ == "__main__":
-    bizlic_xjj_h5_api_client = BizlicXjjH5APIServiceClient(config=init_config())
+    client = BizlicXjjH5APIServiceClient(config=init_config())
 
     # 工商实名信息录入
     req = H5PreCollectBizlicMsgRequest(
@@ -22,7 +22,7 @@ if __name__ == "__main__":
         id_card_validity_start="",
         id_card_validity_end="",
     )
-    resp = bizlic_xjj_h5_api_client.h5_pre_collect_bizlic_msg(req)
+    resp = client.h5_pre_collect_bizlic_msg(req)
     print("工商实名信息录入返回：", resp.code, resp.message, resp.data)
 
     # 预启动
@@ -36,7 +36,7 @@ if __name__ == "__main__":
         return_url="",
         customer_title="",
     )
-    resp = bizlic_xjj_h5_api_client.h5_api_get_start_url(req)
+    resp = client.h5_api_get_start_url(req)
     print("预启动返回：", resp.code, resp.message, resp.data)
 
     # 查询个体工商户状态
@@ -48,5 +48,5 @@ if __name__ == "__main__":
         real_name="",
         open_id="",
     )
-    resp = bizlic_xjj_h5_api_client.h5_api_eco_city_aic_status(req)
+    resp = client.h5_api_eco_city_aic_status(req)
     print("查询个体工商户状态返回：", resp.code, resp.message, resp.data)
