@@ -19,7 +19,7 @@ def yzh_notify():
     if request.method == "POST":
         data = request.form["data"]
         mess = request.form["mess"]
-        timestamp = request.form["timestamp"]
+        timestamp = int(request.form["timestamp"])
         sign = request.form["sign"]
         sign_type = request.form["sign_type"]
         print(

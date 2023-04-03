@@ -11,7 +11,6 @@ import random
 import time
 
 import pyDes
-import rsa
 from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5 as Signature_pkcs1_v1_5
@@ -80,7 +79,8 @@ class RSASigner(Signer):
 
     def __init__(self, app_key, public_key, private_key):
         self.__public_key = RSA.importKey(public_key)
-        self.__private_key = RSA.importKey(private_key)
+        if private_key is not None:
+            self.__private_key = RSA.importKey(private_key)
         self.__app_key = app_key
 
     def sign_type(self):
@@ -97,8 +97,11 @@ class RSASigner(Signer):
 
     def verify_sign(self, data, mess, timestamp, signature):
         sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, self.__app_key)
-        rsa.verify(sign_pairs, signature, self.__public_key)
-
+        signature = base64.b64decode(signature)
+        cipher = Signature_pkcs1_v1_5.new(self.__public_key)
+        digest = SHA256.new()
+        digest.update(sign_pairs.encode("utf8"))
+        return cipher.verify(digest, signature)
 
 class ReqMessage(object):
     """
@@ -181,6 +184,6 @@ class RespMessage(object):
 def notify_decoder(public_key, app_key, des3key, data, mess, timestamp, signature):
     res_data, verify_result = "", False
     if RSASigner(app_key, public_key, None).verify_sign(data, mess, timestamp, signature):
-        res_data = TripleDes(data, des3key).decrypt()
+        res_data = TripleDes(data, des3key).decrypt().decode()
         verify_result = True
     return verify_result, res_data
