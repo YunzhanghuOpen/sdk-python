@@ -70,8 +70,9 @@ class HmacSigner(Signer):
 
     def verify_sign(self, data, mess, timestamp, signature):
         sign_pairs = "data=%s&mess=%s&timestamp=%d&key=%s" % (data, mess, timestamp, self.__app_key)
-        return hmac.new(self.__app_key.encode("utf-8"), msg=sign_pairs,
-                        digestmod=hashlib.sha256).hexdigest() == signature
+        app_key = bytes(self.__app_key, encoding="utf8")
+        sign_pairs = bytes(sign_pairs, encoding="utf8")
+        return hmac.new(app_key, msg=sign_pairs, digestmod=hashlib.sha256).hexdigest() == signature
 
 
 class RSASigner(Signer):
@@ -102,6 +103,7 @@ class RSASigner(Signer):
         digest = SHA256.new()
         digest.update(sign_pairs.encode("utf8"))
         return cipher.verify(digest, signature)
+
 
 class ReqMessage(object):
     """
@@ -183,7 +185,7 @@ class RespMessage(object):
 
 def notify_decoder(public_key, app_key, des3key, data, mess, timestamp, signature, sign_type):
     res_data, verify_result = "", False
-    if sign_type == HmacSigner.sign_type():
+    if sign_type == "sha256":
         if HmacSigner(app_key).verify_sign(data, mess, timestamp, signature):
             res_data = TripleDes(data, des3key).decrypt().decode()
             verify_result = True
