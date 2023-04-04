@@ -9,7 +9,7 @@ class Config(object):
     :param dealer_id: 平台企业 ID
 
     :type sign_type: string
-    :param sign_type: 签名类型
+    :param sign_type: 签名方式
 
     :type app_key: string
     :param app_key: App Key
@@ -39,6 +39,6 @@ class Config(object):
         if self.yzh_public_key is not None:
             self.yzh_public_key = self.yzh_public_key.strip()
         if self.sign_type not in ("sha256", "rsa"):
-            raise ValueError('sign_type error! signType must be rsa or sha256!')
+            raise ValueError("sign_type error! signType must be rsa or sha256!")
         if self.host is None:
             self.host = "https://api-service.yunzhanghu.com"

@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
+
 from yunzhanghu_sdk.client.api.model.h5usersign import *
 from yunzhanghu_sdk.client.api.h5usersign_client import H5UserSignServiceClient
-from yunzhanghu_sdk.example.utils.configinit import init_config
+from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 用户签约（H5 签约）
-if __name__ == '__main__':
-    H5UsersignClient = H5UserSignServiceClient(config=init_config())
+if __name__ == "__main__":
+    client = H5UserSignServiceClient(config=init_config())
+
     # 预申请签约
     req = H5UserPresignRequest(
         dealer_id="",
@@ -14,7 +16,7 @@ if __name__ == '__main__':
         id_card="",
         certificate_type="",
     )
-    resp = H5UsersignClient.h5_user_presign(req)
+    resp = client.h5_user_presign(req)
     print("预申请签约返回：", resp.code, resp.message, resp.data)
 
     # 申请签约
@@ -24,7 +26,7 @@ if __name__ == '__main__':
         url="",
         redirect_url="",
     )
-    resp = H5UsersignClient.h5_user_sign(req)
+    resp = client.h5_user_sign(req)
     print("申请签约返回：", resp.code, resp.message, resp.data)
 
     # 获取用户签约状态
@@ -34,7 +36,7 @@ if __name__ == '__main__':
         real_name="",
         id_card="",
     )
-    resp = H5UsersignClient.get_h5_user_sign_status(req)
+    resp = client.get_h5_user_sign_status(req)
     print("获取用户签约状态返回：", resp.code, resp.message, resp.data)
 
     # 用户解约（测试账号专用接口）
@@ -45,5 +47,5 @@ if __name__ == '__main__':
         id_card="",
         certificate_type="",
     )
-    resp = H5UsersignClient.h5_user_release(req)
+    resp = client.h5_user_release(req)
     print("用户解约（测试账号专用接口）返回：", resp.code, resp.message, resp.data)

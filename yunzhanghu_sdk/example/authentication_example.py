@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
+
 from yunzhanghu_sdk.client.api.model.authentication import *
 from yunzhanghu_sdk.client.api.authentication_client import AuthenticationClient
-from yunzhanghu_sdk.example.utils.configinit import init_config
+from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 用户信息验证
-if __name__ == '__main__':
-    AuthenticationClient = AuthenticationClient(config=init_config())
+if __name__ == "__main__":
+    client = AuthenticationClient(config=init_config())
+
     # 银行卡四要素鉴权请求（下发短信验证码）
     req = BankCardFourAuthVerifyRequest(
         card_no="",
@@ -13,10 +15,10 @@ if __name__ == '__main__':
         real_name="",
         mobile="",
     )
-    resp = AuthenticationClient.bank_card_four_auth_verify(req)
+    resp = client.bank_card_four_auth_verify(req)
     print("银行卡四要素鉴权请求（下发短信验证码）返回：", resp.code, resp.message, resp.data)
 
-    # 银行卡四要素确认请求（上传短信验证码）
+    # 银行卡四要素确认求（上传短信验证码）
     req = BankCardFourAuthConfirmRequest(
         card_no="",
         id_card="",
@@ -25,7 +27,7 @@ if __name__ == '__main__':
         captcha="",
         ref="",
     )
-    resp = AuthenticationClient.bank_card_four_auth_confirm(req)
+    resp = client.bank_card_four_auth_confirm(req)
     print("银行卡四要素确认鉴权（上传短信验证码）返回：", resp.code, resp.message, resp.data)
 
     # 银行卡四要素验证
@@ -35,7 +37,7 @@ if __name__ == '__main__':
         real_name="",
         mobile="",
     )
-    resp = AuthenticationClient.bank_card_four_verify(req)
+    resp = client.bank_card_four_verify(req)
     print("银行卡四要素验证返回：", resp.code, resp.message, resp.data)
 
     # 银行卡三要素验证
@@ -44,7 +46,7 @@ if __name__ == '__main__':
         id_card="",
         real_name="",
     )
-    resp = AuthenticationClient.bank_card_three_verify(req)
+    resp = client.bank_card_three_verify(req)
     print("银行卡三要素验证返回：", resp.code, resp.message, resp.data)
 
     # 身份证实名验证
@@ -52,7 +54,7 @@ if __name__ == '__main__':
         id_card="",
         real_name="",
     )
-    resp = AuthenticationClient.id_card_verify(req)
+    resp = client.id_card_verify(req)
     print("身份证实名验证返回：", resp.code, resp.message, resp.data)
 
     # 上传免验证用户名单信息
@@ -70,7 +72,7 @@ if __name__ == '__main__':
         notify_url="",
         ref="",
     )
-    resp = AuthenticationClient.user_exempted_info(req)
+    resp = client.user_exempted_info(req)
     print("上传免验证用户名单信息返回：", resp.code, resp.message, resp.data)
 
     # 查看免验证用户名单是否存在
@@ -78,7 +80,7 @@ if __name__ == '__main__':
         id_card="",
         real_name="",
     )
-    resp = AuthenticationClient.user_white_check(req)
+    resp = client.user_white_check(req)
     print("查看免验证用户名单是否存在返回：", resp.code, resp.message, resp.data)
 
     # 银行卡信息查询
@@ -86,5 +88,5 @@ if __name__ == '__main__':
         card_no="",
         bank_name="",
     )
-    resp = AuthenticationClient.get_bank_card_info(req)
+    resp = client.get_bank_card_info(req)
     print("银行卡信息查询返回：", resp.code, resp.message, resp.data)
