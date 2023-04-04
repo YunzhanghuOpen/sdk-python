@@ -181,9 +181,14 @@ class RespMessage(object):
         return self.__request_id
 
 
-def notify_decoder(public_key, app_key, des3key, data, mess, timestamp, signature):
+def notify_decoder(public_key, app_key, des3key, data, mess, timestamp, signature, sign_type):
     res_data, verify_result = "", False
-    if RSASigner(app_key, public_key, None).verify_sign(data, mess, timestamp, signature):
-        res_data = TripleDes(data, des3key).decrypt().decode()
-        verify_result = True
+    if sign_type == HmacSigner.sign_type():
+        if HmacSigner(app_key).verify_sign(data, mess, timestamp, signature):
+            res_data = TripleDes(data, des3key).decrypt().decode()
+            verify_result = True
+    else:
+        if RSASigner(app_key, public_key, None).verify_sign(data, mess, timestamp, signature):
+            res_data = TripleDes(data, des3key).decrypt().decode()
+            verify_result = True
     return verify_result, res_data

@@ -26,7 +26,8 @@ def yzh_notify():
             "【异步通知】data:{} mess:{} timestamp:{} sign_type:{} sign:{}".format(data, mess, timestamp, sign_type, sign))
         # 验证签名+解密
         verify_result, res_data = notify_decoder(config.yzh_public_key, config.app_key, config.des3key, data, mess,
-                                                 timestamp, sign)
+                                                 timestamp, sign, sign_type)
+        print(verify_result,res_data)
         if verify_result:
             # 业务逻辑处理
             # ToDo List
