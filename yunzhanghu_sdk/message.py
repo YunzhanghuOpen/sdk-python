@@ -112,7 +112,7 @@ class ReqMessage(object):
 
     def __init__(self, encrypt, data, des3key):
         """
-        :param encrypt: 加密方式
+        :param encrypt: 加密算法
         :type data: {} 请求信息
         :param data: 请求信息
         """
