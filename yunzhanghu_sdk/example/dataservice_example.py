@@ -10,57 +10,155 @@ if __name__ == "__main__":
 
     # 查询日订单文件
     req = GetDailyOrderFileRequest(
-        order_date="",
+        order_date = "",
     )
-    resp = client.get_daily_order_file(req)
-    print("查询日订单文件返回：", resp.code, resp.message, resp.data)
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.get_daily_order_file(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)
 
     # 查询日流水文件
     req = GetDailyBillFileV2Request(
-        bill_date="",
+        bill_date = "",
     )
-    resp = client.get_daily_bill_file_v2(req)
-    print("查询日流水文件返回：", resp.code, resp.message, resp.data)
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.get_daily_bill_file_v2(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)
 
     # 查询平台企业预付业务服务费记录
     req = ListDealerRechargeRecordV2Request(
-        begin_at="",
-        end_at="",
+        begin_at = "",
+        end_at = "",
     )
-    resp = client.list_dealer_recharge_record_v2(req)
-    print("查询平台企业预付业务服务费记录返回：", resp.code, resp.message, resp.data)
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.list_dealer_recharge_record_v2(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)
 
     # 查询日订单数据
     req = ListDailyOrderRequest(
-        order_date="",
-        offset="",
-        length="",
-        channel="",
-        data_type="",
+        order_date = "",
+        offset = 0,
+        length = 0,
+        channel = "",
+        data_type = "",
     )
-    resp = client.list_daily_order(req)
-    print("查询日订单数据返回：", resp.code, resp.message, resp.data)
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.list_daily_order(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)
 
     # 查询日订单文件（支付和退款订单）
     req = GetDailyOrderFileV2Request(
-        order_date="",
+        order_date = "",
     )
-    resp = client.get_daily_order_file_v2(req)
-    print("查询日订单文件（支付和退款订单）返回：", resp.code, resp.message, resp.data)
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.get_daily_order_file_v2(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)
 
     # 查询日流水数据
     req = ListDailyBillRequest(
-        bill_date="",
-        offset="",
-        length="",
-        data_type="",
+        bill_date = "",
+        offset = 0,
+        length = 0,
+        data_type = "",
     )
-    resp = client.list_daily_bill(req)
-    print("查询日流水数据返回：", resp.code, resp.message, resp.data)
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.list_daily_bill(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)
 
     # 获取余额日账单数据
     req = ListBalanceDailyStatementRequest(
-        statement_date="",
+        statement_date = "",
     )
-    resp = client.list_balance_daily_statement(req)
-    print("获取余额日账单数据返回：", resp.code, resp.message, resp.data)
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.list_balance_daily_statement(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)

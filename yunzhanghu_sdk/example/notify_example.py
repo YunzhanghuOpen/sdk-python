@@ -6,11 +6,9 @@ from yunzhanghu_sdk.message import notify_decoder
 from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 异步通知
-
 app = Flask(__name__)
 
 config = init_config()
-
 
 @app.route("/yzh/notify", methods=["POST"])
 def yzh_notify():
@@ -30,8 +28,6 @@ def yzh_notify():
         print(verify_result,res_data)
         if verify_result:
             # 业务逻辑处理
-            # ToDo List
-            # 。。。
             resp = "success"
     return resp
 

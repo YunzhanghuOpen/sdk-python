@@ -22,8 +22,13 @@ class Config(object):
 
     :type yzh_public_key: string
     :param yzh_public_key: 云账户公钥
+
+    :type timeout: float
+    :param timeout: 超时时间
     """
-    def __init__(self, host, dealer_id, sign_type, app_key, des3key, dealer_private_key: str, yzh_public_key: str):
+
+    def __init__(self, host, dealer_id, sign_type, app_key, des3key,
+                 dealer_private_key: str, yzh_public_key: str, timeout=30):
         self.host = host
         self.dealer_id = dealer_id
         self.sign_type = sign_type
@@ -31,6 +36,7 @@ class Config(object):
         self.des3key = des3key
         self.dealer_private_key = dealer_private_key
         self.yzh_public_key = yzh_public_key
+        self.timeout = timeout
         self.check_config()
 
     def check_config(self):
