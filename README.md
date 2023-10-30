@@ -67,8 +67,13 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 ### 示例功能列表
 
 - [用户信息验证](yunzhanghu_sdk/example/authentication_example.py)
-- [用户签约（H5 签约）](yunzhanghu_sdk/example/h5usersign_example.py) or [用户签约（API 签约）](yunzhanghu_sdk/example/apiusersign_example.py)
-- [个体工商户注册（云账户新经济 H5）](yunzhanghu_sdk/example/bizlicxjjh5_example.py) or [个体工商户注册（云账户新经济 H5+API）](yunzhanghu_sdk/example/bizlicxjjh5api_example.py)
+- 用户签约
+   - [H5 签约](yunzhanghu_sdk/example/h5usersign_example.py)
+   - [API 签约](yunzhanghu_sdk/example/apiusersign_example.py)
+   - [签约信息上传](yunzhanghu_sdk/example/uploadusersign_example.py)
+- 个体工商户注册
+   - [云账户新经济 H5](yunzhanghu_sdk/example/bizlicxjjh5_example.py)
+   - [云账户新经济 H5+API](yunzhanghu_sdk/example/bizlicxjjh5api_example.py)
 - [实时支付](yunzhanghu_sdk/example/payment_example.py)
 - [异步通知](yunzhanghu_sdk/example/notify_example.py)
 - [对账文件获取](yunzhanghu_sdk/example/dataservice_example.py)
@@ -81,11 +86,16 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
    #为了保护秘钥安全，建议将密钥配置到环境变量中或者配置文件中。
    #请勿在代码中使用硬编码密钥，可能导致密钥暴露，存在安全隐患。
 
+import io
+import sys
+
 from yunzhanghu_sdk.client.api.model.payment import GetOrderRequest
 from yunzhanghu_sdk.client.api.payment_client import PaymentClient
 from yunzhanghu_sdk.config import *
 
 if __name__ == "__main__":
+    # 指定输出流为 utf-8
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
     # 平台企业 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     dealer_id = "xxx"
     # 综合服务主体 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
@@ -112,23 +122,36 @@ if __name__ == "__main__":
     # 初始化配置参数
     config = Config(
         # host 请求域名
-        host="https://api-service.yunzhanghu.com",
-        dealer_id=dealer_id,
-        sign_type=sign_type,
-        app_key=app_key,
-        des3key=des3key,
-        dealer_private_key=dealer_private_key,
-        yzh_public_key=yzh_public_key,
+        host = "https://api-service.yunzhanghu.com",
+        dealer_id = dealer_id,
+        sign_type = sign_type,
+        app_key = app_key,
+        des3key = des3key,
+        dealer_private_key = dealer_private_key,
+        yzh_public_key = yzh_public_key,
     )
     # 获取订单详情
     request = GetOrderRequest(
-        order_id="",
-        channel="",
-        data_type=""
+        order_id = "",
+        channel = "",
+        data_type = ""
     )
     # 建议自定义并将 request-id 记录在日志中
     # request.request_id = "XXXXX"
     client = PaymentClient(config)
-    resp = client.get_order(request)
 
-    print(resp.code, resp.message, resp.request_id, resp.data)
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    request.request_id = "requestId"
+    try:
+        resp =  client.get_order(request)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)

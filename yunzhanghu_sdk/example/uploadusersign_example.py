@@ -1,23 +1,22 @@
 # -*- coding: utf-8 -*-
 
-from yunzhanghu_sdk.client.api.model.bizlicxjjh5 import *
-from yunzhanghu_sdk.client.api.bizlicxjjh5_client import BizlicXjjH5ServiceClient
+from yunzhanghu_sdk.client.api.model.uploadusersign import *
+from yunzhanghu_sdk.client.api.uploadusersign_client import UploadUserSignServiceClient
 from yunzhanghu_sdk.example.utils.config_init import init_config
 
-# 个体工商户注册（云账户新经济 H5）
+# 签约信息上传
 if __name__ == "__main__":
-    client = BizlicXjjH5ServiceClient(config=init_config())
+    client = UploadUserSignServiceClient(config=init_config())
 
-    # 预启动
-    req = H5GetStartUrlRequest(
+    # 用户签约信息上传
+    req = UploadUserSignRequest(
         dealer_id = "",
         broker_id = "",
-        dealer_user_id = "",
-        client_type = 0,
+        real_name = "",
+        id_card = "",
+        phone = "",
+        is_abroad = False,
         notify_url = "",
-        color = "",
-        return_url = "",
-        customer_title = 0,
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -25,7 +24,7 @@ if __name__ == "__main__":
     # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
     req.request_id = "requestIdExample123456789"
     try:
-        resp = client.h5_get_start_url(req)
+        resp = client.upload_user_sign(req)
         if resp.code == "0000":
             # 操作成功
             print("操作成功 ", resp.data)
@@ -36,14 +35,12 @@ if __name__ == "__main__":
         # 发生异常
         print(e)
 
-    # 查询个体工商户状态
-    req = H5EcoCityAicStatusRequest(
+    # 获取用户签约状态
+    req = GetUploadUserSignStatusRequest(
         dealer_id = "",
         broker_id = "",
-        dealer_user_id = "",
-        id_card = "",
         real_name = "",
-        open_id = "",
+        id_card = "",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -51,7 +48,7 @@ if __name__ == "__main__":
     # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
     req.request_id = "requestIdExample123456789"
     try:
-        resp = client.h5_eco_city_aic_status(req)
+        resp = client.get_upload_user_sign_status(req)
         if resp.code == "0000":
             # 操作成功
             print("操作成功 ", resp.data)

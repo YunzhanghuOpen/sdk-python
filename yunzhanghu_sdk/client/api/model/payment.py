@@ -5,7 +5,7 @@ from ...base import BaseRequest
 
 class CreateBankpayOrderRequest(BaseRequest):
     """
-    银行卡实时支付请求
+    银行卡实时支付请求-请求
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -70,10 +70,10 @@ class CreateBankpayOrderRequest(BaseRequest):
 
 class CreateBankpayOrderResponse(BaseRequest):
     """
-    银行卡实时支付返回
+    银行卡实时支付返回-响应
 
     :type order_id: string
-    :param order_id: 
+    :param order_id: 平台企业订单号
 
     :type ref: string
     :param ref: 综合服务平台流水号
@@ -95,7 +95,7 @@ class CreateBankpayOrderResponse(BaseRequest):
 
 class CreateAlipayOrderRequest(BaseRequest):
     """
-    支付宝实时支付请求
+    支付宝实时支付请求-请求
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -165,7 +165,7 @@ class CreateAlipayOrderRequest(BaseRequest):
 
 class CreateAlipayOrderResponse(BaseRequest):
     """
-    支付宝实时支付返回
+    支付宝实时支付返回-响应
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -190,7 +190,7 @@ class CreateAlipayOrderResponse(BaseRequest):
 
 class CreateWxpayOrderRequest(BaseRequest):
     """
-    微信实时支付请求
+    微信实时支付请求-请求
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -270,7 +270,7 @@ class CreateWxpayOrderRequest(BaseRequest):
 
 class CreateWxpayOrderResponse(BaseRequest):
     """
-    微信实时支付返回
+    微信实时支付返回-响应
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -295,7 +295,7 @@ class CreateWxpayOrderResponse(BaseRequest):
 
 class GetOrderRequest(BaseRequest):
     """
-    查询单笔订单信息请求
+    查询单笔订单信息请求-请求
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -320,7 +320,7 @@ class GetOrderRequest(BaseRequest):
 
 class GetOrderResponse(BaseRequest):
     """
-    查询单笔订单信息返回
+    查询单笔订单信息返回-响应
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -480,7 +480,7 @@ class GetOrderResponse(BaseRequest):
 
 class GetDealerVARechargeAccountRequest(BaseRequest):
     """
-    查询平台企业汇款信息请求
+    查询平台企业汇款信息请求-请求
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -500,7 +500,7 @@ class GetDealerVARechargeAccountRequest(BaseRequest):
 
 class GetDealerVARechargeAccountResponse(BaseRequest):
     """
-    查询平台企业汇款信息返回
+    查询平台企业汇款信息返回-响应
 
     :type acct_name: string
     :param acct_name: 账户名称
@@ -530,7 +530,7 @@ class GetDealerVARechargeAccountResponse(BaseRequest):
 
 class CancelOrderRequest(BaseRequest):
     """
-    取消待支付订单请求
+    取消待支付订单请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -560,7 +560,7 @@ class CancelOrderRequest(BaseRequest):
 
 class CancelOrderResponse(BaseRequest):
     """
-    取消待支付订单返回
+    取消待支付订单返回-响应
 
     :type ok: string
     :param ok: 
@@ -575,7 +575,7 @@ class CancelOrderResponse(BaseRequest):
 
 class ListAccountRequest(BaseRequest):
     """
-    查询平台企业余额请求
+    查询平台企业余额请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -590,7 +590,7 @@ class ListAccountRequest(BaseRequest):
 
 class ListAccountResponse(BaseRequest):
     """
-    查询平台企业余额返回
+    查询平台企业余额返回-响应
 
     :type dealer_infos: list
     :param dealer_infos: 
@@ -605,7 +605,7 @@ class ListAccountResponse(BaseRequest):
 
 class AccountInfo(BaseRequest):
     """
-    账户信息
+    账户信息-响应
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -665,7 +665,7 @@ class AccountInfo(BaseRequest):
 
 class GetEleReceiptFileRequest(BaseRequest):
     """
-    查询电子回单请求
+    查询电子回单请求-请求
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -685,7 +685,7 @@ class GetEleReceiptFileRequest(BaseRequest):
 
 class GetEleReceiptFileResponse(BaseRequest):
     """
-    查询电子回单返回
+    查询电子回单返回-响应
 
     :type expire_time: string
     :param expire_time: 链接失效时间
@@ -710,7 +710,7 @@ class GetEleReceiptFileResponse(BaseRequest):
 
 class NotifyOrderRequest(BaseRequest):
     """
-    订单支付状态回调通知
+    订单支付状态回调通知-请求
 
     :type notify_id: string
     :param notify_id: 通知 ID
@@ -735,7 +735,7 @@ class NotifyOrderRequest(BaseRequest):
 
 class NotifyOrderData(BaseRequest):
     """
-    订单支付状态回调通知数据
+    订单支付状态回调通知数据-响应
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -875,7 +875,7 @@ class NotifyOrderData(BaseRequest):
 
 class CreateBatchOrderRequest(BaseRequest):
     """
-    批量下单请求
+    批量下单请求-请求
 
     :type batch_id: string
     :param batch_id: 平台企业批次号
@@ -898,6 +898,9 @@ class CreateBatchOrderRequest(BaseRequest):
     :type total_count: string
     :param total_count: 总笔数
 
+    :type mode: string
+    :param mode: 支付模式
+
     :type order_list: list
     :param order_list: 订单列表
     """
@@ -910,6 +913,7 @@ class CreateBatchOrderRequest(BaseRequest):
         wx_app_id=None,
         total_pay=None,
         total_count=None,
+        mode=None,
         order_list=None
     ):
         super().__init__()
@@ -920,12 +924,13 @@ class CreateBatchOrderRequest(BaseRequest):
         self.wx_app_id = wx_app_id
         self.total_pay = total_pay
         self.total_count = total_count
+        self.mode = mode
         self.order_list = order_list
 
 
 class BatchOrderInfo(BaseRequest):
     """
-    批量下单订单信息
+    批量下单订单信息-响应
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -985,7 +990,7 @@ class BatchOrderInfo(BaseRequest):
 
 class CreateBatchOrderResponse(BaseRequest):
     """
-    批量下单返回
+    批量下单返回-响应
 
     :type batch_id: string
     :param batch_id: 平台企业批次号
@@ -1005,7 +1010,7 @@ class CreateBatchOrderResponse(BaseRequest):
 
 class BatchOrderResult(BaseRequest):
     """
-    批量下单返回订单信息
+    批量下单返回订单信息-响应
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -1030,7 +1035,7 @@ class BatchOrderResult(BaseRequest):
 
 class ConfirmBatchOrderRequest(BaseRequest):
     """
-    批次确认请求
+    批次确认请求-请求
 
     :type batch_id: string
     :param batch_id: 平台企业批次号
@@ -1060,5 +1065,36 @@ class ConfirmBatchOrderRequest(BaseRequest):
 
 class ConfirmBatchOrderResponse(BaseRequest):
     """
-    批次确认响应
+    批次确认返回-响应
+    """
+
+
+class CancelBatchOrderRequest(BaseRequest):
+    """
+    批次撤销请求-请求
+
+    :type batch_id: string
+    :param batch_id: 平台企业批次号
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+    """
+    def __init__(
+        self,
+        batch_id=None,
+        dealer_id=None,
+        broker_id=None
+    ):
+        super().__init__()
+        self.batch_id = batch_id
+        self.dealer_id = dealer_id
+        self.broker_id = broker_id
+
+
+class CancelBatchOrderResponse(BaseRequest):
+    """
+    批次撤销返回-响应
     """

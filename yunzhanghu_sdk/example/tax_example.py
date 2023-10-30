@@ -10,19 +10,47 @@ if __name__ == "__main__":
 
     # 下载个人所得税扣缴明细表
     req = GetTaxFileRequest(
-        dealer_id="",
-        ent_id="",
-        year_month="",
+        dealer_id = "",
+        ent_id = "",
+        year_month = "",
     )
-    resp = client.get_tax_file(req)
-    print("下载个人所得税扣缴明细表返回：", resp.code, resp.message, resp.data)
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.get_tax_file(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)
 
     # 查询纳税人是否为跨集团用户
     req = GetUserCrossRequest(
-        dealer_id="",
-        year="",
-        id_card="",
-        ent_id="",
+        dealer_id = "",
+        year = "",
+        id_card = "",
+        ent_id = "",
     )
-    resp = client.get_user_cross(req)
-    print("查询纳税人是否为跨集团用户返回：", resp.code, resp.message, resp.data)
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如平台企业未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.get_user_cross(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from yunzhanghu_sdk.config import *
 
-
 def init_config():
     # 平台企业 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     dealer_id = ""
@@ -26,14 +25,16 @@ def init_config():
     '''
     config = Config(
         # 生产环境请求域名
-        host="https://api-service.yunzhanghu.com",
+        host = "https://api-service.yunzhanghu.com",
         # 沙箱环境请求域名
-        # host="https://api-service.yunzhanghu.com/sandbox",
-        dealer_id=dealer_id,
-        sign_type=sign_type,
-        app_key=app_key,
-        des3key=des3key,
-        dealer_private_key=dealer_private_key,
-        yzh_public_key=yzh_public_key,
+        # host = "https://api-service.yunzhanghu.com/sandbox",
+        dealer_id = dealer_id,
+        sign_type = sign_type,
+        app_key = app_key,
+        des3key = des3key,
+        dealer_private_key = dealer_private_key,
+        yzh_public_key = yzh_public_key,
+        # 自定义超时时间
+        timeout = 30,
     )
     return config

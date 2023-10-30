@@ -5,7 +5,7 @@ from ...base import BaseRequest
 
 class GetDailyOrderFileRequest(BaseRequest):
     """
-    查询日订单文件请求
+    查询日订单文件请求-请求
 
     :type order_date: string
     :param order_date: 订单查询日期, 格式：yyyy-MM-dd
@@ -20,7 +20,7 @@ class GetDailyOrderFileRequest(BaseRequest):
 
 class GetDailyOrderFileResponse(BaseRequest):
     """
-    查询日订单文件返回
+    查询日订单文件返回-响应
 
     :type order_download_url: string
     :param order_download_url: 下载地址
@@ -35,7 +35,7 @@ class GetDailyOrderFileResponse(BaseRequest):
 
 class GetDailyBillFileV2Request(BaseRequest):
     """
-    查询日流水文件请求
+    查询日流水文件请求-请求
 
     :type bill_date: string
     :param bill_date: 所需获取的日流水日期，格式：yyyy-MM-dd
@@ -50,7 +50,7 @@ class GetDailyBillFileV2Request(BaseRequest):
 
 class GetDailyBillFileV2Response(BaseRequest):
     """
-    查询日流水文件返回
+    查询日流水文件返回-响应
 
     :type bill_download_url: string
     :param bill_download_url: 下载地址
@@ -65,7 +65,7 @@ class GetDailyBillFileV2Response(BaseRequest):
 
 class ListDealerRechargeRecordV2Request(BaseRequest):
     """
-    平台企业预付业务服务费记录请求
+    平台企业预付业务服务费记录请求-请求
 
     :type begin_at: string
     :param begin_at: 开始时间，格式：yyyy-MM-dd
@@ -85,7 +85,7 @@ class ListDealerRechargeRecordV2Request(BaseRequest):
 
 class ListDealerRechargeRecordV2Response(BaseRequest):
     """
-    平台企业预付业务服务费记录返回
+    平台企业预付业务服务费记录返回-响应
 
     :type data: list
     :param data: 预付业务服务费记录
@@ -100,7 +100,7 @@ class ListDealerRechargeRecordV2Response(BaseRequest):
 
 class RechargeRecordInfo(BaseRequest):
     """
-    预付业务服务费记录信息
+    预付业务服务费记录信息-响应
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -108,13 +108,13 @@ class RechargeRecordInfo(BaseRequest):
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
 
-    :type recharge_id: string
+    :type recharge_id: int
     :param recharge_id: 预付业务服务费记录 ID
 
-    :type amount: string
+    :type amount: float
     :param amount: 预付业务服务费
 
-    :type actual_amount: string
+    :type actual_amount: float
     :param actual_amount: 实际到账金额
 
     :type created_at: string
@@ -155,7 +155,7 @@ class RechargeRecordInfo(BaseRequest):
 
 class ListDailyOrderRequest(BaseRequest):
     """
-    查询日订单数据请求
+    查询日订单数据请求-请求
 
     :type order_date: string
     :param order_date: 订单查询日期, 格式：yyyy-MM-dd格式：yyyy-MM-dd
@@ -190,7 +190,7 @@ class ListDailyOrderRequest(BaseRequest):
 
 class ListDailyOrderResponse(BaseRequest):
     """
-    查询日订单数据返回
+    查询日订单数据返回-响应
 
     :type total_num: int
     :param total_num: 总数目
@@ -210,7 +210,7 @@ class ListDailyOrderResponse(BaseRequest):
 
 class DealerOrderInfo(BaseRequest):
     """
-    平台企业支付订单信息
+    平台企业支付订单信息-响应
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -320,7 +320,7 @@ class DealerOrderInfo(BaseRequest):
 
 class ListDailyBillRequest(BaseRequest):
     """
-    查询日流水数据请求
+    查询日流水数据请求-请求
 
     :type bill_date: string
     :param bill_date: 流水查询日期
@@ -350,7 +350,7 @@ class ListDailyBillRequest(BaseRequest):
 
 class ListDailyBillResponse(BaseRequest):
     """
-    查询日流水数据返回
+    查询日流水数据返回-响应
 
     :type total_num: int
     :param total_num: 总条数
@@ -370,7 +370,7 @@ class ListDailyBillResponse(BaseRequest):
 
 class DealerBillInfo(BaseRequest):
     """
-    流水详情
+    流水详情-响应
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -455,7 +455,7 @@ class DealerBillInfo(BaseRequest):
 
 class GetDailyOrderFileV2Request(BaseRequest):
     """
-    查询日订单文件（支付和退款订单）请求
+    查询日订单文件（支付和退款订单）请求-请求
 
     :type order_date: string
     :param order_date: 订单查询日期, 格式：yyyy-MM-dd
@@ -470,7 +470,7 @@ class GetDailyOrderFileV2Request(BaseRequest):
 
 class GetDailyOrderFileV2Response(BaseRequest):
     """
-    查询日订单文件（支付和退款订单）返回
+    查询日订单文件（支付和退款订单）返回-响应
 
     :type url: string
     :param url: 下载地址
@@ -485,7 +485,7 @@ class GetDailyOrderFileV2Response(BaseRequest):
 
 class ListBalanceDailyStatementRequest(BaseRequest):
     """
-    查询余额日账单数据请求
+    查询余额日账单数据请求-请求
 
     :type statement_date: string
     :param statement_date: 账单查询日期 格式：yyyy-MM-dd
@@ -500,7 +500,7 @@ class ListBalanceDailyStatementRequest(BaseRequest):
 
 class ListBalanceDailyStatementResponse(BaseRequest):
     """
-    查询余额日账单数据返回
+    查询余额日账单数据返回-响应
 
     :type list: list
     :param list: 条目信息
@@ -515,7 +515,7 @@ class ListBalanceDailyStatementResponse(BaseRequest):
 
 class StatementDetail(BaseRequest):
     """
-    余额账单信息详情
+    余额账单信息详情-响应
 
     :type statement_id: string
     :param statement_id: 账单 ID

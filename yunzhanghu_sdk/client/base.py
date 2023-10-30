@@ -8,13 +8,11 @@ from ..message import *
 
 
 class BaseClient(object):
-    def __init__(self, config, timeout=30):
+    def __init__(self, config):
         """
         :type config: Config
         :param config: 配置信息
 
-        :type timeout: int
-        :param timeout: 请求超时时间。非必填，默认 30 秒
         """
 
         sign_type = config.sign_type
@@ -30,7 +28,7 @@ class BaseClient(object):
 
         self.__dealer_id = config.dealer_id
         self.__base_url = config.host
-        self.__timeout = timeout
+        self.__timeout = config.timeout
 
     def __header(self, request_id):
         if type(request_id) is not str or request_id == "":
@@ -39,8 +37,8 @@ class BaseClient(object):
             "dealer-id": self.__dealer_id,
             "request-id": request_id,
             "Content-Type": "application/x-www-form-urlencoded",
-            "User-Agent": "yunzhanghu-sdk-python/%s/%s/%s" % (
-                __version__, platform.platform(), platform.python_version()),
+            "User-Agent": "yunzhanghu-sdk-python/%s/%s" % (
+                __version__, platform.python_version()),
         }
 
     def __request(self, method, url, **kwargs):
