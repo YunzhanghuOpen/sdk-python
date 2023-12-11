@@ -140,6 +140,19 @@ class PaymentClient(BaseClient):
             "/api/payment/v1/confirm-batch", 
             request.request_id, Utils.copy_dict(request.__dict__)
         )
+    
+    def query_batch_order(self, request: QueryBatchOrderRequest):
+        """ 查询批次订单信息
+   
+        :type request: QueryBatchOrderRequest
+        :param request: the QueryBatchOrderRequest request parameters class.
+    
+        :return: QueryBatchOrderResponse
+        """
+        return self._get(
+            "/api/payment/v1/query-batch", 
+            request.request_id, Utils.copy_dict(request.__dict__)
+        )
 
     def cancel_batch_order(self, request: CancelBatchOrderRequest):
         """ 批次撤销

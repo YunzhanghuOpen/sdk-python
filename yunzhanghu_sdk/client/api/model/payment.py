@@ -875,7 +875,7 @@ class NotifyOrderData(BaseRequest):
 
 class CreateBatchOrderRequest(BaseRequest):
     """
-    批量下单请求-请求
+    批次下单请求-请求
 
     :type batch_id: string
     :param batch_id: 平台企业批次号
@@ -930,7 +930,7 @@ class CreateBatchOrderRequest(BaseRequest):
 
 class BatchOrderInfo(BaseRequest):
     """
-    批量下单订单信息-响应
+    批次下单订单信息-响应
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -990,7 +990,7 @@ class BatchOrderInfo(BaseRequest):
 
 class CreateBatchOrderResponse(BaseRequest):
     """
-    批量下单返回-响应
+    批次下单返回-响应
 
     :type batch_id: string
     :param batch_id: 平台企业批次号
@@ -1010,7 +1010,7 @@ class CreateBatchOrderResponse(BaseRequest):
 
 class BatchOrderResult(BaseRequest):
     """
-    批量下单返回订单信息-响应
+    批次下单返回订单信息-响应
 
     :type order_id: string
     :param order_id: 平台企业订单号
@@ -1020,17 +1020,47 @@ class BatchOrderResult(BaseRequest):
 
     :type pay: string
     :param pay: 订单金额
+
+    :type status: string
+    :param status: 下单状态
+
+    :type error_reasons: list
+    :param error_reasons: 下单失败原因
     """
     def __init__(
         self,
         order_id=None,
         ref=None,
-        pay=None
+        pay=None,
+        status=None,
+        error_reasons=None
     ):
         super().__init__()
         self.order_id = order_id
         self.ref = ref
         self.pay = pay
+        self.status = status
+        self.error_reasons = error_reasons
+
+
+class BatchOrderErrorReasons(BaseRequest):
+    """
+    下单失败原因信息-响应
+
+    :type error_code: string
+    :param error_code: 不允许下单原因码
+
+    :type error_message: string
+    :param error_message: 不允许下单原因描述
+    """
+    def __init__(
+        self,
+        error_code=None,
+        error_message=None
+    ):
+        super().__init__()
+        self.error_code = error_code
+        self.error_message = error_message
 
 
 class ConfirmBatchOrderRequest(BaseRequest):
@@ -1067,6 +1097,221 @@ class ConfirmBatchOrderResponse(BaseRequest):
     """
     批次确认返回-响应
     """
+
+
+class QueryBatchOrderRequest(BaseRequest):
+    """
+    查询批次订单信息请求-请求
+
+    :type batch_id: string
+    :param batch_id: 平台企业批次号
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+    """
+    def __init__(
+        self,
+        batch_id=None,
+        dealer_id=None
+    ):
+        super().__init__()
+        self.batch_id = batch_id
+        self.dealer_id = dealer_id
+
+
+class QueryBatchOrderResponse(BaseRequest):
+    """
+    查询批次订单信息返回-响应
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type batch_id: string
+    :param batch_id: 平台企业批次号
+
+    :type total_count: string
+    :param total_count: 总笔数
+
+    :type total_pay: string
+    :param total_pay: 订单总金额
+
+    :type channel: string
+    :param channel: 支付路径
+
+    :type batch_status: string
+    :param batch_status: 批次状态码
+
+    :type batch_status_message: string
+    :param batch_status_message: 批次状态码描述
+
+    :type batch_received_time: string
+    :param batch_received_time: 批次接收时间
+
+    :type order_list: list
+    :param order_list: 批次订单列表
+    """
+    def __init__(
+        self,
+        broker_id=None,
+        dealer_id=None,
+        batch_id=None,
+        total_count=None,
+        total_pay=None,
+        channel=None,
+        batch_status=None,
+        batch_status_message=None,
+        batch_received_time=None,
+        order_list=None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.batch_id = batch_id
+        self.total_count = total_count
+        self.total_pay = total_pay
+        self.channel = channel
+        self.batch_status = batch_status
+        self.batch_status_message = batch_status_message
+        self.batch_received_time = batch_received_time
+        self.order_list = order_list
+
+
+class QueryBatchOrderInfo(BaseRequest):
+    """
+    查询批次订单信息订单详情-响应
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type pay: string
+    :param pay: 订单金额
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type card_no: string
+    :param card_no: 收款人账号
+
+    :type id_card: string
+    :param id_card: 身份证号码
+
+    :type phone_no: string
+    :param phone_no: 手机号
+
+    :type status: string
+    :param status: 订单状态码
+
+    :type status_detail: string
+    :param status_detail: 订单详情状态码
+
+    :type status_message: string
+    :param status_message: 订单状态码描述
+
+    :type status_detail_message: string
+    :param status_detail_message: 订单详情状态码描述
+
+    :type broker_amount: string
+    :param broker_amount: 综合服务主体支付金额
+
+    :type ref: string
+    :param ref: 综合服务平台流水号
+
+    :type broker_bank_bill: string
+    :param broker_bank_bill: 支付交易流水号
+
+    :type withdraw_platform: string
+    :param withdraw_platform: 支付路径
+
+    :type created_at: string
+    :param created_at: 订单接收时间
+
+    :type finished_time: string
+    :param finished_time: 订单完成时间
+
+    :type broker_fee: string
+    :param broker_fee: 综合服务主体加成服务费
+
+    :type broker_real_fee: string
+    :param broker_real_fee: 余额账户支出加成服务费
+
+    :type broker_deduct_fee: string
+    :param broker_deduct_fee: 加成服务费抵扣金额
+
+    :type pay_remark: string
+    :param pay_remark: 订单备注
+
+    :type user_fee: string
+    :param user_fee: 用户加成服务费
+
+    :type bank_name: string
+    :param bank_name: 银行名称
+
+    :type project_id: string
+    :param project_id: 业务线标识
+    """
+    def __init__(
+        self,
+        order_id=None,
+        pay=None,
+        broker_id=None,
+        dealer_id=None,
+        real_name=None,
+        card_no=None,
+        id_card=None,
+        phone_no=None,
+        status=None,
+        status_detail=None,
+        status_message=None,
+        status_detail_message=None,
+        broker_amount=None,
+        ref=None,
+        broker_bank_bill=None,
+        withdraw_platform=None,
+        created_at=None,
+        finished_time=None,
+        broker_fee=None,
+        broker_real_fee=None,
+        broker_deduct_fee=None,
+        pay_remark=None,
+        user_fee=None,
+        bank_name=None,
+        project_id=None
+    ):
+        super().__init__()
+        self.order_id = order_id
+        self.pay = pay
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.real_name = real_name
+        self.card_no = card_no
+        self.id_card = id_card
+        self.phone_no = phone_no
+        self.status = status
+        self.status_detail = status_detail
+        self.status_message = status_message
+        self.status_detail_message = status_detail_message
+        self.broker_amount = broker_amount
+        self.ref = ref
+        self.broker_bank_bill = broker_bank_bill
+        self.withdraw_platform = withdraw_platform
+        self.created_at = created_at
+        self.finished_time = finished_time
+        self.broker_fee = broker_fee
+        self.broker_real_fee = broker_real_fee
+        self.broker_deduct_fee = broker_deduct_fee
+        self.pay_remark = pay_remark
+        self.user_fee = user_fee
+        self.bank_name = bank_name
+        self.project_id = project_id
 
 
 class CancelBatchOrderRequest(BaseRequest):
