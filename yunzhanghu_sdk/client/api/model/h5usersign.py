@@ -24,11 +24,11 @@ class H5UserPresignRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        id_card=None,
-        certificate_type=None
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        id_card = None,
+        certificate_type = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -53,9 +53,9 @@ class H5UserPresignResponse(BaseRequest):
     """
     def __init__(
         self,
-        uid=None,
-        token=None,
-        status=None
+        uid = None,
+        token = None,
+        status = None
     ):
         super().__init__()
         self.uid = uid
@@ -81,10 +81,10 @@ class H5UserSignRequest(BaseRequest):
     """
     def __init__(
         self,
-        token=None,
-        color=None,
-        url=None,
-        redirect_url=None
+        token = None,
+        color = None,
+        url = None,
+        redirect_url = None
     ):
         super().__init__()
         self.token = token
@@ -102,7 +102,7 @@ class H5UserSignResponse(BaseRequest):
     """
     def __init__(
         self,
-        url=None
+        url = None
     ):
         super().__init__()
         self.url = url
@@ -126,10 +126,10 @@ class GetH5UserSignStatusRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        id_card=None
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        id_card = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -150,8 +150,8 @@ class GetH5UserSignStatusResponse(BaseRequest):
     """
     def __init__(
         self,
-        signed_at=None,
-        status=None
+        signed_at = None,
+        status = None
     ):
         super().__init__()
         self.signed_at = signed_at
@@ -179,11 +179,11 @@ class H5UserReleaseRequest(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None,
-        real_name=None,
-        id_card=None,
-        certificate_type=None
+        broker_id = None,
+        dealer_id = None,
+        real_name = None,
+        id_card = None,
+        certificate_type = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -202,7 +202,7 @@ class H5UserReleaseResponse(BaseRequest):
     """
     def __init__(
         self,
-        status=None
+        status = None
     ):
         super().__init__()
         self.status = status
@@ -229,11 +229,11 @@ class NotifyH5UserSignRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        id_card=None,
-        phone=None
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        id_card = None,
+        phone = None
     ):
         super().__init__()
         self.dealer_id = dealer_id

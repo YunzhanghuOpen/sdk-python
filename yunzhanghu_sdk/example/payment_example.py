@@ -226,7 +226,7 @@ if __name__ == "__main__":
         wx_app_id = "",
         total_pay = "",
         total_count = "",
-        order_list=[],
+        order_list = [],
     )
 
     # request-id：请求 ID，请求的唯一标识

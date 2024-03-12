@@ -42,17 +42,17 @@ class CreateBankpayOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        card_no=None,
-        id_card=None,
-        phone_no=None,
-        pay=None,
-        pay_remark=None,
-        notify_url=None,
-        project_id=None
+        order_id = None,
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        card_no = None,
+        id_card = None,
+        phone_no = None,
+        pay = None,
+        pay_remark = None,
+        notify_url = None,
+        project_id = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -83,9 +83,9 @@ class CreateBankpayOrderResponse(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        ref=None,
-        pay=None
+        order_id = None,
+        ref = None,
+        pay = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -135,18 +135,18 @@ class CreateAlipayOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        card_no=None,
-        id_card=None,
-        phone_no=None,
-        pay=None,
-        pay_remark=None,
-        notify_url=None,
-        project_id=None,
-        check_name=None
+        order_id = None,
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        card_no = None,
+        id_card = None,
+        phone_no = None,
+        pay = None,
+        pay_remark = None,
+        notify_url = None,
+        project_id = None,
+        check_name = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -178,9 +178,9 @@ class CreateAlipayOrderResponse(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        ref=None,
-        pay=None
+        order_id = None,
+        ref = None,
+        pay = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -236,20 +236,20 @@ class CreateWxpayOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        openid=None,
-        id_card=None,
-        phone_no=None,
-        pay=None,
-        pay_remark=None,
-        notify_url=None,
-        wx_app_id=None,
-        wxpay_mode=None,
-        project_id=None,
-        notes=None
+        order_id = None,
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        openid = None,
+        id_card = None,
+        phone_no = None,
+        pay = None,
+        pay_remark = None,
+        notify_url = None,
+        wx_app_id = None,
+        wxpay_mode = None,
+        project_id = None,
+        notes = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -283,9 +283,9 @@ class CreateWxpayOrderResponse(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        ref=None,
-        pay=None
+        order_id = None,
+        ref = None,
+        pay = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -308,9 +308,9 @@ class GetOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        channel=None,
-        data_type=None
+        order_id = None,
+        channel = None,
+        data_type = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -414,36 +414,36 @@ class GetOrderResponse(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        pay=None,
-        broker_id=None,
-        dealer_id=None,
-        real_name=None,
-        card_no=None,
-        id_card=None,
-        phone_no=None,
-        status=None,
-        status_detail=None,
-        status_message=None,
-        status_detail_message=None,
-        broker_amount=None,
-        ref=None,
-        broker_bank_bill=None,
-        withdraw_platform=None,
-        created_at=None,
-        finished_time=None,
-        broker_fee=None,
-        broker_real_fee=None,
-        broker_deduct_fee=None,
-        pay_remark=None,
-        user_fee=None,
-        bank_name=None,
-        project_id=None,
-        anchor_id=None,
-        notes=None,
-        sys_amount=None,
-        tax=None,
-        sys_fee=None
+        order_id = None,
+        pay = None,
+        broker_id = None,
+        dealer_id = None,
+        real_name = None,
+        card_no = None,
+        id_card = None,
+        phone_no = None,
+        status = None,
+        status_detail = None,
+        status_message = None,
+        status_detail_message = None,
+        broker_amount = None,
+        ref = None,
+        broker_bank_bill = None,
+        withdraw_platform = None,
+        created_at = None,
+        finished_time = None,
+        broker_fee = None,
+        broker_real_fee = None,
+        broker_deduct_fee = None,
+        pay_remark = None,
+        user_fee = None,
+        bank_name = None,
+        project_id = None,
+        anchor_id = None,
+        notes = None,
+        sys_amount = None,
+        tax = None,
+        sys_fee = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -490,8 +490,8 @@ class GetDealerVARechargeAccountRequest(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None
+        broker_id = None,
+        dealer_id = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -516,10 +516,10 @@ class GetDealerVARechargeAccountResponse(BaseRequest):
     """
     def __init__(
         self,
-        acct_name=None,
-        acct_no=None,
-        bank_name=None,
-        dealer_acct_name=None
+        acct_name = None,
+        acct_no = None,
+        bank_name = None,
+        dealer_acct_name = None
     ):
         super().__init__()
         self.acct_name = acct_name
@@ -546,10 +546,10 @@ class CancelOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        order_id=None,
-        ref=None,
-        channel=None
+        dealer_id = None,
+        order_id = None,
+        ref = None,
+        channel = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -567,7 +567,7 @@ class CancelOrderResponse(BaseRequest):
     """
     def __init__(
         self,
-        ok=None
+        ok = None
     ):
         super().__init__()
         self.ok = ok
@@ -582,7 +582,7 @@ class ListAccountRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None
+        dealer_id = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -597,7 +597,7 @@ class ListAccountResponse(BaseRequest):
     """
     def __init__(
         self,
-        dealer_infos=None
+        dealer_infos = None
     ):
         super().__init__()
         self.dealer_infos = dealer_infos
@@ -639,16 +639,16 @@ class AccountInfo(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        bank_card_balance=None,
-        is_bank_card=None,
-        alipay_balance=None,
-        is_alipay=None,
-        wxpay_balance=None,
-        is_wxpay=None,
-        rebate_fee_balance=None,
-        acct_balance=None,
-        total_balance=None
+        broker_id = None,
+        bank_card_balance = None,
+        is_bank_card = None,
+        alipay_balance = None,
+        is_alipay = None,
+        wxpay_balance = None,
+        is_wxpay = None,
+        rebate_fee_balance = None,
+        acct_balance = None,
+        total_balance = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -675,8 +675,8 @@ class GetEleReceiptFileRequest(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        ref=None
+        order_id = None,
+        ref = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -698,9 +698,9 @@ class GetEleReceiptFileResponse(BaseRequest):
     """
     def __init__(
         self,
-        expire_time=None,
-        file_name=None,
-        url=None
+        expire_time = None,
+        file_name = None,
+        url = None
     ):
         super().__init__()
         self.expire_time = expire_time
@@ -723,9 +723,9 @@ class NotifyOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        notify_id=None,
-        notify_time=None,
-        data=None
+        notify_id = None,
+        notify_time = None,
+        data = None
     ):
         super().__init__()
         self.notify_id = notify_id
@@ -817,32 +817,32 @@ class NotifyOrderData(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        pay=None,
-        broker_id=None,
-        dealer_id=None,
-        real_name=None,
-        card_no=None,
-        id_card=None,
-        phone_no=None,
-        status=None,
-        status_detail=None,
-        status_message=None,
-        status_detail_message=None,
-        broker_amount=None,
-        ref=None,
-        broker_bank_bill=None,
-        withdraw_platform=None,
-        created_at=None,
-        finished_time=None,
-        broker_fee=None,
-        broker_real_fee=None,
-        broker_deduct_fee=None,
-        pay_remark=None,
-        user_fee=None,
-        bank_name=None,
-        project_id=None,
-        user_id=None
+        order_id = None,
+        pay = None,
+        broker_id = None,
+        dealer_id = None,
+        real_name = None,
+        card_no = None,
+        id_card = None,
+        phone_no = None,
+        status = None,
+        status_detail = None,
+        status_message = None,
+        status_detail_message = None,
+        broker_amount = None,
+        ref = None,
+        broker_bank_bill = None,
+        withdraw_platform = None,
+        created_at = None,
+        finished_time = None,
+        broker_fee = None,
+        broker_real_fee = None,
+        broker_deduct_fee = None,
+        pay_remark = None,
+        user_fee = None,
+        bank_name = None,
+        project_id = None,
+        user_id = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -906,15 +906,15 @@ class CreateBatchOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        batch_id=None,
-        dealer_id=None,
-        broker_id=None,
-        channel=None,
-        wx_app_id=None,
-        total_pay=None,
-        total_count=None,
-        mode=None,
-        order_list=None
+        batch_id = None,
+        dealer_id = None,
+        broker_id = None,
+        channel = None,
+        wx_app_id = None,
+        total_pay = None,
+        total_count = None,
+        mode = None,
+        order_list = None
     ):
         super().__init__()
         self.batch_id = batch_id
@@ -964,16 +964,16 @@ class BatchOrderInfo(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        real_name=None,
-        id_card=None,
-        card_no=None,
-        openid=None,
-        phone_no=None,
-        project_id=None,
-        pay=None,
-        pay_remark=None,
-        notify_url=None
+        order_id = None,
+        real_name = None,
+        id_card = None,
+        card_no = None,
+        openid = None,
+        phone_no = None,
+        project_id = None,
+        pay = None,
+        pay_remark = None,
+        notify_url = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1000,8 +1000,8 @@ class CreateBatchOrderResponse(BaseRequest):
     """
     def __init__(
         self,
-        batch_id=None,
-        result_list=None
+        batch_id = None,
+        result_list = None
     ):
         super().__init__()
         self.batch_id = batch_id
@@ -1029,11 +1029,11 @@ class BatchOrderResult(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        ref=None,
-        pay=None,
-        status=None,
-        error_reasons=None
+        order_id = None,
+        ref = None,
+        pay = None,
+        status = None,
+        error_reasons = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1055,8 +1055,8 @@ class BatchOrderErrorReasons(BaseRequest):
     """
     def __init__(
         self,
-        error_code=None,
-        error_message=None
+        error_code = None,
+        error_message = None
     ):
         super().__init__()
         self.error_code = error_code
@@ -1081,10 +1081,10 @@ class ConfirmBatchOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        batch_id=None,
-        dealer_id=None,
-        broker_id=None,
-        channel=None
+        batch_id = None,
+        dealer_id = None,
+        broker_id = None,
+        channel = None
     ):
         super().__init__()
         self.batch_id = batch_id
@@ -1111,8 +1111,8 @@ class QueryBatchOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        batch_id=None,
-        dealer_id=None
+        batch_id = None,
+        dealer_id = None
     ):
         super().__init__()
         self.batch_id = batch_id
@@ -1155,16 +1155,16 @@ class QueryBatchOrderResponse(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None,
-        batch_id=None,
-        total_count=None,
-        total_pay=None,
-        channel=None,
-        batch_status=None,
-        batch_status_message=None,
-        batch_received_time=None,
-        order_list=None
+        broker_id = None,
+        dealer_id = None,
+        batch_id = None,
+        total_count = None,
+        total_pay = None,
+        channel = None,
+        batch_status = None,
+        batch_status_message = None,
+        batch_received_time = None,
+        order_list = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -1260,31 +1260,31 @@ class QueryBatchOrderInfo(BaseRequest):
     """
     def __init__(
         self,
-        order_id=None,
-        pay=None,
-        broker_id=None,
-        dealer_id=None,
-        real_name=None,
-        card_no=None,
-        id_card=None,
-        phone_no=None,
-        status=None,
-        status_detail=None,
-        status_message=None,
-        status_detail_message=None,
-        broker_amount=None,
-        ref=None,
-        broker_bank_bill=None,
-        withdraw_platform=None,
-        created_at=None,
-        finished_time=None,
-        broker_fee=None,
-        broker_real_fee=None,
-        broker_deduct_fee=None,
-        pay_remark=None,
-        user_fee=None,
-        bank_name=None,
-        project_id=None
+        order_id = None,
+        pay = None,
+        broker_id = None,
+        dealer_id = None,
+        real_name = None,
+        card_no = None,
+        id_card = None,
+        phone_no = None,
+        status = None,
+        status_detail = None,
+        status_message = None,
+        status_detail_message = None,
+        broker_amount = None,
+        ref = None,
+        broker_bank_bill = None,
+        withdraw_platform = None,
+        created_at = None,
+        finished_time = None,
+        broker_fee = None,
+        broker_real_fee = None,
+        broker_deduct_fee = None,
+        pay_remark = None,
+        user_fee = None,
+        bank_name = None,
+        project_id = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1329,9 +1329,9 @@ class CancelBatchOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        batch_id=None,
-        dealer_id=None,
-        broker_id=None
+        batch_id = None,
+        dealer_id = None,
+        broker_id = None
     ):
         super().__init__()
         self.batch_id = batch_id

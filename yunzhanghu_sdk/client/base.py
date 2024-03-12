@@ -93,3 +93,8 @@ class BaseRequest(object):
         :param request_id: 请求 ID
         """
         self.__request_id = request_id
+
+    def __str__(self):
+        res = self.__dict__.copy()
+        del res["_BaseRequest__request_id"]
+        return f"{self.__class__.__name__}({', '.join(f'{key}={getattr(self, key)}' for key in res.keys())})"

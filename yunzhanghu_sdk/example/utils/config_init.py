@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 from yunzhanghu_sdk.config import *
 
+
 def init_config():
     # 平台企业 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     dealer_id = ""
+    # 综合服务主体 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
+    broker_id = ""
     # 签名方式，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
     # 签名方式为 RSA，参数固定为：rsa
     sign_type = ""
@@ -29,6 +32,7 @@ def init_config():
         # 沙箱环境请求域名
         # host = "https://api-service.yunzhanghu.com/sandbox",
         dealer_id = dealer_id,
+        broker_id = broker_id,
         sign_type = sign_type,
         app_key = app_key,
         des3key = des3key,

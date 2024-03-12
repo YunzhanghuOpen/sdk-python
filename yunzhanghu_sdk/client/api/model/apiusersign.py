@@ -15,8 +15,8 @@ class ApiUseSignContractRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None
+        dealer_id = None,
+        broker_id = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -35,8 +35,8 @@ class ApiUseSignContractResponse(BaseRequest):
     """
     def __init__(
         self,
-        url=None,
-        title=None
+        url = None,
+        title = None
     ):
         super().__init__()
         self.url = url
@@ -55,8 +55,8 @@ class ApiUserSignContractRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None
+        dealer_id = None,
+        broker_id = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -75,8 +75,8 @@ class ApiUserSignContractResponse(BaseRequest):
     """
     def __init__(
         self,
-        url=None,
-        title=None
+        url = None,
+        title = None
     ):
         super().__init__()
         self.url = url
@@ -104,11 +104,11 @@ class ApiUserSignRequest(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None,
-        real_name=None,
-        id_card=None,
-        card_type=None
+        broker_id = None,
+        dealer_id = None,
+        real_name = None,
+        id_card = None,
+        card_type = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -127,7 +127,7 @@ class ApiUserSignResponse(BaseRequest):
     """
     def __init__(
         self,
-        status=None
+        status = None
     ):
         super().__init__()
         self.status = status
@@ -151,10 +151,10 @@ class GetApiUserSignStatusRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        id_card=None
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        id_card = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -175,8 +175,8 @@ class GetApiUserSignStatusResponse(BaseRequest):
     """
     def __init__(
         self,
-        signed_at=None,
-        status=None
+        signed_at = None,
+        status = None
     ):
         super().__init__()
         self.signed_at = signed_at
@@ -204,11 +204,11 @@ class ApiUserSignReleaseRequest(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None,
-        real_name=None,
-        id_card=None,
-        card_type=None
+        broker_id = None,
+        dealer_id = None,
+        real_name = None,
+        id_card = None,
+        card_type = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -227,7 +227,7 @@ class ApiUserSignReleaseResponse(BaseRequest):
     """
     def __init__(
         self,
-        status=None
+        status = None
     ):
         super().__init__()
         self.status = status
