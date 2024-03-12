@@ -42,17 +42,17 @@ class H5PreCollectBizlicMsgRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        dealer_user_id=None,
-        phone_no=None,
-        id_card=None,
-        real_name=None,
-        id_card_address=None,
-        id_card_agency=None,
-        id_card_nation=None,
-        id_card_validity_start=None,
-        id_card_validity_end=None
+        dealer_id = None,
+        broker_id = None,
+        dealer_user_id = None,
+        phone_no = None,
+        id_card = None,
+        real_name = None,
+        id_card_address = None,
+        id_card_agency = None,
+        id_card_nation = None,
+        id_card_validity_start = None,
+        id_card_validity_end = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -77,7 +77,7 @@ class H5PreCollectBizlicMsgResponse(BaseRequest):
     """
     def __init__(
         self,
-        dealer_user_id=None
+        dealer_user_id = None
     ):
         super().__init__()
         self.dealer_user_id = dealer_user_id
@@ -113,14 +113,14 @@ class H5APIGetStartUrlRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        dealer_user_id=None,
-        client_type=None,
-        notify_url=None,
-        color=None,
-        return_url=None,
-        customer_title=None
+        dealer_id = None,
+        broker_id = None,
+        dealer_user_id = None,
+        client_type = None,
+        notify_url = None,
+        color = None,
+        return_url = None,
+        customer_title = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -142,7 +142,7 @@ class H5APIGetStartUrlResponse(BaseRequest):
     """
     def __init__(
         self,
-        h5_url=None
+        h5_url = None
     ):
         super().__init__()
         self.h5_url = h5_url
@@ -172,12 +172,12 @@ class H5APIEcoCityAicStatusRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        dealer_user_id=None,
-        id_card=None,
-        real_name=None,
-        open_id=None
+        dealer_id = None,
+        broker_id = None,
+        dealer_user_id = None,
+        id_card = None,
+        real_name = None,
+        open_id = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -221,15 +221,15 @@ class H5APIEcoCityAicStatusResponse(BaseRequest):
     """
     def __init__(
         self,
-        status=None,
-        status_message=None,
-        status_detail=None,
-        status_detail_message=None,
-        applyed_at=None,
-        registed_at=None,
-        uscc=None,
-        id_card=None,
-        real_name=None
+        status = None,
+        status_message = None,
+        status_detail = None,
+        status_detail_message = None,
+        applyed_at = None,
+        registed_at = None,
+        uscc = None,
+        id_card = None,
+        real_name = None
     ):
         super().__init__()
         self.status = status
@@ -291,20 +291,20 @@ class NotifyH5APIEcoCityAicRequest(BaseRequest):
     """
     def __init__(
         self,
-        open_id=None,
-        dealer_user_id=None,
-        submit_at=None,
-        registed_at=None,
-        status=None,
-        status_message=None,
-        status_detail=None,
-        status_detail_message=None,
-        dealer_id=None,
-        broker_id=None,
-        uscc=None,
-        id_card=None,
-        real_name=None,
-        type=None
+        open_id = None,
+        dealer_user_id = None,
+        submit_at = None,
+        registed_at = None,
+        status = None,
+        status_message = None,
+        status_detail = None,
+        status_detail_message = None,
+        dealer_id = None,
+        broker_id = None,
+        uscc = None,
+        id_card = None,
+        real_name = None,
+        type = None
     ):
         super().__init__()
         self.open_id = open_id

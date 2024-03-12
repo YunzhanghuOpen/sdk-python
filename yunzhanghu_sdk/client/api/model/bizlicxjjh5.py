@@ -33,14 +33,14 @@ class H5GetStartUrlRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        dealer_user_id=None,
-        client_type=None,
-        notify_url=None,
-        color=None,
-        return_url=None,
-        customer_title=None
+        dealer_id = None,
+        broker_id = None,
+        dealer_user_id = None,
+        client_type = None,
+        notify_url = None,
+        color = None,
+        return_url = None,
+        customer_title = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -62,7 +62,7 @@ class H5GetStartUrlResponse(BaseRequest):
     """
     def __init__(
         self,
-        h5_url=None
+        h5_url = None
     ):
         super().__init__()
         self.h5_url = h5_url
@@ -92,12 +92,12 @@ class H5EcoCityAicStatusRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        dealer_user_id=None,
-        id_card=None,
-        real_name=None,
-        open_id=None
+        dealer_id = None,
+        broker_id = None,
+        dealer_user_id = None,
+        id_card = None,
+        real_name = None,
+        open_id = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -141,15 +141,15 @@ class H5EcoCityAicStatusResponse(BaseRequest):
     """
     def __init__(
         self,
-        status=None,
-        status_message=None,
-        status_detail=None,
-        status_detail_message=None,
-        applyed_at=None,
-        registed_at=None,
-        uscc=None,
-        id_card=None,
-        real_name=None
+        status = None,
+        status_message = None,
+        status_detail = None,
+        status_detail_message = None,
+        applyed_at = None,
+        registed_at = None,
+        uscc = None,
+        id_card = None,
+        real_name = None
     ):
         super().__init__()
         self.status = status
@@ -211,20 +211,20 @@ class NotifyH5EcoCityAicRequest(BaseRequest):
     """
     def __init__(
         self,
-        open_id=None,
-        dealer_user_id=None,
-        submit_at=None,
-        registed_at=None,
-        status=None,
-        status_message=None,
-        status_detail=None,
-        status_detail_message=None,
-        dealer_id=None,
-        broker_id=None,
-        uscc=None,
-        id_card=None,
-        real_name=None,
-        type=None
+        open_id = None,
+        dealer_user_id = None,
+        submit_at = None,
+        registed_at = None,
+        status = None,
+        status_message = None,
+        status_detail = None,
+        status_detail_message = None,
+        dealer_id = None,
+        broker_id = None,
+        uscc = None,
+        id_card = None,
+        real_name = None,
+        type = None
     ):
         super().__init__()
         self.open_id = open_id

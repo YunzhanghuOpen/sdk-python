@@ -30,13 +30,13 @@ class UploadUserSignRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        id_card=None,
-        phone=None,
-        is_abroad=None,
-        notify_url=None
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        id_card = None,
+        phone = None,
+        is_abroad = None,
+        notify_url = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -57,7 +57,7 @@ class UploadUserSignResponse(BaseRequest):
     """
     def __init__(
         self,
-        status=None
+        status = None
     ):
         super().__init__()
         self.status = status
@@ -81,10 +81,10 @@ class GetUploadUserSignStatusRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        id_card=None
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        id_card = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -120,13 +120,13 @@ class GetUploadUserSignStatusResponse(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        id_card=None,
-        status=None,
-        created_at=None,
-        updated_at=None
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        id_card = None,
+        status = None,
+        created_at = None,
+        updated_at = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -159,11 +159,11 @@ class NotifyUploadUserSignRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        real_name=None,
-        id_card=None,
-        phone=None
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        id_card = None,
+        phone = None
     ):
         super().__init__()
         self.dealer_id = dealer_id

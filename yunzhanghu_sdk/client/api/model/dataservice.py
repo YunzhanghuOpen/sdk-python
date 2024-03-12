@@ -12,7 +12,7 @@ class GetDailyOrderFileRequest(BaseRequest):
     """
     def __init__(
         self,
-        order_date=None
+        order_date = None
     ):
         super().__init__()
         self.order_date = order_date
@@ -27,7 +27,7 @@ class GetDailyOrderFileResponse(BaseRequest):
     """
     def __init__(
         self,
-        order_download_url=None
+        order_download_url = None
     ):
         super().__init__()
         self.order_download_url = order_download_url
@@ -42,7 +42,7 @@ class GetDailyBillFileV2Request(BaseRequest):
     """
     def __init__(
         self,
-        bill_date=None
+        bill_date = None
     ):
         super().__init__()
         self.bill_date = bill_date
@@ -57,7 +57,7 @@ class GetDailyBillFileV2Response(BaseRequest):
     """
     def __init__(
         self,
-        bill_download_url=None
+        bill_download_url = None
     ):
         super().__init__()
         self.bill_download_url = bill_download_url
@@ -75,8 +75,8 @@ class ListDealerRechargeRecordV2Request(BaseRequest):
     """
     def __init__(
         self,
-        begin_at=None,
-        end_at=None
+        begin_at = None,
+        end_at = None
     ):
         super().__init__()
         self.begin_at = begin_at
@@ -92,7 +92,7 @@ class ListDealerRechargeRecordV2Response(BaseRequest):
     """
     def __init__(
         self,
-        data=None
+        data = None
     ):
         super().__init__()
         self.data = data
@@ -131,15 +131,15 @@ class RechargeRecordInfo(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        recharge_id=None,
-        amount=None,
-        actual_amount=None,
-        created_at=None,
-        recharge_channel=None,
-        remark=None,
-        recharge_account_no=None
+        dealer_id = None,
+        broker_id = None,
+        recharge_id = None,
+        amount = None,
+        actual_amount = None,
+        created_at = None,
+        recharge_channel = None,
+        remark = None,
+        recharge_account_no = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -174,11 +174,11 @@ class ListDailyOrderRequest(BaseRequest):
     """
     def __init__(
         self,
-        order_date=None,
-        offset=None,
-        length=None,
-        channel=None,
-        data_type=None
+        order_date = None,
+        offset = None,
+        length = None,
+        channel = None,
+        data_type = None
     ):
         super().__init__()
         self.order_date = order_date
@@ -200,8 +200,8 @@ class ListDailyOrderResponse(BaseRequest):
     """
     def __init__(
         self,
-        total_num=None,
-        list=None
+        total_num = None,
+        list = None
     ):
         super().__init__()
         self.total_num = total_num
@@ -274,26 +274,26 @@ class DealerOrderInfo(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None,
-        order_id=None,
-        ref=None,
-        batch_id=None,
-        real_name=None,
-        card_no=None,
-        broker_amount=None,
-        broker_fee=None,
-        bill=None,
-        status=None,
-        status_message=None,
-        status_detail=None,
-        status_detail_message=None,
-        statement_id=None,
-        fee_statement_id=None,
-        bal_statement_id=None,
-        channel=None,
-        created_at=None,
-        finished_time=None
+        broker_id = None,
+        dealer_id = None,
+        order_id = None,
+        ref = None,
+        batch_id = None,
+        real_name = None,
+        card_no = None,
+        broker_amount = None,
+        broker_fee = None,
+        bill = None,
+        status = None,
+        status_message = None,
+        status_detail = None,
+        status_detail_message = None,
+        statement_id = None,
+        fee_statement_id = None,
+        bal_statement_id = None,
+        channel = None,
+        created_at = None,
+        finished_time = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -336,10 +336,10 @@ class ListDailyBillRequest(BaseRequest):
     """
     def __init__(
         self,
-        bill_date=None,
-        offset=None,
-        length=None,
-        data_type=None
+        bill_date = None,
+        offset = None,
+        length = None,
+        data_type = None
     ):
         super().__init__()
         self.bill_date = bill_date
@@ -360,8 +360,8 @@ class ListDailyBillResponse(BaseRequest):
     """
     def __init__(
         self,
-        total_num=None,
-        list=None
+        total_num = None,
+        list = None
     ):
         super().__init__()
         self.total_num = total_num
@@ -419,21 +419,21 @@ class DealerBillInfo(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None,
-        order_id=None,
-        ref=None,
-        broker_product_name=None,
-        dealer_product_name=None,
-        biz_ref=None,
-        acct_type=None,
-        amount=None,
-        balance=None,
-        business_category=None,
-        business_type=None,
-        consumption_type=None,
-        created_at=None,
-        remark=None
+        broker_id = None,
+        dealer_id = None,
+        order_id = None,
+        ref = None,
+        broker_product_name = None,
+        dealer_product_name = None,
+        biz_ref = None,
+        acct_type = None,
+        amount = None,
+        balance = None,
+        business_category = None,
+        business_type = None,
+        consumption_type = None,
+        created_at = None,
+        remark = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -462,7 +462,7 @@ class GetDailyOrderFileV2Request(BaseRequest):
     """
     def __init__(
         self,
-        order_date=None
+        order_date = None
     ):
         super().__init__()
         self.order_date = order_date
@@ -477,7 +477,7 @@ class GetDailyOrderFileV2Response(BaseRequest):
     """
     def __init__(
         self,
-        url=None
+        url = None
     ):
         super().__init__()
         self.url = url
@@ -492,7 +492,7 @@ class ListBalanceDailyStatementRequest(BaseRequest):
     """
     def __init__(
         self,
-        statement_date=None
+        statement_date = None
     ):
         super().__init__()
         self.statement_date = statement_date
@@ -507,7 +507,7 @@ class ListBalanceDailyStatementResponse(BaseRequest):
     """
     def __init__(
         self,
-        list=None
+        list = None
     ):
         super().__init__()
         self.list = list
@@ -570,23 +570,23 @@ class StatementDetail(BaseRequest):
     """
     def __init__(
         self,
-        statement_id=None,
-        statement_date=None,
-        broker_id=None,
-        dealer_id=None,
-        broker_product_name=None,
-        dealer_product_name=None,
-        biz_type=None,
-        total_money=None,
-        amount=None,
-        reex_amount=None,
-        fee_amount=None,
-        deduct_rebate_fee_amount=None,
-        money_adjust=None,
-        status=None,
-        invoice_status=None,
-        project_id=None,
-        project_name=None
+        statement_id = None,
+        statement_date = None,
+        broker_id = None,
+        dealer_id = None,
+        broker_product_name = None,
+        dealer_product_name = None,
+        biz_type = None,
+        total_money = None,
+        amount = None,
+        reex_amount = None,
+        fee_amount = None,
+        deduct_rebate_fee_amount = None,
+        money_adjust = None,
+        status = None,
+        invoice_status = None,
+        project_id = None,
+        project_name = None
     ):
         super().__init__()
         self.statement_id = statement_id

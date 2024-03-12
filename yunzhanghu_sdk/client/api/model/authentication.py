@@ -21,10 +21,10 @@ class BankCardFourAuthVerifyRequest(BaseRequest):
     """
     def __init__(
         self,
-        card_no=None,
-        id_card=None,
-        real_name=None,
-        mobile=None
+        card_no = None,
+        id_card = None,
+        real_name = None,
+        mobile = None
     ):
         super().__init__()
         self.card_no = card_no
@@ -42,7 +42,7 @@ class BankCardFourAuthVerifyResponse(BaseRequest):
     """
     def __init__(
         self,
-        ref=None
+        ref = None
     ):
         super().__init__()
         self.ref = ref
@@ -72,12 +72,12 @@ class BankCardFourAuthConfirmRequest(BaseRequest):
     """
     def __init__(
         self,
-        card_no=None,
-        id_card=None,
-        real_name=None,
-        mobile=None,
-        captcha=None,
-        ref=None
+        card_no = None,
+        id_card = None,
+        real_name = None,
+        mobile = None,
+        captcha = None,
+        ref = None
     ):
         super().__init__()
         self.card_no = card_no
@@ -112,10 +112,10 @@ class BankCardFourVerifyRequest(BaseRequest):
     """
     def __init__(
         self,
-        card_no=None,
-        id_card=None,
-        real_name=None,
-        mobile=None
+        card_no = None,
+        id_card = None,
+        real_name = None,
+        mobile = None
     ):
         super().__init__()
         self.card_no = card_no
@@ -145,9 +145,9 @@ class BankCardThreeVerifyRequest(BaseRequest):
     """
     def __init__(
         self,
-        card_no=None,
-        id_card=None,
-        real_name=None
+        card_no = None,
+        id_card = None,
+        real_name = None
     ):
         super().__init__()
         self.card_no = card_no
@@ -173,8 +173,8 @@ class IDCardVerifyRequest(BaseRequest):
     """
     def __init__(
         self,
-        id_card=None,
-        real_name=None
+        id_card = None,
+        real_name = None
     ):
         super().__init__()
         self.id_card = id_card
@@ -229,18 +229,18 @@ class UserExemptedInfoRequest(BaseRequest):
     """
     def __init__(
         self,
-        card_type=None,
-        id_card=None,
-        real_name=None,
-        comment_apply=None,
-        broker_id=None,
-        dealer_id=None,
-        user_images=None,
-        country=None,
-        birthday=None,
-        gender=None,
-        notify_url=None,
-        ref=None
+        card_type = None,
+        id_card = None,
+        real_name = None,
+        comment_apply = None,
+        broker_id = None,
+        dealer_id = None,
+        user_images = None,
+        country = None,
+        birthday = None,
+        gender = None,
+        notify_url = None,
+        ref = None
     ):
         super().__init__()
         self.card_type = card_type
@@ -266,7 +266,7 @@ class UserExemptedInfoResponse(BaseRequest):
     """
     def __init__(
         self,
-        ok=None
+        ok = None
     ):
         super().__init__()
         self.ok = ok
@@ -299,13 +299,13 @@ class NotifyUserExemptedInfoRequest(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None,
-        real_name=None,
-        id_card=None,
-        status=None,
-        ref=None,
-        comment=None
+        broker_id = None,
+        dealer_id = None,
+        real_name = None,
+        id_card = None,
+        status = None,
+        ref = None,
+        comment = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -329,8 +329,8 @@ class UserWhiteCheckRequest(BaseRequest):
     """
     def __init__(
         self,
-        id_card=None,
-        real_name=None
+        id_card = None,
+        real_name = None
     ):
         super().__init__()
         self.id_card = id_card
@@ -346,7 +346,7 @@ class UserWhiteCheckResponse(BaseRequest):
     """
     def __init__(
         self,
-        ok=None
+        ok = None
     ):
         super().__init__()
         self.ok = ok
@@ -364,8 +364,8 @@ class GetBankCardInfoRequest(BaseRequest):
     """
     def __init__(
         self,
-        card_no=None,
-        bank_name=None
+        card_no = None,
+        bank_name = None
     ):
         super().__init__()
         self.card_no = card_no
@@ -390,10 +390,10 @@ class GetBankCardInfoResponse(BaseRequest):
     """
     def __init__(
         self,
-        bank_code=None,
-        bank_name=None,
-        card_type=None,
-        is_support=None
+        bank_code = None,
+        bank_name = None,
+        card_type = None,
+        is_support = None
     ):
         super().__init__()
         self.bank_code = bank_code

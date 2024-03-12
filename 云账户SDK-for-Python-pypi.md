@@ -61,19 +61,19 @@ if __name__ == "__main__":
     # 初始化配置参数
     config = Config(
         # host 请求域名
-        host="https://api-service.yunzhanghu.com",
-        dealer_id=dealer_id,
-        sign_type=sign_type,
-        app_key=app_key,
-        des3key=des3key,
-        dealer_private_key=dealer_private_key,
-        yzh_public_key=yzh_public_key,
+        host = "https://api-service.yunzhanghu.com",
+        dealer_id = dealer_id,
+        sign_type = sign_type,
+        app_key = app_key,
+        des3key = des3key,
+        dealer_private_key = dealer_private_key,
+        yzh_public_key = yzh_public_key,
     )
     # 获取订单详情
     request = GetOrderRequest(
-        order_id="232211231231231",
-        channel="微信",
-        data_type="encryption"
+        order_id = "232211231231231",
+        channel = "微信",
+        data_type = "encryption"
     )
     # 建议自定义并将 request-id 记录在日志中
     # request.request_id = "XXXXX"

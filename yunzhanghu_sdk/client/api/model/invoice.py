@@ -18,9 +18,9 @@ class GetInvoiceStatRequest(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None,
-        year=None
+        broker_id = None,
+        dealer_id = None,
+        year = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -49,11 +49,11 @@ class GetInvoiceStatResponse(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        broker_id=None,
-        invoiced=None,
-        invoicing=None,
-        not_invoiced=None
+        dealer_id = None,
+        broker_id = None,
+        invoiced = None,
+        invoicing = None,
+        not_invoiced = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -75,8 +75,8 @@ class GetInvoiceAmountRequest(BaseRequest):
     """
     def __init__(
         self,
-        broker_id=None,
-        dealer_id=None
+        broker_id = None,
+        dealer_id = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -98,9 +98,9 @@ class GetInvoiceAmountResponse(BaseRequest):
     """
     def __init__(
         self,
-        amount=None,
-        bank_name_account=None,
-        goods_services_name=None
+        amount = None,
+        bank_name_account = None,
+        goods_services_name = None
     ):
         super().__init__()
         self.amount = amount
@@ -138,14 +138,14 @@ class ApplyInvoiceRequest(BaseRequest):
     """
     def __init__(
         self,
-        invoice_apply_id=None,
-        broker_id=None,
-        dealer_id=None,
-        amount=None,
-        invoice_type=None,
-        bank_name_account=None,
-        goods_services_name=None,
-        remark=None
+        invoice_apply_id = None,
+        broker_id = None,
+        dealer_id = None,
+        amount = None,
+        invoice_type = None,
+        bank_name_account = None,
+        goods_services_name = None,
+        remark = None
     ):
         super().__init__()
         self.invoice_apply_id = invoice_apply_id
@@ -170,8 +170,8 @@ class ApplyInvoiceResponse(BaseRequest):
     """
     def __init__(
         self,
-        application_id=None,
-        count=None
+        application_id = None,
+        count = None
     ):
         super().__init__()
         self.application_id = application_id
@@ -190,8 +190,8 @@ class GetInvoiceStatusRequest(BaseRequest):
     """
     def __init__(
         self,
-        invoice_apply_id=None,
-        application_id=None
+        invoice_apply_id = None,
+        application_id = None
     ):
         super().__init__()
         self.invoice_apply_id = invoice_apply_id
@@ -246,20 +246,20 @@ class GetInvoiceStatusResponse(BaseRequest):
     """
     def __init__(
         self,
-        status=None,
-        count=None,
-        price_tax_amount=None,
-        price_amount=None,
-        tax_amount=None,
-        invoice_type=None,
-        customer_name=None,
-        customer_tax_num=None,
-        customer_address_tel=None,
-        bank_name_account=None,
-        goods_services_name=None,
-        remark=None,
-        post_type=None,
-        waybill_number=None
+        status = None,
+        count = None,
+        price_tax_amount = None,
+        price_amount = None,
+        tax_amount = None,
+        invoice_type = None,
+        customer_name = None,
+        customer_tax_num = None,
+        customer_address_tel = None,
+        bank_name_account = None,
+        goods_services_name = None,
+        remark = None,
+        post_type = None,
+        waybill_number = None
     ):
         super().__init__()
         self.status = status
@@ -290,8 +290,8 @@ class GetInvoiceInformationRequest(BaseRequest):
     """
     def __init__(
         self,
-        invoice_apply_id=None,
-        application_id=None
+        invoice_apply_id = None,
+        application_id = None
     ):
         super().__init__()
         self.invoice_apply_id = invoice_apply_id
@@ -307,7 +307,7 @@ class GetInvoiceInformationResponse(BaseRequest):
     """
     def __init__(
         self,
-        information=None
+        information = None
     ):
         super().__init__()
         self.information = information
@@ -343,14 +343,14 @@ class InformationDataInfo(BaseRequest):
     """
     def __init__(
         self,
-        goods_services_name=None,
-        invoice_num=None,
-        invoice_code=None,
-        price_amount=None,
-        tax_amount=None,
-        tax_rate=None,
-        price_tax_amount=None,
-        invoiced_date=None
+        goods_services_name = None,
+        invoice_num = None,
+        invoice_code = None,
+        price_amount = None,
+        tax_amount = None,
+        tax_rate = None,
+        price_tax_amount = None,
+        invoiced_date = None
     ):
         super().__init__()
         self.goods_services_name = goods_services_name
@@ -375,8 +375,8 @@ class BankNameAccount(BaseRequest):
     """
     def __init__(
         self,
-        item=None,
-        default=None
+        item = None,
+        default = None
     ):
         super().__init__()
         self.item = item
@@ -395,8 +395,8 @@ class GoodsServicesName(BaseRequest):
     """
     def __init__(
         self,
-        item=None,
-        default=None
+        item = None,
+        default = None
     ):
         super().__init__()
         self.item = item
@@ -415,8 +415,8 @@ class GetInvoiceFileRequest(BaseRequest):
     """
     def __init__(
         self,
-        invoice_apply_id=None,
-        application_id=None
+        invoice_apply_id = None,
+        application_id = None
     ):
         super().__init__()
         self.invoice_apply_id = invoice_apply_id
@@ -435,8 +435,8 @@ class GetInvoiceFileResponse(BaseRequest):
     """
     def __init__(
         self,
-        url=None,
-        name=None
+        url = None,
+        name = None
     ):
         super().__init__()
         self.url = url
@@ -455,8 +455,8 @@ class SendReminderEmailRequest(BaseRequest):
     """
     def __init__(
         self,
-        invoice_apply_id=None,
-        application_id=None
+        invoice_apply_id = None,
+        application_id = None
     ):
         super().__init__()
         self.invoice_apply_id = invoice_apply_id
@@ -526,23 +526,23 @@ class NotifyInvoiceDoneRequest(BaseRequest):
     """
     def __init__(
         self,
-        application_id=None,
-        invoice_apply_id=None,
-        status=None,
-        count=None,
-        price_tax_amount=None,
-        price_amount=None,
-        tax_amount=None,
-        invoice_type=None,
-        customer_name=None,
-        customer_tax_num=None,
-        customer_address_tel=None,
-        bank_name_account=None,
-        goods_services_name=None,
-        remark=None,
-        post_type=None,
-        waybill_number=None,
-        reject_reason=None
+        application_id = None,
+        invoice_apply_id = None,
+        status = None,
+        count = None,
+        price_tax_amount = None,
+        price_amount = None,
+        tax_amount = None,
+        invoice_type = None,
+        customer_name = None,
+        customer_tax_num = None,
+        customer_address_tel = None,
+        bank_name_account = None,
+        goods_services_name = None,
+        remark = None,
+        post_type = None,
+        waybill_number = None,
+        reject_reason = None
     ):
         super().__init__()
         self.application_id = application_id

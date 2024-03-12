@@ -8,6 +8,9 @@ class Config(object):
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
 
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
     :type sign_type: string
     :param sign_type: 签名算法
 
@@ -27,10 +30,11 @@ class Config(object):
     :param timeout: 超时时间
     """
 
-    def __init__(self, host, dealer_id, sign_type, app_key, des3key,
+    def __init__(self, host, dealer_id, broker_id, sign_type, app_key, des3key,
                  dealer_private_key: str, yzh_public_key: str, timeout=30):
         self.host = host
         self.dealer_id = dealer_id
+        self.broker_id = broker_id
         self.sign_type = sign_type
         self.app_key = app_key
         self.des3key = des3key

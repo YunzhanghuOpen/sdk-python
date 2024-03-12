@@ -48,7 +48,7 @@ if __name__ == "__main__":
         notify_url = "",
         color = "",
         return_url = "",
-        customer_title=0,
+        customer_title = 0,
     )
 
     # request-id：请求 ID，请求的唯一标识

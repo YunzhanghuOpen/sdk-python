@@ -18,9 +18,9 @@ class GetTaxFileRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        ent_id=None,
-        year_month=None
+        dealer_id = None,
+        ent_id = None,
+        year_month = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -37,7 +37,7 @@ class GetTaxFileResponse(BaseRequest):
     """
     def __init__(
         self,
-        file_info=None
+        file_info = None
     ):
         super().__init__()
         self.file_info = file_info
@@ -58,9 +58,9 @@ class FileInfo(BaseRequest):
     """
     def __init__(
         self,
-        name=None,
-        url=None,
-        pwd=None
+        name = None,
+        url = None,
+        pwd = None
     ):
         super().__init__()
         self.name = name
@@ -86,10 +86,10 @@ class GetUserCrossRequest(BaseRequest):
     """
     def __init__(
         self,
-        dealer_id=None,
-        year=None,
-        id_card=None,
-        ent_id=None
+        dealer_id = None,
+        year = None,
+        id_card = None,
+        ent_id = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -107,7 +107,7 @@ class GetUserCrossResponse(BaseRequest):
     """
     def __init__(
         self,
-        is_cross=None
+        is_cross = None
     ):
         super().__init__()
         self.is_cross = is_cross
