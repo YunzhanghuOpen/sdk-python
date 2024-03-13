@@ -1,6 +1,5 @@
 """自定义接口调用"""
 
-from .model.custom import *
 from ..base import BaseClient
 from ...utils import Utils
 
@@ -9,7 +8,7 @@ class CustomClient(BaseClient):
     def __init__(self, config):
         super().__init__(config)
 
-    def do_request(self, url: str, method_type: str, request: CustomRequest):
+    def do_request(self, url: str, method_type: str, request):
         """
         :type url: str
         :param url: 请求地址
