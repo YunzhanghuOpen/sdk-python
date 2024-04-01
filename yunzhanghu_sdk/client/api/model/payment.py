@@ -358,6 +358,9 @@ class GetOrderResponse(BaseRequest):
     :type status_detail_message: string
     :param status_detail_message: 订单详细状态码描述
 
+    :type supplemental_detail_message: string
+    :param supplemental_detail_message: 订单状态补充信息
+
     :type broker_amount: string
     :param broker_amount: 综合服务主体支付金额
 
@@ -426,6 +429,7 @@ class GetOrderResponse(BaseRequest):
         status_detail = None,
         status_message = None,
         status_detail_message = None,
+        supplemental_detail_message = None,
         broker_amount = None,
         ref = None,
         broker_bank_bill = None,
@@ -458,6 +462,7 @@ class GetOrderResponse(BaseRequest):
         self.status_detail = status_detail
         self.status_message = status_message
         self.status_detail_message = status_detail_message
+        self.supplemental_detail_message = supplemental_detail_message
         self.broker_amount = broker_amount
         self.ref = ref
         self.broker_bank_bill = broker_bank_bill
@@ -773,6 +778,9 @@ class NotifyOrderData(BaseRequest):
     :type status_detail_message: string
     :param status_detail_message: 订单详细状态码描述
 
+    :type supplemental_detail_message: string
+    :param supplemental_detail_message: 订单状态补充信息
+
     :type broker_amount: string
     :param broker_amount: 综合服务主体支付金额
 
@@ -829,6 +837,7 @@ class NotifyOrderData(BaseRequest):
         status_detail = None,
         status_message = None,
         status_detail_message = None,
+        supplemental_detail_message = None,
         broker_amount = None,
         ref = None,
         broker_bank_bill = None,
@@ -857,6 +866,7 @@ class NotifyOrderData(BaseRequest):
         self.status_detail = status_detail
         self.status_message = status_message
         self.status_detail_message = status_detail_message
+        self.supplemental_detail_message = supplemental_detail_message
         self.broker_amount = broker_amount
         self.ref = ref
         self.broker_bank_bill = broker_bank_bill
@@ -1219,6 +1229,9 @@ class QueryBatchOrderInfo(BaseRequest):
     :type status_detail_message: string
     :param status_detail_message: 订单详情状态码描述
 
+    :type supplemental_detail_message: string
+    :param supplemental_detail_message: 订单状态补充信息
+
     :type broker_amount: string
     :param broker_amount: 综合服务主体支付金额
 
@@ -1272,6 +1285,7 @@ class QueryBatchOrderInfo(BaseRequest):
         status_detail = None,
         status_message = None,
         status_detail_message = None,
+        supplemental_detail_message = None,
         broker_amount = None,
         ref = None,
         broker_bank_bill = None,
@@ -1299,6 +1313,7 @@ class QueryBatchOrderInfo(BaseRequest):
         self.status_detail = status_detail
         self.status_message = status_message
         self.status_detail_message = status_detail_message
+        self.supplemental_detail_message = supplemental_detail_message
         self.broker_amount = broker_amount
         self.ref = ref
         self.broker_bank_bill = broker_bank_bill
