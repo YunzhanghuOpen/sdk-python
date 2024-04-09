@@ -6,11 +6,12 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 对账文件获取
 if __name__ == "__main__":
-    client = DataServiceClient(config=init_config())
+    conf = init_config()
+    client = DataServiceClient(config=conf)
 
     # 查询日订单文件
     req = GetDailyOrderFileRequest(
-        order_date = "",
+        order_date = "2020-11-11",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -31,7 +32,7 @@ if __name__ == "__main__":
 
     # 查询日流水文件
     req = GetDailyBillFileV2Request(
-        bill_date = "",
+        bill_date = "2020-11-11",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -52,8 +53,8 @@ if __name__ == "__main__":
 
     # 查询平台企业预付业务服务费记录
     req = ListDealerRechargeRecordV2Request(
-        begin_at = "",
-        end_at = "",
+        begin_at = "2020-01-02",
+        end_at = "2020-01-31",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -74,11 +75,11 @@ if __name__ == "__main__":
 
     # 查询日订单数据
     req = ListDailyOrderRequest(
-        order_date = "",
+        order_date = "2020-03-25",
         offset = 0,
-        length = 0,
-        channel = "",
-        data_type = "",
+        length = 200,
+        channel = "支付宝",
+        data_type = "encryption",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -99,7 +100,7 @@ if __name__ == "__main__":
 
     # 查询日订单文件（支付和退款订单）
     req = GetDailyOrderFileV2Request(
-        order_date = "",
+        order_date = "2020-11-11",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -120,10 +121,10 @@ if __name__ == "__main__":
 
     # 查询日流水数据
     req = ListDailyBillRequest(
-        bill_date = "",
+        bill_date = "2020-03-25",
         offset = 0,
-        length = 0,
-        data_type = "",
+        length = 200,
+        data_type = "encryption",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -144,7 +145,7 @@ if __name__ == "__main__":
 
     # 获取余额日账单数据
     req = ListBalanceDailyStatementRequest(
-        statement_date = "",
+        statement_date = "2021-03-25",
     )
 
     # request-id：请求 ID，请求的唯一标识

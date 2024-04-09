@@ -6,13 +6,14 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 个人所得税扣缴明细表
 if __name__ == "__main__":
-    client = TaxClient(config=init_config())
+    conf = init_config()
+    client = TaxClient(config=conf)
 
     # 下载个人所得税扣缴明细表
     req = GetTaxFileRequest(
-        dealer_id = "",
-        ent_id = "",
-        year_month = "",
+        dealer_id = conf.dealer_id,
+        ent_id = "accumulus_tj",
+        year_month = "2020-01",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -33,10 +34,10 @@ if __name__ == "__main__":
 
     # 查询纳税人是否为跨集团用户
     req = GetUserCrossRequest(
-        dealer_id = "",
-        year = "",
-        id_card = "",
-        ent_id = "",
+        dealer_id = conf.dealer_id,
+        year = "2020",
+        id_card = "11010519491231002X",
+        ent_id = "accumulus_tj",
     )
 
     # request-id：请求 ID，请求的唯一标识

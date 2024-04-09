@@ -6,14 +6,15 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 用户信息验证
 if __name__ == "__main__":
-    client = AuthenticationClient(config=init_config())
+    conf = init_config()
+    client = AuthenticationClient(config=conf)
 
     # 银行卡四要素鉴权请求（下发短信验证码）
     req = BankCardFourAuthVerifyRequest(
-        card_no = "",
-        id_card = "",
-        real_name = "",
-        mobile = "",
+        card_no = "6228888888888888888",
+        id_card = "11010519491231002X",
+        real_name = "张三",
+        mobile = "188****8888",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -34,12 +35,12 @@ if __name__ == "__main__":
 
     # 银行卡四要素确认求（上传短信验证码）
     req = BankCardFourAuthConfirmRequest(
-        card_no = "",
-        id_card = "",
-        real_name = "",
-        mobile = "",
-        captcha = "",
-        ref = "",
+        card_no = "6228888888888888888",
+        id_card = "11010519491231002X",
+        real_name = "张三",
+        mobile = "188****8888",
+        captcha = "861134",
+        ref = "rx0g4iiLWoWA==",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -60,10 +61,10 @@ if __name__ == "__main__":
 
     # 银行卡四要素验证
     req = BankCardFourVerifyRequest(
-        card_no = "",
-        id_card = "",
-        real_name = "",
-        mobile = "",
+        card_no = "6228888888888888888",
+        id_card = "11010519491231002X",
+        real_name = "张三",
+        mobile = "188****8888",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -84,9 +85,9 @@ if __name__ == "__main__":
 
     # 银行卡三要素验证
     req = BankCardThreeVerifyRequest(
-        card_no = "",
-        id_card = "",
-        real_name = "",
+        card_no = "6228888888888888888",
+        id_card = "11010519491231002X",
+        real_name = "张三",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -107,8 +108,8 @@ if __name__ == "__main__":
 
     # 身份证实名验证
     req = IDCardVerifyRequest(
-        id_card = "",
-        real_name = "",
+        id_card = "11010519491231002X",
+        real_name = "张三",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -129,18 +130,18 @@ if __name__ == "__main__":
 
     # 上传免验证用户名单信息
     req = UserExemptedInfoRequest(
-        card_type = "",
-        id_card = "",
-        real_name = "",
-        comment_apply = "",
-        broker_id = "",
-        dealer_id = "",
+        card_type = "passport",
+        id_card = "EA3456789",
+        real_name = "张三",
+        comment_apply = "一条记录",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
         user_images = [],
-        country = "",
-        birthday = "",
-        gender = "",
-        notify_url = "",
-        ref = "",
+        country = "CHN",
+        birthday = "20010809",
+        gender = "男",
+        notify_url = "https://www.example.com",
+        ref = "1234qwer",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -161,8 +162,8 @@ if __name__ == "__main__":
 
     # 查看免验证用户名单是否存在
     req = UserWhiteCheckRequest(
-        id_card = "",
-        real_name = "",
+        id_card = "EA3456789",
+        real_name = "张三",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -183,8 +184,8 @@ if __name__ == "__main__":
 
     # 银行卡信息查询
     req = GetBankCardInfoRequest(
-        card_no = "",
-        bank_name = "",
+        card_no = "6228888888888888888",
+        bank_name = "中国邮政储蓄银行",
     )
 
     # request-id：请求 ID，请求的唯一标识
