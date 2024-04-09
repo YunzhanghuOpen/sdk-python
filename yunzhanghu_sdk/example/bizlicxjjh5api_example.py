@@ -6,21 +6,22 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 个体工商户注册（云账户新经济 H5+API）
 if __name__ == "__main__":
-    client = BizlicXjjH5APIServiceClient(config=init_config())
+    conf = init_config()
+    client = BizlicXjjH5APIServiceClient(config=conf)
 
     # 工商实名信息录入
     req = H5PreCollectBizlicMsgRequest(
-        dealer_id = "",
-        broker_id = "",
-        dealer_user_id = "",
-        phone_no = "",
-        id_card = "",
-        real_name = "",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        dealer_user_id = "user1234567890",
+        phone_no = "+86-188****8888",
+        id_card = "11010519491231002X",
+        real_name = "张三",
         id_card_address = "",
         id_card_agency = "",
-        id_card_nation = "",
-        id_card_validity_start = "",
-        id_card_validity_end = "",
+        id_card_nation = "20",
+        id_card_validity_start = "2022-02-22",
+        id_card_validity_end = "2042-01-01",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -41,14 +42,14 @@ if __name__ == "__main__":
 
     # 预启动
     req = H5APIGetStartUrlRequest(
-        dealer_id = "",
-        broker_id = "",
-        dealer_user_id = "",
-        client_type = 0,
-        notify_url = "",
-        color = "",
-        return_url = "",
-        customer_title = 0,
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        dealer_user_id = "01720374",
+        client_type = 2,
+        notify_url = "https://www.example.com",
+        color = "#007AFF",
+        return_url = "https://www.example.com",
+        customer_title = 1,
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -69,12 +70,12 @@ if __name__ == "__main__":
 
     # 查询个体工商户状态
     req = H5APIEcoCityAicStatusRequest(
-        dealer_id = "",
-        broker_id = "",
-        dealer_user_id = "",
-        id_card = "",
-        real_name = "",
-        open_id = "",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        open_id = "open1234567890",
+        real_name = "张三",
+        id_card = "11010519491231002X",
+        dealer_user_id = "user1234567890",
     )
 
     # request-id：请求 ID，请求的唯一标识

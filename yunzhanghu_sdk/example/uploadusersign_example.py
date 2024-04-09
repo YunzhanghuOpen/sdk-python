@@ -6,17 +6,18 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 签约信息上传
 if __name__ == "__main__":
-    client = UploadUserSignServiceClient(config=init_config())
+    conf = init_config()
+    client = UploadUserSignServiceClient(config=conf)
 
     # 用户签约信息上传
     req = UploadUserSignRequest(
-        dealer_id = "",
-        broker_id = "",
-        real_name = "",
-        id_card = "",
-        phone = "",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        real_name = "张三",
+        id_card = "11010519491231002X",
+        phone = "188****8888",
         is_abroad = False,
-        notify_url = "",
+        notify_url = "https://www.example.com",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -37,10 +38,10 @@ if __name__ == "__main__":
 
     # 获取用户签约状态
     req = GetUploadUserSignStatusRequest(
-        dealer_id = "",
-        broker_id = "",
-        real_name = "",
-        id_card = "",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        real_name = "张三",
+        id_card = "11010519491231002X",
     )
 
     # request-id：请求 ID，请求的唯一标识

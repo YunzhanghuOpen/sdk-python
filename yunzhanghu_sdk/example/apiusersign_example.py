@@ -6,12 +6,13 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 用户签约（API 签约）
 if __name__ == "__main__":
-    client = ApiUserSignServiceClient(config=init_config())
+    conf = init_config()
+    client = ApiUserSignServiceClient(config=conf)
 
     # 获取协议预览 URL
     req = ApiUserSignContractRequest(
-        dealer_id = "",
-        broker_id = "",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -32,11 +33,11 @@ if __name__ == "__main__":
 
     # 用户签约
     req = ApiUserSignRequest(
-        broker_id = "",
-        dealer_id = "",
-        real_name = "",
-        id_card = "",
-        card_type = "",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        real_name = "张三",
+        id_card = "11010519491231002X",
+        card_type = "idcard",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -57,10 +58,10 @@ if __name__ == "__main__":
 
     # 获取用户签约状态
     req = GetApiUserSignStatusRequest(
-        dealer_id = "",
-        broker_id = "",
-        real_name = "",
-        id_card = "",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        real_name = "张三",
+        id_card = "11010519491231002X",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -81,11 +82,11 @@ if __name__ == "__main__":
 
     # 用户解约（测试账号专用接口）
     req = ApiUserSignReleaseRequest(
-        broker_id = "",
-        dealer_id = "",
-        real_name = "",
-        id_card = "",
-        card_type = "",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        real_name = "张三",
+        id_card = "11010519491231002X",
+        card_type = "idcard",
     )
 
     # request-id：请求 ID，请求的唯一标识

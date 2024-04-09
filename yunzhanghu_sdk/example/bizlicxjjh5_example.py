@@ -6,18 +6,19 @@ from yunzhanghu_sdk.example.utils.config_init import init_config
 
 # 个体工商户注册（云账户新经济 H5）
 if __name__ == "__main__":
-    client = BizlicXjjH5ServiceClient(config=init_config())
+    conf = init_config()
+    client = BizlicXjjH5ServiceClient(config=conf)
 
     # 预启动
     req = H5GetStartUrlRequest(
-        dealer_id = "",
-        broker_id = "",
-        dealer_user_id = "",
-        client_type = 0,
-        notify_url = "",
-        color = "",
-        return_url = "",
-        customer_title = 0,
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        dealer_user_id = "user1234567890",
+        client_type = 1,
+        notify_url = "https://www.example.com",
+        color = "#007AFF",
+        return_url = "https://www.example.com",
+        customer_title = 1,
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -38,12 +39,12 @@ if __name__ == "__main__":
 
     # 查询个体工商户状态
     req = H5EcoCityAicStatusRequest(
-        dealer_id = "",
-        broker_id = "",
-        dealer_user_id = "",
-        id_card = "",
-        real_name = "",
-        open_id = "",
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        open_id = "open1234567890",
+        real_name = "张三",
+        id_card = "11010519491231002X",
+        dealer_user_id = "user1234567890",
     )
 
     # request-id：请求 ID，请求的唯一标识
