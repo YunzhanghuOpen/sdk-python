@@ -74,6 +74,8 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 - 个体工商户注册
    - [云账户新经济 H5](yunzhanghu_sdk/example/bizlicxjjh5_example.py)
    - [云账户新经济 H5+API](yunzhanghu_sdk/example/bizlicxjjh5api_example.py)
+   - [云账户共享大额 H5](yunzhanghu_sdk/example/bizlicgxv2h5_example.py)
+   - [云账户共享大额 H5+API](yunzhanghu_sdk/example/bizlicgxv2h5api_example.py)
 - [实时支付](yunzhanghu_sdk/example/payment_example.py)
 - [异步通知](yunzhanghu_sdk/example/notify_example.py)
 - [对账文件获取](yunzhanghu_sdk/example/dataservice_example.py)
