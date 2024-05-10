@@ -254,6 +254,9 @@ class DealerOrderInfo(BaseRequest):
     :type status_detail_message: string
     :param status_detail_message: 订单详细状态码描述
 
+    :type supplemental_detail_message: string
+    :param supplemental_detail_message: 订单状态补充信息
+
     :type statement_id: string
     :param statement_id: 短周期授信账单号
 
@@ -288,6 +291,7 @@ class DealerOrderInfo(BaseRequest):
         status_message = None,
         status_detail = None,
         status_detail_message = None,
+        supplemental_detail_message = None,
         statement_id = None,
         fee_statement_id = None,
         bal_statement_id = None,
@@ -310,6 +314,7 @@ class DealerOrderInfo(BaseRequest):
         self.status_message = status_message
         self.status_detail = status_detail
         self.status_detail_message = status_detail_message
+        self.supplemental_detail_message = supplemental_detail_message
         self.statement_id = statement_id
         self.fee_statement_id = fee_statement_id
         self.bal_statement_id = bal_statement_id
