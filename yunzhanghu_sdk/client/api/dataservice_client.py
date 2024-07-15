@@ -6,6 +6,8 @@ from ...utils import Utils
 
 
 class DataServiceClient(BaseClient):
+    """对账文件获取客户端"""
+
     def __init__(self, config):
         super().__init__(config)
 

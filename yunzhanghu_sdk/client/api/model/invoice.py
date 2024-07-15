@@ -5,7 +5,7 @@ from ...base import BaseRequest
 
 class GetInvoiceStatRequest(BaseRequest):
     """
-    查询平台企业已开具和待开具发票金额请求
+    查询平台企业已开具和待开具发票金额请求-请求
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -30,7 +30,7 @@ class GetInvoiceStatRequest(BaseRequest):
 
 class GetInvoiceStatResponse(BaseRequest):
     """
-    查询平台企业已开具和待开具发票金额返回
+    查询平台企业已开具和待开具发票金额返回-响应
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -65,7 +65,7 @@ class GetInvoiceStatResponse(BaseRequest):
 
 class GetInvoiceAmountRequest(BaseRequest):
     """
-    查询可开具发票额度和发票开具信息请求
+    查询可开具发票额度和发票开具信息请求-请求
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -85,7 +85,7 @@ class GetInvoiceAmountRequest(BaseRequest):
 
 class GetInvoiceAmountResponse(BaseRequest):
     """
-    查询可开具发票额度和发票开具信息返回
+    查询可开具发票额度和发票开具信息返回-响应
 
     :type amount: string
     :param amount: 可开票额度
@@ -110,7 +110,7 @@ class GetInvoiceAmountResponse(BaseRequest):
 
 class ApplyInvoiceRequest(BaseRequest):
     """
-    发票开具申请请求
+    发票开具申请请求-请求
 
     :type invoice_apply_id: string
     :param invoice_apply_id: 发票申请编号
@@ -160,7 +160,7 @@ class ApplyInvoiceRequest(BaseRequest):
 
 class ApplyInvoiceResponse(BaseRequest):
     """
-    发票开具申请返回
+    发票开具申请返回-响应
 
     :type application_id: string
     :param application_id: 发票申请单 ID
@@ -180,7 +180,7 @@ class ApplyInvoiceResponse(BaseRequest):
 
 class GetInvoiceStatusRequest(BaseRequest):
     """
-    查询发票开具申请状态请求
+    查询发票开具申请状态请求-请求
 
     :type invoice_apply_id: string
     :param invoice_apply_id: 发票申请编号
@@ -200,7 +200,7 @@ class GetInvoiceStatusRequest(BaseRequest):
 
 class GetInvoiceStatusResponse(BaseRequest):
     """
-    查询发票开具申请状态返回
+    查询发票开具申请状态返回-响应
 
     :type status: string
     :param status: 申请结果
@@ -280,7 +280,7 @@ class GetInvoiceStatusResponse(BaseRequest):
 
 class GetInvoiceInformationRequest(BaseRequest):
     """
-    查询发票信息请求
+    查询发票信息请求-请求
 
     :type invoice_apply_id: string
     :param invoice_apply_id: 发票申请编号
@@ -300,7 +300,7 @@ class GetInvoiceInformationRequest(BaseRequest):
 
 class GetInvoiceInformationResponse(BaseRequest):
     """
-    查询发票信息返回
+    查询发票信息返回-响应
 
     :type information: list
     :param information: 发票信息
@@ -315,7 +315,7 @@ class GetInvoiceInformationResponse(BaseRequest):
 
 class InformationDataInfo(BaseRequest):
     """
-    查询发票信息返回
+    查询发票信息返回-响应
 
     :type goods_services_name: string
     :param goods_services_name: 货物或应税劳务、服务名称
@@ -365,7 +365,7 @@ class InformationDataInfo(BaseRequest):
 
 class BankNameAccount(BaseRequest):
     """
-    系统支持的开户行及账号
+    系统支持的开户行及账号-响应
 
     :type item: string
     :param item: 开户行及账号
@@ -385,7 +385,7 @@ class BankNameAccount(BaseRequest):
 
 class GoodsServicesName(BaseRequest):
     """
-    系统支持的货物或应税劳务、服务名称
+    系统支持的货物或应税劳务、服务名称-响应
 
     :type item: string
     :param item: 货物或应税劳务、服务名称
@@ -405,7 +405,7 @@ class GoodsServicesName(BaseRequest):
 
 class GetInvoiceFileRequest(BaseRequest):
     """
-    下载 PDF 版发票请求
+    下载 PDF 版发票请求-请求
 
     :type invoice_apply_id: string
     :param invoice_apply_id: 发票申请编号
@@ -425,7 +425,7 @@ class GetInvoiceFileRequest(BaseRequest):
 
 class GetInvoiceFileResponse(BaseRequest):
     """
-    下载 PDF 版发票返回
+    下载 PDF 版发票返回-响应
 
     :type url: string
     :param url: 下载地址
@@ -445,7 +445,7 @@ class GetInvoiceFileResponse(BaseRequest):
 
 class SendReminderEmailRequest(BaseRequest):
     """
-    发送发票扫描件压缩包下载链接邮件请求
+    发送发票扫描件压缩包下载链接邮件请求-请求
 
     :type invoice_apply_id: string
     :param invoice_apply_id: 发票申请编号
@@ -465,13 +465,13 @@ class SendReminderEmailRequest(BaseRequest):
 
 class SendReminderEmailResponse(BaseRequest):
     """
-    发送发票扫描件压缩包下载链接邮件返回
+    发送发票扫描件压缩包下载链接邮件返回-响应
     """
 
 
 class NotifyInvoiceDoneRequest(BaseRequest):
     """
-    发票开具完成通知
+    发票开具完成通知-请求
 
     :type application_id: string
     :param application_id: 发票申请单 ID

@@ -6,6 +6,8 @@ from ...utils import Utils
 
 
 class InvoiceClient(BaseClient):
+    """发票开具客户端"""
+
     def __init__(self, config):
         super().__init__(config)
 

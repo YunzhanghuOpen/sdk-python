@@ -1,6 +1,5 @@
 import platform
 import uuid
-
 import requests
 
 from .. import __version__

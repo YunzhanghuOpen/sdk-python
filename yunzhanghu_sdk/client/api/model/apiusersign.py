@@ -5,7 +5,7 @@ from ...base import BaseRequest
 
 class ApiUseSignContractRequest(BaseRequest):
     """
-    获取协议预览 URL 请求
+    获取协议预览 URL 请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -25,7 +25,7 @@ class ApiUseSignContractRequest(BaseRequest):
 
 class ApiUseSignContractResponse(BaseRequest):
     """
-    获取协议预览 URL 返回
+    获取协议预览 URL 返回-响应
 
     :type url: string
     :param url: 预览跳转 URL
@@ -45,7 +45,7 @@ class ApiUseSignContractResponse(BaseRequest):
 
 class ApiUserSignContractRequest(BaseRequest):
     """
-    获取协议预览 URL 请求 V2
+    获取协议预览 URL 请求 V2-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -65,7 +65,7 @@ class ApiUserSignContractRequest(BaseRequest):
 
 class ApiUserSignContractResponse(BaseRequest):
     """
-    获取协议预览 URL 返回 V2
+    获取协议预览 URL 返回 V2-响应
 
     :type url: string
     :param url: 预览跳转 URL
@@ -85,7 +85,7 @@ class ApiUserSignContractResponse(BaseRequest):
 
 class ApiUserSignRequest(BaseRequest):
     """
-    用户签约请求
+    用户签约请求-请求
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -120,7 +120,7 @@ class ApiUserSignRequest(BaseRequest):
 
 class ApiUserSignResponse(BaseRequest):
     """
-    用户签约返回
+    用户签约返回-响应
 
     :type status: string
     :param status: 是否签约成功
@@ -135,7 +135,7 @@ class ApiUserSignResponse(BaseRequest):
 
 class GetApiUserSignStatusRequest(BaseRequest):
     """
-    获取用户签约状态请求
+    获取用户签约状态请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -165,7 +165,7 @@ class GetApiUserSignStatusRequest(BaseRequest):
 
 class GetApiUserSignStatusResponse(BaseRequest):
     """
-    获取用户签约状态返回
+    获取用户签约状态返回-响应
 
     :type signed_at: string
     :param signed_at: 签约时间
@@ -185,7 +185,7 @@ class GetApiUserSignStatusResponse(BaseRequest):
 
 class ApiUserSignReleaseRequest(BaseRequest):
     """
-    用户解约（测试账号专用接口）请求
+    用户解约（测试账号专用接口）请求-请求
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -220,7 +220,7 @@ class ApiUserSignReleaseRequest(BaseRequest):
 
 class ApiUserSignReleaseResponse(BaseRequest):
     """
-    用户解约（测试账号专用接口）返回
+    用户解约（测试账号专用接口）返回-响应
 
     :type status: string
     :param status: 是否解约成功

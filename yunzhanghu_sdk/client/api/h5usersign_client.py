@@ -6,6 +6,8 @@ from ...utils import Utils
 
 
 class H5UserSignServiceClient(BaseClient):
+    """H5 签约客户端"""
+
     def __init__(self, config):
         super().__init__(config)
 

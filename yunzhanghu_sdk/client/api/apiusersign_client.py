@@ -6,6 +6,8 @@ from ...utils import Utils
 
 
 class ApiUserSignServiceClient(BaseClient):
+    """API 签约客户端"""
+
     def __init__(self, config):
         super().__init__(config)
 

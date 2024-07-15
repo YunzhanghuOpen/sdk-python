@@ -6,6 +6,8 @@ from ...utils import Utils
 
 
 class BizlicXjjH5ServiceClient(BaseClient):
+    """云账户新经济 H5客户端"""
+
     def __init__(self, config):
         super().__init__(config)
 

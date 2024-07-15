@@ -5,7 +5,7 @@ from ...base import BaseRequest
 
 class H5GetStartUrlRequest(BaseRequest):
     """
-    预启动请求
+    预启动请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -55,7 +55,7 @@ class H5GetStartUrlRequest(BaseRequest):
 
 class H5GetStartUrlResponse(BaseRequest):
     """
-    预启动返回
+    预启动返回-响应
 
     :type h5_url: string
     :param h5_url: 跳转 URL
@@ -70,7 +70,7 @@ class H5GetStartUrlResponse(BaseRequest):
 
 class H5EcoCityAicStatusRequest(BaseRequest):
     """
-    查询个体工商户状态请求
+    查询个体工商户状态请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -110,7 +110,7 @@ class H5EcoCityAicStatusRequest(BaseRequest):
 
 class H5EcoCityAicStatusResponse(BaseRequest):
     """
-    查询个体工商户状态返回
+    查询个体工商户状态返回-响应
 
     :type status: int
     :param status: 用户签约状态
@@ -165,7 +165,7 @@ class H5EcoCityAicStatusResponse(BaseRequest):
 
 class NotifyH5EcoCityAicRequest(BaseRequest):
     """
-    结果回调
+    结果回调-请求
 
     :type open_id: string
     :param open_id: 用户唯一标识
