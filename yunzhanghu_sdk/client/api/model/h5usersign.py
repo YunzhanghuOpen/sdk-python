@@ -5,7 +5,7 @@ from ...base import BaseRequest
 
 class H5UserPresignRequest(BaseRequest):
     """
-    预申请签约请求
+    预申请签约请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -40,7 +40,7 @@ class H5UserPresignRequest(BaseRequest):
 
 class H5UserPresignResponse(BaseRequest):
     """
-    预申请签约返回
+    预申请签约返回-响应
 
     :type uid: string
     :param uid: 用户 ID（废弃字段）
@@ -65,7 +65,7 @@ class H5UserPresignResponse(BaseRequest):
 
 class H5UserSignRequest(BaseRequest):
     """
-    申请签约请求
+    申请签约请求-请求
 
     :type token: string
     :param token: H5 签约 token
@@ -95,7 +95,7 @@ class H5UserSignRequest(BaseRequest):
 
 class H5UserSignResponse(BaseRequest):
     """
-    申请签约返回
+    申请签约返回-响应
 
     :type url: string
     :param url: H5 签约页面 URL
@@ -110,7 +110,7 @@ class H5UserSignResponse(BaseRequest):
 
 class GetH5UserSignStatusRequest(BaseRequest):
     """
-    获取用户签约状态请求
+    获取用户签约状态请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -140,7 +140,7 @@ class GetH5UserSignStatusRequest(BaseRequest):
 
 class GetH5UserSignStatusResponse(BaseRequest):
     """
-    获取用户签约状态返回
+    获取用户签约状态返回-响应
 
     :type signed_at: string
     :param signed_at: 签约时间
@@ -160,7 +160,7 @@ class GetH5UserSignStatusResponse(BaseRequest):
 
 class H5UserReleaseRequest(BaseRequest):
     """
-    用户解约（测试账号专用接口）请求
+    用户解约（测试账号专用接口）请求-请求
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -195,7 +195,7 @@ class H5UserReleaseRequest(BaseRequest):
 
 class H5UserReleaseResponse(BaseRequest):
     """
-    用户解约（测试账号专用接口）返回
+    用户解约（测试账号专用接口）返回-响应
 
     :type status: string
     :param status: 是否解约成功
@@ -210,7 +210,7 @@ class H5UserReleaseResponse(BaseRequest):
 
 class NotifyH5UserSignRequest(BaseRequest):
     """
-    签约回调
+    签约回调-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID

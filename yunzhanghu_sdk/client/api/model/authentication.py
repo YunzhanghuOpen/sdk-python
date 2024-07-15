@@ -5,7 +5,7 @@ from ...base import BaseRequest
 
 class BankCardFourAuthVerifyRequest(BaseRequest):
     """
-    银行卡四要素鉴权请求（下发短信验证码）请求
+    银行卡四要素鉴权请求（下发短信验证码）请求-请求
 
     :type card_no: string
     :param card_no: 银行卡号
@@ -35,7 +35,7 @@ class BankCardFourAuthVerifyRequest(BaseRequest):
 
 class BankCardFourAuthVerifyResponse(BaseRequest):
     """
-    银行卡四要素鉴权请求（下发短信验证码）返回
+    银行卡四要素鉴权请求（下发短信验证码）返回-响应
 
     :type ref: string
     :param ref: 交易凭证
@@ -50,7 +50,7 @@ class BankCardFourAuthVerifyResponse(BaseRequest):
 
 class BankCardFourAuthConfirmRequest(BaseRequest):
     """
-    银行卡四要素确认请求（上传短信验证码）请求
+    银行卡四要素确认请求（上传短信验证码）请求-请求
 
     :type card_no: string
     :param card_no: 银行卡号
@@ -90,13 +90,13 @@ class BankCardFourAuthConfirmRequest(BaseRequest):
 
 class BankCardFourAuthConfirmResponse(BaseRequest):
     """
-    银行卡四要素确认请求（上传短信验证码）返回
+    银行卡四要素确认请求（上传短信验证码）返回-响应
     """
 
 
 class BankCardFourVerifyRequest(BaseRequest):
     """
-    银行卡四要素验证请求
+    银行卡四要素验证请求-请求
 
     :type card_no: string
     :param card_no: 银行卡号
@@ -126,13 +126,13 @@ class BankCardFourVerifyRequest(BaseRequest):
 
 class BankCardFourVerifyResponse(BaseRequest):
     """
-    银行卡四要素验证返回
+    银行卡四要素验证返回-响应
     """
 
 
 class BankCardThreeVerifyRequest(BaseRequest):
     """
-    银行卡三要素验证请求
+    银行卡三要素验证请求-请求
 
     :type card_no: string
     :param card_no: 银行卡号
@@ -157,13 +157,13 @@ class BankCardThreeVerifyRequest(BaseRequest):
 
 class BankCardThreeVerifyResponse(BaseRequest):
     """
-    银行卡三要素验证返回
+    银行卡三要素验证返回-响应
     """
 
 
 class IDCardVerifyRequest(BaseRequest):
     """
-    身份证实名验证请求
+    身份证实名验证请求-请求
 
     :type id_card: string
     :param id_card: 身份证号码
@@ -183,13 +183,13 @@ class IDCardVerifyRequest(BaseRequest):
 
 class IDCardVerifyResponse(BaseRequest):
     """
-    身份证实名验证返回
+    身份证实名验证返回-响应
     """
 
 
 class UserExemptedInfoRequest(BaseRequest):
     """
-    上传免验证用户名单信息请求
+    上传免验证用户名单信息请求-请求
 
     :type card_type: string
     :param card_type: 证件类型码
@@ -259,7 +259,7 @@ class UserExemptedInfoRequest(BaseRequest):
 
 class UserExemptedInfoResponse(BaseRequest):
     """
-    上传免验证用户名单信息返回
+    上传免验证用户名单信息返回-响应
 
     :type ok: string
     :param ok: 是否上传成功
@@ -274,7 +274,7 @@ class UserExemptedInfoResponse(BaseRequest):
 
 class NotifyUserExemptedInfoRequest(BaseRequest):
     """
-    上传免验证用户名单信息审核结果通知
+    上传免验证用户名单信息审核结果通知-请求
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -319,7 +319,7 @@ class NotifyUserExemptedInfoRequest(BaseRequest):
 
 class UserWhiteCheckRequest(BaseRequest):
     """
-    查看免验证用户名单是否存在请求
+    查看免验证用户名单是否存在请求-请求
 
     :type id_card: string
     :param id_card: 证件号码
@@ -339,7 +339,7 @@ class UserWhiteCheckRequest(BaseRequest):
 
 class UserWhiteCheckResponse(BaseRequest):
     """
-    查看免验证用户名单是否存在返回
+    查看免验证用户名单是否存在返回-响应
 
     :type ok: bool
     :param ok: 
@@ -354,7 +354,7 @@ class UserWhiteCheckResponse(BaseRequest):
 
 class GetBankCardInfoRequest(BaseRequest):
     """
-    银行卡信息查询请求
+    银行卡信息查询请求-请求
 
     :type card_no: string
     :param card_no: 银行卡号
@@ -374,7 +374,7 @@ class GetBankCardInfoRequest(BaseRequest):
 
 class GetBankCardInfoResponse(BaseRequest):
     """
-    银行卡信息查询返回
+    银行卡信息查询返回-响应
 
     :type bank_code: string
     :param bank_code: 银行代码

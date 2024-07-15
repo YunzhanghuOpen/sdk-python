@@ -6,6 +6,8 @@ from ...utils import Utils
 
 
 class AuthenticationClient(BaseClient):
+    """用户信息验证客户端"""
+
     def __init__(self, config):
         super().__init__(config)
 

@@ -5,7 +5,7 @@ from ...base import BaseRequest
 
 class GetTaxFileRequest(BaseRequest):
     """
-    下载个人所得税扣缴明细表请求
+    下载个人所得税扣缴明细表请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -30,7 +30,7 @@ class GetTaxFileRequest(BaseRequest):
 
 class GetTaxFileResponse(BaseRequest):
     """
-    下载个人所得税扣缴明细表返回
+    下载个人所得税扣缴明细表返回-响应
 
     :type file_info: list
     :param file_info: 文件详情
@@ -45,7 +45,7 @@ class GetTaxFileResponse(BaseRequest):
 
 class FileInfo(BaseRequest):
     """
-    报税文件详情
+    报税文件详情-响应
 
     :type name: string
     :param name: 文件名称
@@ -70,7 +70,7 @@ class FileInfo(BaseRequest):
 
 class GetUserCrossRequest(BaseRequest):
     """
-    查询纳税人是否为跨集团用户请求
+    查询纳税人是否为跨集团用户请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -100,7 +100,7 @@ class GetUserCrossRequest(BaseRequest):
 
 class GetUserCrossResponse(BaseRequest):
     """
-    查询纳税人是否为跨集团用户返回
+    查询纳税人是否为跨集团用户返回-响应
 
     :type is_cross: bool
     :param is_cross: 跨集团标识

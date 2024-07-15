@@ -6,6 +6,8 @@ from ...utils import Utils
 
 
 class TaxClient(BaseClient):
+    """个人所得税扣缴明细表客户端"""
+
     def __init__(self, config):
         super().__init__(config)
 

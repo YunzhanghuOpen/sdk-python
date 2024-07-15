@@ -5,7 +5,7 @@ from ...base import BaseRequest
 
 class H5PreCollectBizlicMsgRequest(BaseRequest):
     """
-    工商实名信息录入请求
+    工商实名信息录入请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -70,7 +70,7 @@ class H5PreCollectBizlicMsgRequest(BaseRequest):
 
 class H5PreCollectBizlicMsgResponse(BaseRequest):
     """
-    工商实名信息录入返回
+    工商实名信息录入返回-响应
 
     :type dealer_user_id: string
     :param dealer_user_id: 平台企业端的用户 ID
@@ -85,7 +85,7 @@ class H5PreCollectBizlicMsgResponse(BaseRequest):
 
 class H5APIGetStartUrlRequest(BaseRequest):
     """
-    预启动请求
+    预启动请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -135,7 +135,7 @@ class H5APIGetStartUrlRequest(BaseRequest):
 
 class H5APIGetStartUrlResponse(BaseRequest):
     """
-    预启动返回
+    预启动返回-响应
 
     :type h5_url: string
     :param h5_url: 跳转 URL
@@ -150,7 +150,7 @@ class H5APIGetStartUrlResponse(BaseRequest):
 
 class H5APIEcoCityAicStatusRequest(BaseRequest):
     """
-    查询个体工商户状态请求
+    查询个体工商户状态请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -190,7 +190,7 @@ class H5APIEcoCityAicStatusRequest(BaseRequest):
 
 class H5APIEcoCityAicStatusResponse(BaseRequest):
     """
-    查询个体工商户状态返回
+    查询个体工商户状态返回-响应
 
     :type status: int
     :param status: 用户签约状态
@@ -245,7 +245,7 @@ class H5APIEcoCityAicStatusResponse(BaseRequest):
 
 class NotifyH5APIEcoCityAicRequest(BaseRequest):
     """
-    结果回调
+    结果回调-请求
 
     :type open_id: string
     :param open_id: 用户唯一标识
