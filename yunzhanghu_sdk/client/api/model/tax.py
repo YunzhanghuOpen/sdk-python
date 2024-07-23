@@ -1,11 +1,11 @@
-"""个人所得税扣缴明细表"""
+"""个人所得税申报明细表"""
 
 from ...base import BaseRequest
 
 
 class GetTaxFileRequest(BaseRequest):
     """
-    下载个人所得税扣缴明细表请求-请求
+    下载个人所得税申报明细表请求-请求
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
@@ -30,7 +30,7 @@ class GetTaxFileRequest(BaseRequest):
 
 class GetTaxFileResponse(BaseRequest):
     """
-    下载个人所得税扣缴明细表返回-响应
+    下载个人所得税申报明细表返回-响应
 
     :type file_info: list
     :param file_info: 文件详情
