@@ -82,7 +82,7 @@ class AuthenticationClient(BaseClient):
         )
 
     def user_exempted_info(self, request: UserExemptedInfoRequest):
-        """ 上传免验证用户名单信息
+        """ 上传非居民身份证验证名单信息
 
         :type request: UserExemptedInfoRequest
         :param request: the UserExemptedInfoRequest request parameters class.
@@ -96,7 +96,7 @@ class AuthenticationClient(BaseClient):
         )
 
     def user_white_check(self, request: UserWhiteCheckRequest):
-        """ 查看免验证用户名单是否存在
+        """ 查看用户是否在非居民身份证验证名单中
 
         :type request: UserWhiteCheckRequest
         :param request: the UserWhiteCheckRequest request parameters class.

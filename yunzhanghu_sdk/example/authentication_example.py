@@ -128,7 +128,7 @@ if __name__ == "__main__":
         # 发生异常
         print(e)
 
-    # 上传免验证用户名单信息
+    # 上传非居民身份证验证名单信息
     req = UserExemptedInfoRequest(
         card_type = "passport",
         id_card = "EA3456789",
@@ -160,7 +160,7 @@ if __name__ == "__main__":
         # 发生异常
         print(e)
 
-    # 查看免验证用户名单是否存在
+    # 查看用户是否在非居民身份证验证名单中
     req = UserWhiteCheckRequest(
         id_card = "EA3456789",
         real_name = "张三",
