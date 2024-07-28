@@ -1403,3 +1403,53 @@ class CancelBatchOrderResponse(BaseRequest):
     """
     批次撤销返回-响应
     """
+
+
+class CheckUserAmountRequest(BaseRequest):
+    """
+    用户结算金额校验请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type id_card: string
+    :param id_card: 身份证号码
+
+    :type amount: string
+    :param amount: 校验金额
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        real_name = None,
+        id_card = None,
+        amount = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.real_name = real_name
+        self.id_card = id_card
+        self.amount = amount
+
+
+class CheckUserAmountResponse(BaseRequest):
+    """
+    用户结算金额校验返回-响应
+
+    :type is_over_whole_user_month_quota: bool
+    :param is_over_whole_user_month_quota: 是否超过月限额
+
+    :type is_over_whole_user_year_quota: bool
+    :param is_over_whole_user_year_quota: 是否超过年限额
+    """
+    def __init__(
+        self,
+        is_over_whole_user_month_quota = None,
+        is_over_whole_user_year_quota = None
+    ):
+        super().__init__()
+        self.is_over_whole_user_month_quota = is_over_whole_user_month_quota
+        self.is_over_whole_user_year_quota = is_over_whole_user_year_quota
