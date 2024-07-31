@@ -123,6 +123,20 @@ class PaymentClient(BaseClient):
             Utils.copy_dict(request.__dict__)
         )
 
+    def retry_order(self, request: RetryOrderRequest):
+        """ 重试挂起状态订单
+
+        :type request: RetryOrderRequest
+        :param request: the RetryOrderRequest request parameters class.
+
+        :return: RetryOrderResponse
+        """
+        return self._post(
+            "/api/payment/v1/order/retry",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
+
     def create_batch_order(self, request: CreateBatchOrderRequest):
         """ 批次下单
 

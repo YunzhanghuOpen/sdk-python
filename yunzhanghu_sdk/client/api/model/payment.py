@@ -578,6 +578,51 @@ class CancelOrderResponse(BaseRequest):
         self.ok = ok
 
 
+class RetryOrderRequest(BaseRequest):
+    """
+    重试挂起状态订单请求-请求
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type ref: string
+    :param ref: 综合服务平台流水号
+
+    :type channel: string
+    :param channel: 支付路径名
+    """
+    def __init__(
+        self,
+        dealer_id = None,
+        order_id = None,
+        ref = None,
+        channel = None
+    ):
+        super().__init__()
+        self.dealer_id = dealer_id
+        self.order_id = order_id
+        self.ref = ref
+        self.channel = channel
+
+
+class RetryOrderResponse(BaseRequest):
+    """
+    重试挂起状态订单返回-响应
+
+    :type ok: string
+    :param ok: 请求标识
+    """
+    def __init__(
+        self,
+        ok = None
+    ):
+        super().__init__()
+        self.ok = ok
+
+
 class ListAccountRequest(BaseRequest):
     """
     查询平台企业余额请求-请求
