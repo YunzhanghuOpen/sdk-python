@@ -80,6 +80,7 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 - [异步通知](yunzhanghu_sdk/example/notify_example.py)
 - [对账文件获取](yunzhanghu_sdk/example/dataservice_example.py)
 - [发票开具](yunzhanghu_sdk/example/invoice_example.py)
+- [个人所得税申报明细表](yunzhanghu_sdk/example/tax_example.py)
 
 #### 示例
 

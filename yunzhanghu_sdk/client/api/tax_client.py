@@ -1,4 +1,4 @@
-"""个人所得税扣缴明细表"""
+"""个人所得税申报明细表"""
 
 from .model.tax import *
 from ..base import BaseClient
@@ -6,13 +6,13 @@ from ...utils import Utils
 
 
 class TaxClient(BaseClient):
-    """个人所得税扣缴明细表客户端"""
+    """个人所得税申报明细表客户端"""
 
     def __init__(self, config):
         super().__init__(config)
 
     def get_tax_file(self, request: GetTaxFileRequest):
-        """ 下载个人所得税扣缴明细表
+        """ 下载个人所得税申报明细表
 
         :type request: GetTaxFileRequest
         :param request: the GetTaxFileRequest request parameters class.

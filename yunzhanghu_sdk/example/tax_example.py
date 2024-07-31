@@ -4,12 +4,12 @@ from yunzhanghu_sdk.client.api.model.tax import *
 from yunzhanghu_sdk.client.api.tax_client import TaxClient
 from yunzhanghu_sdk.example.utils.config_init import init_config
 
-# 个人所得税扣缴明细表
+# 个人所得税申报明细表
 if __name__ == "__main__":
     conf = init_config()
     client = TaxClient(config=conf)
 
-    # 下载个人所得税扣缴明细表
+    # 下载个人所得税申报明细表
     req = GetTaxFileRequest(
         dealer_id = conf.dealer_id,
         ent_id = "accumulus_tj",
