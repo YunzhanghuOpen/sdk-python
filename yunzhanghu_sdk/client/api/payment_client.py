@@ -178,3 +178,17 @@ class PaymentClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def check_user_amount(self, request: CheckUserAmountRequest):
+        """ 用户结算金额校验
+
+        :type request: CheckUserAmountRequest
+        :param request: the CheckUserAmountRequest request parameters class.
+
+        :return: CheckUserAmountResponse
+        """
+        return self._post(
+            "/api/payment/v1/risk-check/amount",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
