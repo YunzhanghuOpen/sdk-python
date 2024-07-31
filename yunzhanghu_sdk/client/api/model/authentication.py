@@ -189,7 +189,7 @@ class IDCardVerifyResponse(BaseRequest):
 
 class UserExemptedInfoRequest(BaseRequest):
     """
-    上传免验证用户名单信息请求-请求
+    上传非居民身份证验证名单信息请求-请求
 
     :type card_type: string
     :param card_type: 证件类型码
@@ -259,7 +259,7 @@ class UserExemptedInfoRequest(BaseRequest):
 
 class UserExemptedInfoResponse(BaseRequest):
     """
-    上传免验证用户名单信息返回-响应
+    上传非居民身份证验证名单信息返回-响应
 
     :type ok: string
     :param ok: 是否上传成功
@@ -274,7 +274,7 @@ class UserExemptedInfoResponse(BaseRequest):
 
 class NotifyUserExemptedInfoRequest(BaseRequest):
     """
-    上传免验证用户名单信息审核结果通知-请求
+    非居民身份证验证名单审核结果回调通知-请求
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -319,7 +319,7 @@ class NotifyUserExemptedInfoRequest(BaseRequest):
 
 class UserWhiteCheckRequest(BaseRequest):
     """
-    查看免验证用户名单是否存在请求-请求
+    查看用户是否在非居民身份证验证名单中请求-请求
 
     :type id_card: string
     :param id_card: 证件号码
@@ -339,7 +339,7 @@ class UserWhiteCheckRequest(BaseRequest):
 
 class UserWhiteCheckResponse(BaseRequest):
     """
-    查看免验证用户名单是否存在返回-响应
+    查看用户是否在非居民身份证验证名单中返回-响应
 
     :type ok: bool
     :param ok: 

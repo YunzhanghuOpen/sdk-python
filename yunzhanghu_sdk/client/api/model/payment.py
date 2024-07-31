@@ -578,6 +578,51 @@ class CancelOrderResponse(BaseRequest):
         self.ok = ok
 
 
+class RetryOrderRequest(BaseRequest):
+    """
+    重试挂起状态订单请求-请求
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type ref: string
+    :param ref: 综合服务平台流水号
+
+    :type channel: string
+    :param channel: 支付路径名
+    """
+    def __init__(
+        self,
+        dealer_id = None,
+        order_id = None,
+        ref = None,
+        channel = None
+    ):
+        super().__init__()
+        self.dealer_id = dealer_id
+        self.order_id = order_id
+        self.ref = ref
+        self.channel = channel
+
+
+class RetryOrderResponse(BaseRequest):
+    """
+    重试挂起状态订单返回-响应
+
+    :type ok: string
+    :param ok: 请求标识
+    """
+    def __init__(
+        self,
+        ok = None
+    ):
+        super().__init__()
+        self.ok = ok
+
+
 class ListAccountRequest(BaseRequest):
     """
     查询平台企业余额请求-请求
@@ -1358,3 +1403,53 @@ class CancelBatchOrderResponse(BaseRequest):
     """
     批次撤销返回-响应
     """
+
+
+class CheckUserAmountRequest(BaseRequest):
+    """
+    用户结算金额校验请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type id_card: string
+    :param id_card: 身份证号码
+
+    :type amount: string
+    :param amount: 校验金额
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        real_name = None,
+        id_card = None,
+        amount = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.real_name = real_name
+        self.id_card = id_card
+        self.amount = amount
+
+
+class CheckUserAmountResponse(BaseRequest):
+    """
+    用户结算金额校验返回-响应
+
+    :type is_over_whole_user_month_quota: bool
+    :param is_over_whole_user_month_quota: 是否超过月限额
+
+    :type is_over_whole_user_year_quota: bool
+    :param is_over_whole_user_year_quota: 是否超过年限额
+    """
+    def __init__(
+        self,
+        is_over_whole_user_month_quota = None,
+        is_over_whole_user_year_quota = None
+    ):
+        super().__init__()
+        self.is_over_whole_user_month_quota = is_over_whole_user_month_quota
+        self.is_over_whole_user_year_quota = is_over_whole_user_year_quota

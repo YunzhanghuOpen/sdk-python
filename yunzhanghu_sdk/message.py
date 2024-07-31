@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import absolute_import, unicode_literals
+
 import abc
 import base64
 import hashlib
@@ -9,7 +11,6 @@ import random
 import time
 import pyDes
 
-from __future__ import absolute_import, unicode_literals
 from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5 as Signature_pkcs1_v1_5
