@@ -184,6 +184,11 @@ class RespMessage(object):
 
 
 def notify_decoder(public_key, app_key, des3key, data, mess, timestamp, signature, sign_type):
+    try:
+        timestamp = int(timestamp)
+    except ValueError:
+        return False, ""
+
     res_data, verify_result = "", False
     if sign_type == "sha256":
         if HmacSigner(app_key).verify_sign(data, mess, timestamp, signature):
