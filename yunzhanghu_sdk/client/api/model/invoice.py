@@ -340,6 +340,9 @@ class InformationDataInfo(BaseRequest):
 
     :type invoiced_date: string
     :param invoiced_date: 开票日期
+
+    :type status: string
+    :param status: 发票状态
     """
     def __init__(
         self,
@@ -350,7 +353,8 @@ class InformationDataInfo(BaseRequest):
         tax_amount = None,
         tax_rate = None,
         price_tax_amount = None,
-        invoiced_date = None
+        invoiced_date = None,
+        status = None
     ):
         super().__init__()
         self.goods_services_name = goods_services_name
@@ -361,6 +365,7 @@ class InformationDataInfo(BaseRequest):
         self.tax_rate = tax_rate
         self.price_tax_amount = price_tax_amount
         self.invoiced_date = invoiced_date
+        self.status = status
 
 
 class BankNameAccount(BaseRequest):
