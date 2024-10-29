@@ -445,7 +445,7 @@ class GetInvoiceFileResponse(BaseRequest):
 
 class SendReminderEmailRequest(BaseRequest):
     """
-    发送发票扫描件压缩包下载链接邮件请求-请求
+    发送发票开具成功通知邮件请求-请求
 
     :type invoice_apply_id: string
     :param invoice_apply_id: 发票申请编号
@@ -465,7 +465,7 @@ class SendReminderEmailRequest(BaseRequest):
 
 class SendReminderEmailResponse(BaseRequest):
     """
-    发送发票扫描件压缩包下载链接邮件返回-响应
+    发送发票开具成功通知邮件返回-响应
     """
 
 

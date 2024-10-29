@@ -96,7 +96,7 @@ class InvoiceClient(BaseClient):
         )
 
     def send_reminder_email(self, request: SendReminderEmailRequest):
-        """ 发送发票扫描件压缩包下载链接邮件
+        """ 发送发票开具成功通知邮件
 
         :type request: SendReminderEmailRequest
         :param request: the SendReminderEmailRequest request parameters class.

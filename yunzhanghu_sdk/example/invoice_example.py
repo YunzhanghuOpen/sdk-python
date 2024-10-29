@@ -148,7 +148,7 @@ if __name__ == "__main__":
         # 发生异常
         print(e)
 
-    # 发送发票扫描件压缩包下载链接邮件
+    # 发送发票开具成功通知邮件
     req = SendReminderEmailRequest(
         invoice_apply_id = "test1234567890",
         application_id = "a123b1110",
