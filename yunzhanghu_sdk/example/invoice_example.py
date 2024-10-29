@@ -64,6 +64,8 @@ if __name__ == "__main__":
         bank_name_account = "交通银行北京东大桥支行 12343456654321",
         goods_services_name = "信息技术服务*信息技术服务费",
         remark = "测试备注",
+        receive_emails = [],
+        invoice_media= "",
     )
 
     # request-id：请求 ID，请求的唯一标识
