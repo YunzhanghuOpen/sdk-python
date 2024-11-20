@@ -135,6 +135,12 @@ class ApplyInvoiceRequest(BaseRequest):
 
     :type remark: string
     :param remark: 发票备注
+
+    :type receive_emails: list
+    :param receive_emails: 发票接收邮箱
+
+    :type invoice_media: string
+    :param invoice_media: 发票介质
     """
     def __init__(
         self,
@@ -145,7 +151,9 @@ class ApplyInvoiceRequest(BaseRequest):
         invoice_type = None,
         bank_name_account = None,
         goods_services_name = None,
-        remark = None
+        remark = None,
+        receive_emails = None,
+        invoice_media = None
     ):
         super().__init__()
         self.invoice_apply_id = invoice_apply_id
@@ -156,6 +164,8 @@ class ApplyInvoiceRequest(BaseRequest):
         self.bank_name_account = bank_name_account
         self.goods_services_name = goods_services_name
         self.remark = remark
+        self.receive_emails = receive_emails
+        self.invoice_media = invoice_media
 
 
 class ApplyInvoiceResponse(BaseRequest):
@@ -243,6 +253,12 @@ class GetInvoiceStatusResponse(BaseRequest):
 
     :type waybill_number: list
     :param waybill_number: 快递单号
+
+    :type reject_reason: string
+    :param reject_reason: 驳回原因
+
+    :type invoice_media: string
+    :param invoice_media: 发票介质
     """
     def __init__(
         self,
@@ -259,7 +275,9 @@ class GetInvoiceStatusResponse(BaseRequest):
         goods_services_name = None,
         remark = None,
         post_type = None,
-        waybill_number = None
+        waybill_number = None,
+        reject_reason = None,
+        invoice_media = None
     ):
         super().__init__()
         self.status = status
@@ -276,6 +294,8 @@ class GetInvoiceStatusResponse(BaseRequest):
         self.remark = remark
         self.post_type = post_type
         self.waybill_number = waybill_number
+        self.reject_reason = reject_reason
+        self.invoice_media = invoice_media
 
 
 class GetInvoiceInformationRequest(BaseRequest):
@@ -340,6 +360,9 @@ class InformationDataInfo(BaseRequest):
 
     :type invoiced_date: string
     :param invoiced_date: 开票日期
+
+    :type status: string
+    :param status: 发票状态
     """
     def __init__(
         self,
@@ -350,7 +373,8 @@ class InformationDataInfo(BaseRequest):
         tax_amount = None,
         tax_rate = None,
         price_tax_amount = None,
-        invoiced_date = None
+        invoiced_date = None,
+        status = None
     ):
         super().__init__()
         self.goods_services_name = goods_services_name
@@ -361,6 +385,7 @@ class InformationDataInfo(BaseRequest):
         self.tax_rate = tax_rate
         self.price_tax_amount = price_tax_amount
         self.invoiced_date = invoiced_date
+        self.status = status
 
 
 class BankNameAccount(BaseRequest):
@@ -523,6 +548,9 @@ class NotifyInvoiceDoneRequest(BaseRequest):
 
     :type reject_reason: string
     :param reject_reason: 驳回原因
+
+    :type invoice_media: string
+    :param invoice_media: 发票介质
     """
     def __init__(
         self,
@@ -542,7 +570,8 @@ class NotifyInvoiceDoneRequest(BaseRequest):
         remark = None,
         post_type = None,
         waybill_number = None,
-        reject_reason = None
+        reject_reason = None,
+        invoice_media = None
     ):
         super().__init__()
         self.application_id = application_id
@@ -562,3 +591,4 @@ class NotifyInvoiceDoneRequest(BaseRequest):
         self.post_type = post_type
         self.waybill_number = waybill_number
         self.reject_reason = reject_reason
+        self.invoice_media = invoice_media
