@@ -25,6 +25,20 @@ class DataServiceClient(BaseClient):
             Utils.copy_dict(request.__dict__)
         )
 
+    def list_daily_order_v2(self, request: ListDailyOrderV2Request):
+        """ 查询日订单数据（支付和退款订单）
+
+        :type request: ListDailyOrderV2Request
+        :param request: the ListDailyOrderV2Request request parameters class.
+
+        :return: ListDailyOrderV2Response
+        """
+        return self._get(
+            "/api/dataservice/v2/orders",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
+
     def get_daily_order_file(self, request: GetDailyOrderFileRequest):
         """ 查询日订单文件
 
