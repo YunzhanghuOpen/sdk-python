@@ -122,3 +122,31 @@ class DataServiceClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def list_daily_order_summary(self, request: ListDailyOrderSummaryRequest):
+        """ 查询日订单汇总数据
+
+        :type request: ListDailyOrderSummaryRequest
+        :param request: the ListDailyOrderSummaryRequest request parameters class.
+
+        :return: ListDailyOrderSummaryResponse
+        """
+        return self._get(
+            "/api/dataservice/v2/order/daily-summary",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
+
+    def list_monthly_order_summary(self, request: ListMonthlyOrderSummaryRequest):
+        """ 查询月订单汇总数据
+
+        :type request: ListMonthlyOrderSummaryRequest
+        :param request: the ListMonthlyOrderSummaryRequest request parameters class.
+
+        :return: ListMonthlyOrderSummaryResponse
+        """
+        return self._get(
+            "/api/dataservice/v2/order/monthly-summary",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
