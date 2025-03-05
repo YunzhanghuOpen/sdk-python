@@ -796,3 +796,243 @@ class StatementDetail(BaseRequest):
         self.invoice_status = invoice_status
         self.project_id = project_id
         self.project_name = project_name
+
+
+class ListDailyOrderSummaryRequest(BaseRequest):
+    """
+    查询日订单汇总数据请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type channel: string
+    :param channel: 支付路径，银行卡、支付宝、微信
+
+    :type begin_at: string
+    :param begin_at: 订单查询开始日期，格式：yyyy-MM-dd
+
+    :type end_at: string
+    :param end_at: 订单查询结束日期，格式：yyyy-MM-dd
+
+    :type filter_type: string
+    :param filter_type: 筛选类型，apply：按订单创建时间汇总 complete：按订单完成时间汇总
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        channel = None,
+        begin_at = None,
+        end_at = None,
+        filter_type = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.channel = channel
+        self.begin_at = begin_at
+        self.end_at = end_at
+        self.filter_type = filter_type
+
+
+class ListDailyOrderSummaryResponse(BaseRequest):
+    """
+    查询日订单汇总数据返回-响应
+
+    :type summary_list: list
+    :param summary_list: 汇总数据列表
+    """
+    def __init__(
+        self,
+        summary_list = None
+    ):
+        super().__init__()
+        self.summary_list = summary_list
+
+
+class ListDailyOrderSummary(BaseRequest):
+    """
+    日订单汇总数据详情-响应
+
+    :type date: string
+    :param date: 订单查询日期，格式：yyyy-MM-dd
+
+    :type success: DailyOrderSummary
+    :param success: 成功订单汇总
+
+    :type processing: DailyOrderSummary
+    :param processing: 处理中订单汇总
+
+    :type failed: DailyOrderSummary
+    :param failed: 失败订单汇总
+    """
+    def __init__(
+        self,
+        date = None,
+        success = None,
+        processing = None,
+        failed = None
+    ):
+        super().__init__()
+        self.date = date
+        self.success = success
+        self.processing = processing
+        self.failed = failed
+
+
+class DailyOrderSummary(BaseRequest):
+    """
+    日订单汇总详情-响应
+
+    :type order_num: int
+    :param order_num: 订单数量
+
+    :type pay: string
+    :param pay: 订单金额
+
+    :type broker_fee: string
+    :param broker_fee: 加成服务费金额
+
+    :type broker_real_fee: string
+    :param broker_real_fee: 加成服务费实收金额
+
+    :type broker_rebate_fee: string
+    :param broker_rebate_fee: 已抵扣加成服务费金额
+
+    :type user_fee: string
+    :param user_fee: 用户加成服务费金额
+    """
+    def __init__(
+        self,
+        order_num = None,
+        pay = None,
+        broker_fee = None,
+        broker_real_fee = None,
+        broker_rebate_fee = None,
+        user_fee = None
+    ):
+        super().__init__()
+        self.order_num = order_num
+        self.pay = pay
+        self.broker_fee = broker_fee
+        self.broker_real_fee = broker_real_fee
+        self.broker_rebate_fee = broker_rebate_fee
+        self.user_fee = user_fee
+
+
+class ListMonthlyOrderSummaryRequest(BaseRequest):
+    """
+    查询月订单汇总数据请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type channel: string
+    :param channel: 支付路径，银行卡、支付宝、微信
+
+    :type month: string
+    :param month: 汇总月份，格式：yyyy-MM
+
+    :type filter_type: string
+    :param filter_type: 筛选类型，apply：按订单创建时间汇总 complete：按订单完成时间汇总
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        channel = None,
+        month = None,
+        filter_type = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.channel = channel
+        self.month = month
+        self.filter_type = filter_type
+
+
+class ListMonthlyOrderSummaryResponse(BaseRequest):
+    """
+    查询月订单汇总数据返回-响应
+
+    :type summary: ListMonthlyOrderSummary
+    :param summary: 汇总数据列表
+    """
+    def __init__(
+        self,
+        summary = None
+    ):
+        super().__init__()
+        self.summary = summary
+
+
+class ListMonthlyOrderSummary(BaseRequest):
+    """
+    月订单汇总数据详情-响应
+
+    :type success: MonthlyOrderSummary
+    :param success: 成功订单汇总
+
+    :type processing: MonthlyOrderSummary
+    :param processing: 处理中订单汇总
+
+    :type failed: MonthlyOrderSummary
+    :param failed: 失败订单汇总
+    """
+    def __init__(
+        self,
+        success = None,
+        processing = None,
+        failed = None
+    ):
+        super().__init__()
+        self.success = success
+        self.processing = processing
+        self.failed = failed
+
+
+class MonthlyOrderSummary(BaseRequest):
+    """
+    月订单汇总详情-响应
+
+    :type order_num: int
+    :param order_num: 订单数量
+
+    :type pay: string
+    :param pay: 订单金额
+
+    :type broker_fee: string
+    :param broker_fee: 加成服务费金额
+
+    :type broker_real_fee: string
+    :param broker_real_fee: 加成服务费实收金额
+
+    :type broker_rebate_fee: string
+    :param broker_rebate_fee: 已抵扣加成服务费金额
+
+    :type user_fee: string
+    :param user_fee: 用户加成服务费金额
+    """
+    def __init__(
+        self,
+        order_num = None,
+        pay = None,
+        broker_fee = None,
+        broker_real_fee = None,
+        broker_rebate_fee = None,
+        user_fee = None
+    ):
+        super().__init__()
+        self.order_num = order_num
+        self.pay = pay
+        self.broker_fee = broker_fee
+        self.broker_real_fee = broker_real_fee
+        self.broker_rebate_fee = broker_rebate_fee
+        self.user_fee = user_fee
