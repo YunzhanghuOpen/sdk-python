@@ -323,6 +323,191 @@ class DealerOrderInfo(BaseRequest):
         self.finished_time = finished_time
 
 
+class ListDailyOrderV2Request(BaseRequest):
+    """
+    查询日订单数据（支付和退款订单）请求-请求
+
+    :type order_date: string
+    :param order_date: 订单查询日期, yyyy-MM-dd 格式
+
+    :type offset: int
+    :param offset: 偏移量
+
+    :type length: int
+    :param length: 每页返回条数
+
+    :type channel: string
+    :param channel: 支付路径名，bankpay：银行卡 alipay：支付宝 wxpay：微信
+
+    :type data_type: string
+    :param data_type: 当且仅当参数值为 encryption 时，对返回的 data 进行加密
+    """
+    def __init__(
+        self,
+        order_date = None,
+        offset = None,
+        length = None,
+        channel = None,
+        data_type = None
+    ):
+        super().__init__()
+        self.order_date = order_date
+        self.offset = offset
+        self.length = length
+        self.channel = channel
+        self.data_type = data_type
+
+
+class ListDailyOrderV2Response(BaseRequest):
+    """
+    查询日订单数据（支付和退款订单）返回-响应
+
+    :type total_num: int
+    :param total_num: 总条数
+
+    :type list: list
+    :param list: 条目明细
+    """
+    def __init__(
+        self,
+        total_num = None,
+        list = None
+    ):
+        super().__init__()
+        self.total_num = total_num
+        self.list = list
+
+
+class DealerOrderInfoV2(BaseRequest):
+    """
+    平台企业支付订单信息（支付和退款订单）-响应
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type order_type: string
+    :param order_type: 订单类型
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type ref: string
+    :param ref: 综合服务平台流水号
+
+    :type batch_id: string
+    :param batch_id: 批次号
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type card_no: string
+    :param card_no: 收款账号
+
+    :type broker_amount: string
+    :param broker_amount: 综合服务主体订单金额
+
+    :type broker_fee: string
+    :param broker_fee: 综合服务主体加成服务费
+
+    :type bill: string
+    :param bill: 支付路径流水号
+
+    :type status: string
+    :param status: 订单状态码
+
+    :type status_message: string
+    :param status_message: 订单状态码描述
+
+    :type status_detail: string
+    :param status_detail: 订单详情状态码
+
+    :type status_detail_message: string
+    :param status_detail_message: 订单详细状态码描述
+
+    :type supplemental_detail_message: string
+    :param supplemental_detail_message: 订单状态补充信息
+
+    :type statement_id: string
+    :param statement_id: 短周期授信账单号
+
+    :type fee_statement_id: string
+    :param fee_statement_id: 加成服务费账单号
+
+    :type bal_statement_id: string
+    :param bal_statement_id: 余额账单号
+
+    :type channel: string
+    :param channel: 支付路径
+
+    :type created_at: string
+    :param created_at: 订单接收时间
+
+    :type finished_time: string
+    :param finished_time: 订单完成时间
+
+    :type refund_type: string
+    :param refund_type: 退款类型
+
+    :type pay_ref: string
+    :param pay_ref: 原支付流水号
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        order_type = None,
+        order_id = None,
+        ref = None,
+        batch_id = None,
+        real_name = None,
+        card_no = None,
+        broker_amount = None,
+        broker_fee = None,
+        bill = None,
+        status = None,
+        status_message = None,
+        status_detail = None,
+        status_detail_message = None,
+        supplemental_detail_message = None,
+        statement_id = None,
+        fee_statement_id = None,
+        bal_statement_id = None,
+        channel = None,
+        created_at = None,
+        finished_time = None,
+        refund_type = None,
+        pay_ref = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.order_type = order_type
+        self.order_id = order_id
+        self.ref = ref
+        self.batch_id = batch_id
+        self.real_name = real_name
+        self.card_no = card_no
+        self.broker_amount = broker_amount
+        self.broker_fee = broker_fee
+        self.bill = bill
+        self.status = status
+        self.status_message = status_message
+        self.status_detail = status_detail
+        self.status_detail_message = status_detail_message
+        self.supplemental_detail_message = supplemental_detail_message
+        self.statement_id = statement_id
+        self.fee_statement_id = fee_statement_id
+        self.bal_statement_id = bal_statement_id
+        self.channel = channel
+        self.created_at = created_at
+        self.finished_time = finished_time
+        self.refund_type = refund_type
+        self.pay_ref = pay_ref
+
+
 class ListDailyBillRequest(BaseRequest):
     """
     查询日流水数据请求-请求
@@ -611,3 +796,243 @@ class StatementDetail(BaseRequest):
         self.invoice_status = invoice_status
         self.project_id = project_id
         self.project_name = project_name
+
+
+class ListDailyOrderSummaryRequest(BaseRequest):
+    """
+    查询日订单汇总数据请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type channel: string
+    :param channel: 支付路径，银行卡、支付宝、微信
+
+    :type begin_at: string
+    :param begin_at: 订单查询开始日期，格式：yyyy-MM-dd
+
+    :type end_at: string
+    :param end_at: 订单查询结束日期，格式：yyyy-MM-dd
+
+    :type filter_type: string
+    :param filter_type: 筛选类型，apply：按订单创建时间汇总 complete：按订单完成时间汇总
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        channel = None,
+        begin_at = None,
+        end_at = None,
+        filter_type = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.channel = channel
+        self.begin_at = begin_at
+        self.end_at = end_at
+        self.filter_type = filter_type
+
+
+class ListDailyOrderSummaryResponse(BaseRequest):
+    """
+    查询日订单汇总数据返回-响应
+
+    :type summary_list: list
+    :param summary_list: 汇总数据列表
+    """
+    def __init__(
+        self,
+        summary_list = None
+    ):
+        super().__init__()
+        self.summary_list = summary_list
+
+
+class ListDailyOrderSummary(BaseRequest):
+    """
+    日订单汇总数据详情-响应
+
+    :type date: string
+    :param date: 订单查询日期，格式：yyyy-MM-dd
+
+    :type success: DailyOrderSummary
+    :param success: 成功订单汇总
+
+    :type processing: DailyOrderSummary
+    :param processing: 处理中订单汇总
+
+    :type failed: DailyOrderSummary
+    :param failed: 失败订单汇总
+    """
+    def __init__(
+        self,
+        date = None,
+        success = None,
+        processing = None,
+        failed = None
+    ):
+        super().__init__()
+        self.date = date
+        self.success = success
+        self.processing = processing
+        self.failed = failed
+
+
+class DailyOrderSummary(BaseRequest):
+    """
+    日订单汇总详情-响应
+
+    :type order_num: int
+    :param order_num: 订单数量
+
+    :type pay: string
+    :param pay: 订单金额
+
+    :type broker_fee: string
+    :param broker_fee: 加成服务费金额
+
+    :type broker_real_fee: string
+    :param broker_real_fee: 加成服务费实收金额
+
+    :type broker_rebate_fee: string
+    :param broker_rebate_fee: 已抵扣加成服务费金额
+
+    :type user_fee: string
+    :param user_fee: 用户加成服务费金额
+    """
+    def __init__(
+        self,
+        order_num = None,
+        pay = None,
+        broker_fee = None,
+        broker_real_fee = None,
+        broker_rebate_fee = None,
+        user_fee = None
+    ):
+        super().__init__()
+        self.order_num = order_num
+        self.pay = pay
+        self.broker_fee = broker_fee
+        self.broker_real_fee = broker_real_fee
+        self.broker_rebate_fee = broker_rebate_fee
+        self.user_fee = user_fee
+
+
+class ListMonthlyOrderSummaryRequest(BaseRequest):
+    """
+    查询月订单汇总数据请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type channel: string
+    :param channel: 支付路径，银行卡、支付宝、微信
+
+    :type month: string
+    :param month: 汇总月份，格式：yyyy-MM
+
+    :type filter_type: string
+    :param filter_type: 筛选类型，apply：按订单创建时间汇总 complete：按订单完成时间汇总
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        channel = None,
+        month = None,
+        filter_type = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.channel = channel
+        self.month = month
+        self.filter_type = filter_type
+
+
+class ListMonthlyOrderSummaryResponse(BaseRequest):
+    """
+    查询月订单汇总数据返回-响应
+
+    :type summary: ListMonthlyOrderSummary
+    :param summary: 汇总数据列表
+    """
+    def __init__(
+        self,
+        summary = None
+    ):
+        super().__init__()
+        self.summary = summary
+
+
+class ListMonthlyOrderSummary(BaseRequest):
+    """
+    月订单汇总数据详情-响应
+
+    :type success: MonthlyOrderSummary
+    :param success: 成功订单汇总
+
+    :type processing: MonthlyOrderSummary
+    :param processing: 处理中订单汇总
+
+    :type failed: MonthlyOrderSummary
+    :param failed: 失败订单汇总
+    """
+    def __init__(
+        self,
+        success = None,
+        processing = None,
+        failed = None
+    ):
+        super().__init__()
+        self.success = success
+        self.processing = processing
+        self.failed = failed
+
+
+class MonthlyOrderSummary(BaseRequest):
+    """
+    月订单汇总详情-响应
+
+    :type order_num: int
+    :param order_num: 订单数量
+
+    :type pay: string
+    :param pay: 订单金额
+
+    :type broker_fee: string
+    :param broker_fee: 加成服务费金额
+
+    :type broker_real_fee: string
+    :param broker_real_fee: 加成服务费实收金额
+
+    :type broker_rebate_fee: string
+    :param broker_rebate_fee: 已抵扣加成服务费金额
+
+    :type user_fee: string
+    :param user_fee: 用户加成服务费金额
+    """
+    def __init__(
+        self,
+        order_num = None,
+        pay = None,
+        broker_fee = None,
+        broker_real_fee = None,
+        broker_rebate_fee = None,
+        user_fee = None
+    ):
+        super().__init__()
+        self.order_num = order_num
+        self.pay = pay
+        self.broker_fee = broker_fee
+        self.broker_real_fee = broker_real_fee
+        self.broker_rebate_fee = broker_rebate_fee
+        self.user_fee = user_fee
