@@ -137,7 +137,7 @@ if __name__ == "__main__":
         dealer_id = conf.dealer_id,
         broker_id = conf.broker_id,
         user_images = [],
-        image_urls= ["https://www.example.com/imange01.png"],
+        image_urls= ["https://www.example.com/image01.png"],
         country = "CHN",
         birthday = "20010809",
         gender = "男",
