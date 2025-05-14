@@ -22,7 +22,7 @@ if __name__ == "__main__":
         pay = "1.00",
         pay_remark = "",
         notify_url = "https://www.example.com",
-        project_id = "",
+        project_id = "testproject",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -53,7 +53,7 @@ if __name__ == "__main__":
         pay = "1.00",
         pay_remark = "",
         notify_url = "https://www.example.com",
-        project_id = "",
+        project_id = "testproject",
         check_name = "Check",
     )
 
@@ -87,7 +87,7 @@ if __name__ == "__main__":
         notify_url = "https://www.example.com",
         wx_app_id = "",
         wxpay_mode = "transfer",
-        project_id = "",
+        project_id = "testproject",
     )
 
     # request-id：请求 ID，请求的唯一标识
