@@ -120,7 +120,7 @@ if __name__ == "__main__":
     xxx
     -----END PUBLIC KEY-----
     '''
-    # 初始化配置参数 
+    # 初始化配置参数
     config = Config(
         # host 请求域名
         host = "https://api-service.yunzhanghu.com",
