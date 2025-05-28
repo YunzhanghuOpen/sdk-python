@@ -3,6 +3,7 @@
 from yunzhanghu_sdk.client.api.model.payment import *
 from yunzhanghu_sdk.client.api.payment_client import PaymentClient
 from yunzhanghu_sdk.example.utils.config_init import init_config
+from yunzhanghu_sdk.utils import Utils
 
 # 实时支付
 if __name__ == "__main__":
@@ -266,6 +267,17 @@ if __name__ == "__main__":
         print(e)
 
     # 批次下单
+    batch_order_info = BatchOrderInfo(
+        order_id = "202009010016562012987",
+        real_name = "张三",
+        id_card = "11010519491231002X",
+        openid = "o4GgauInH_RCEdvrrNGrntXDuXXX",
+        phone_no = "188****8888",
+        project_id = "",
+        pay = "1.00",
+        pay_remark = "",
+        notify_url = "https://www.example.com",
+    )
     req = CreateBatchOrderRequest(
         batch_id = "batch2032934858483",
         dealer_id = conf.dealer_id,
@@ -274,7 +286,7 @@ if __name__ == "__main__":
         wx_app_id = "",
         total_pay = "1",
         total_count = "1",
-        order_list = [],
+        order_list = [Utils.copy_dict(batch_order_info.__dict__)],
     )
 
     # request-id：请求 ID，请求的唯一标识
