@@ -380,19 +380,31 @@ class GetOrderResponse(BaseRequest):
     :param finished_time: 订单完成时间，精确到秒
 
     :type broker_fee: string
-    :param broker_fee: 综合服务主体加成服务费
+    :param broker_fee: 应收综合服务主体加成服务费金额
 
     :type broker_real_fee: string
-    :param broker_real_fee: 余额账户支出加成服务费
+    :param broker_real_fee: 应收余额账户支出加成服务费金额
 
     :type broker_deduct_fee: string
-    :param broker_deduct_fee: 抵扣账户支出加成服务费
+    :param broker_deduct_fee: 应收加成服务费抵扣金额
+
+    :type user_fee: string
+    :param user_fee: 应收用户加成服务费金额
+
+    :type received_broker_fee: string
+    :param received_broker_fee: 实收综合服务主体加成服务费金额
+
+    :type received_broker_real_fee: string
+    :param received_broker_real_fee: 实收余额账户支出加成服务费金额
+
+    :type received_broker_deduct_fee: string
+    :param received_broker_deduct_fee: 实收加成服务费抵扣金额
+
+    :type received_user_fee: string
+    :param received_user_fee: 实收用户加成服务费金额
 
     :type pay_remark: string
     :param pay_remark: 订单备注
-
-    :type user_fee: string
-    :param user_fee: 用户加成服务费
 
     :type bank_name: string
     :param bank_name: 银行名称
@@ -439,8 +451,12 @@ class GetOrderResponse(BaseRequest):
         broker_fee = None,
         broker_real_fee = None,
         broker_deduct_fee = None,
-        pay_remark = None,
         user_fee = None,
+        received_broker_fee = None,
+        received_broker_real_fee = None,
+        received_broker_deduct_fee = None,
+        received_user_fee = None,
+        pay_remark = None,
         bank_name = None,
         project_id = None,
         anchor_id = None,
@@ -472,8 +488,12 @@ class GetOrderResponse(BaseRequest):
         self.broker_fee = broker_fee
         self.broker_real_fee = broker_real_fee
         self.broker_deduct_fee = broker_deduct_fee
-        self.pay_remark = pay_remark
         self.user_fee = user_fee
+        self.received_broker_fee = received_broker_fee
+        self.received_broker_real_fee = received_broker_real_fee
+        self.received_broker_deduct_fee = received_broker_deduct_fee
+        self.received_user_fee = received_user_fee
+        self.pay_remark = pay_remark
         self.bank_name = bank_name
         self.project_id = project_id
         self.anchor_id = anchor_id
@@ -845,19 +865,31 @@ class NotifyOrderData(BaseRequest):
     :param finished_time: 订单完成时间，精确到秒
 
     :type broker_fee: string
-    :param broker_fee: 综合服务主体加成服务费
+    :param broker_fee: 应收综合服务主体加成服务费金额
 
     :type broker_real_fee: string
-    :param broker_real_fee: 余额账户支出加成服务费
+    :param broker_real_fee: 应收余额账户支出加成服务费金额
 
     :type broker_deduct_fee: string
-    :param broker_deduct_fee: 抵扣账户支出加成服务费
+    :param broker_deduct_fee: 应收加成服务费抵扣金额
+
+    :type user_fee: string
+    :param user_fee: 应收用户加成服务费金额
+
+    :type received_broker_fee: string
+    :param received_broker_fee: 实收综合服务主体加成服务费金额
+
+    :type received_broker_real_fee: string
+    :param received_broker_real_fee: 实收余额账户支出加成服务费金额
+
+    :type received_broker_deduct_fee: string
+    :param received_broker_deduct_fee: 实收加成服务费抵扣金额
+
+    :type received_user_fee: string
+    :param received_user_fee: 实收用户加成服务费金额
 
     :type pay_remark: string
     :param pay_remark: 订单备注
-
-    :type user_fee: string
-    :param user_fee: 用户加成服务费
 
     :type bank_name: string
     :param bank_name: 银行名称
@@ -892,8 +924,12 @@ class NotifyOrderData(BaseRequest):
         broker_fee = None,
         broker_real_fee = None,
         broker_deduct_fee = None,
-        pay_remark = None,
         user_fee = None,
+        received_broker_fee = None,
+        received_broker_real_fee = None,
+        received_broker_deduct_fee = None,
+        received_user_fee = None,
+        pay_remark = None,
         bank_name = None,
         project_id = None,
         user_id = None
@@ -921,8 +957,12 @@ class NotifyOrderData(BaseRequest):
         self.broker_fee = broker_fee
         self.broker_real_fee = broker_real_fee
         self.broker_deduct_fee = broker_deduct_fee
-        self.pay_remark = pay_remark
         self.user_fee = user_fee
+        self.received_broker_fee = received_broker_fee
+        self.received_broker_real_fee = received_broker_real_fee
+        self.received_broker_deduct_fee = received_broker_deduct_fee
+        self.received_user_fee = received_user_fee
+        self.pay_remark = pay_remark
         self.bank_name = bank_name
         self.project_id = project_id
         self.user_id = user_id
@@ -1296,19 +1336,31 @@ class QueryBatchOrderInfo(BaseRequest):
     :param finished_time: 订单完成时间
 
     :type broker_fee: string
-    :param broker_fee: 综合服务主体加成服务费
+    :param broker_fee: 应收综合服务主体加成服务费金额
 
     :type broker_real_fee: string
-    :param broker_real_fee: 余额账户支出加成服务费
+    :param broker_real_fee: 应收余额账户支出加成服务费金额
 
     :type broker_deduct_fee: string
-    :param broker_deduct_fee: 加成服务费抵扣金额
+    :param broker_deduct_fee: 应收加成服务费抵扣金额
+
+    :type user_fee: string
+    :param user_fee: 应收用户加成服务费金额
+
+    :type received_broker_fee: string
+    :param received_broker_fee: 实收综合服务主体加成服务费金额
+
+    :type received_broker_real_fee: string
+    :param received_broker_real_fee: 实收余额账户支出加成服务费金额
+
+    :type received_broker_deduct_fee: string
+    :param received_broker_deduct_fee: 实收加成服务费抵扣金额
+
+    :type received_user_fee: string
+    :param received_user_fee: 实收用户加成服务费金额
 
     :type pay_remark: string
     :param pay_remark: 订单备注
-
-    :type user_fee: string
-    :param user_fee: 用户加成服务费
 
     :type bank_name: string
     :param bank_name: 银行名称
@@ -1340,8 +1392,12 @@ class QueryBatchOrderInfo(BaseRequest):
         broker_fee = None,
         broker_real_fee = None,
         broker_deduct_fee = None,
-        pay_remark = None,
         user_fee = None,
+        received_broker_fee = None,
+        received_broker_real_fee = None,
+        received_broker_deduct_fee = None,
+        received_user_fee = None,
+        pay_remark = None,
         bank_name = None,
         project_id = None
     ):
@@ -1368,8 +1424,12 @@ class QueryBatchOrderInfo(BaseRequest):
         self.broker_fee = broker_fee
         self.broker_real_fee = broker_real_fee
         self.broker_deduct_fee = broker_deduct_fee
-        self.pay_remark = pay_remark
         self.user_fee = user_fee
+        self.received_broker_fee = received_broker_fee
+        self.received_broker_real_fee = received_broker_real_fee
+        self.received_broker_deduct_fee = received_broker_deduct_fee
+        self.received_user_fee = received_user_fee
+        self.pay_remark = pay_remark
         self.bank_name = bank_name
         self.project_id = project_id
 
