@@ -237,7 +237,10 @@ class DealerOrderInfo(BaseRequest):
     :param broker_amount: 综合服务主体订单金额
 
     :type broker_fee: string
-    :param broker_fee: 综合服务主体加成服务费
+    :param broker_fee: 应收综合服务主体加成服务费金额
+
+    :type received_broker_fee: string
+    :param received_broker_fee: 实收综合服务主体加成服务费金额
 
     :type bill: string
     :param bill: 支付路径流水号
@@ -286,6 +289,7 @@ class DealerOrderInfo(BaseRequest):
         card_no = None,
         broker_amount = None,
         broker_fee = None,
+        received_broker_fee = None,
         bill = None,
         status = None,
         status_message = None,
@@ -309,6 +313,7 @@ class DealerOrderInfo(BaseRequest):
         self.card_no = card_no
         self.broker_amount = broker_amount
         self.broker_fee = broker_fee
+        self.received_broker_fee = received_broker_fee
         self.bill = bill
         self.status = status
         self.status_message = status_message
@@ -410,7 +415,10 @@ class DealerOrderInfoV2(BaseRequest):
     :param broker_amount: 综合服务主体订单金额
 
     :type broker_fee: string
-    :param broker_fee: 综合服务主体加成服务费
+    :param broker_fee: 应收综合服务主体加成服务费金额
+
+    :type received_broker_fee: string
+    :param received_broker_fee: 实收综合服务主体加成服务费金额
 
     :type bill: string
     :param bill: 支付路径流水号
@@ -466,6 +474,7 @@ class DealerOrderInfoV2(BaseRequest):
         card_no = None,
         broker_amount = None,
         broker_fee = None,
+        received_broker_fee = None,
         bill = None,
         status = None,
         status_message = None,
@@ -492,6 +501,7 @@ class DealerOrderInfoV2(BaseRequest):
         self.card_no = card_no
         self.broker_amount = broker_amount
         self.broker_fee = broker_fee
+        self.received_broker_fee = received_broker_fee
         self.bill = bill
         self.status = status
         self.status_message = status_message
@@ -738,10 +748,10 @@ class StatementDetail(BaseRequest):
     :param reex_amount: 退汇金额
 
     :type fee_amount: string
-    :param fee_amount: 加成服务费金额
+    :param fee_amount: 实收综合服务主体加成服务费金额
 
     :type deduct_rebate_fee_amount: string
-    :param deduct_rebate_fee_amount: 加成服务费抵扣金额
+    :param deduct_rebate_fee_amount: 实收加成服务费抵扣金额
 
     :type money_adjust: string
     :param money_adjust: 冲补金额
@@ -894,16 +904,28 @@ class DailyOrderSummary(BaseRequest):
     :param pay: 订单金额
 
     :type broker_fee: string
-    :param broker_fee: 加成服务费金额
+    :param broker_fee: 应收综合服务主体加成服务费金额
 
     :type broker_real_fee: string
-    :param broker_real_fee: 加成服务费实收金额
+    :param broker_real_fee: 应收余额账户支出加成服务费金额
 
     :type broker_rebate_fee: string
-    :param broker_rebate_fee: 已抵扣加成服务费金额
+    :param broker_rebate_fee: 应收加成服务费抵扣金额
 
     :type user_fee: string
-    :param user_fee: 用户加成服务费金额
+    :param user_fee: 应收用户加成服务费金额
+
+    :type received_broker_fee: string
+    :param received_broker_fee: 实收综合服务主体加成服务费金额
+
+    :type received_broker_real_fee: string
+    :param received_broker_real_fee: 实收余额账户支出加成服务费金额
+
+    :type received_broker_deduct_fee: string
+    :param received_broker_deduct_fee: 实收加成服务费抵扣金额
+
+    :type received_user_fee: string
+    :param received_user_fee: 实收用户加成服务费金额
     """
     def __init__(
         self,
@@ -912,7 +934,11 @@ class DailyOrderSummary(BaseRequest):
         broker_fee = None,
         broker_real_fee = None,
         broker_rebate_fee = None,
-        user_fee = None
+        user_fee = None,
+        received_broker_fee = None,
+        received_broker_real_fee = None,
+        received_broker_deduct_fee = None,
+        received_user_fee = None
     ):
         super().__init__()
         self.order_num = order_num
@@ -921,6 +947,10 @@ class DailyOrderSummary(BaseRequest):
         self.broker_real_fee = broker_real_fee
         self.broker_rebate_fee = broker_rebate_fee
         self.user_fee = user_fee
+        self.received_broker_fee = received_broker_fee
+        self.received_broker_real_fee = received_broker_real_fee
+        self.received_broker_deduct_fee = received_broker_deduct_fee
+        self.received_user_fee = received_user_fee
 
 
 class ListMonthlyOrderSummaryRequest(BaseRequest):
@@ -1009,16 +1039,28 @@ class MonthlyOrderSummary(BaseRequest):
     :param pay: 订单金额
 
     :type broker_fee: string
-    :param broker_fee: 加成服务费金额
+    :param broker_fee: 应收综合服务主体加成服务费金额
 
     :type broker_real_fee: string
-    :param broker_real_fee: 加成服务费实收金额
+    :param broker_real_fee: 应收余额账户支出加成服务费金额
 
     :type broker_rebate_fee: string
-    :param broker_rebate_fee: 已抵扣加成服务费金额
+    :param broker_rebate_fee: 应收加成服务费抵扣金额
 
     :type user_fee: string
-    :param user_fee: 用户加成服务费金额
+    :param user_fee: 应收用户加成服务费金额
+
+    :type received_broker_fee: string
+    :param received_broker_fee: 实收综合服务主体加成服务费金额
+
+    :type received_broker_real_fee: string
+    :param received_broker_real_fee: 实收余额账户支出加成服务费金额
+
+    :type received_broker_deduct_fee: string
+    :param received_broker_deduct_fee: 实收加成服务费抵扣金额
+
+    :type received_user_fee: string
+    :param received_user_fee: 实收用户加成服务费金额
     """
     def __init__(
         self,
@@ -1027,7 +1069,11 @@ class MonthlyOrderSummary(BaseRequest):
         broker_fee = None,
         broker_real_fee = None,
         broker_rebate_fee = None,
-        user_fee = None
+        user_fee = None,
+        received_broker_fee = None,
+        received_broker_real_fee = None,
+        received_broker_deduct_fee = None,
+        received_user_fee = None
     ):
         super().__init__()
         self.order_num = order_num
@@ -1036,3 +1082,7 @@ class MonthlyOrderSummary(BaseRequest):
         self.broker_real_fee = broker_real_fee
         self.broker_rebate_fee = broker_rebate_fee
         self.user_fee = user_fee
+        self.received_broker_fee = received_broker_fee
+        self.received_broker_real_fee = received_broker_real_fee
+        self.received_broker_deduct_fee = received_broker_deduct_fee
+        self.received_user_fee = received_user_fee
