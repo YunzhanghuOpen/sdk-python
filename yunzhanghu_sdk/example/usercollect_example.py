@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     # 获取收集手机号码页面
     req = GetUserCollectPhoneUrlRequest(
-        token = "4ecd2791c8a44ed0b0480c4063fb30f0",
+        token = "testToken",
         color = "",
         url = "https://www.example.com",
         redirect_url = "",
