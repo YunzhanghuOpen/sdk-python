@@ -33,6 +33,8 @@ def init_config():
         # host = "https://api-service.yunzhanghu.com/sandbox",
         # 个体工商户注册请求域名
         # host = "https://api-aic.yunzhanghu.com",
+        # 用户信息收集接口请求域名
+        # host = 'https://api-user.yunzhanghu.com',
         dealer_id = dealer_id,
         broker_id = broker_id,
         sign_type = sign_type,
