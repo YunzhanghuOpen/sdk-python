@@ -1,11 +1,11 @@
 """连续劳务税费试算"""
 
-from .model.caculatorlabor import *
+from .model.calculatelabor import *
 from ..base import BaseClient
 from ...utils import Utils
 
 
-class CaculatorLaborServiceClient(BaseClient):
+class CalculateLaborServiceClient(BaseClient):
     """连续劳务税费试算客户端"""
 
     def __init__(self, config):

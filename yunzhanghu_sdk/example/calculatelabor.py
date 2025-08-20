@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from yunzhanghu_sdk.client.api.model.caculatorlabor import *
-from yunzhanghu_sdk.client.api.caculatorlabor_client import CaculatorLaborServiceClient
+from yunzhanghu_sdk.client.api.model.calculatelabor import *
+from yunzhanghu_sdk.client.api.calculatelabor_client import CalculateLaborServiceClient
 from yunzhanghu_sdk.example.utils.config_init import init_config
 from yunzhanghu_sdk.utils import Utils
 
 # 连续劳务税费试算
 if __name__ == "__main__":
     conf = init_config()
-    client = CaculatorLaborServiceClient(config=conf)
+    client = CalculateLaborServiceClient(config=conf)
 
      # 连续劳务税费试算（计算器）
     req = LaborCaculatorRequest(
