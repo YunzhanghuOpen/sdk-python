@@ -15,8 +15,8 @@ if __name__ == "__main__":
         dealer_id = conf.dealer_id,
         broker_id = conf.broker_id,
         month_settlement_list = [
-            Utils.copy_dict(MonthSettlement(month=1,month_pre_tax_amount="10.00",).__dict__),
-            Utils.copy_dict(MonthSettlement(month=2,month_pre_tax_amount="10.00",).__dict__),
+            Utils.copy_dict(MonthSettlement(month = 1, month_pre_tax_amount = "10.00",).__dict__),
+            Utils.copy_dict(MonthSettlement(month = 2, month_pre_tax_amount = "10.00",).__dict__),
         ],
     )
     # request-id：请求 ID，请求的唯一标识
@@ -40,8 +40,8 @@ if __name__ == "__main__":
         dealer_id = conf.dealer_id,
         broker_id = conf.broker_id,
         real_name = "张三",
-        id_card =   "11010519491231002X",
-        pay =      "99",
+        id_card = "11010519491231002X",
+        pay = "99",
     )
 
     # request-id：请求 ID，请求的唯一标识
