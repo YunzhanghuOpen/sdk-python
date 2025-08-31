@@ -1513,3 +1513,458 @@ class CheckUserAmountResponse(BaseRequest):
         super().__init__()
         self.is_over_whole_user_month_quota = is_over_whole_user_month_quota
         self.is_over_whole_user_year_quota = is_over_whole_user_year_quota
+
+
+class GetOrderLxlwRequest(BaseRequest):
+    """
+    查询劳务模式单笔订单信息请求-请求
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type channel: string
+    :param channel: 支付路径
+
+    :type data_type: string
+    :param data_type: 数据类型
+    """
+    def __init__(
+        self,
+        order_id = None,
+        channel = None,
+        data_type = None
+    ):
+        super().__init__()
+        self.order_id = order_id
+        self.channel = channel
+        self.data_type = data_type
+
+
+class GetOrderLxlwResponse(BaseRequest):
+    """
+    查询劳务模式单笔订单信息返回-响应
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type pay: string
+    :param pay: 订单金额
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type card_no: string
+    :param card_no: 收款人账号
+
+    :type id_card: string
+    :param id_card: 身份证号码
+
+    :type phone_no: string
+    :param phone_no: 手机号
+
+    :type status: string
+    :param status: 订单状态码
+
+    :type status_detail: string
+    :param status_detail: 订单详细状态码
+
+    :type status_message: string
+    :param status_message: 订单状态码描述
+
+    :type status_detail_message: string
+    :param status_detail_message: 订单详情状态码描述
+
+    :type supplemental_detail_message: string
+    :param supplemental_detail_message: 订单状态补充信息
+
+    :type broker_amount: string
+    :param broker_amount: 综合服务主体支付金额
+
+    :type ref: string
+    :param ref: 综合服务平台流水号
+
+    :type broker_bank_bill: string
+    :param broker_bank_bill: 支付交易流水号
+
+    :type withdraw_platform: string
+    :param withdraw_platform: 支付路径
+
+    :type created_at: string
+    :param created_at: 订单接收时间，精确到秒
+
+    :type finished_time: string
+    :param finished_time: 订单完成时间，精确到秒
+
+    :type broker_fee: string
+    :param broker_fee: 应收综合服务主体加成服务费金额
+
+    :type broker_real_fee: string
+    :param broker_real_fee: 应收余额账户支出加成服务费金额
+
+    :type broker_deduct_fee: string
+    :param broker_deduct_fee: 应收加成服务费抵扣金额
+
+    :type user_fee: string
+    :param user_fee: 应收用户加成服务费金额
+
+    :type received_broker_fee: string
+    :param received_broker_fee: 实收综合服务主体加成服务费金额
+
+    :type received_broker_real_fee: string
+    :param received_broker_real_fee: 实收余额账户支出加成服务费金额
+
+    :type received_broker_deduct_fee: string
+    :param received_broker_deduct_fee: 实收加成服务费抵扣金额
+
+    :type received_user_fee: string
+    :param received_user_fee: 实收用户加成服务费金额
+
+    :type pay_remark: string
+    :param pay_remark: 订单备注
+
+    :type bank_name: string
+    :param bank_name: 银行名称
+
+    :type project_id: string
+    :param project_id: 业务线标识
+
+    :type anchor_id: string
+    :param anchor_id: 新就业形态劳动者 ID，该字段已废弃
+
+    :type notes: string
+    :param notes: 描述信息，该字段已废弃
+
+    :type sys_amount: string
+    :param sys_amount: 系统支付金额，该字段已废弃
+
+    :type tax: string
+    :param tax: 税费，该字段已废弃
+
+    :type sys_fee: string
+    :param sys_fee: 系统支付费用，该字段已废弃
+
+    :type user_real_amount: string
+    :param user_real_amount: 用户实收金额
+
+    :type tax_detail: TaxDetail
+    :param tax_detail: 缴税明细
+    """
+    def __init__(
+        self,
+        order_id = None,
+        pay = None,
+        broker_id = None,
+        dealer_id = None,
+        real_name = None,
+        card_no = None,
+        id_card = None,
+        phone_no = None,
+        status = None,
+        status_detail = None,
+        status_message = None,
+        status_detail_message = None,
+        supplemental_detail_message = None,
+        broker_amount = None,
+        ref = None,
+        broker_bank_bill = None,
+        withdraw_platform = None,
+        created_at = None,
+        finished_time = None,
+        broker_fee = None,
+        broker_real_fee = None,
+        broker_deduct_fee = None,
+        user_fee = None,
+        received_broker_fee = None,
+        received_broker_real_fee = None,
+        received_broker_deduct_fee = None,
+        received_user_fee = None,
+        pay_remark = None,
+        bank_name = None,
+        project_id = None,
+        anchor_id = None,
+        notes = None,
+        sys_amount = None,
+        tax = None,
+        sys_fee = None,
+        user_real_amount = None,
+        tax_detail = None
+    ):
+        super().__init__()
+        self.order_id = order_id
+        self.pay = pay
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.real_name = real_name
+        self.card_no = card_no
+        self.id_card = id_card
+        self.phone_no = phone_no
+        self.status = status
+        self.status_detail = status_detail
+        self.status_message = status_message
+        self.status_detail_message = status_detail_message
+        self.supplemental_detail_message = supplemental_detail_message
+        self.broker_amount = broker_amount
+        self.ref = ref
+        self.broker_bank_bill = broker_bank_bill
+        self.withdraw_platform = withdraw_platform
+        self.created_at = created_at
+        self.finished_time = finished_time
+        self.broker_fee = broker_fee
+        self.broker_real_fee = broker_real_fee
+        self.broker_deduct_fee = broker_deduct_fee
+        self.user_fee = user_fee
+        self.received_broker_fee = received_broker_fee
+        self.received_broker_real_fee = received_broker_real_fee
+        self.received_broker_deduct_fee = received_broker_deduct_fee
+        self.received_user_fee = received_user_fee
+        self.pay_remark = pay_remark
+        self.bank_name = bank_name
+        self.project_id = project_id
+        self.anchor_id = anchor_id
+        self.notes = notes
+        self.sys_amount = sys_amount
+        self.tax = tax
+        self.sys_fee = sys_fee
+        self.user_real_amount = user_real_amount
+        self.tax_detail = tax_detail
+
+
+class TaxDetail(BaseRequest):
+    """
+    缴税明细-响应
+
+    :type personal_tax: string
+    :param personal_tax: 应纳个税
+
+    :type value_added_tax: string
+    :param value_added_tax: 应纳增值税
+
+    :type additional_tax: string
+    :param additional_tax: 应纳附加税费
+
+    :type received_personal_tax: string
+    :param received_personal_tax: 实纳个税
+
+    :type received_value_added_tax: string
+    :param received_value_added_tax: 实纳增值税
+
+    :type received_additional_tax: string
+    :param received_additional_tax: 实纳附加税费
+    """
+    def __init__(
+        self,
+        personal_tax = None,
+        value_added_tax = None,
+        additional_tax = None,
+        received_personal_tax = None,
+        received_value_added_tax = None,
+        received_additional_tax = None
+    ):
+        super().__init__()
+        self.personal_tax = personal_tax
+        self.value_added_tax = value_added_tax
+        self.additional_tax = additional_tax
+        self.received_personal_tax = received_personal_tax
+        self.received_value_added_tax = received_value_added_tax
+        self.received_additional_tax = received_additional_tax
+
+
+class NotifyOrderLxlwRequest(BaseRequest):
+    """
+    劳务模式订单支付状态回调通知-请求
+
+    :type notify_id: string
+    :param notify_id: 通知 ID
+
+    :type notify_time: string
+    :param notify_time: 通知时间
+
+    :type data: NotifyOrderLxlwData
+    :param data: 返回数据
+    """
+    def __init__(
+        self,
+        notify_id = None,
+        notify_time = None,
+        data = None
+    ):
+        super().__init__()
+        self.notify_id = notify_id
+        self.notify_time = notify_time
+        self.data = data
+
+
+class NotifyOrderLxlwData(BaseRequest):
+    """
+    劳务模式订单支付状态回调通知数据-响应
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type pay: string
+    :param pay: 订单金额
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type card_no: string
+    :param card_no: 收款人账号
+
+    :type id_card: string
+    :param id_card: 身份证号码
+
+    :type phone_no: string
+    :param phone_no: 手机号
+
+    :type status: string
+    :param status: 订单状态码
+
+    :type status_detail: string
+    :param status_detail: 订单详情状态码
+
+    :type status_message: string
+    :param status_message: 订单状态码描述
+
+    :type status_detail_message: string
+    :param status_detail_message: 订单详情状态码描述
+
+    :type supplemental_detail_message: string
+    :param supplemental_detail_message: 订单状态补充信息
+
+    :type broker_amount: string
+    :param broker_amount: 综合服务主体支付金额
+
+    :type ref: string
+    :param ref: 综合服务平台流水号
+
+    :type broker_bank_bill: string
+    :param broker_bank_bill: 支付交易流水号
+
+    :type withdraw_platform: string
+    :param withdraw_platform: 支付路径
+
+    :type created_at: string
+    :param created_at: 订单接收时间，精确到秒
+
+    :type finished_time: string
+    :param finished_time: 订单完成时间，精确到秒
+
+    :type broker_fee: string
+    :param broker_fee: 应收综合服务主体加成服务费金额
+
+    :type broker_real_fee: string
+    :param broker_real_fee: 应收余额账户支出加成服务费金额
+
+    :type broker_deduct_fee: string
+    :param broker_deduct_fee: 应收加成服务费抵扣金额
+
+    :type user_fee: string
+    :param user_fee: 应收用户加成服务费金额
+
+    :type received_broker_fee: string
+    :param received_broker_fee: 实收综合服务主体加成服务费金额
+
+    :type received_broker_real_fee: string
+    :param received_broker_real_fee: 实收余额账户支出加成服务费金额
+
+    :type received_broker_deduct_fee: string
+    :param received_broker_deduct_fee: 实收加成服务费抵扣金额
+
+    :type received_user_fee: string
+    :param received_user_fee: 实收用户加成服务费金额
+
+    :type pay_remark: string
+    :param pay_remark: 订单备注
+
+    :type bank_name: string
+    :param bank_name: 银行名称
+
+    :type project_id: string
+    :param project_id: 业务线标识
+
+    :type user_real_amount: string
+    :param user_real_amount: 用户实收金额
+
+    :type tax_detail: TaxDetail
+    :param tax_detail: 缴税明细
+    """
+    def __init__(
+        self,
+        order_id = None,
+        pay = None,
+        broker_id = None,
+        dealer_id = None,
+        real_name = None,
+        card_no = None,
+        id_card = None,
+        phone_no = None,
+        status = None,
+        status_detail = None,
+        status_message = None,
+        status_detail_message = None,
+        supplemental_detail_message = None,
+        broker_amount = None,
+        ref = None,
+        broker_bank_bill = None,
+        withdraw_platform = None,
+        created_at = None,
+        finished_time = None,
+        broker_fee = None,
+        broker_real_fee = None,
+        broker_deduct_fee = None,
+        user_fee = None,
+        received_broker_fee = None,
+        received_broker_real_fee = None,
+        received_broker_deduct_fee = None,
+        received_user_fee = None,
+        pay_remark = None,
+        bank_name = None,
+        project_id = None,
+        user_real_amount = None,
+        tax_detail = None
+    ):
+        super().__init__()
+        self.order_id = order_id
+        self.pay = pay
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.real_name = real_name
+        self.card_no = card_no
+        self.id_card = id_card
+        self.phone_no = phone_no
+        self.status = status
+        self.status_detail = status_detail
+        self.status_message = status_message
+        self.status_detail_message = status_detail_message
+        self.supplemental_detail_message = supplemental_detail_message
+        self.broker_amount = broker_amount
+        self.ref = ref
+        self.broker_bank_bill = broker_bank_bill
+        self.withdraw_platform = withdraw_platform
+        self.created_at = created_at
+        self.finished_time = finished_time
+        self.broker_fee = broker_fee
+        self.broker_real_fee = broker_real_fee
+        self.broker_deduct_fee = broker_deduct_fee
+        self.user_fee = user_fee
+        self.received_broker_fee = received_broker_fee
+        self.received_broker_real_fee = received_broker_real_fee
+        self.received_broker_deduct_fee = received_broker_deduct_fee
+        self.received_user_fee = received_user_fee
+        self.pay_remark = pay_remark
+        self.bank_name = bank_name
+        self.project_id = project_id
+        self.user_real_amount = user_real_amount
+        self.tax_detail = tax_detail
