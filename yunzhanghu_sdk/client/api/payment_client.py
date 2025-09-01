@@ -206,3 +206,17 @@ class PaymentClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def get_order_lxlw(self, request: GetOrderLxlwRequest):
+        """ 查询劳务模式单笔订单信息
+
+        :type request: GetOrderLxlwRequest
+        :param request: the GetOrderLxlwRequest request parameters class.
+
+        :return: GetOrderLxlwResponse
+        """
+        return self._get(
+            "/api/payment/v1/query-order",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
