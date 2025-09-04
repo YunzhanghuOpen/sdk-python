@@ -27,5 +27,5 @@ class Utils(object):
         data = bytes("member_id={}".format(member_id), encoding="utf8")
 
         sign = __encrypt.sign(data, mess, timestamp)
-        params = {'sign_type': sign_type, "sign": bytes.decode(sign), "member_id": member_id, "mess": mess, "timestamp": timestamp}
+        params = {'sign_type': sign_type, "sign": sign, "member_id": member_id, "mess": mess, "timestamp": timestamp}
         return base_url + "?" + urlencode(params)
