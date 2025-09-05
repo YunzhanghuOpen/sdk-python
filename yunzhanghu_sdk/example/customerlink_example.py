@@ -6,5 +6,5 @@ from yunzhanghu_sdk.utils import Utils
 # 生成最终客服链接
 if __name__ == "__main__":
     conf = init_config()
-    ret = Utils.get_customer_link(conf, "https://sign-h5.yunzhanghu.com/pages/customer-link/EBSFceSJ", '11111')
+    ret = Utils.get_customer_link(conf, "https://www.example.com", 'testmemberid')
     print(ret)
