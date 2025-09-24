@@ -277,6 +277,15 @@ class DealerOrderInfo(BaseRequest):
 
     :type finished_time: string
     :param finished_time: 完成时间
+
+    :type tax_amount: string
+    :param tax_amount: 预扣税费总额
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实缴税费总额
+
+    :type tax_detail: OrderTaxDetail
+    :param tax_detail: 缴税明细
     """
     def __init__(
         self,
@@ -301,7 +310,10 @@ class DealerOrderInfo(BaseRequest):
         bal_statement_id = None,
         channel = None,
         created_at = None,
-        finished_time = None
+        finished_time = None,
+        tax_amount = None,
+        received_tax_amount = None,
+        tax_detail = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -326,6 +338,9 @@ class DealerOrderInfo(BaseRequest):
         self.channel = channel
         self.created_at = created_at
         self.finished_time = finished_time
+        self.tax_amount = tax_amount
+        self.received_tax_amount = received_tax_amount
+        self.tax_detail = tax_detail
 
 
 class ListDailyOrderV2Request(BaseRequest):
@@ -461,6 +476,15 @@ class DealerOrderInfoV2(BaseRequest):
 
     :type pay_ref: string
     :param pay_ref: 原支付流水号
+
+    :type tax_amount: string
+    :param tax_amount: 预扣税费总额
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实缴税费总额
+
+    :type tax_detail: OrderTaxDetail
+    :param tax_detail: 缴税明细
     """
     def __init__(
         self,
@@ -488,7 +512,10 @@ class DealerOrderInfoV2(BaseRequest):
         created_at = None,
         finished_time = None,
         refund_type = None,
-        pay_ref = None
+        pay_ref = None,
+        tax_amount = None,
+        received_tax_amount = None,
+        tax_detail = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -516,6 +543,9 @@ class DealerOrderInfoV2(BaseRequest):
         self.finished_time = finished_time
         self.refund_type = refund_type
         self.pay_ref = pay_ref
+        self.tax_amount = tax_amount
+        self.received_tax_amount = received_tax_amount
+        self.tax_detail = tax_detail
 
 
 class ListDailyBillRequest(BaseRequest):
@@ -767,6 +797,9 @@ class StatementDetail(BaseRequest):
 
     :type project_name: string
     :param project_name: 项目名称
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实纳税费金额
     """
     def __init__(
         self,
@@ -786,7 +819,8 @@ class StatementDetail(BaseRequest):
         status = None,
         invoice_status = None,
         project_id = None,
-        project_name = None
+        project_name = None,
+        received_tax_amount = None
     ):
         super().__init__()
         self.statement_id = statement_id
@@ -806,6 +840,7 @@ class StatementDetail(BaseRequest):
         self.invoice_status = invoice_status
         self.project_id = project_id
         self.project_name = project_name
+        self.received_tax_amount = received_tax_amount
 
 
 class ListDailyOrderSummaryRequest(BaseRequest):
@@ -926,6 +961,66 @@ class DailyOrderSummary(BaseRequest):
 
     :type received_user_fee: string
     :param received_user_fee: 实收用户加成服务费金额
+
+    :type tax: string
+    :param tax: 预扣税费总额
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实缴税费总额
+
+    :type personal_tax: string
+    :param personal_tax: 预扣个税
+
+    :type value_added_tax: string
+    :param value_added_tax: 预扣增值税
+
+    :type additional_tax: string
+    :param additional_tax: 预扣附加税费
+
+    :type received_personal_tax: string
+    :param received_personal_tax: 实缴个税
+
+    :type received_value_added_tax: string
+    :param received_value_added_tax: 实缴增值税
+
+    :type received_additional_tax: string
+    :param received_additional_tax: 实缴附加税费
+
+    :type user_personal_tax: string
+    :param user_personal_tax: 用户预扣个税
+
+    :type dealer_personal_tax: string
+    :param dealer_personal_tax: 平台企业预扣个税
+
+    :type user_value_added_tax: string
+    :param user_value_added_tax: 用户预扣增值税
+
+    :type dealer_value_added_tax: string
+    :param dealer_value_added_tax: 平台企业预扣增值税
+
+    :type user_additional_tax: string
+    :param user_additional_tax: 用户预扣附加税费
+
+    :type dealer_additional_tax: string
+    :param dealer_additional_tax: 平台企业预扣附加税费
+
+    :type user_received_personal_tax: string
+    :param user_received_personal_tax: 用户实缴个税
+
+    :type dealer_received_personal_tax: string
+    :param dealer_received_personal_tax: 平台企业实缴个税
+
+    :type user_received_value_added_tax: string
+    :param user_received_value_added_tax: 用户实缴增值税
+
+    :type dealer_received_value_added_tax: string
+    :param dealer_received_value_added_tax: 平台企业实缴增值税
+
+    :type user_received_additional_tax: string
+    :param user_received_additional_tax: 用户实缴附加税费
+
+    :type dealer_received_additional_tax: string
+    :param dealer_received_additional_tax: 平台企业实缴附加税费
     """
     def __init__(
         self,
@@ -938,7 +1033,27 @@ class DailyOrderSummary(BaseRequest):
         received_broker_fee = None,
         received_broker_real_fee = None,
         received_broker_deduct_fee = None,
-        received_user_fee = None
+        received_user_fee = None,
+        tax = None,
+        received_tax_amount = None,
+        personal_tax = None,
+        value_added_tax = None,
+        additional_tax = None,
+        received_personal_tax = None,
+        received_value_added_tax = None,
+        received_additional_tax = None,
+        user_personal_tax = None,
+        dealer_personal_tax = None,
+        user_value_added_tax = None,
+        dealer_value_added_tax = None,
+        user_additional_tax = None,
+        dealer_additional_tax = None,
+        user_received_personal_tax = None,
+        dealer_received_personal_tax = None,
+        user_received_value_added_tax = None,
+        dealer_received_value_added_tax = None,
+        user_received_additional_tax = None,
+        dealer_received_additional_tax = None
     ):
         super().__init__()
         self.order_num = order_num
@@ -951,6 +1066,26 @@ class DailyOrderSummary(BaseRequest):
         self.received_broker_real_fee = received_broker_real_fee
         self.received_broker_deduct_fee = received_broker_deduct_fee
         self.received_user_fee = received_user_fee
+        self.tax = tax
+        self.received_tax_amount = received_tax_amount
+        self.personal_tax = personal_tax
+        self.value_added_tax = value_added_tax
+        self.additional_tax = additional_tax
+        self.received_personal_tax = received_personal_tax
+        self.received_value_added_tax = received_value_added_tax
+        self.received_additional_tax = received_additional_tax
+        self.user_personal_tax = user_personal_tax
+        self.dealer_personal_tax = dealer_personal_tax
+        self.user_value_added_tax = user_value_added_tax
+        self.dealer_value_added_tax = dealer_value_added_tax
+        self.user_additional_tax = user_additional_tax
+        self.dealer_additional_tax = dealer_additional_tax
+        self.user_received_personal_tax = user_received_personal_tax
+        self.dealer_received_personal_tax = dealer_received_personal_tax
+        self.user_received_value_added_tax = user_received_value_added_tax
+        self.dealer_received_value_added_tax = dealer_received_value_added_tax
+        self.user_received_additional_tax = user_received_additional_tax
+        self.dealer_received_additional_tax = dealer_received_additional_tax
 
 
 class ListMonthlyOrderSummaryRequest(BaseRequest):
@@ -1061,6 +1196,66 @@ class MonthlyOrderSummary(BaseRequest):
 
     :type received_user_fee: string
     :param received_user_fee: 实收用户加成服务费金额
+
+    :type tax: string
+    :param tax: 预扣税费总额
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实缴税费总额
+
+    :type personal_tax: string
+    :param personal_tax: 预扣个税
+
+    :type value_added_tax: string
+    :param value_added_tax: 预扣增值税
+
+    :type additional_tax: string
+    :param additional_tax: 预扣附加税费
+
+    :type received_personal_tax: string
+    :param received_personal_tax: 实缴个税
+
+    :type received_value_added_tax: string
+    :param received_value_added_tax: 实缴增值税
+
+    :type received_additional_tax: string
+    :param received_additional_tax: 实缴附加税费
+
+    :type user_personal_tax: string
+    :param user_personal_tax: 用户预扣个税
+
+    :type dealer_personal_tax: string
+    :param dealer_personal_tax: 平台企业预扣个税
+
+    :type user_value_added_tax: string
+    :param user_value_added_tax: 用户预扣增值税
+
+    :type dealer_value_added_tax: string
+    :param dealer_value_added_tax: 平台企业预扣增值税
+
+    :type user_additional_tax: string
+    :param user_additional_tax: 用户预扣附加税费
+
+    :type dealer_additional_tax: string
+    :param dealer_additional_tax: 平台企业预扣附加税费
+
+    :type user_received_personal_tax: string
+    :param user_received_personal_tax: 用户实缴个税
+
+    :type dealer_received_personal_tax: string
+    :param dealer_received_personal_tax: 平台企业实缴个税
+
+    :type user_received_value_added_tax: string
+    :param user_received_value_added_tax: 用户实缴增值税
+
+    :type dealer_received_value_added_tax: string
+    :param dealer_received_value_added_tax: 平台企业实缴增值税
+
+    :type user_received_additional_tax: string
+    :param user_received_additional_tax: 用户实缴附加税费
+
+    :type dealer_received_additional_tax: string
+    :param dealer_received_additional_tax: 平台企业实缴附加税费
     """
     def __init__(
         self,
@@ -1073,7 +1268,27 @@ class MonthlyOrderSummary(BaseRequest):
         received_broker_fee = None,
         received_broker_real_fee = None,
         received_broker_deduct_fee = None,
-        received_user_fee = None
+        received_user_fee = None,
+        tax = None,
+        received_tax_amount = None,
+        personal_tax = None,
+        value_added_tax = None,
+        additional_tax = None,
+        received_personal_tax = None,
+        received_value_added_tax = None,
+        received_additional_tax = None,
+        user_personal_tax = None,
+        dealer_personal_tax = None,
+        user_value_added_tax = None,
+        dealer_value_added_tax = None,
+        user_additional_tax = None,
+        dealer_additional_tax = None,
+        user_received_personal_tax = None,
+        dealer_received_personal_tax = None,
+        user_received_value_added_tax = None,
+        dealer_received_value_added_tax = None,
+        user_received_additional_tax = None,
+        dealer_received_additional_tax = None
     ):
         super().__init__()
         self.order_num = order_num
@@ -1086,3 +1301,123 @@ class MonthlyOrderSummary(BaseRequest):
         self.received_broker_real_fee = received_broker_real_fee
         self.received_broker_deduct_fee = received_broker_deduct_fee
         self.received_user_fee = received_user_fee
+        self.tax = tax
+        self.received_tax_amount = received_tax_amount
+        self.personal_tax = personal_tax
+        self.value_added_tax = value_added_tax
+        self.additional_tax = additional_tax
+        self.received_personal_tax = received_personal_tax
+        self.received_value_added_tax = received_value_added_tax
+        self.received_additional_tax = received_additional_tax
+        self.user_personal_tax = user_personal_tax
+        self.dealer_personal_tax = dealer_personal_tax
+        self.user_value_added_tax = user_value_added_tax
+        self.dealer_value_added_tax = dealer_value_added_tax
+        self.user_additional_tax = user_additional_tax
+        self.dealer_additional_tax = dealer_additional_tax
+        self.user_received_personal_tax = user_received_personal_tax
+        self.dealer_received_personal_tax = dealer_received_personal_tax
+        self.user_received_value_added_tax = user_received_value_added_tax
+        self.dealer_received_value_added_tax = dealer_received_value_added_tax
+        self.user_received_additional_tax = user_received_additional_tax
+        self.dealer_received_additional_tax = dealer_received_additional_tax
+
+
+class OrderTaxDetail(BaseRequest):
+    """
+    缴税明细-响应
+
+    :type personal_tax: string
+    :param personal_tax: 预扣个税
+
+    :type value_added_tax: string
+    :param value_added_tax: 预扣增值税
+
+    :type additional_tax: string
+    :param additional_tax: 预扣附加税费
+
+    :type received_personal_tax: string
+    :param received_personal_tax: 实缴个税
+
+    :type received_value_added_tax: string
+    :param received_value_added_tax: 实缴增值税
+
+    :type received_additional_tax: string
+    :param received_additional_tax: 实缴附加税费
+
+    :type user_personal_tax: string
+    :param user_personal_tax: 用户预扣个税
+
+    :type dealer_personal_tax: string
+    :param dealer_personal_tax: 平台企业预扣个税
+
+    :type user_value_added_tax: string
+    :param user_value_added_tax: 用户预扣增值税
+
+    :type dealer_value_added_tax: string
+    :param dealer_value_added_tax: 平台企业预扣增值税
+
+    :type user_additional_tax: string
+    :param user_additional_tax: 用户预扣附加税费
+
+    :type dealer_additional_tax: string
+    :param dealer_additional_tax: 平台企业预扣附加税费
+
+    :type user_received_personal_tax: string
+    :param user_received_personal_tax: 用户实缴个税
+
+    :type dealer_received_personal_tax: string
+    :param dealer_received_personal_tax: 平台企业实缴个税
+
+    :type user_received_value_added_tax: string
+    :param user_received_value_added_tax: 用户实缴增值税
+
+    :type dealer_received_value_added_tax: string
+    :param dealer_received_value_added_tax: 平台企业实缴增值税
+
+    :type user_received_additional_tax: string
+    :param user_received_additional_tax: 用户实缴附加税费
+
+    :type dealer_received_additional_tax: string
+    :param dealer_received_additional_tax: 平台企业实缴附加税费
+    """
+    def __init__(
+        self,
+        personal_tax = None,
+        value_added_tax = None,
+        additional_tax = None,
+        received_personal_tax = None,
+        received_value_added_tax = None,
+        received_additional_tax = None,
+        user_personal_tax = None,
+        dealer_personal_tax = None,
+        user_value_added_tax = None,
+        dealer_value_added_tax = None,
+        user_additional_tax = None,
+        dealer_additional_tax = None,
+        user_received_personal_tax = None,
+        dealer_received_personal_tax = None,
+        user_received_value_added_tax = None,
+        dealer_received_value_added_tax = None,
+        user_received_additional_tax = None,
+        dealer_received_additional_tax = None
+    ):
+        super().__init__()
+        self.personal_tax = personal_tax
+        self.value_added_tax = value_added_tax
+        self.additional_tax = additional_tax
+        self.received_personal_tax = received_personal_tax
+        self.received_value_added_tax = received_value_added_tax
+        self.received_additional_tax = received_additional_tax
+        self.user_personal_tax = user_personal_tax
+        self.dealer_personal_tax = dealer_personal_tax
+        self.user_value_added_tax = user_value_added_tax
+        self.dealer_value_added_tax = dealer_value_added_tax
+        self.user_additional_tax = user_additional_tax
+        self.dealer_additional_tax = dealer_additional_tax
+        self.user_received_personal_tax = user_received_personal_tax
+        self.dealer_received_personal_tax = dealer_received_personal_tax
+        self.user_received_value_added_tax = user_received_value_added_tax
+        self.dealer_received_value_added_tax = dealer_received_value_added_tax
+        self.user_received_additional_tax = user_received_additional_tax
+        self.dealer_received_additional_tax = dealer_received_additional_tax

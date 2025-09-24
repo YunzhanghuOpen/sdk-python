@@ -23,6 +23,9 @@ if __name__ == "__main__":
         pay_remark = "",
         notify_url = "https://www.example.com",
         project_id = "",
+        dealer_platform_name = "互联网平台名称test",
+        dealer_user_nickname = "usernickname",
+        dealer_user_id = "userId1234567890",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -55,6 +58,9 @@ if __name__ == "__main__":
         notify_url = "https://www.example.com",
         project_id = "",
         check_name = "Check",
+        dealer_platform_name = "互联网平台名称test",
+        dealer_user_nickname = "usernickname",
+        dealer_user_id = "userId1234567890",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -88,6 +94,9 @@ if __name__ == "__main__":
         wx_app_id = "",
         wxpay_mode = "transfer",
         project_id = "",
+        dealer_platform_name = "互联网平台名称test",
+        dealer_user_nickname = "usernickname",
+        dealer_user_id = "userId1234567890",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -277,6 +286,9 @@ if __name__ == "__main__":
         pay = "1.00",
         pay_remark = "",
         notify_url = "https://www.example.com",
+        dealer_platform_name = "互联网平台名称test",
+        dealer_user_nickname = "usernickname",
+        dealer_user_id = "userId1234567890",
     )
     req = CreateBatchOrderRequest(
         batch_id = "batch2032934858483",
