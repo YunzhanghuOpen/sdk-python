@@ -38,3 +38,31 @@ class CalculateLaborServiceClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def calculation_year_h5_url(self, request: CalculationYearH5UrlRequest):
+        """ 连续劳务年度税费测算-H5
+
+        :type request: CalculationYearH5UrlRequest
+        :param request: the CalculationYearH5UrlRequest request parameters class.
+
+        :return: CalculationYearH5UrlResponse
+        """
+        return self._get(
+            "/api/labor/service/calculation/year/h5url",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
+
+    def calculation_h5_url(self, request: CalculationH5UrlRequest):
+        """ 连续劳务单笔结算税费测算-H5
+
+        :type request: CalculationH5UrlRequest
+        :param request: the CalculationH5UrlRequest request parameters class.
+
+        :return: CalculationH5UrlResponse
+        """
+        return self._get(
+            "/api/labor/service/calculation/h5url",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )

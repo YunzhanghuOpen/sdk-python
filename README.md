@@ -79,6 +79,7 @@ OpenSSL-> rsa -in private_key.pem -pubout -out pubkey.pem
 - [对账文件获取](yunzhanghu_sdk/example/dataservice_example.py)
 - [发票开具](yunzhanghu_sdk/example/invoice_example.py)
 - [个人所得税申报明细表](yunzhanghu_sdk/example/tax_example.py)
+- [用户实名认证信息收集](yunzhanghu_sdk/example/realname_example.py)
 
 #### 示例
 

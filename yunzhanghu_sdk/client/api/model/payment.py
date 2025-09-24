@@ -38,7 +38,16 @@ class CreateBankpayOrderRequest(BaseRequest):
     :param notify_url: 回调地址
 
     :type project_id: string
-    :param project_id: 项目标识
+    :param project_id: 业务线标识
+
+    :type dealer_platform_name: string
+    :param dealer_platform_name: 互联网平台名称
+
+    :type dealer_user_nickname: string
+    :param dealer_user_nickname: 用户名称/昵称
+
+    :type dealer_user_id: string
+    :param dealer_user_id: 用户唯一标识码
     """
     def __init__(
         self,
@@ -52,7 +61,10 @@ class CreateBankpayOrderRequest(BaseRequest):
         pay = None,
         pay_remark = None,
         notify_url = None,
-        project_id = None
+        project_id = None,
+        dealer_platform_name = None,
+        dealer_user_nickname = None,
+        dealer_user_id = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -66,6 +78,9 @@ class CreateBankpayOrderRequest(BaseRequest):
         self.pay_remark = pay_remark
         self.notify_url = notify_url
         self.project_id = project_id
+        self.dealer_platform_name = dealer_platform_name
+        self.dealer_user_nickname = dealer_user_nickname
+        self.dealer_user_id = dealer_user_id
 
 
 class CreateBankpayOrderResponse(BaseRequest):
@@ -128,10 +143,19 @@ class CreateAlipayOrderRequest(BaseRequest):
     :param notify_url: 回调地址
 
     :type project_id: string
-    :param project_id: 项目标识
+    :param project_id: 业务线标识
 
     :type check_name: string
     :param check_name: 校验支付宝账户姓名，固定值：Check
+
+    :type dealer_platform_name: string
+    :param dealer_platform_name: 互联网平台名称
+
+    :type dealer_user_nickname: string
+    :param dealer_user_nickname: 用户名称/昵称
+
+    :type dealer_user_id: string
+    :param dealer_user_id: 用户唯一标识码
     """
     def __init__(
         self,
@@ -146,7 +170,10 @@ class CreateAlipayOrderRequest(BaseRequest):
         pay_remark = None,
         notify_url = None,
         project_id = None,
-        check_name = None
+        check_name = None,
+        dealer_platform_name = None,
+        dealer_user_nickname = None,
+        dealer_user_id = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -161,6 +188,9 @@ class CreateAlipayOrderRequest(BaseRequest):
         self.notify_url = notify_url
         self.project_id = project_id
         self.check_name = check_name
+        self.dealer_platform_name = dealer_platform_name
+        self.dealer_user_nickname = dealer_user_nickname
+        self.dealer_user_id = dealer_user_id
 
 
 class CreateAlipayOrderResponse(BaseRequest):
@@ -229,10 +259,19 @@ class CreateWxpayOrderRequest(BaseRequest):
     :param wxpay_mode: 微信支付模式，固定值：transfer
 
     :type project_id: string
-    :param project_id: 项目标识
+    :param project_id: 业务线标识
 
     :type notes: string
     :param notes: 描述信息，该字段已废弃
+
+    :type dealer_platform_name: string
+    :param dealer_platform_name: 互联网平台名称
+
+    :type dealer_user_nickname: string
+    :param dealer_user_nickname: 用户名称/昵称
+
+    :type dealer_user_id: string
+    :param dealer_user_id: 用户唯一标识码
     """
     def __init__(
         self,
@@ -249,7 +288,10 @@ class CreateWxpayOrderRequest(BaseRequest):
         wx_app_id = None,
         wxpay_mode = None,
         project_id = None,
-        notes = None
+        notes = None,
+        dealer_platform_name = None,
+        dealer_user_nickname = None,
+        dealer_user_id = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -266,6 +308,9 @@ class CreateWxpayOrderRequest(BaseRequest):
         self.wxpay_mode = wxpay_mode
         self.project_id = project_id
         self.notes = notes
+        self.dealer_platform_name = dealer_platform_name
+        self.dealer_user_nickname = dealer_user_nickname
+        self.dealer_user_id = dealer_user_id
 
 
 class CreateWxpayOrderResponse(BaseRequest):
@@ -356,7 +401,7 @@ class GetOrderResponse(BaseRequest):
     :param status_message: 订单状态码描述
 
     :type status_detail_message: string
-    :param status_detail_message: 订单详细状态码描述
+    :param status_detail_message: 订单详情状态码描述
 
     :type supplemental_detail_message: string
     :param supplemental_detail_message: 订单状态补充信息
@@ -410,7 +455,7 @@ class GetOrderResponse(BaseRequest):
     :param bank_name: 银行名称
 
     :type project_id: string
-    :param project_id: 项目标识
+    :param project_id: 业务线标识
 
     :type anchor_id: string
     :param anchor_id: 新就业形态劳动者 ID，该字段已废弃
@@ -426,6 +471,30 @@ class GetOrderResponse(BaseRequest):
 
     :type sys_fee: string
     :param sys_fee: 系统支付费用，该字段已废弃
+
+    :type user_real_amount: string
+    :param user_real_amount: 用户实收金额
+
+    :type tax_detail: TaxDetail
+    :param tax_detail: 缴税明细
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实缴税费总额
+
+    :type dealer_platform_name: string
+    :param dealer_platform_name: 互联网平台名称
+
+    :type dealer_user_nickname: string
+    :param dealer_user_nickname: 用户名称/昵称
+
+    :type dealer_user_id: string
+    :param dealer_user_id: 用户唯一标识码
+
+    :type user_real_excluding_vat_amount: string
+    :param user_real_excluding_vat_amount: 用户实收金额（追缴前）
+
+    :type user_recover_tax_amount: string
+    :param user_recover_tax_amount: 已追缴增附税（本笔订单）
     """
     def __init__(
         self,
@@ -463,7 +532,15 @@ class GetOrderResponse(BaseRequest):
         notes = None,
         sys_amount = None,
         tax = None,
-        sys_fee = None
+        sys_fee = None,
+        user_real_amount = None,
+        tax_detail = None,
+        received_tax_amount = None,
+        dealer_platform_name = None,
+        dealer_user_nickname = None,
+        dealer_user_id = None,
+        user_real_excluding_vat_amount = None,
+        user_recover_tax_amount = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -501,6 +578,14 @@ class GetOrderResponse(BaseRequest):
         self.sys_amount = sys_amount
         self.tax = tax
         self.sys_fee = sys_fee
+        self.user_real_amount = user_real_amount
+        self.tax_detail = tax_detail
+        self.received_tax_amount = received_tax_amount
+        self.dealer_platform_name = dealer_platform_name
+        self.dealer_user_nickname = dealer_user_nickname
+        self.dealer_user_id = dealer_user_id
+        self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
+        self.user_recover_tax_amount = user_recover_tax_amount
 
 
 class GetDealerVARechargeAccountRequest(BaseRequest):
@@ -588,7 +673,7 @@ class CancelOrderResponse(BaseRequest):
     取消待支付订单返回-响应
 
     :type ok: string
-    :param ok: 
+    :param ok:
     """
     def __init__(
         self,
@@ -663,7 +748,7 @@ class ListAccountResponse(BaseRequest):
     查询平台企业余额返回-响应
 
     :type dealer_infos: list
-    :param dealer_infos: 
+    :param dealer_infos:
     """
     def __init__(
         self,
@@ -899,6 +984,33 @@ class NotifyOrderData(BaseRequest):
 
     :type user_id: string
     :param user_id: 平台企业用户 ID
+
+    :type user_real_amount: string
+    :param user_real_amount: 用户实收金额
+
+    :type tax_detail: TaxDetail
+    :param tax_detail: 缴税明细
+
+    :type dealer_platform_name: string
+    :param dealer_platform_name: 互联网平台名称
+
+    :type dealer_user_nickname: string
+    :param dealer_user_nickname: 用户名称/昵称
+
+    :type dealer_user_id: string
+    :param dealer_user_id: 用户唯一标识码
+
+    :type tax: string
+    :param tax: 预扣税费总额
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实缴税费总额
+
+    :type user_real_excluding_vat_amount: string
+    :param user_real_excluding_vat_amount: 用户实收金额（追缴前）
+
+    :type user_recover_tax_amount: string
+    :param user_recover_tax_amount: 已追缴增附税（本笔订单）
     """
     def __init__(
         self,
@@ -932,7 +1044,16 @@ class NotifyOrderData(BaseRequest):
         pay_remark = None,
         bank_name = None,
         project_id = None,
-        user_id = None
+        user_id = None,
+        user_real_amount = None,
+        tax_detail = None,
+        dealer_platform_name = None,
+        dealer_user_nickname = None,
+        dealer_user_id = None,
+        tax = None,
+        received_tax_amount = None,
+        user_real_excluding_vat_amount = None,
+        user_recover_tax_amount = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -966,6 +1087,15 @@ class NotifyOrderData(BaseRequest):
         self.bank_name = bank_name
         self.project_id = project_id
         self.user_id = user_id
+        self.user_real_amount = user_real_amount
+        self.tax_detail = tax_detail
+        self.dealer_platform_name = dealer_platform_name
+        self.dealer_user_nickname = dealer_user_nickname
+        self.dealer_user_id = dealer_user_id
+        self.tax = tax
+        self.received_tax_amount = received_tax_amount
+        self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
+        self.user_recover_tax_amount = user_recover_tax_amount
 
 
 class CreateBatchOrderRequest(BaseRequest):
@@ -1046,7 +1176,7 @@ class BatchOrderInfo(BaseRequest):
     :param phone_no: 手机号
 
     :type project_id: string
-    :param project_id: 项目标识
+    :param project_id: 业务线标识
 
     :type pay: string
     :param pay: 订单金额
@@ -1056,6 +1186,15 @@ class BatchOrderInfo(BaseRequest):
 
     :type notify_url: string
     :param notify_url: 回调地址
+
+    :type dealer_platform_name: string
+    :param dealer_platform_name: 互联网平台名称
+
+    :type dealer_user_nickname: string
+    :param dealer_user_nickname: 用户名称/昵称
+
+    :type dealer_user_id: string
+    :param dealer_user_id: 用户唯一标识码
     """
     def __init__(
         self,
@@ -1068,7 +1207,10 @@ class BatchOrderInfo(BaseRequest):
         project_id = None,
         pay = None,
         pay_remark = None,
-        notify_url = None
+        notify_url = None,
+        dealer_platform_name = None,
+        dealer_user_nickname = None,
+        dealer_user_id = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1081,6 +1223,9 @@ class BatchOrderInfo(BaseRequest):
         self.pay = pay
         self.pay_remark = pay_remark
         self.notify_url = notify_url
+        self.dealer_platform_name = dealer_platform_name
+        self.dealer_user_nickname = dealer_user_nickname
+        self.dealer_user_id = dealer_user_id
 
 
 class CreateBatchOrderResponse(BaseRequest):
@@ -1367,6 +1512,21 @@ class QueryBatchOrderInfo(BaseRequest):
 
     :type project_id: string
     :param project_id: 业务线标识
+
+    :type dealer_platform_name: string
+    :param dealer_platform_name: 互联网平台名称
+
+    :type dealer_user_nickname: string
+    :param dealer_user_nickname: 用户名称/昵称
+
+    :type dealer_user_id: string
+    :param dealer_user_id: 用户唯一标识码
+
+    :type personal_tax_rate: string
+    :param personal_tax_rate: 预扣个税税率
+
+    :type deduct_tax: string
+    :param deduct_tax: 预扣个税速算扣除数
     """
     def __init__(
         self,
@@ -1399,7 +1559,12 @@ class QueryBatchOrderInfo(BaseRequest):
         received_user_fee = None,
         pay_remark = None,
         bank_name = None,
-        project_id = None
+        project_id = None,
+        dealer_platform_name = None,
+        dealer_user_nickname = None,
+        dealer_user_id = None,
+        personal_tax_rate = None,
+        deduct_tax = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1432,6 +1597,11 @@ class QueryBatchOrderInfo(BaseRequest):
         self.pay_remark = pay_remark
         self.bank_name = bank_name
         self.project_id = project_id
+        self.dealer_platform_name = dealer_platform_name
+        self.dealer_user_nickname = dealer_user_nickname
+        self.dealer_user_id = dealer_user_id
+        self.personal_tax_rate = personal_tax_rate
+        self.deduct_tax = deduct_tax
 
 
 class CancelBatchOrderRequest(BaseRequest):
@@ -1654,6 +1824,24 @@ class GetOrderLxlwResponse(BaseRequest):
 
     :type tax_detail: TaxDetail
     :param tax_detail: 缴税明细
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实缴税费总额
+
+    :type dealer_platform_name: string
+    :param dealer_platform_name: 互联网平台名称
+
+    :type dealer_user_nickname: string
+    :param dealer_user_nickname: 用户名称/昵称
+
+    :type dealer_user_id: string
+    :param dealer_user_id: 用户唯一标识码
+
+    :type user_real_excluding_vat_amount: string
+    :param user_real_excluding_vat_amount: 用户实收金额（追缴前）
+
+    :type user_recover_tax_amount: string
+    :param user_recover_tax_amount: 已追缴增附税（本笔订单）
     """
     def __init__(
         self,
@@ -1693,7 +1881,13 @@ class GetOrderLxlwResponse(BaseRequest):
         tax = None,
         sys_fee = None,
         user_real_amount = None,
-        tax_detail = None
+        tax_detail = None,
+        received_tax_amount = None,
+        dealer_platform_name = None,
+        dealer_user_nickname = None,
+        dealer_user_id = None,
+        user_real_excluding_vat_amount = None,
+        user_recover_tax_amount = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1733,6 +1927,12 @@ class GetOrderLxlwResponse(BaseRequest):
         self.sys_fee = sys_fee
         self.user_real_amount = user_real_amount
         self.tax_detail = tax_detail
+        self.received_tax_amount = received_tax_amount
+        self.dealer_platform_name = dealer_platform_name
+        self.dealer_user_nickname = dealer_user_nickname
+        self.dealer_user_id = dealer_user_id
+        self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
+        self.user_recover_tax_amount = user_recover_tax_amount
 
 
 class TaxDetail(BaseRequest):
@@ -1740,22 +1940,64 @@ class TaxDetail(BaseRequest):
     缴税明细-响应
 
     :type personal_tax: string
-    :param personal_tax: 应纳个税
+    :param personal_tax: 预扣个税
 
     :type value_added_tax: string
-    :param value_added_tax: 应纳增值税
+    :param value_added_tax: 预扣增值税
 
     :type additional_tax: string
-    :param additional_tax: 应纳附加税费
+    :param additional_tax: 预扣附加税费
 
     :type received_personal_tax: string
-    :param received_personal_tax: 实纳个税
+    :param received_personal_tax: 实缴个税
 
     :type received_value_added_tax: string
-    :param received_value_added_tax: 实纳增值税
+    :param received_value_added_tax: 实缴增值税
 
     :type received_additional_tax: string
-    :param received_additional_tax: 实纳附加税费
+    :param received_additional_tax: 实缴附加税费
+
+    :type user_personal_tax: string
+    :param user_personal_tax: 用户预扣个税
+
+    :type dealer_personal_tax: string
+    :param dealer_personal_tax: 平台企业预扣个税
+
+    :type user_value_added_tax: string
+    :param user_value_added_tax: 用户预扣增值税
+
+    :type dealer_value_added_tax: string
+    :param dealer_value_added_tax: 平台企业预扣增值税
+
+    :type user_additional_tax: string
+    :param user_additional_tax: 用户预扣附加税费
+
+    :type dealer_additional_tax: string
+    :param dealer_additional_tax: 平台企业预扣附加税费
+
+    :type user_received_personal_tax: string
+    :param user_received_personal_tax: 用户实缴个税
+
+    :type dealer_received_personal_tax: string
+    :param dealer_received_personal_tax: 平台企业实缴个税
+
+    :type user_received_value_added_tax: string
+    :param user_received_value_added_tax: 用户实缴增值税
+
+    :type dealer_received_value_added_tax: string
+    :param dealer_received_value_added_tax: 平台企业实缴增值税
+
+    :type user_received_additional_tax: string
+    :param user_received_additional_tax: 用户实缴附加税费
+
+    :type dealer_received_additional_tax: string
+    :param dealer_received_additional_tax: 平台企业实缴附加税费
+
+    :type personal_tax_rate: string
+    :param personal_tax_rate: 预扣个税税率
+
+    :type deduct_tax: string
+    :param deduct_tax: 预扣个税速算扣除数
     """
     def __init__(
         self,
@@ -1764,7 +2006,21 @@ class TaxDetail(BaseRequest):
         additional_tax = None,
         received_personal_tax = None,
         received_value_added_tax = None,
-        received_additional_tax = None
+        received_additional_tax = None,
+        user_personal_tax = None,
+        dealer_personal_tax = None,
+        user_value_added_tax = None,
+        dealer_value_added_tax = None,
+        user_additional_tax = None,
+        dealer_additional_tax = None,
+        user_received_personal_tax = None,
+        dealer_received_personal_tax = None,
+        user_received_value_added_tax = None,
+        dealer_received_value_added_tax = None,
+        user_received_additional_tax = None,
+        dealer_received_additional_tax = None,
+        personal_tax_rate = None,
+        deduct_tax = None
     ):
         super().__init__()
         self.personal_tax = personal_tax
@@ -1773,6 +2029,20 @@ class TaxDetail(BaseRequest):
         self.received_personal_tax = received_personal_tax
         self.received_value_added_tax = received_value_added_tax
         self.received_additional_tax = received_additional_tax
+        self.user_personal_tax = user_personal_tax
+        self.dealer_personal_tax = dealer_personal_tax
+        self.user_value_added_tax = user_value_added_tax
+        self.dealer_value_added_tax = dealer_value_added_tax
+        self.user_additional_tax = user_additional_tax
+        self.dealer_additional_tax = dealer_additional_tax
+        self.user_received_personal_tax = user_received_personal_tax
+        self.dealer_received_personal_tax = dealer_received_personal_tax
+        self.user_received_value_added_tax = user_received_value_added_tax
+        self.dealer_received_value_added_tax = dealer_received_value_added_tax
+        self.user_received_additional_tax = user_received_additional_tax
+        self.dealer_received_additional_tax = dealer_received_additional_tax
+        self.personal_tax_rate = personal_tax_rate
+        self.deduct_tax = deduct_tax
 
 
 class NotifyOrderLxlwRequest(BaseRequest):
@@ -1899,6 +2169,27 @@ class NotifyOrderLxlwData(BaseRequest):
 
     :type tax_detail: TaxDetail
     :param tax_detail: 缴税明细
+
+    :type dealer_platform_name: string
+    :param dealer_platform_name: 互联网平台名称
+
+    :type dealer_user_nickname: string
+    :param dealer_user_nickname: 用户名称/昵称
+
+    :type dealer_user_id: string
+    :param dealer_user_id: 用户唯一标识码
+
+    :type tax: string
+    :param tax: 预扣税费总额
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实缴税费总额
+
+    :type user_real_excluding_vat_amount: string
+    :param user_real_excluding_vat_amount: 用户实收金额（追缴前）
+
+    :type user_recover_tax_amount: string
+    :param user_recover_tax_amount: 已追缴增附税（本笔订单）
     """
     def __init__(
         self,
@@ -1933,7 +2224,14 @@ class NotifyOrderLxlwData(BaseRequest):
         bank_name = None,
         project_id = None,
         user_real_amount = None,
-        tax_detail = None
+        tax_detail = None,
+        dealer_platform_name = None,
+        dealer_user_nickname = None,
+        dealer_user_id = None,
+        tax = None,
+        received_tax_amount = None,
+        user_real_excluding_vat_amount = None,
+        user_recover_tax_amount = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1968,3 +2266,10 @@ class NotifyOrderLxlwData(BaseRequest):
         self.project_id = project_id
         self.user_real_amount = user_real_amount
         self.tax_detail = tax_detail
+        self.dealer_platform_name = dealer_platform_name
+        self.dealer_user_nickname = dealer_user_nickname
+        self.dealer_user_id = dealer_user_id
+        self.tax = tax
+        self.received_tax_amount = received_tax_amount
+        self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
+        self.user_recover_tax_amount = user_recover_tax_amount
