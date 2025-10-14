@@ -467,7 +467,7 @@ class GetOrderResponse(BaseRequest):
     :param sys_amount: 系统支付金额，该字段已废弃
 
     :type tax: string
-    :param tax: 税费，该字段已废弃
+    :param tax: 预扣税费总额
 
     :type sys_fee: string
     :param sys_fee: 系统支付费用，该字段已废弃
@@ -495,6 +495,12 @@ class GetOrderResponse(BaseRequest):
 
     :type user_recover_tax_amount: string
     :param user_recover_tax_amount: 已追缴增附税（本笔订单）
+
+    :type personal_tax_rate: string
+    :param personal_tax_rate: 预扣个税税率
+
+    :type deduct_tax: string
+    :param deduct_tax: 预扣个税速算扣除数
     """
     def __init__(
         self,
@@ -540,7 +546,9 @@ class GetOrderResponse(BaseRequest):
         dealer_user_nickname = None,
         dealer_user_id = None,
         user_real_excluding_vat_amount = None,
-        user_recover_tax_amount = None
+        user_recover_tax_amount = None,
+        personal_tax_rate = None,
+        deduct_tax = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -586,6 +594,8 @@ class GetOrderResponse(BaseRequest):
         self.dealer_user_id = dealer_user_id
         self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
         self.user_recover_tax_amount = user_recover_tax_amount
+        self.personal_tax_rate = personal_tax_rate
+        self.deduct_tax = deduct_tax
 
 
 class GetDealerVARechargeAccountRequest(BaseRequest):
@@ -1011,6 +1021,12 @@ class NotifyOrderData(BaseRequest):
 
     :type user_recover_tax_amount: string
     :param user_recover_tax_amount: 已追缴增附税（本笔订单）
+
+    :type personal_tax_rate: string
+    :param personal_tax_rate: 预扣个税税率
+
+    :type deduct_tax: string
+    :param deduct_tax: 预扣个税速算扣除数
     """
     def __init__(
         self,
@@ -1053,7 +1069,9 @@ class NotifyOrderData(BaseRequest):
         tax = None,
         received_tax_amount = None,
         user_real_excluding_vat_amount = None,
-        user_recover_tax_amount = None
+        user_recover_tax_amount = None,
+        personal_tax_rate = None,
+        deduct_tax = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1096,6 +1114,8 @@ class NotifyOrderData(BaseRequest):
         self.received_tax_amount = received_tax_amount
         self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
         self.user_recover_tax_amount = user_recover_tax_amount
+        self.personal_tax_rate = personal_tax_rate
+        self.deduct_tax = deduct_tax
 
 
 class CreateBatchOrderRequest(BaseRequest):
@@ -1527,6 +1547,18 @@ class QueryBatchOrderInfo(BaseRequest):
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
+
+    :type received_tax_amount: string
+    :param received_tax_amount: 实缴税费总额
+
+    :type user_real_amount: string
+    :param user_real_amount: 用户实收金额
+
+    :type tax: string
+    :param tax: 预扣税费总额
+
+    :type tax_detail: TaxDetail
+    :param tax_detail: 缴税明细
     """
     def __init__(
         self,
@@ -1564,7 +1596,11 @@ class QueryBatchOrderInfo(BaseRequest):
         dealer_user_nickname = None,
         dealer_user_id = None,
         personal_tax_rate = None,
-        deduct_tax = None
+        deduct_tax = None,
+        received_tax_amount = None,
+        user_real_amount = None,
+        tax = None,
+        tax_detail = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1602,6 +1638,10 @@ class QueryBatchOrderInfo(BaseRequest):
         self.dealer_user_id = dealer_user_id
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.received_tax_amount = received_tax_amount
+        self.user_real_amount = user_real_amount
+        self.tax = tax
+        self.tax_detail = tax_detail
 
 
 class CancelBatchOrderRequest(BaseRequest):
@@ -1814,7 +1854,7 @@ class GetOrderLxlwResponse(BaseRequest):
     :param sys_amount: 系统支付金额，该字段已废弃
 
     :type tax: string
-    :param tax: 税费，该字段已废弃
+    :param tax: 预扣税费总额
 
     :type sys_fee: string
     :param sys_fee: 系统支付费用，该字段已废弃
@@ -1842,6 +1882,12 @@ class GetOrderLxlwResponse(BaseRequest):
 
     :type user_recover_tax_amount: string
     :param user_recover_tax_amount: 已追缴增附税（本笔订单）
+
+    :type personal_tax_rate: string
+    :param personal_tax_rate: 预扣个税税率
+
+    :type deduct_tax: string
+    :param deduct_tax: 预扣个税速算扣除数
     """
     def __init__(
         self,
@@ -1887,7 +1933,9 @@ class GetOrderLxlwResponse(BaseRequest):
         dealer_user_nickname = None,
         dealer_user_id = None,
         user_real_excluding_vat_amount = None,
-        user_recover_tax_amount = None
+        user_recover_tax_amount = None,
+        personal_tax_rate = None,
+        deduct_tax = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1933,6 +1981,8 @@ class GetOrderLxlwResponse(BaseRequest):
         self.dealer_user_id = dealer_user_id
         self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
         self.user_recover_tax_amount = user_recover_tax_amount
+        self.personal_tax_rate = personal_tax_rate
+        self.deduct_tax = deduct_tax
 
 
 class TaxDetail(BaseRequest):
@@ -1992,12 +2042,6 @@ class TaxDetail(BaseRequest):
 
     :type dealer_received_additional_tax: string
     :param dealer_received_additional_tax: 平台企业实缴附加税费
-
-    :type personal_tax_rate: string
-    :param personal_tax_rate: 预扣个税税率
-
-    :type deduct_tax: string
-    :param deduct_tax: 预扣个税速算扣除数
     """
     def __init__(
         self,
@@ -2018,9 +2062,7 @@ class TaxDetail(BaseRequest):
         user_received_value_added_tax = None,
         dealer_received_value_added_tax = None,
         user_received_additional_tax = None,
-        dealer_received_additional_tax = None,
-        personal_tax_rate = None,
-        deduct_tax = None
+        dealer_received_additional_tax = None
     ):
         super().__init__()
         self.personal_tax = personal_tax
@@ -2041,8 +2083,6 @@ class TaxDetail(BaseRequest):
         self.dealer_received_value_added_tax = dealer_received_value_added_tax
         self.user_received_additional_tax = user_received_additional_tax
         self.dealer_received_additional_tax = dealer_received_additional_tax
-        self.personal_tax_rate = personal_tax_rate
-        self.deduct_tax = deduct_tax
 
 
 class NotifyOrderLxlwRequest(BaseRequest):
@@ -2190,6 +2230,12 @@ class NotifyOrderLxlwData(BaseRequest):
 
     :type user_recover_tax_amount: string
     :param user_recover_tax_amount: 已追缴增附税（本笔订单）
+
+    :type personal_tax_rate: string
+    :param personal_tax_rate: 预扣个税税率
+
+    :type deduct_tax: string
+    :param deduct_tax: 预扣个税速算扣除数
     """
     def __init__(
         self,
@@ -2231,7 +2277,9 @@ class NotifyOrderLxlwData(BaseRequest):
         tax = None,
         received_tax_amount = None,
         user_real_excluding_vat_amount = None,
-        user_recover_tax_amount = None
+        user_recover_tax_amount = None,
+        personal_tax_rate = None,
+        deduct_tax = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -2273,3 +2321,5 @@ class NotifyOrderLxlwData(BaseRequest):
         self.received_tax_amount = received_tax_amount
         self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
         self.user_recover_tax_amount = user_recover_tax_amount
+        self.personal_tax_rate = personal_tax_rate
+        self.deduct_tax = deduct_tax
