@@ -16,7 +16,6 @@ class LaborCaculatorRequest(BaseRequest):
     :type month_settlement_list: list
     :param month_settlement_list: 月度收入列表
     """
-
     def __init__(
         self,
         dealer_id = None,
@@ -39,7 +38,6 @@ class MonthSettlement(BaseRequest):
     :type month_pre_tax_amount: string
     :param month_pre_tax_amount: 月度收入
     """
-
     def __init__(
         self,
         month = None,
@@ -60,7 +58,6 @@ class LaborCaculatorResponse(BaseRequest):
     :type month_tax_list: list
     :param month_tax_list: 月度税务信息列表
     """
-
     def __init__(
         self,
         year_tax_info = None,
@@ -93,7 +90,6 @@ class YearTaxInfo(BaseRequest):
     :type total_tax_rate: string
     :param total_tax_rate: 税负率
     """
-
     def __init__(
         self,
         continuous_month_personal_tax = None,
@@ -146,7 +142,6 @@ class MontTax(BaseRequest):
     :type total_tax_rate: string
     :param total_tax_rate: 税负率
     """
-
     def __init__(
         self,
         month = None,
@@ -195,7 +190,6 @@ class CalcTaxRequest(BaseRequest):
     :type tax_type: string
     :param tax_type: 测算类型
     """
-
     def __init__(
         self,
         dealer_id = None,
@@ -269,7 +263,6 @@ class CalcTaxResponse(BaseRequest):
     :type user_total_recover_tax_amount: string
     :param user_total_recover_tax_amount: 待追缴增附税总金额
     """
-
     def __init__(
         self,
         pay = None,
@@ -356,7 +349,6 @@ class CalcTaxDetail(BaseRequest):
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
     """
-
     def __init__(
         self,
         personal_tax = None,
@@ -403,18 +395,27 @@ class CalculationYearH5UrlRequest(BaseRequest):
 
     :type color: string
     :param color: 主题颜色
-    """
 
+    :type navbar_hide: int
+    :param navbar_hide: 是否隐藏导航栏 0：展示导航栏（默认） 1：隐藏导航栏
+
+    :type title: string
+    :param title: 页面标题
+    """
     def __init__(
         self,
         dealer_id = None,
         broker_id = None,
-        color = None
+        color = None,
+        navbar_hide = None,
+        title = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
         self.broker_id = broker_id
         self.color = color
+        self.navbar_hide = navbar_hide
+        self.title = title
 
 
 class CalculationYearH5UrlResponse(BaseRequest):
@@ -424,7 +425,6 @@ class CalculationYearH5UrlResponse(BaseRequest):
     :type url: string
     :param url: 年度劳务测算 H5 页面 URL
     """
-
     def __init__(
         self,
         url = None
@@ -451,15 +451,22 @@ class CalculationH5UrlRequest(BaseRequest):
 
     :type color: string
     :param color: 主题颜色
-    """
 
+    :type navbar_hide: int
+    :param navbar_hide: 是否隐藏导航栏 0：展示导航栏（默认） 1：隐藏导航栏
+
+    :type title: string
+    :param title: 页面标题
+    """
     def __init__(
         self,
         dealer_id = None,
         broker_id = None,
         real_name = None,
         id_card = None,
-        color = None
+        color = None,
+        navbar_hide = None,
+        title = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -467,6 +474,8 @@ class CalculationH5UrlRequest(BaseRequest):
         self.real_name = real_name
         self.id_card = id_card
         self.color = color
+        self.navbar_hide = navbar_hide
+        self.title = title
 
 
 class CalculationH5UrlResponse(BaseRequest):
@@ -476,7 +485,6 @@ class CalculationH5UrlResponse(BaseRequest):
     :type url: string
     :param url: 连续劳务单笔结算税费测算 H5 页面 URL
     """
-
     def __init__(
         self,
         url = None
