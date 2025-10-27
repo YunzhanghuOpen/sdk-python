@@ -229,6 +229,9 @@ class UserExemptedInfoRequest(BaseRequest):
 
     :type image_urls: list
     :param image_urls: 证件照片 URL 地址
+
+    :type resident_type: string
+    :param resident_type: 外籍人员类型
     """
     def __init__(
         self,
@@ -244,7 +247,8 @@ class UserExemptedInfoRequest(BaseRequest):
         gender = None,
         notify_url = None,
         ref = None,
-        image_urls = None
+        image_urls = None,
+        resident_type = None
     ):
         super().__init__()
         self.card_type = card_type
@@ -260,6 +264,7 @@ class UserExemptedInfoRequest(BaseRequest):
         self.notify_url = notify_url
         self.ref = ref
         self.image_urls = image_urls
+        self.resident_type = resident_type
 
 
 class UserExemptedInfoResponse(BaseRequest):
