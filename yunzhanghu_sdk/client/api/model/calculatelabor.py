@@ -348,6 +348,15 @@ class CalcTaxDetail(BaseRequest):
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
+
+    :type additional_urban_tax: string
+    :param additional_urban_tax: 预扣城建附加税
+
+    :type additional_tuition_tax: string
+    :param additional_tuition_tax: 预扣教育附加税
+
+    :type additional_local_tuition_tax: string
+    :param additional_local_tuition_tax: 预扣地方教育附加税
     """
     def __init__(
         self,
@@ -364,7 +373,10 @@ class CalcTaxDetail(BaseRequest):
         dealer_additional_tax = None,
         broker_additional_tax = None,
         personal_tax_rate = None,
-        deduct_tax = None
+        deduct_tax = None,
+        additional_urban_tax = None,
+        additional_tuition_tax = None,
+        additional_local_tuition_tax = None
     ):
         super().__init__()
         self.personal_tax = personal_tax
@@ -381,6 +393,9 @@ class CalcTaxDetail(BaseRequest):
         self.broker_additional_tax = broker_additional_tax
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.additional_urban_tax = additional_urban_tax
+        self.additional_tuition_tax = additional_tuition_tax
+        self.additional_local_tuition_tax = additional_local_tuition_tax
 
 
 class CalculationYearH5UrlRequest(BaseRequest):
