@@ -2042,6 +2042,15 @@ class TaxDetail(BaseRequest):
 
     :type dealer_received_additional_tax: string
     :param dealer_received_additional_tax: 平台企业实缴附加税费
+
+    :type additional_urban_tax: string
+    :param additional_urban_tax: 预扣城建附加税
+
+    :type additional_tuition_tax: string
+    :param additional_tuition_tax: 预扣教育附加税
+
+    :type additional_local_tuition_tax: string
+    :param additional_local_tuition_tax: 预扣地方教育附加税
     """
     def __init__(
         self,
@@ -2062,7 +2071,10 @@ class TaxDetail(BaseRequest):
         user_received_value_added_tax = None,
         dealer_received_value_added_tax = None,
         user_received_additional_tax = None,
-        dealer_received_additional_tax = None
+        dealer_received_additional_tax = None,
+        additional_urban_tax = None,
+        additional_tuition_tax = None,
+        additional_local_tuition_tax = None
     ):
         super().__init__()
         self.personal_tax = personal_tax
@@ -2083,6 +2095,9 @@ class TaxDetail(BaseRequest):
         self.dealer_received_value_added_tax = dealer_received_value_added_tax
         self.user_received_additional_tax = user_received_additional_tax
         self.dealer_received_additional_tax = dealer_received_additional_tax
+        self.additional_urban_tax = additional_urban_tax
+        self.additional_tuition_tax = additional_tuition_tax
+        self.additional_local_tuition_tax = additional_local_tuition_tax
 
 
 class NotifyOrderLxlwRequest(BaseRequest):
