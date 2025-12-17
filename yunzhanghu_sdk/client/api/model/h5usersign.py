@@ -24,6 +24,9 @@ class H5UserPresignRequest(BaseRequest):
 
     :type collect_phone_no: int
     :param collect_phone_no: 是否收集手机号码 0：不收集（默认） 1：收集手机号码
+
+    :type page_open_way: int
+    :param page_open_way: 签约页面打开方式 1：微信小程序打开签约页面
     """
     def __init__(
         self,
@@ -32,7 +35,8 @@ class H5UserPresignRequest(BaseRequest):
         real_name = None,
         id_card = None,
         certificate_type = None,
-        collect_phone_no = None
+        collect_phone_no = None,
+        page_open_way = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -41,6 +45,7 @@ class H5UserPresignRequest(BaseRequest):
         self.id_card = id_card
         self.certificate_type = certificate_type
         self.collect_phone_no = collect_phone_no
+        self.page_open_way = page_open_way
 
 
 class H5UserPresignResponse(BaseRequest):

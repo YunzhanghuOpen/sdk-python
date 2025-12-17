@@ -410,3 +410,48 @@ class GetBankCardInfoResponse(BaseRequest):
         self.bank_name = bank_name
         self.card_type = card_type
         self.is_support = is_support
+
+
+class GetUserWhiteApproveInfoRequest(BaseRequest):
+    """
+    非居民身份证验证名单审核结果查询请求-请求
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type id_card: string
+    :param id_card: 证件号码
+
+    :type card_type: string
+    :param card_type: 证件类型编码
+    """
+    def __init__(
+        self,
+        real_name = None,
+        id_card = None,
+        card_type = None
+    ):
+        super().__init__()
+        self.real_name = real_name
+        self.id_card = id_card
+        self.card_type = card_type
+
+
+class GetUserWhiteApproveInfoResponse(BaseRequest):
+    """
+    -响应
+
+    :type status: string
+    :param status: 审核状态 pass：通过 reviewing：审核中 reject：拒绝
+
+    :type comment: string
+    :param comment: 审核信息
+    """
+    def __init__(
+        self,
+        status = None,
+        comment = None
+    ):
+        super().__init__()
+        self.status = status
+        self.comment = comment

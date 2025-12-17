@@ -122,3 +122,17 @@ class AuthenticationClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def get_user_white_approve_info(self, request: GetUserWhiteApproveInfoRequest):
+        """ 非居民身份证验证名单审核结果查询
+
+        :type request: GetUserWhiteApproveInfoRequest
+        :param request: the GetUserWhiteApproveInfoRequest request parameters class.
+
+        :return: GetUserWhiteApproveInfoResponse
+        """
+        return self._get(
+            "/api/payment/v1/user/white/approve",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
