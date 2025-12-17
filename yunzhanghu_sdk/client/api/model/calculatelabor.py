@@ -189,6 +189,9 @@ class CalcTaxRequest(BaseRequest):
 
     :type tax_type: string
     :param tax_type: 测算类型
+
+    :type before_tax_amount_type: string
+    :param before_tax_amount_type: 税前订单金额返回值类型
     """
     def __init__(
         self,
@@ -197,7 +200,8 @@ class CalcTaxRequest(BaseRequest):
         real_name = None,
         id_card = None,
         pay = None,
-        tax_type = None
+        tax_type = None,
+        before_tax_amount_type = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -206,6 +210,7 @@ class CalcTaxRequest(BaseRequest):
         self.id_card = id_card
         self.pay = pay
         self.tax_type = tax_type
+        self.before_tax_amount_type = before_tax_amount_type
 
 
 class CalcTaxResponse(BaseRequest):
