@@ -220,3 +220,17 @@ class PaymentClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def cancel_order_in_batch(self, request: CancelOrderInBatchRequest):
+        """ 取消批次中单笔订单
+
+        :type request: CancelOrderInBatchRequest
+        :param request: the CancelOrderInBatchRequest request parameters class.
+
+        :return: CancelOrderInBatchResponse
+        """
+        return self._post(
+            "/api/payment/v1/order-batch/cancel-order",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )

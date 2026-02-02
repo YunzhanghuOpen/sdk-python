@@ -44,6 +44,8 @@ if __name__ == "__main__":
         pay = "99",
         tax_type = "before_tax",
         before_tax_amount_type = "max",
+        include_recovery_amount = 1,
+        include_user_service_fee = 1,
     )
 
     # request-id：请求 ID，请求的唯一标识
