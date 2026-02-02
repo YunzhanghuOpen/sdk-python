@@ -434,7 +434,7 @@ class GetOrderResponse(BaseRequest):
     :param broker_deduct_fee: 应收加成服务费抵扣金额
 
     :type user_fee: string
-    :param user_fee: 应收用户加成服务费金额
+    :param user_fee: 应收劳动者加成服务费金额
 
     :type received_broker_fee: string
     :param received_broker_fee: 实收综合服务主体加成服务费金额
@@ -446,7 +446,7 @@ class GetOrderResponse(BaseRequest):
     :param received_broker_deduct_fee: 实收加成服务费抵扣金额
 
     :type received_user_fee: string
-    :param received_user_fee: 实收用户加成服务费金额
+    :param received_user_fee: 实收劳动者加成服务费金额
 
     :type pay_remark: string
     :param pay_remark: 订单备注
@@ -473,7 +473,7 @@ class GetOrderResponse(BaseRequest):
     :param sys_fee: 系统支付费用，该字段已废弃
 
     :type user_real_amount: string
-    :param user_real_amount: 用户实收金额
+    :param user_real_amount: 劳动者实收金额
 
     :type tax_detail: TaxDetail
     :param tax_detail: 缴税明细
@@ -485,22 +485,25 @@ class GetOrderResponse(BaseRequest):
     :param dealer_platform_name: 互联网平台名称
 
     :type dealer_user_nickname: string
-    :param dealer_user_nickname: 用户名称/昵称
+    :param dealer_user_nickname: 劳动者名称/昵称
 
     :type dealer_user_id: string
-    :param dealer_user_id: 用户唯一标识码
+    :param dealer_user_id: 劳动者唯一标识码
 
     :type user_real_excluding_vat_amount: string
-    :param user_real_excluding_vat_amount: 用户实收金额（追缴前）
+    :param user_real_excluding_vat_amount: 劳动者应收金额（追缴退回前）
 
     :type user_recover_tax_amount: string
-    :param user_recover_tax_amount: 已追缴增附税（本笔订单）
+    :param user_recover_tax_amount: 追缴增附税
 
     :type personal_tax_rate: string
     :param personal_tax_rate: 预扣个税税率
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
+
+    :type user_recover_personal_tax_amount: string
+    :param user_recover_personal_tax_amount: 追缴个税
     """
     def __init__(
         self,
@@ -548,7 +551,8 @@ class GetOrderResponse(BaseRequest):
         user_real_excluding_vat_amount = None,
         user_recover_tax_amount = None,
         personal_tax_rate = None,
-        deduct_tax = None
+        deduct_tax = None,
+        user_recover_personal_tax_amount = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -596,6 +600,7 @@ class GetOrderResponse(BaseRequest):
         self.user_recover_tax_amount = user_recover_tax_amount
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
 
 
 class GetDealerVARechargeAccountRequest(BaseRequest):
@@ -969,7 +974,7 @@ class NotifyOrderData(BaseRequest):
     :param broker_deduct_fee: 应收加成服务费抵扣金额
 
     :type user_fee: string
-    :param user_fee: 应收用户加成服务费金额
+    :param user_fee: 应收劳动者加成服务费金额
 
     :type received_broker_fee: string
     :param received_broker_fee: 实收综合服务主体加成服务费金额
@@ -981,7 +986,7 @@ class NotifyOrderData(BaseRequest):
     :param received_broker_deduct_fee: 实收加成服务费抵扣金额
 
     :type received_user_fee: string
-    :param received_user_fee: 实收用户加成服务费金额
+    :param received_user_fee: 实收劳动者加成服务费金额
 
     :type pay_remark: string
     :param pay_remark: 订单备注
@@ -993,10 +998,10 @@ class NotifyOrderData(BaseRequest):
     :param project_id: 项目标识
 
     :type user_id: string
-    :param user_id: 平台企业用户 ID
+    :param user_id: 平台企业劳动者 ID
 
     :type user_real_amount: string
-    :param user_real_amount: 用户实收金额
+    :param user_real_amount: 劳动者实收金额
 
     :type tax_detail: TaxDetail
     :param tax_detail: 缴税明细
@@ -1005,10 +1010,10 @@ class NotifyOrderData(BaseRequest):
     :param dealer_platform_name: 互联网平台名称
 
     :type dealer_user_nickname: string
-    :param dealer_user_nickname: 用户名称/昵称
+    :param dealer_user_nickname: 劳动者名称/昵称
 
     :type dealer_user_id: string
-    :param dealer_user_id: 用户唯一标识码
+    :param dealer_user_id: 劳动者唯一标识码
 
     :type tax: string
     :param tax: 预扣税费总额
@@ -1017,16 +1022,19 @@ class NotifyOrderData(BaseRequest):
     :param received_tax_amount: 实缴税费总额
 
     :type user_real_excluding_vat_amount: string
-    :param user_real_excluding_vat_amount: 用户实收金额（追缴前）
+    :param user_real_excluding_vat_amount: 劳动者应收金额（追缴退回前）
 
     :type user_recover_tax_amount: string
-    :param user_recover_tax_amount: 已追缴增附税（本笔订单）
+    :param user_recover_tax_amount: 追缴增附税
 
     :type personal_tax_rate: string
     :param personal_tax_rate: 预扣个税税率
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
+
+    :type user_recover_personal_tax_amount: string
+    :param user_recover_personal_tax_amount: 追缴个税
     """
     def __init__(
         self,
@@ -1071,7 +1079,8 @@ class NotifyOrderData(BaseRequest):
         user_real_excluding_vat_amount = None,
         user_recover_tax_amount = None,
         personal_tax_rate = None,
-        deduct_tax = None
+        deduct_tax = None,
+        user_recover_personal_tax_amount = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1116,6 +1125,7 @@ class NotifyOrderData(BaseRequest):
         self.user_recover_tax_amount = user_recover_tax_amount
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
 
 
 class CreateBatchOrderRequest(BaseRequest):
@@ -1821,7 +1831,7 @@ class GetOrderLxlwResponse(BaseRequest):
     :param broker_deduct_fee: 应收加成服务费抵扣金额
 
     :type user_fee: string
-    :param user_fee: 应收用户加成服务费金额
+    :param user_fee: 应收劳动者加成服务费金额
 
     :type received_broker_fee: string
     :param received_broker_fee: 实收综合服务主体加成服务费金额
@@ -1833,7 +1843,7 @@ class GetOrderLxlwResponse(BaseRequest):
     :param received_broker_deduct_fee: 实收加成服务费抵扣金额
 
     :type received_user_fee: string
-    :param received_user_fee: 实收用户加成服务费金额
+    :param received_user_fee: 实收劳动者加成服务费金额
 
     :type pay_remark: string
     :param pay_remark: 订单备注
@@ -1860,7 +1870,7 @@ class GetOrderLxlwResponse(BaseRequest):
     :param sys_fee: 系统支付费用，该字段已废弃
 
     :type user_real_amount: string
-    :param user_real_amount: 用户实收金额
+    :param user_real_amount: 劳动者实收金额
 
     :type tax_detail: TaxDetail
     :param tax_detail: 缴税明细
@@ -1872,22 +1882,25 @@ class GetOrderLxlwResponse(BaseRequest):
     :param dealer_platform_name: 互联网平台名称
 
     :type dealer_user_nickname: string
-    :param dealer_user_nickname: 用户名称/昵称
+    :param dealer_user_nickname: 劳动者名称/昵称
 
     :type dealer_user_id: string
-    :param dealer_user_id: 用户唯一标识码
+    :param dealer_user_id: 劳动者唯一标识码
 
     :type user_real_excluding_vat_amount: string
-    :param user_real_excluding_vat_amount: 用户实收金额（追缴前）
+    :param user_real_excluding_vat_amount: 劳动者应收金额（追缴退回前）
 
     :type user_recover_tax_amount: string
-    :param user_recover_tax_amount: 已追缴增附税（本笔订单）
+    :param user_recover_tax_amount: 追缴增附税
 
     :type personal_tax_rate: string
     :param personal_tax_rate: 预扣个税税率
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
+
+    :type user_recover_personal_tax_amount: string
+    :param user_recover_personal_tax_amount: 追缴个税
     """
     def __init__(
         self,
@@ -1935,7 +1948,8 @@ class GetOrderLxlwResponse(BaseRequest):
         user_real_excluding_vat_amount = None,
         user_recover_tax_amount = None,
         personal_tax_rate = None,
-        deduct_tax = None
+        deduct_tax = None,
+        user_recover_personal_tax_amount = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1983,6 +1997,7 @@ class GetOrderLxlwResponse(BaseRequest):
         self.user_recover_tax_amount = user_recover_tax_amount
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
 
 
 class TaxDetail(BaseRequest):
@@ -2008,37 +2023,37 @@ class TaxDetail(BaseRequest):
     :param received_additional_tax: 实缴附加税费
 
     :type user_personal_tax: string
-    :param user_personal_tax: 用户预扣个税
+    :param user_personal_tax: 劳动者预扣个税
 
     :type dealer_personal_tax: string
     :param dealer_personal_tax: 平台企业预扣个税
 
     :type user_value_added_tax: string
-    :param user_value_added_tax: 用户预扣增值税
+    :param user_value_added_tax: 劳动者预扣增值税
 
     :type dealer_value_added_tax: string
     :param dealer_value_added_tax: 平台企业预扣增值税
 
     :type user_additional_tax: string
-    :param user_additional_tax: 用户预扣附加税费
+    :param user_additional_tax: 劳动者预扣附加税费
 
     :type dealer_additional_tax: string
     :param dealer_additional_tax: 平台企业预扣附加税费
 
     :type user_received_personal_tax: string
-    :param user_received_personal_tax: 用户实缴个税
+    :param user_received_personal_tax: 劳动者实缴个税
 
     :type dealer_received_personal_tax: string
     :param dealer_received_personal_tax: 平台企业实缴个税
 
     :type user_received_value_added_tax: string
-    :param user_received_value_added_tax: 用户实缴增值税
+    :param user_received_value_added_tax: 劳动者实缴增值税
 
     :type dealer_received_value_added_tax: string
     :param dealer_received_value_added_tax: 平台企业实缴增值税
 
     :type user_received_additional_tax: string
-    :param user_received_additional_tax: 用户实缴附加税费
+    :param user_received_additional_tax: 劳动者实缴附加税费
 
     :type dealer_received_additional_tax: string
     :param dealer_received_additional_tax: 平台企业实缴附加税费
@@ -2196,7 +2211,7 @@ class NotifyOrderLxlwData(BaseRequest):
     :param broker_deduct_fee: 应收加成服务费抵扣金额
 
     :type user_fee: string
-    :param user_fee: 应收用户加成服务费金额
+    :param user_fee: 应收劳动者加成服务费金额
 
     :type received_broker_fee: string
     :param received_broker_fee: 实收综合服务主体加成服务费金额
@@ -2208,7 +2223,7 @@ class NotifyOrderLxlwData(BaseRequest):
     :param received_broker_deduct_fee: 实收加成服务费抵扣金额
 
     :type received_user_fee: string
-    :param received_user_fee: 实收用户加成服务费金额
+    :param received_user_fee: 实收劳动者加成服务费金额
 
     :type pay_remark: string
     :param pay_remark: 订单备注
@@ -2220,7 +2235,7 @@ class NotifyOrderLxlwData(BaseRequest):
     :param project_id: 业务线标识
 
     :type user_real_amount: string
-    :param user_real_amount: 用户实收金额
+    :param user_real_amount: 劳动者实收金额
 
     :type tax_detail: TaxDetail
     :param tax_detail: 缴税明细
@@ -2229,10 +2244,10 @@ class NotifyOrderLxlwData(BaseRequest):
     :param dealer_platform_name: 互联网平台名称
 
     :type dealer_user_nickname: string
-    :param dealer_user_nickname: 用户名称/昵称
+    :param dealer_user_nickname: 劳动者名称/昵称
 
     :type dealer_user_id: string
-    :param dealer_user_id: 用户唯一标识码
+    :param dealer_user_id: 劳动者唯一标识码
 
     :type tax: string
     :param tax: 预扣税费总额
@@ -2241,16 +2256,19 @@ class NotifyOrderLxlwData(BaseRequest):
     :param received_tax_amount: 实缴税费总额
 
     :type user_real_excluding_vat_amount: string
-    :param user_real_excluding_vat_amount: 用户实收金额（追缴前）
+    :param user_real_excluding_vat_amount: 劳动者应收金额（追缴退回前）
 
     :type user_recover_tax_amount: string
-    :param user_recover_tax_amount: 已追缴增附税（本笔订单）
+    :param user_recover_tax_amount: 追缴增附税
 
     :type personal_tax_rate: string
     :param personal_tax_rate: 预扣个税税率
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
+
+    :type user_recover_personal_tax_amount: string
+    :param user_recover_personal_tax_amount: 追缴个税
     """
     def __init__(
         self,
@@ -2294,7 +2312,8 @@ class NotifyOrderLxlwData(BaseRequest):
         user_real_excluding_vat_amount = None,
         user_recover_tax_amount = None,
         personal_tax_rate = None,
-        deduct_tax = None
+        deduct_tax = None,
+        user_recover_personal_tax_amount = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -2338,3 +2357,40 @@ class NotifyOrderLxlwData(BaseRequest):
         self.user_recover_tax_amount = user_recover_tax_amount
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+
+
+class CancelOrderInBatchRequest(BaseRequest):
+    """
+    取消批次中单笔订单请求-请求
+
+    :type batch_id: string
+    :param batch_id: 平台企业批次号
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+    """
+    def __init__(
+        self,
+        batch_id = None,
+        dealer_id = None,
+        broker_id = None,
+        order_id = None
+    ):
+        super().__init__()
+        self.batch_id = batch_id
+        self.dealer_id = dealer_id
+        self.broker_id = broker_id
+        self.order_id = order_id
+
+
+class CancelOrderInBatchResponse(BaseRequest):
+    """
+    取消批次中单笔订单返回-响应
+    """
