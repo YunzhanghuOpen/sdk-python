@@ -192,6 +192,12 @@ class CalcTaxRequest(BaseRequest):
 
     :type before_tax_amount_type: string
     :param before_tax_amount_type: 税前订单金额返回值类型
+
+    :type include_recovery_amount: int
+    :param include_recovery_amount: 将追缴税费纳入测算
+
+    :type include_user_service_fee: int
+    :param include_user_service_fee: 将劳动者服务费纳入测算
     """
     def __init__(
         self,
@@ -201,7 +207,9 @@ class CalcTaxRequest(BaseRequest):
         id_card = None,
         pay = None,
         tax_type = None,
-        before_tax_amount_type = None
+        before_tax_amount_type = None,
+        include_recovery_amount = None,
+        include_user_service_fee = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -211,6 +219,8 @@ class CalcTaxRequest(BaseRequest):
         self.pay = pay
         self.tax_type = tax_type
         self.before_tax_amount_type = before_tax_amount_type
+        self.include_recovery_amount = include_recovery_amount
+        self.include_user_service_fee = include_user_service_fee
 
 
 class CalcTaxResponse(BaseRequest):
@@ -224,7 +234,7 @@ class CalcTaxResponse(BaseRequest):
     :param tax: 税费总额
 
     :type after_tax_amount: string
-    :param after_tax_amount: 税后结算金额
+    :param after_tax_amount: 劳动者预估到手金额
 
     :type tax_detail: CalcTaxDetail
     :param tax_detail: 缴税明细
@@ -233,7 +243,7 @@ class CalcTaxResponse(BaseRequest):
     :param before_tax_amount: 税前订单金额
 
     :type user_tax: string
-    :param user_tax: 用户税费总额
+    :param user_tax: 劳动者税费总额
 
     :type dealer_tax: string
     :param dealer_tax: 平台企业税费总额
@@ -242,7 +252,7 @@ class CalcTaxResponse(BaseRequest):
     :param broker_tax: 云账户税费总额
 
     :type user_fee: string
-    :param user_fee: 用户服务费
+    :param user_fee: 劳动者服务费
 
     :type status: string
     :param status: 结果
@@ -257,16 +267,31 @@ class CalcTaxResponse(BaseRequest):
     :param status_detail_message: 结果详细状态码描述
 
     :type user_real_excluding_vat_amount: string
-    :param user_real_excluding_vat_amount: 用户实收金额（未扣除追缴的增附税）
+    :param user_real_excluding_vat_amount: 劳动者预估应收金额（追缴退回前）
 
     :type user_remaining_repayment_amount: string
-    :param user_remaining_repayment_amount: 用户还未缴清的增附税
+    :param user_remaining_repayment_amount: 劳动者还未缴清的增附税
 
     :type user_recover_tax_amount: string
-    :param user_recover_tax_amount: 已追缴增附税（本笔订单）
+    :param user_recover_tax_amount: 追缴增附税
 
     :type user_total_recover_tax_amount: string
     :param user_total_recover_tax_amount: 待追缴增附税总金额
+
+    :type user_remaining_repayment_personal_amount: string
+    :param user_remaining_repayment_personal_amount: 劳动者还未缴清的个税
+
+    :type user_recover_personal_tax_amount: string
+    :param user_recover_personal_tax_amount: 追缴个税
+
+    :type user_total_recover_personal_tax_amount: string
+    :param user_total_recover_personal_tax_amount: 待追缴个税总金额
+
+    :type user_refund_tax_amount: string
+    :param user_refund_tax_amount: 退回增附税
+
+    :type user_refund_personal_tax_amount: string
+    :param user_refund_personal_tax_amount: 退回个税
     """
     def __init__(
         self,
@@ -286,7 +311,12 @@ class CalcTaxResponse(BaseRequest):
         user_real_excluding_vat_amount = None,
         user_remaining_repayment_amount = None,
         user_recover_tax_amount = None,
-        user_total_recover_tax_amount = None
+        user_total_recover_tax_amount = None,
+        user_remaining_repayment_personal_amount = None,
+        user_recover_personal_tax_amount = None,
+        user_total_recover_personal_tax_amount = None,
+        user_refund_tax_amount = None,
+        user_refund_personal_tax_amount = None
     ):
         super().__init__()
         self.pay = pay
@@ -306,6 +336,11 @@ class CalcTaxResponse(BaseRequest):
         self.user_remaining_repayment_amount = user_remaining_repayment_amount
         self.user_recover_tax_amount = user_recover_tax_amount
         self.user_total_recover_tax_amount = user_total_recover_tax_amount
+        self.user_remaining_repayment_personal_amount = user_remaining_repayment_personal_amount
+        self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+        self.user_total_recover_personal_tax_amount = user_total_recover_personal_tax_amount
+        self.user_refund_tax_amount = user_refund_tax_amount
+        self.user_refund_personal_tax_amount = user_refund_personal_tax_amount
 
 
 class CalcTaxDetail(BaseRequest):
