@@ -52,3 +52,17 @@ class TaxClearRefundClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def get_refund_tax_labor_info(self, request: GetRefundTaxLaborInfoRequest):
+        """ 查询税费退补涉及劳动者
+
+        :type request: GetRefundTaxLaborInfoRequest
+        :param request: the GetRefundTaxLaborInfoRequest request parameters class.
+
+        :return: GetRefundTaxLaborInfoResponse
+        """
+        return self._get(
+            "/api/payment/v1/query-clear-labor-info",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )

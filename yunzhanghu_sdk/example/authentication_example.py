@@ -144,6 +144,7 @@ if __name__ == "__main__":
         notify_url = "https://www.example.com",
         ref = "1234qwer",
         resident_type = "1",
+        permit_card = "H12345678",
     )
 
     # request-id：请求 ID，请求的唯一标识

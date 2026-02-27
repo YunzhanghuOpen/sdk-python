@@ -36,6 +36,8 @@ if __name__ == "__main__":
     req = GetInvoiceAmountRequest(
         dealer_id = conf.dealer_id,
         broker_id = conf.broker_id,
+        start_date = "2026-01-01",
+        end_date = "2026-01-26",
     )
 
     # request-id：请求 ID，请求的唯一标识
@@ -66,6 +68,8 @@ if __name__ == "__main__":
         remark = "测试备注",
         receive_emails = ["username1@example.com"],
         invoice_media= "1",
+        start_date = "2026-01-01",
+        end_date = "2026-01-26",
     )
 
     # request-id：请求 ID，请求的唯一标识
