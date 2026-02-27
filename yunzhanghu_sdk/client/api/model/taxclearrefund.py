@@ -376,3 +376,133 @@ class GetRefundTaxInfoRequest(BaseRequest):
         self.dealer_id = dealer_id
         self.tax_month = tax_month
         self.batch_id = batch_id
+
+
+class GetRefundTaxLaborInfoRequest(BaseRequest):
+    """
+    查询税费退补涉及劳动者请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type batch_id: string
+    :param batch_id: 批次号
+
+    :type tax_month: string
+    :param tax_month: 税款所属期
+
+    :type offset: int
+    :param offset: 偏移量
+
+    :type length: int
+    :param length: 每页返回条数
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        batch_id = None,
+        tax_month = None,
+        offset = None,
+        length = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.batch_id = batch_id
+        self.tax_month = tax_month
+        self.offset = offset
+        self.length = length
+
+
+class GetRefundTaxLaborInfoResponse(BaseRequest):
+    """
+    查询税费退补涉及劳动者返回-响应
+
+    :type tax_month: string
+    :param tax_month: 税款所属期
+
+    :type batch_id: string
+    :param batch_id: 批次号
+
+    :type batch_create_time: string
+    :param batch_create_time: 批次生成时间
+
+    :type labor_num: string
+    :param labor_num: 退补税劳动者数量
+
+    :type order_num: string
+    :param order_num: 退补税订单数量
+
+    :type total_num: string
+    :param total_num: 总数据条数
+
+    :type labor_refund_info: list
+    :param labor_refund_info: 退补税劳动者明细
+    """
+    def __init__(
+        self,
+        tax_month = None,
+        batch_id = None,
+        batch_create_time = None,
+        labor_num = None,
+        order_num = None,
+        total_num = None,
+        labor_refund_info = None
+    ):
+        super().__init__()
+        self.tax_month = tax_month
+        self.batch_id = batch_id
+        self.batch_create_time = batch_create_time
+        self.labor_num = labor_num
+        self.order_num = order_num
+        self.total_num = total_num
+        self.labor_refund_info = labor_refund_info
+
+
+class LaborRefundInfo(BaseRequest):
+    """
+    退补税劳动者明细-响应
+
+    :type real_name: string
+    :param real_name: 劳动者姓名
+
+    :type id_card: string
+    :param id_card: 劳动者证件号
+
+    :type refund_tax: string
+    :param refund_tax: 本批次退补给劳动者税费总额
+
+    :type tax_refund_status: string
+    :param tax_refund_status: 退补税状态
+
+    :type receiving_account: string
+    :param receiving_account: 劳动者收款账户
+
+    :type receiving_channel: string
+    :param receiving_channel: 劳动者收款账号
+
+    :type refund_tax_finished_time: string
+    :param refund_tax_finished_time: 退补税费时间
+    """
+    def __init__(
+        self,
+        real_name = None,
+        id_card = None,
+        refund_tax = None,
+        tax_refund_status = None,
+        receiving_account = None,
+        receiving_channel = None,
+        refund_tax_finished_time = None
+    ):
+        super().__init__()
+        self.real_name = real_name
+        self.id_card = id_card
+        self.refund_tax = refund_tax
+        self.tax_refund_status = tax_refund_status
+        self.receiving_account = receiving_account
+        self.receiving_channel = receiving_channel
+        self.refund_tax_finished_time = refund_tax_finished_time

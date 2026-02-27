@@ -72,15 +72,25 @@ class GetInvoiceAmountRequest(BaseRequest):
 
     :type dealer_id: string
     :param dealer_id: 平台企业 ID
+
+    :type start_date: string
+    :param start_date: 查询开始日期
+
+    :type end_date: string
+    :param end_date: 查询结束日期
     """
     def __init__(
         self,
         broker_id = None,
-        dealer_id = None
+        dealer_id = None,
+        start_date = None,
+        end_date = None
     ):
         super().__init__()
         self.broker_id = broker_id
         self.dealer_id = dealer_id
+        self.start_date = start_date
+        self.end_date = end_date
 
 
 class GetInvoiceAmountResponse(BaseRequest):
@@ -141,6 +151,12 @@ class ApplyInvoiceRequest(BaseRequest):
 
     :type invoice_media: string
     :param invoice_media: 发票介质
+
+    :type start_date: string
+    :param start_date: 查询开始日期
+
+    :type end_date: string
+    :param end_date: 查询结束日期
     """
     def __init__(
         self,
@@ -153,7 +169,9 @@ class ApplyInvoiceRequest(BaseRequest):
         goods_services_name = None,
         remark = None,
         receive_emails = None,
-        invoice_media = None
+        invoice_media = None,
+        start_date = None,
+        end_date = None
     ):
         super().__init__()
         self.invoice_apply_id = invoice_apply_id
@@ -166,6 +184,8 @@ class ApplyInvoiceRequest(BaseRequest):
         self.remark = remark
         self.receive_emails = receive_emails
         self.invoice_media = invoice_media
+        self.start_date = start_date
+        self.end_date = end_date
 
 
 class ApplyInvoiceResponse(BaseRequest):
