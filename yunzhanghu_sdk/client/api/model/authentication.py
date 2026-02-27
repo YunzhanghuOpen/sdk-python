@@ -232,6 +232,9 @@ class UserExemptedInfoRequest(BaseRequest):
 
     :type resident_type: string
     :param resident_type: 外籍人员类型
+
+    :type permit_card: string
+    :param permit_card: 港澳台通行证号码
     """
     def __init__(
         self,
@@ -248,7 +251,8 @@ class UserExemptedInfoRequest(BaseRequest):
         notify_url = None,
         ref = None,
         image_urls = None,
-        resident_type = None
+        resident_type = None,
+        permit_card = None
     ):
         super().__init__()
         self.card_type = card_type
@@ -265,6 +269,7 @@ class UserExemptedInfoRequest(BaseRequest):
         self.ref = ref
         self.image_urls = image_urls
         self.resident_type = resident_type
+        self.permit_card = permit_card
 
 
 class UserExemptedInfoResponse(BaseRequest):
