@@ -688,7 +688,7 @@ class CancelOrderResponse(BaseRequest):
     取消待支付订单返回-响应
 
     :type ok: string
-    :param ok:
+    :param ok: 请求标识
     """
     def __init__(
         self,
@@ -763,7 +763,7 @@ class ListAccountResponse(BaseRequest):
     查询平台企业余额返回-响应
 
     :type dealer_infos: list
-    :param dealer_infos:
+    :param dealer_infos: 账户信息
     """
     def __init__(
         self,

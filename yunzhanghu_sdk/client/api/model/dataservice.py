@@ -718,7 +718,7 @@ class ListBalanceDailyStatementRequest(BaseRequest):
     查询余额日账单数据请求-请求
 
     :type statement_date: string
-    :param statement_date: 账单查询日期 格式：yyyy-MM-dd
+    :param statement_date: 账单查询日期，格式：yyyy-MM-dd
     """
     def __init__(
         self,
