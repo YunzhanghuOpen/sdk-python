@@ -33,7 +33,7 @@ if __name__ == "__main__":
         # 发生异常
         print(e)
 
-    # 银行卡四要素确认求（上传短信验证码）
+    # 银行卡四要素确认请求（上传短信验证码）
     req = BankCardFourAuthConfirmRequest(
         card_no = "6228888888888888888",
         id_card = "11010519491231002X",
