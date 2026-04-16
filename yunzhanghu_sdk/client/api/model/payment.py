@@ -156,6 +156,9 @@ class CreateAlipayOrderRequest(BaseRequest):
 
     :type dealer_user_id: string
     :param dealer_user_id: 用户唯一标识码
+
+    :type order_title: string
+    :param order_title: 支付宝转账备注
     """
     def __init__(
         self,
@@ -173,7 +176,8 @@ class CreateAlipayOrderRequest(BaseRequest):
         check_name = None,
         dealer_platform_name = None,
         dealer_user_nickname = None,
-        dealer_user_id = None
+        dealer_user_id = None,
+        order_title = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -191,6 +195,7 @@ class CreateAlipayOrderRequest(BaseRequest):
         self.dealer_platform_name = dealer_platform_name
         self.dealer_user_nickname = dealer_user_nickname
         self.dealer_user_id = dealer_user_id
+        self.order_title = order_title
 
 
 class CreateAlipayOrderResponse(BaseRequest):
@@ -504,6 +509,9 @@ class GetOrderResponse(BaseRequest):
 
     :type user_recover_personal_tax_amount: string
     :param user_recover_personal_tax_amount: 追缴个税
+
+    :type order_title: string
+    :param order_title: 支付宝转账备注
     """
     def __init__(
         self,
@@ -552,7 +560,8 @@ class GetOrderResponse(BaseRequest):
         user_recover_tax_amount = None,
         personal_tax_rate = None,
         deduct_tax = None,
-        user_recover_personal_tax_amount = None
+        user_recover_personal_tax_amount = None,
+        order_title = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -601,6 +610,7 @@ class GetOrderResponse(BaseRequest):
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
         self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+        self.order_title = order_title
 
 
 class GetDealerVARechargeAccountRequest(BaseRequest):
@@ -688,7 +698,7 @@ class CancelOrderResponse(BaseRequest):
     取消待支付订单返回-响应
 
     :type ok: string
-    :param ok:
+    :param ok: 
     """
     def __init__(
         self,
@@ -763,7 +773,7 @@ class ListAccountResponse(BaseRequest):
     查询平台企业余额返回-响应
 
     :type dealer_infos: list
-    :param dealer_infos:
+    :param dealer_infos: 
     """
     def __init__(
         self,
@@ -1035,6 +1045,9 @@ class NotifyOrderData(BaseRequest):
 
     :type user_recover_personal_tax_amount: string
     :param user_recover_personal_tax_amount: 追缴个税
+
+    :type order_title: string
+    :param order_title: 支付宝转账备注
     """
     def __init__(
         self,
@@ -1080,7 +1093,8 @@ class NotifyOrderData(BaseRequest):
         user_recover_tax_amount = None,
         personal_tax_rate = None,
         deduct_tax = None,
-        user_recover_personal_tax_amount = None
+        user_recover_personal_tax_amount = None,
+        order_title = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1126,6 +1140,7 @@ class NotifyOrderData(BaseRequest):
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
         self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+        self.order_title = order_title
 
 
 class CreateBatchOrderRequest(BaseRequest):
@@ -1901,6 +1916,9 @@ class GetOrderLxlwResponse(BaseRequest):
 
     :type user_recover_personal_tax_amount: string
     :param user_recover_personal_tax_amount: 追缴个税
+
+    :type order_title: string
+    :param order_title: 支付宝转账备注
     """
     def __init__(
         self,
@@ -1949,7 +1967,8 @@ class GetOrderLxlwResponse(BaseRequest):
         user_recover_tax_amount = None,
         personal_tax_rate = None,
         deduct_tax = None,
-        user_recover_personal_tax_amount = None
+        user_recover_personal_tax_amount = None,
+        order_title = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -1998,6 +2017,7 @@ class GetOrderLxlwResponse(BaseRequest):
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
         self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+        self.order_title = order_title
 
 
 class TaxDetail(BaseRequest):
@@ -2269,6 +2289,9 @@ class NotifyOrderLxlwData(BaseRequest):
 
     :type user_recover_personal_tax_amount: string
     :param user_recover_personal_tax_amount: 追缴个税
+
+    :type order_title: string
+    :param order_title: 支付宝转账备注
     """
     def __init__(
         self,
@@ -2313,7 +2336,8 @@ class NotifyOrderLxlwData(BaseRequest):
         user_recover_tax_amount = None,
         personal_tax_rate = None,
         deduct_tax = None,
-        user_recover_personal_tax_amount = None
+        user_recover_personal_tax_amount = None,
+        order_title = None
     ):
         super().__init__()
         self.order_id = order_id
@@ -2358,6 +2382,7 @@ class NotifyOrderLxlwData(BaseRequest):
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
         self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+        self.order_title = order_title
 
 
 class CancelOrderInBatchRequest(BaseRequest):

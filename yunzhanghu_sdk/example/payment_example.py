@@ -61,6 +61,7 @@ if __name__ == "__main__":
         dealer_platform_name = "互联网平台名称test",
         dealer_user_nickname = "usernickname",
         dealer_user_id = "userId1234567890",
+        order_title = "支付宝转账备注",
     )
 
     # request-id：请求 ID，请求的唯一标识
