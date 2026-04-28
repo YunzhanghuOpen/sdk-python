@@ -115,7 +115,9 @@ if __name__ == "__main__":
         broker_id = conf.broker_id,
         real_name = "张三",
         id_card = "11010519491231002X",
-        certificate_type = 0,
+        color = "#8171ff",
+        url = "https://www.example.com",
+        redirect_url = "https://www.example.com",
     )
 
     # request-id：请求 ID，请求的唯一标识

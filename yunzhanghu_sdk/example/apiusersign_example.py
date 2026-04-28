@@ -80,7 +80,7 @@ if __name__ == "__main__":
         # 发生异常
         print(e)
 
-    # 用户解约（测试账号专用接口）
+    # 用户解约
     req = ApiUserSignReleaseRequest(
         dealer_id = conf.dealer_id,
         broker_id = conf.broker_id,

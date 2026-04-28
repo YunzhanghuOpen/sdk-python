@@ -75,7 +75,7 @@ class H5UserSignServiceClient(BaseClient):
 
         :return: H5UserReleaseApplyResponse
         """
-        return self._post(
+        return self._get(
             "/api/sdk/v1/release/h5",
             request.request_id,
             Utils.copy_dict(request.__dict__)
