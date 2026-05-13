@@ -485,6 +485,9 @@ class DealerOrderInfoV2(BaseRequest):
 
     :type tax_detail: OrderTaxDetail
     :param tax_detail: 缴税明细
+
+    :type user_id: string
+    :param user_id: 平台企业用户 ID
     """
     def __init__(
         self,
@@ -515,7 +518,8 @@ class DealerOrderInfoV2(BaseRequest):
         pay_ref = None,
         tax_amount = None,
         received_tax_amount = None,
-        tax_detail = None
+        tax_detail = None,
+        user_id = None
     ):
         super().__init__()
         self.broker_id = broker_id
@@ -546,6 +550,7 @@ class DealerOrderInfoV2(BaseRequest):
         self.tax_amount = tax_amount
         self.received_tax_amount = received_tax_amount
         self.tax_detail = tax_detail
+        self.user_id = user_id
 
 
 class ListDailyBillRequest(BaseRequest):
