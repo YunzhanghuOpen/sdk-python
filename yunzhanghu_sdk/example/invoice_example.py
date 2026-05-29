@@ -67,7 +67,7 @@ if __name__ == "__main__":
         goods_services_name = "信息技术服务*信息技术服务费",
         remark = "测试备注",
         receive_emails = ["username1@example.com"],
-        invoice_media= "1",
+        invoice_media= "3",
         start_date = "2026-01-01",
         end_date = "2026-01-26",
     )
