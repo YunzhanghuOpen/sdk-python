@@ -357,7 +357,7 @@ class UserWhiteCheckResponse(BaseRequest):
     查看用户是否在非居民身份证验证名单中返回-响应
 
     :type ok: bool
-    :param ok: 
+    :param ok: 是否存在
     """
     def __init__(
         self,

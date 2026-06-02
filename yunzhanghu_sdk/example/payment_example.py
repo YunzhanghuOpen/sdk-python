@@ -340,7 +340,7 @@ if __name__ == "__main__":
     except Exception as e:
         # 发生异常
         print(e)
-    
+
     # 查询批次订单信息
     req = QueryBatchOrderRequest(
         batch_id = "batch2032934858483",
