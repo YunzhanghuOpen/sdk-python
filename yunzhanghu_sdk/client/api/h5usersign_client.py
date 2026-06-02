@@ -66,3 +66,17 @@ class H5UserSignServiceClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def h5_user_release_apply(self, request: H5UserReleaseApplyRequest):
+        """ 申请解约
+
+        :type request: H5UserReleaseApplyRequest
+        :param request: the H5UserReleaseApplyRequest request parameters class.
+
+        :return: H5UserReleaseApplyResponse
+        """
+        return self._get(
+            "/api/sdk/v1/release/h5",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )

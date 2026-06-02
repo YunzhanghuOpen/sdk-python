@@ -251,3 +251,68 @@ class NotifyH5UserSignRequest(BaseRequest):
         self.real_name = real_name
         self.id_card = id_card
         self.phone = phone
+
+
+class H5UserReleaseApplyRequest(BaseRequest):
+    """
+    申请解约请求-请求
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type id_card: string
+    :param id_card: 证件号码
+
+    :type color: string
+    :param color: 主题颜色
+
+    :type url: string
+    :param url: 回调 URL
+
+    :type redirect_url: string
+    :param redirect_url: 跳转 URL
+    """
+    def __init__(
+        self,
+        dealer_id = None,
+        broker_id = None,
+        real_name = None,
+        id_card = None,
+        color = None,
+        url = None,
+        redirect_url = None
+    ):
+        super().__init__()
+        self.dealer_id = dealer_id
+        self.broker_id = broker_id
+        self.real_name = real_name
+        self.id_card = id_card
+        self.color = color
+        self.url = url
+        self.redirect_url = redirect_url
+
+
+class H5UserReleaseApplyResponse(BaseRequest):
+    """
+    申请解约返回-响应
+
+    :type status: int
+    :param status: 签约状态
+
+    :type url: string
+    :param url: H5 解约页面 URL
+    """
+    def __init__(
+        self,
+        status = None,
+        url = None
+    ):
+        super().__init__()
+        self.status = status
+        self.url = url

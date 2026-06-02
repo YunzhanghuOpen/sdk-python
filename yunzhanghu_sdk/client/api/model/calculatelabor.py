@@ -108,7 +108,8 @@ class YearTaxInfo(BaseRequest):
         self.total_tax_rate = total_tax_rate
 
 
-class MontTax(BaseRequest):
+
+class MonthTax(BaseRequest):
     """
     月度税务信息-响应
 

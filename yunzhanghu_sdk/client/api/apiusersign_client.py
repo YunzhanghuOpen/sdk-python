@@ -68,7 +68,7 @@ class ApiUserSignServiceClient(BaseClient):
         )
 
     def api_user_sign_release(self, request: ApiUserSignReleaseRequest):
-        """ 用户解约（测试账号专用接口）
+        """ 用户解约
 
         :type request: ApiUserSignReleaseRequest
         :param request: the ApiUserSignReleaseRequest request parameters class.

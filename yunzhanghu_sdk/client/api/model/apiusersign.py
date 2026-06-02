@@ -185,7 +185,7 @@ class GetApiUserSignStatusResponse(BaseRequest):
 
 class ApiUserSignReleaseRequest(BaseRequest):
     """
-    用户解约（测试账号专用接口）请求-请求
+    用户解约请求-请求
 
     :type broker_id: string
     :param broker_id: 综合服务主体 ID
@@ -220,7 +220,7 @@ class ApiUserSignReleaseRequest(BaseRequest):
 
 class ApiUserSignReleaseResponse(BaseRequest):
     """
-    用户解约（测试账号专用接口）返回-响应
+    用户解约返回-响应
 
     :type status: string
     :param status: 是否解约成功
