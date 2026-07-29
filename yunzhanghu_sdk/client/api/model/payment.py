@@ -375,6 +375,9 @@ class GetOrderResponse(BaseRequest):
     :type order_id: string
     :param order_id: 平台企业订单号
 
+    :type refund_origin: string
+    :param refund_origin: 退回类型
+
     :type pay: string
     :param pay: 订单金额
 
@@ -501,14 +504,23 @@ class GetOrderResponse(BaseRequest):
     :type user_recover_tax_amount: string
     :param user_recover_tax_amount: 追缴增附税
 
+    :type user_remaining_repayment_personal_amount: string
+    :param user_remaining_repayment_personal_amount: 劳动者还未缴清的个税
+
     :type personal_tax_rate: string
     :param personal_tax_rate: 预扣个税税率
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
 
+    :type basic_deducted: string
+    :param basic_deducted: 是否使用基本减除费用
+
     :type user_recover_personal_tax_amount: string
     :param user_recover_personal_tax_amount: 追缴个税
+
+    :type user_total_recover_personal_tax_amount: string
+    :param user_total_recover_personal_tax_amount: 待追缴个税总金额
 
     :type order_title: string
     :param order_title: 支付宝转账备注
@@ -516,6 +528,7 @@ class GetOrderResponse(BaseRequest):
     def __init__(
         self,
         order_id = None,
+        refund_origin = None,
         pay = None,
         broker_id = None,
         dealer_id = None,
@@ -558,13 +571,17 @@ class GetOrderResponse(BaseRequest):
         dealer_user_id = None,
         user_real_excluding_vat_amount = None,
         user_recover_tax_amount = None,
+        user_remaining_repayment_personal_amount = None,
         personal_tax_rate = None,
         deduct_tax = None,
+        basic_deducted = None,
         user_recover_personal_tax_amount = None,
+        user_total_recover_personal_tax_amount = None,
         order_title = None
     ):
         super().__init__()
         self.order_id = order_id
+        self.refund_origin = refund_origin
         self.pay = pay
         self.broker_id = broker_id
         self.dealer_id = dealer_id
@@ -607,9 +624,12 @@ class GetOrderResponse(BaseRequest):
         self.dealer_user_id = dealer_user_id
         self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
         self.user_recover_tax_amount = user_recover_tax_amount
+        self.user_remaining_repayment_personal_amount = user_remaining_repayment_personal_amount
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.basic_deducted = basic_deducted
         self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+        self.user_total_recover_personal_tax_amount = user_total_recover_personal_tax_amount
         self.order_title = order_title
 
 
@@ -1037,14 +1057,23 @@ class NotifyOrderData(BaseRequest):
     :type user_recover_tax_amount: string
     :param user_recover_tax_amount: 追缴增附税
 
+    :type user_remaining_repayment_personal_amount: string
+    :param user_remaining_repayment_personal_amount: 劳动者还未缴清的个税
+
     :type personal_tax_rate: string
     :param personal_tax_rate: 预扣个税税率
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
 
+    :type basic_deducted: string
+    :param basic_deducted: 是否使用基本减除费用
+
     :type user_recover_personal_tax_amount: string
     :param user_recover_personal_tax_amount: 追缴个税
+
+    :type user_total_recover_personal_tax_amount: string
+    :param user_total_recover_personal_tax_amount: 待追缴个税总金额
 
     :type order_title: string
     :param order_title: 支付宝转账备注
@@ -1052,6 +1081,7 @@ class NotifyOrderData(BaseRequest):
     def __init__(
         self,
         order_id = None,
+        refund_origin = None,
         pay = None,
         broker_id = None,
         dealer_id = None,
@@ -1091,13 +1121,17 @@ class NotifyOrderData(BaseRequest):
         received_tax_amount = None,
         user_real_excluding_vat_amount = None,
         user_recover_tax_amount = None,
+        user_remaining_repayment_personal_amount = None,
         personal_tax_rate = None,
         deduct_tax = None,
+        basic_deducted = None,
         user_recover_personal_tax_amount = None,
+        user_total_recover_personal_tax_amount = None,
         order_title = None
     ):
         super().__init__()
         self.order_id = order_id
+        self.refund_origin = refund_origin
         self.pay = pay
         self.broker_id = broker_id
         self.dealer_id = dealer_id
@@ -1137,9 +1171,12 @@ class NotifyOrderData(BaseRequest):
         self.received_tax_amount = received_tax_amount
         self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
         self.user_recover_tax_amount = user_recover_tax_amount
+        self.user_remaining_repayment_personal_amount = user_remaining_repayment_personal_amount
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.basic_deducted = basic_deducted
         self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+        self.user_total_recover_personal_tax_amount = user_total_recover_personal_tax_amount
         self.order_title = order_title
 
 
@@ -1782,6 +1819,9 @@ class GetOrderLxlwResponse(BaseRequest):
     :type order_id: string
     :param order_id: 平台企业订单号
 
+    :type refund_origin: string
+    :param refund_origin: 退回类型
+
     :type pay: string
     :param pay: 订单金额
 
@@ -1908,14 +1948,23 @@ class GetOrderLxlwResponse(BaseRequest):
     :type user_recover_tax_amount: string
     :param user_recover_tax_amount: 追缴增附税
 
+    :type user_remaining_repayment_personal_amount: string
+    :param user_remaining_repayment_personal_amount: 劳动者还未缴清的个税
+
     :type personal_tax_rate: string
     :param personal_tax_rate: 预扣个税税率
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
 
+    :type basic_deducted: string
+    :param basic_deducted: 是否使用基本减除费用
+
     :type user_recover_personal_tax_amount: string
     :param user_recover_personal_tax_amount: 追缴个税
+
+    :type user_total_recover_personal_tax_amount: string
+    :param user_total_recover_personal_tax_amount: 待追缴个税总金额
 
     :type order_title: string
     :param order_title: 支付宝转账备注
@@ -1923,6 +1972,7 @@ class GetOrderLxlwResponse(BaseRequest):
     def __init__(
         self,
         order_id = None,
+        refund_origin = None,
         pay = None,
         broker_id = None,
         dealer_id = None,
@@ -1965,13 +2015,17 @@ class GetOrderLxlwResponse(BaseRequest):
         dealer_user_id = None,
         user_real_excluding_vat_amount = None,
         user_recover_tax_amount = None,
+        user_remaining_repayment_personal_amount = None,
         personal_tax_rate = None,
         deduct_tax = None,
+        basic_deducted = None,
         user_recover_personal_tax_amount = None,
+        user_total_recover_personal_tax_amount = None,
         order_title = None
     ):
         super().__init__()
         self.order_id = order_id
+        self.refund_origin = refund_origin
         self.pay = pay
         self.broker_id = broker_id
         self.dealer_id = dealer_id
@@ -2014,9 +2068,12 @@ class GetOrderLxlwResponse(BaseRequest):
         self.dealer_user_id = dealer_user_id
         self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
         self.user_recover_tax_amount = user_recover_tax_amount
+        self.user_remaining_repayment_personal_amount = user_remaining_repayment_personal_amount
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.basic_deducted = basic_deducted
         self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+        self.user_total_recover_personal_tax_amount = user_total_recover_personal_tax_amount
         self.order_title = order_title
 
 
@@ -2281,14 +2338,23 @@ class NotifyOrderLxlwData(BaseRequest):
     :type user_recover_tax_amount: string
     :param user_recover_tax_amount: 追缴增附税
 
+    :type user_remaining_repayment_personal_amount: string
+    :param user_remaining_repayment_personal_amount: 劳动者还未缴清的个税
+
     :type personal_tax_rate: string
     :param personal_tax_rate: 预扣个税税率
 
     :type deduct_tax: string
     :param deduct_tax: 预扣个税速算扣除数
 
+    :type basic_deducted: string
+    :param basic_deducted: 是否使用基本减除费用
+
     :type user_recover_personal_tax_amount: string
     :param user_recover_personal_tax_amount: 追缴个税
+
+    :type user_total_recover_personal_tax_amount: string
+    :param user_total_recover_personal_tax_amount: 待追缴个税总金额
 
     :type order_title: string
     :param order_title: 支付宝转账备注
@@ -2296,6 +2362,7 @@ class NotifyOrderLxlwData(BaseRequest):
     def __init__(
         self,
         order_id = None,
+        refund_origin = None,
         pay = None,
         broker_id = None,
         dealer_id = None,
@@ -2334,13 +2401,17 @@ class NotifyOrderLxlwData(BaseRequest):
         received_tax_amount = None,
         user_real_excluding_vat_amount = None,
         user_recover_tax_amount = None,
+        user_remaining_repayment_personal_amount = None,
         personal_tax_rate = None,
         deduct_tax = None,
+        basic_deducted = None,
         user_recover_personal_tax_amount = None,
+        user_total_recover_personal_tax_amount = None,
         order_title = None
     ):
         super().__init__()
         self.order_id = order_id
+        self.refund_origin = refund_origin
         self.pay = pay
         self.broker_id = broker_id
         self.dealer_id = dealer_id
@@ -2379,9 +2450,12 @@ class NotifyOrderLxlwData(BaseRequest):
         self.received_tax_amount = received_tax_amount
         self.user_real_excluding_vat_amount = user_real_excluding_vat_amount
         self.user_recover_tax_amount = user_recover_tax_amount
+        self.user_remaining_repayment_personal_amount = user_remaining_repayment_personal_amount
         self.personal_tax_rate = personal_tax_rate
         self.deduct_tax = deduct_tax
+        self.basic_deducted = basic_deducted
         self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
+        self.user_total_recover_personal_tax_amount = user_total_recover_personal_tax_amount
         self.order_title = order_title
 
 
