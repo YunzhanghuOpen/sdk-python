@@ -539,7 +539,7 @@ class NotifyInvoiceDoneRequest(BaseRequest):
     :type tax_amount: string
     :param tax_amount: 税额
 
-    :type invoice_type: string
+    :type invoice_type: int
     :param invoice_type: 发票类型
 
     :type customer_name: string
