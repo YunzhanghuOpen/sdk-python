@@ -2077,6 +2077,221 @@ class GetOrderLxlwResponse(BaseRequest):
         self.order_title = order_title
 
 
+class GetLaborRefundOrderRequest(BaseRequest):
+    """
+    查询劳动者退款订单信息请求-请求
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type channel: string
+    :param channel: 支付路径
+    """
+    def __init__(
+        self,
+        dealer_id = None,
+        order_id = None,
+        channel = None
+    ):
+        super().__init__()
+        self.dealer_id = dealer_id
+        self.order_id = order_id
+        self.channel = channel
+
+
+class GetLaborRefundOrderResponse(BaseRequest):
+    """
+    查询劳动者退款订单信息返回-响应
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type ref: string
+    :param ref: 综合服务平台流水号
+
+    :type refund_ref: string
+    :param refund_ref: 退款流水号
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type card_no: string
+    :param card_no: 账号
+
+    :type id_card: string
+    :param id_card: 身份证号码
+
+    :type phone_no: string
+    :param phone_no: 手机号
+
+    :type refund_type: string
+    :param refund_type: 退款类型
+
+    :type refund_total_amount: string
+    :param refund_total_amount: 退款总金额
+
+    :type refund_user_real_amount: string
+    :param refund_user_real_amount: 退回劳动者实收金额
+
+    :type is_refund_fee: string
+    :param is_refund_fee: 是否退加成服务费
+
+    :type refund_user_fee: string
+    :param refund_user_fee: 退回劳动者加成服务费金额
+
+    :type refund_broker_fee: string
+    :param refund_broker_fee: 退回平台企业加成服务费金额
+
+    :type refund_real_fee: string
+    :param refund_real_fee: 退回平台企业服务费实收金额
+
+    :type refund_deduct_fee: string
+    :param refund_deduct_fee: 退回平台企业服务费抵扣金额
+
+    :type is_refund_tax: string
+    :param is_refund_tax: 是否退税费
+
+    :type refund_tax_amount: string
+    :param refund_tax_amount: 退回税费总额
+
+    :type refund_personal_tax: string
+    :param refund_personal_tax: 退回个税金额
+
+    :type refund_value_added_tax: string
+    :param refund_value_added_tax: 退回增值税金额
+
+    :type refund_additional_tax: string
+    :param refund_additional_tax: 退回附加税金额
+
+    :type refund_labor_recovery_personal_tax: string
+    :param refund_labor_recovery_personal_tax: 退回已追缴个税
+
+    :type refund_labor_recovery_added_tax: string
+    :param refund_labor_recovery_added_tax: 退回已追缴增附税
+
+    :type refund_user_personal_tax: string
+    :param refund_user_personal_tax: 退回劳动者个税
+
+    :type refund_user_value_added_tax: string
+    :param refund_user_value_added_tax: 退回劳动者增值税
+
+    :type refund_user_additional_tax: string
+    :param refund_user_additional_tax: 退回劳动者附加税
+
+    :type refund_dealer_personal_tax: string
+    :param refund_dealer_personal_tax: 退回平台企业个税
+
+    :type refund_dealer_value_added_tax: string
+    :param refund_dealer_value_added_tax: 退回平台企业增值税
+
+    :type refund_dealer_additional_tax: string
+    :param refund_dealer_additional_tax: 退回平台企业附加税
+
+    :type refund_broker_personal_tax: string
+    :param refund_broker_personal_tax: 退回云账户个税
+
+    :type refund_broker_value_added_tax: string
+    :param refund_broker_value_added_tax: 退回云账户增值税
+
+    :type refund_broker_additional_tax: string
+    :param refund_broker_additional_tax: 退回云账户附加税
+
+    :type refund_status: string
+    :param refund_status: 退款状态
+
+    :type create_time: string
+    :param create_time: 退款创建时间
+
+    :type finished_at: string
+    :param finished_at: 退款完成时间
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        ref = None,
+        refund_ref = None,
+        order_id = None,
+        real_name = None,
+        card_no = None,
+        id_card = None,
+        phone_no = None,
+        refund_type = None,
+        refund_total_amount = None,
+        refund_user_real_amount = None,
+        is_refund_fee = None,
+        refund_user_fee = None,
+        refund_broker_fee = None,
+        refund_real_fee = None,
+        refund_deduct_fee = None,
+        is_refund_tax = None,
+        refund_tax_amount = None,
+        refund_personal_tax = None,
+        refund_value_added_tax = None,
+        refund_additional_tax = None,
+        refund_labor_recovery_personal_tax = None,
+        refund_labor_recovery_added_tax = None,
+        refund_user_personal_tax = None,
+        refund_user_value_added_tax = None,
+        refund_user_additional_tax = None,
+        refund_dealer_personal_tax = None,
+        refund_dealer_value_added_tax = None,
+        refund_dealer_additional_tax = None,
+        refund_broker_personal_tax = None,
+        refund_broker_value_added_tax = None,
+        refund_broker_additional_tax = None,
+        refund_status = None,
+        create_time = None,
+        finished_at = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.ref = ref
+        self.refund_ref = refund_ref
+        self.order_id = order_id
+        self.real_name = real_name
+        self.card_no = card_no
+        self.id_card = id_card
+        self.phone_no = phone_no
+        self.refund_type = refund_type
+        self.refund_total_amount = refund_total_amount
+        self.refund_user_real_amount = refund_user_real_amount
+        self.is_refund_fee = is_refund_fee
+        self.refund_user_fee = refund_user_fee
+        self.refund_broker_fee = refund_broker_fee
+        self.refund_real_fee = refund_real_fee
+        self.refund_deduct_fee = refund_deduct_fee
+        self.is_refund_tax = is_refund_tax
+        self.refund_tax_amount = refund_tax_amount
+        self.refund_personal_tax = refund_personal_tax
+        self.refund_value_added_tax = refund_value_added_tax
+        self.refund_additional_tax = refund_additional_tax
+        self.refund_labor_recovery_personal_tax = refund_labor_recovery_personal_tax
+        self.refund_labor_recovery_added_tax = refund_labor_recovery_added_tax
+        self.refund_user_personal_tax = refund_user_personal_tax
+        self.refund_user_value_added_tax = refund_user_value_added_tax
+        self.refund_user_additional_tax = refund_user_additional_tax
+        self.refund_dealer_personal_tax = refund_dealer_personal_tax
+        self.refund_dealer_value_added_tax = refund_dealer_value_added_tax
+        self.refund_dealer_additional_tax = refund_dealer_additional_tax
+        self.refund_broker_personal_tax = refund_broker_personal_tax
+        self.refund_broker_value_added_tax = refund_broker_value_added_tax
+        self.refund_broker_additional_tax = refund_broker_additional_tax
+        self.refund_status = refund_status
+        self.create_time = create_time
+        self.finished_at = finished_at
+
+
 class TaxDetail(BaseRequest):
     """
     缴税明细-响应
@@ -2457,6 +2672,191 @@ class NotifyOrderLxlwData(BaseRequest):
         self.user_recover_personal_tax_amount = user_recover_personal_tax_amount
         self.user_total_recover_personal_tax_amount = user_total_recover_personal_tax_amount
         self.order_title = order_title
+
+
+class NotifyLaborRefundOrderRequest(BaseRequest):
+    """
+    劳动者退款订单回调通知-请求
+
+    :type notify_id: string
+    :param notify_id: 通知 ID
+
+    :type notify_time: string
+    :param notify_time: 通知时间
+
+    :type data: NotifyLaborRefundOrderData
+    :param data: 返回数据
+    """
+    def __init__(
+        self,
+        notify_id = None,
+        notify_time = None,
+        data = None
+    ):
+        super().__init__()
+        self.notify_id = notify_id
+        self.notify_time = notify_time
+        self.data = data
+
+
+class NotifyLaborRefundOrderData(BaseRequest):
+    """
+    劳动者退款订单回调通知数据-响应
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type ref: string
+    :param ref: 综合服务平台流水号
+
+    :type refund_ref: string
+    :param refund_ref: 退款流水号
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type real_name: string
+    :param real_name: 姓名
+
+    :type card_no: string
+    :param card_no: 账号
+
+    :type id_card: string
+    :param id_card: 身份证号码
+
+    :type phone_no: string
+    :param phone_no: 手机号
+
+    :type refund_type: string
+    :param refund_type: 退款类型
+
+    :type refund_total_amount: string
+    :param refund_total_amount: 退款总金额
+
+    :type refund_user_real_amount: string
+    :param refund_user_real_amount: 退回劳动者实收金额
+
+    :type is_refund_fee: string
+    :param is_refund_fee: 是否退加成服务费
+
+    :type refund_user_fee: string
+    :param refund_user_fee: 退回劳动者加成服务费金额
+
+    :type refund_broker_fee: string
+    :param refund_broker_fee: 退回平台企业加成服务费金额
+
+    :type refund_real_fee: string
+    :param refund_real_fee: 退回平台企业服务费实收金额
+
+    :type refund_deduct_fee: string
+    :param refund_deduct_fee: 退回平台企业服务费抵扣金额
+
+    :type is_refund_tax: string
+    :param is_refund_tax: 是否退税费
+
+    :type refund_tax_amount: string
+    :param refund_tax_amount: 退回税费总额
+
+    :type refund_personal_tax: string
+    :param refund_personal_tax: 退回个税金额
+
+    :type refund_value_added_tax: string
+    :param refund_value_added_tax: 退回增值税金额
+
+    :type refund_additional_tax: string
+    :param refund_additional_tax: 退回附加税金额
+
+    :type refund_labor_recovery_personal_tax: string
+    :param refund_labor_recovery_personal_tax: 退回已追缴个税
+
+    :type refund_labor_recovery_added_tax: string
+    :param refund_labor_recovery_added_tax: 退回已追缴增附税
+
+    :type refund_user_personal_tax: string
+    :param refund_user_personal_tax: 退回劳动者个税金额
+
+    :type refund_user_value_added_tax: string
+    :param refund_user_value_added_tax: 退回劳动者增值税金额
+
+    :type refund_user_additional_tax: string
+    :param refund_user_additional_tax: 退回劳动者附加税金额
+
+    :type refund_dealer_personal_tax: string
+    :param refund_dealer_personal_tax: 退回平台企业个税金额
+
+    :type refund_dealer_value_added_tax: string
+    :param refund_dealer_value_added_tax: 退回平台企业增值税金额
+
+    :type refund_dealer_additional_tax: string
+    :param refund_dealer_additional_tax: 退回平台企业附加税金额
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        ref = None,
+        refund_ref = None,
+        order_id = None,
+        real_name = None,
+        card_no = None,
+        id_card = None,
+        phone_no = None,
+        refund_type = None,
+        refund_total_amount = None,
+        refund_user_real_amount = None,
+        is_refund_fee = None,
+        refund_user_fee = None,
+        refund_broker_fee = None,
+        refund_real_fee = None,
+        refund_deduct_fee = None,
+        is_refund_tax = None,
+        refund_tax_amount = None,
+        refund_personal_tax = None,
+        refund_value_added_tax = None,
+        refund_additional_tax = None,
+        refund_labor_recovery_personal_tax = None,
+        refund_labor_recovery_added_tax = None,
+        refund_user_personal_tax = None,
+        refund_user_value_added_tax = None,
+        refund_user_additional_tax = None,
+        refund_dealer_personal_tax = None,
+        refund_dealer_value_added_tax = None,
+        refund_dealer_additional_tax = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.ref = ref
+        self.refund_ref = refund_ref
+        self.order_id = order_id
+        self.real_name = real_name
+        self.card_no = card_no
+        self.id_card = id_card
+        self.phone_no = phone_no
+        self.refund_type = refund_type
+        self.refund_total_amount = refund_total_amount
+        self.refund_user_real_amount = refund_user_real_amount
+        self.is_refund_fee = is_refund_fee
+        self.refund_user_fee = refund_user_fee
+        self.refund_broker_fee = refund_broker_fee
+        self.refund_real_fee = refund_real_fee
+        self.refund_deduct_fee = refund_deduct_fee
+        self.is_refund_tax = is_refund_tax
+        self.refund_tax_amount = refund_tax_amount
+        self.refund_personal_tax = refund_personal_tax
+        self.refund_value_added_tax = refund_value_added_tax
+        self.refund_additional_tax = refund_additional_tax
+        self.refund_labor_recovery_personal_tax = refund_labor_recovery_personal_tax
+        self.refund_labor_recovery_added_tax = refund_labor_recovery_added_tax
+        self.refund_user_personal_tax = refund_user_personal_tax
+        self.refund_user_value_added_tax = refund_user_value_added_tax
+        self.refund_user_additional_tax = refund_user_additional_tax
+        self.refund_dealer_personal_tax = refund_dealer_personal_tax
+        self.refund_dealer_value_added_tax = refund_dealer_value_added_tax
+        self.refund_dealer_additional_tax = refund_dealer_additional_tax
 
 
 class CancelOrderInBatchRequest(BaseRequest):
