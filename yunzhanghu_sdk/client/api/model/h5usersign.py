@@ -78,13 +78,16 @@ class H5UserSignRequest(BaseRequest):
     申请签约请求-请求
 
     :type token: string
-    :param token: H5 签约 token
+    :param token: 签约 token
 
     :type color: string
-    :param color: H5 页面主题颜色
+    :param color: 主题颜色
 
     :type url: string
-    :param url: 回调 URL 地址
+    :param url: 签约完成回调地址
+
+    :type event_callback_url: string
+    :param event_callback_url: 签约事件状态回调地址
 
     :type redirect_url: string
     :param redirect_url: 跳转 URL
@@ -94,12 +97,14 @@ class H5UserSignRequest(BaseRequest):
         token = None,
         color = None,
         url = None,
+        event_callback_url = None,
         redirect_url = None
     ):
         super().__init__()
         self.token = token
         self.color = color
         self.url = url
+        self.event_callback_url = event_callback_url
         self.redirect_url = redirect_url
 
 
@@ -109,13 +114,18 @@ class H5UserSignResponse(BaseRequest):
 
     :type url: string
     :param url: H5 签约页面 URL
+
+    :type wx_mp_code_url: string
+    :param wx_mp_code_url: 微信签约小程序码 URL
     """
     def __init__(
         self,
-        url = None
+        url = None,
+        wx_mp_code_url = None
     ):
         super().__init__()
         self.url = url
+        self.wx_mp_code_url = wx_mp_code_url
 
 
 class GetH5UserSignStatusRequest(BaseRequest):
@@ -236,6 +246,18 @@ class NotifyH5UserSignRequest(BaseRequest):
 
     :type phone: string
     :param phone: 预签约手机号
+
+    :type status: int
+    :param status: 签约状态 0：未签约 1：已签约 2：已解约
+
+    :type event_type: string
+    :param event_type: 签约事件类型
+
+    :type event_status: string
+    :param event_status: 签约事件状态
+
+    :type event_status_detail: string
+    :param event_status_detail: 签约事件状态详情
     """
     def __init__(
         self,
@@ -243,7 +265,11 @@ class NotifyH5UserSignRequest(BaseRequest):
         broker_id = None,
         real_name = None,
         id_card = None,
-        phone = None
+        phone = None,
+        status = None,
+        event_type = None,
+        event_status = None,
+        event_status_detail = None
     ):
         super().__init__()
         self.dealer_id = dealer_id
@@ -251,6 +277,10 @@ class NotifyH5UserSignRequest(BaseRequest):
         self.real_name = real_name
         self.id_card = id_card
         self.phone = phone
+        self.status = status
+        self.event_type = event_type
+        self.event_status = event_status
+        self.event_status_detail = event_status_detail
 
 
 class H5UserReleaseApplyRequest(BaseRequest):
