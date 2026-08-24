@@ -221,6 +221,20 @@ class PaymentClient(BaseClient):
             Utils.copy_dict(request.__dict__)
         )
 
+    def get_labor_refund_order(self, request: GetLaborRefundOrderRequest):
+        """ 查询劳动者退款订单信息
+
+        :type request: GetLaborRefundOrderRequest
+        :param request: the GetLaborRefundOrderRequest request parameters class.
+
+        :return: GetLaborRefundOrderResponse
+        """
+        return self._get(
+            "/api/payment/v1/query-labor-refund-order",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
+
     def cancel_order_in_batch(self, request: CancelOrderInBatchRequest):
         """ 取消批次中单笔订单
 

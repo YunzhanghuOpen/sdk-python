@@ -255,6 +255,9 @@ class CalcTaxResponse(BaseRequest):
     :type user_fee: string
     :param user_fee: 劳动者服务费
 
+    :type basic_deducted: string
+    :param basic_deducted: 是否使用基本减除费用
+
     :type status: string
     :param status: 结果
 
@@ -305,6 +308,7 @@ class CalcTaxResponse(BaseRequest):
         dealer_tax = None,
         broker_tax = None,
         user_fee = None,
+        basic_deducted = None,
         status = None,
         status_detail = None,
         status_message = None,
@@ -329,6 +333,7 @@ class CalcTaxResponse(BaseRequest):
         self.dealer_tax = dealer_tax
         self.broker_tax = broker_tax
         self.user_fee = user_fee
+        self.basic_deducted = basic_deducted
         self.status = status
         self.status_detail = status_detail
         self.status_message = status_message

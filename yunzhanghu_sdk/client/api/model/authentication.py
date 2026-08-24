@@ -233,6 +233,9 @@ class UserExemptedInfoRequest(BaseRequest):
     :type resident_type: string
     :param resident_type: 外籍人员类型
 
+    :type expiry_date: string
+    :param expiry_date: 证件有效期
+
     :type permit_card: string
     :param permit_card: 港澳台通行证号码
     """
@@ -252,6 +255,7 @@ class UserExemptedInfoRequest(BaseRequest):
         ref = None,
         image_urls = None,
         resident_type = None,
+        expiry_date = None,
         permit_card = None
     ):
         super().__init__()
@@ -269,6 +273,7 @@ class UserExemptedInfoRequest(BaseRequest):
         self.ref = ref
         self.image_urls = image_urls
         self.resident_type = resident_type
+        self.expiry_date = expiry_date
         self.permit_card = permit_card
 
 

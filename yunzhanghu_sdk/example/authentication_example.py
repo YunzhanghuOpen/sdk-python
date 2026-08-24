@@ -144,6 +144,7 @@ if __name__ == "__main__":
         notify_url = "https://www.example.com",
         ref = "1234qwer",
         resident_type = "1",
+        expiry_date = "2028-08-08",
         permit_card = "H12345678",
     )
 
