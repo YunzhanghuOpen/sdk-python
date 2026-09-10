@@ -3,6 +3,7 @@
 from yunzhanghu_sdk.client.api.model.walletdeduct import *
 from yunzhanghu_sdk.client.api.walletdeduct_client import WalletDeductServiceClient
 from yunzhanghu_sdk.example.utils.config_init import init_config
+from yunzhanghu_sdk.utils import Utils
 
 # 钱包余额扣减
 if __name__ == "__main__":
@@ -13,11 +14,11 @@ if __name__ == "__main__":
     req = CreateWalletDeductRequest(
         dealer_id = conf.dealer_id,
         broker_id = conf.broker_id,
-        user_info = WalletDeductUserInfo(
+        user_info = Utils.copy_dict(WalletDeductUserInfo(
             real_name = "张三",
             id_card = "11010519491231002X",
             card_type = "idcard",
-        ),
+        ).__dict__),
         wallet_id = "wallet_123456",
         order_id = "20200903001656212987",
         scene = "3",

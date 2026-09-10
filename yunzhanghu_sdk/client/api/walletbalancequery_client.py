@@ -1,11 +1,11 @@
 """钱包余额查询"""
 
-from .model.wallet import *
+from .model.walletbalancequery import *
 from ..base import BaseClient
 from ...utils import Utils
 
 
-class WalletServiceClient(BaseClient):
+class WalletBalanceQueryServiceClient(BaseClient):
     """钱包余额查询客户端"""
 
     def __init__(self, config):
