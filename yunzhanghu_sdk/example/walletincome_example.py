@@ -3,6 +3,7 @@
 from yunzhanghu_sdk.client.api.model.walletincome import *
 from yunzhanghu_sdk.client.api.walletincome_client import WalletIncomeServiceClient
 from yunzhanghu_sdk.example.utils.config_init import init_config
+from yunzhanghu_sdk.utils import Utils
 
 # 钱包余额入账
 if __name__ == "__main__":
@@ -13,22 +14,22 @@ if __name__ == "__main__":
     req = CreateWalletIncomeRequest(
         dealer_id = conf.dealer_id,
         broker_id = conf.broker_id,
-        user_info = WalletIncomeUserInfo(
+        user_info = Utils.copy_dict(WalletIncomeUserInfo(
             real_name = "张三",
             id_card = "11010519491231002X",
             card_type = "idcard",
             phone_no = "13800000000",
-        ),
+        ).__dict__),
         wallet_id = "wallet_123456",
-        platform_info = WalletIncomePlatformInfo(
+        platform_info = Utils.copy_dict(WalletIncomePlatformInfo(
             platform_name = "xxx平台",
             user_id = "123456",
             user_nickname = "张三",
-        ),
+        ).__dict__),
         order_id = "20200903001656212987",
         amount = "300.00",
         earned_at = "2020-09-01 10:00:00",
-        remark = "10月直播收入",
+        remark = "9月直播收入",
         notify_url = "https://www.example.com/income/notify",
     )
 
