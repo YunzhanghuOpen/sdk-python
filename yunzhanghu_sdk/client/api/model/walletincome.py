@@ -71,7 +71,7 @@ class WalletIncomeWalletBalance(BaseRequest):
     :type frozen_balance: string
     :param frozen_balance: 冻结余额
 
-    :type version: int
+    :type version: str
     :param version: 版本号
     """
     def __init__(
