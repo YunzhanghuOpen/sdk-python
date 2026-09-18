@@ -38,3 +38,45 @@ class WalletWithdrawServiceClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def cancel_wallet_withdraw(self, request: CancelWalletWithdrawRequest):
+        """ 取消挂起的钱包余额提现订单
+
+        :type request: CancelWalletWithdrawRequest
+        :param request: the CancelWalletWithdrawRequest request parameters class.
+
+        :return: CancelWalletWithdrawResponse
+        """
+        return self._post(
+            "/api/payout/v1/cancel-order",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
+
+    def retry_wallet_withdraw(self, request: RetryWalletWithdrawRequest):
+        """ 重试挂起的钱包余额提现订单
+
+        :type request: RetryWalletWithdrawRequest
+        :param request: the RetryWalletWithdrawRequest request parameters class.
+
+        :return: RetryWalletWithdrawResponse
+        """
+        return self._post(
+            "/api/payout/v1/retry-order",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
+
+    def get_wallet_withdraw_receipt_file(self, request: GetWalletWithdrawReceiptFileRequest):
+        """ 查询钱包余额提现电子回单
+
+        :type request: GetWalletWithdrawReceiptFileRequest
+        :param request: the GetWalletWithdrawReceiptFileRequest request parameters class.
+
+        :return: GetWalletWithdrawReceiptFileResponse
+        """
+        return self._get(
+            "/api/payout/v1/receipt-file",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )

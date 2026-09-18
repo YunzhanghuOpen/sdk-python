@@ -527,6 +527,12 @@ class QueryWalletIncomeResponse(BaseRequest):
     :type user_debt_repayment_amount: string
     :param user_debt_repayment_amount: 劳动者历史订单需补缴税费金额
 
+    :type user_debt_repayment_personal_amount: string
+    :param user_debt_repayment_personal_amount: 劳动者历史订单需补缴个税金额
+
+    :type user_debt_repayment_added_amount: string
+    :param user_debt_repayment_added_amount: 劳动者历史订单需补缴增附税金额
+
     :type wallet_inflow_amount: string
     :param wallet_inflow_amount: 钱包入账金额
 
@@ -555,6 +561,8 @@ class QueryWalletIncomeResponse(BaseRequest):
         fee_info = None,
         tax_info = None,
         user_debt_repayment_amount = None,
+        user_debt_repayment_personal_amount = None,
+        user_debt_repayment_added_amount = None,
         wallet_inflow_amount = None,
         wallet_balance = None
     ):
@@ -579,6 +587,8 @@ class QueryWalletIncomeResponse(BaseRequest):
         self.fee_info = fee_info
         self.tax_info = tax_info
         self.user_debt_repayment_amount = user_debt_repayment_amount
+        self.user_debt_repayment_personal_amount = user_debt_repayment_personal_amount
+        self.user_debt_repayment_added_amount = user_debt_repayment_added_amount
         self.wallet_inflow_amount = wallet_inflow_amount
         self.wallet_balance = wallet_balance
 
@@ -663,6 +673,44 @@ class CancelWalletIncomeResponse(BaseRequest):
         self.cancel_detail = cancel_detail
 
 
+class RetryWalletIncomeRequest(BaseRequest):
+    """
+    重试挂起的计税订单请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type ref: string
+    :param ref: 云账户钱包入账订单号
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        order_id = None,
+        ref = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.order_id = order_id
+        self.ref = ref
+
+
+class RetryWalletIncomeResponse(BaseRequest):
+    """
+    重试挂起的计税订单返回-响应
+    """
+    def __init__(self):
+        super().__init__()
+
+
 class NotifyWalletIncomeRequest(BaseRequest):
     """
     钱包余额入账结果回调通知请求-请求
@@ -730,6 +778,12 @@ class NotifyWalletIncomeRequest(BaseRequest):
     :type user_debt_repayment_amount: string
     :param user_debt_repayment_amount: 劳动者历史订单需补缴税费金额
 
+    :type user_debt_repayment_personal_amount: string
+    :param user_debt_repayment_personal_amount: 劳动者历史订单需补缴个税金额
+
+    :type user_debt_repayment_added_amount: string
+    :param user_debt_repayment_added_amount: 劳动者历史订单需补缴增附税金额
+
     :type wallet_inflow_amount: string
     :param wallet_inflow_amount: 钱包入账金额
 
@@ -759,6 +813,8 @@ class NotifyWalletIncomeRequest(BaseRequest):
         fee_info = None,
         tax_info = None,
         user_debt_repayment_amount = None,
+        user_debt_repayment_personal_amount = None,
+        user_debt_repayment_added_amount = None,
         wallet_inflow_amount = None,
         wallet_balance = None
     ):
@@ -784,5 +840,7 @@ class NotifyWalletIncomeRequest(BaseRequest):
         self.fee_info = fee_info
         self.tax_info = tax_info
         self.user_debt_repayment_amount = user_debt_repayment_amount
+        self.user_debt_repayment_personal_amount = user_debt_repayment_personal_amount
+        self.user_debt_repayment_added_amount = user_debt_repayment_added_amount
         self.wallet_inflow_amount = wallet_inflow_amount
         self.wallet_balance = wallet_balance

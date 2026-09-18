@@ -244,6 +244,12 @@ class QueryWalletWithdrawResponse(BaseRequest):
     :type user_debt_repayment_amount: string
     :param user_debt_repayment_amount: 劳动者历史订单需补缴税费金额
 
+    :type user_debt_repayment_personal_amount: string
+    :param user_debt_repayment_personal_amount: 劳动者历史订单需补缴个税金额
+
+    :type user_debt_repayment_added_amount: string
+    :param user_debt_repayment_added_amount: 劳动者历史订单需补缴增附税金额
+
     :type wallet_outflow_amount: string
     :param wallet_outflow_amount: 钱包出账金额
 
@@ -271,6 +277,8 @@ class QueryWalletWithdrawResponse(BaseRequest):
         finished_at = None,
         user_received_amount = None,
         user_debt_repayment_amount = None,
+        user_debt_repayment_personal_amount = None,
+        user_debt_repayment_added_amount = None,
         wallet_outflow_amount = None,
         wallet_balance = None
     ):
@@ -294,8 +302,146 @@ class QueryWalletWithdrawResponse(BaseRequest):
         self.finished_at = finished_at
         self.user_received_amount = user_received_amount
         self.user_debt_repayment_amount = user_debt_repayment_amount
+        self.user_debt_repayment_personal_amount = user_debt_repayment_personal_amount
+        self.user_debt_repayment_added_amount = user_debt_repayment_added_amount
         self.wallet_outflow_amount = wallet_outflow_amount
         self.wallet_balance = wallet_balance
+
+
+class CancelWalletWithdrawRequest(BaseRequest):
+    """
+    取消挂起的钱包余额提现订单请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type ref: string
+    :param ref: 云账户钱包余额提现订单号
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        order_id = None,
+        ref = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.order_id = order_id
+        self.ref = ref
+
+
+class CancelWalletWithdrawResponse(BaseRequest):
+    """
+    取消挂起的钱包余额提现订单返回-响应
+    """
+    def __init__(self):
+        super().__init__()
+
+
+class RetryWalletWithdrawRequest(BaseRequest):
+    """
+    重试挂起的钱包余额提现订单请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type ref: string
+    :param ref: 云账户钱包余额提现订单号
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        order_id = None,
+        ref = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.order_id = order_id
+        self.ref = ref
+
+
+class RetryWalletWithdrawResponse(BaseRequest):
+    """
+    重试挂起的钱包余额提现订单返回-响应
+    """
+    def __init__(self):
+        super().__init__()
+
+
+class GetWalletWithdrawReceiptFileRequest(BaseRequest):
+    """
+    查询钱包余额提现电子回单请求-请求
+
+    :type broker_id: string
+    :param broker_id: 综合服务主体 ID
+
+    :type dealer_id: string
+    :param dealer_id: 平台企业 ID
+
+    :type order_id: string
+    :param order_id: 平台企业订单号
+
+    :type ref: string
+    :param ref: 云账户钱包余额提现订单号
+
+    :type receipt_type: string
+    :param receipt_type: 回单类型，付款回单、退汇回单，若为空默认为付款回单
+    """
+    def __init__(
+        self,
+        broker_id = None,
+        dealer_id = None,
+        order_id = None,
+        ref = None,
+        receipt_type = None
+    ):
+        super().__init__()
+        self.broker_id = broker_id
+        self.dealer_id = dealer_id
+        self.order_id = order_id
+        self.ref = ref
+        self.receipt_type = receipt_type
+
+
+class GetWalletWithdrawReceiptFileResponse(BaseRequest):
+    """
+    查询钱包余额提现电子回单返回-响应
+
+    :type expire_time: string
+    :param expire_time: 链接失效时间
+
+    :type file_name: string
+    :param file_name: 回单名
+
+    :type url: string
+    :param url: 电子回单的下载链接，有效期 24 小时
+    """
+    def __init__(
+        self,
+        expire_time = None,
+        file_name = None,
+        url = None
+    ):
+        super().__init__()
+        self.expire_time = expire_time
+        self.file_name = file_name
+        self.url = url
 
 
 class NotifyWalletWithdrawRequest(BaseRequest):
@@ -362,6 +508,12 @@ class NotifyWalletWithdrawRequest(BaseRequest):
     :type user_debt_repayment_amount: string
     :param user_debt_repayment_amount: 劳动者历史订单需补缴税费金额
 
+    :type user_debt_repayment_personal_amount: string
+    :param user_debt_repayment_personal_amount: 劳动者历史订单需补缴个税金额
+
+    :type user_debt_repayment_added_amount: string
+    :param user_debt_repayment_added_amount: 劳动者历史订单需补缴增附税金额
+
     :type wallet_outflow_amount: string
     :param wallet_outflow_amount: 钱包出账金额
 
@@ -390,6 +542,8 @@ class NotifyWalletWithdrawRequest(BaseRequest):
         finished_at = None,
         user_received_amount = None,
         user_debt_repayment_amount = None,
+        user_debt_repayment_personal_amount = None,
+        user_debt_repayment_added_amount = None,
         wallet_outflow_amount = None,
         wallet_balance = None
     ):
@@ -414,5 +568,7 @@ class NotifyWalletWithdrawRequest(BaseRequest):
         self.finished_at = finished_at
         self.user_received_amount = user_received_amount
         self.user_debt_repayment_amount = user_debt_repayment_amount
+        self.user_debt_repayment_personal_amount = user_debt_repayment_personal_amount
+        self.user_debt_repayment_added_amount = user_debt_repayment_added_amount
         self.wallet_outflow_amount = wallet_outflow_amount
         self.wallet_balance = wallet_balance
