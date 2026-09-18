@@ -69,3 +69,76 @@ if __name__ == "__main__":
     except Exception as e:
         # 发生异常
         print(e)
+
+    # 取消挂起的钱包余额提现订单
+    req = CancelWalletWithdrawRequest(
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        order_id = "20200903001656212989",
+        ref = "176826728300003",
+    )
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义 request-id
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.cancel_wallet_withdraw(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)
+
+    # 重试挂起的钱包余额提现订单
+    req = RetryWalletWithdrawRequest(
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        order_id = "20200903001656212989",
+        ref = "176826728300003",
+    )
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义 request-id
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.retry_wallet_withdraw(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)
+
+    # 查询钱包余额提现电子回单
+    req = GetWalletWithdrawReceiptFileRequest(
+        dealer_id = conf.dealer_id,
+        broker_id = conf.broker_id,
+        order_id = "20200903001656212989",
+        ref = "176826728300003",
+        receipt_type = "付款回单",
+    )
+
+    # request-id：请求 ID，请求的唯一标识
+    # 建议平台企业自定义 request-id，并记录在日志中，便于问题发现及排查
+    # 如未自定义 request-id，将使用 SDK 中的 UUID 方法自动生成。注意：UUID 方法生成的 request-id 不能保证全局唯一，推荐自定义 request-id
+    req.request_id = "requestIdExample123456789"
+    try:
+        resp = client.get_wallet_withdraw_receipt_file(req)
+        if resp.code == "0000":
+            # 操作成功
+            print("操作成功 ", resp.data)
+        else:
+            # 失败返回
+            print("失败返回 ", "code：" + resp.code + " message：" + resp.message + " request_id：" + resp.request_id)
+    except Exception as e:
+        # 发生异常
+        print(e)

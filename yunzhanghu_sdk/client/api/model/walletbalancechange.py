@@ -29,6 +29,12 @@ class NotifyWalletBalanceChangeRequest(BaseRequest):
     :type change_amount: string
     :param change_amount: 钱包余额变更金额
 
+    :type user_debt_repayment_personal_amount: string
+    :param user_debt_repayment_personal_amount: 需补缴个税
+
+    :type user_debt_repayment_added_amount: string
+    :param user_debt_repayment_added_amount: 需补缴增附税
+
     :type changed_at: string
     :param changed_at: 余额变化时间
 
@@ -44,6 +50,8 @@ class NotifyWalletBalanceChangeRequest(BaseRequest):
         wallet_id = None,
         change_id = None,
         change_amount = None,
+        user_debt_repayment_personal_amount = None,
+        user_debt_repayment_added_amount = None,
         changed_at = None,
         wallet_balance = None
     ):
@@ -55,5 +63,7 @@ class NotifyWalletBalanceChangeRequest(BaseRequest):
         self.wallet_id = wallet_id
         self.change_id = change_id
         self.change_amount = change_amount
+        self.user_debt_repayment_personal_amount = user_debt_repayment_personal_amount
+        self.user_debt_repayment_added_amount = user_debt_repayment_added_amount
         self.changed_at = changed_at
         self.wallet_balance = wallet_balance

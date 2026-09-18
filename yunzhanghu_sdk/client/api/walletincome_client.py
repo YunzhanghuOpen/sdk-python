@@ -52,3 +52,17 @@ class WalletIncomeServiceClient(BaseClient):
             request.request_id,
             Utils.copy_dict(request.__dict__)
         )
+
+    def retry_wallet_income(self, request: RetryWalletIncomeRequest):
+        """ 重试挂起的计税订单
+
+        :type request: RetryWalletIncomeRequest
+        :param request: the RetryWalletIncomeRequest request parameters class.
+
+        :return: RetryWalletIncomeResponse
+        """
+        return self._post(
+            "/api/income/v1/retry-order",
+            request.request_id,
+            Utils.copy_dict(request.__dict__)
+        )
