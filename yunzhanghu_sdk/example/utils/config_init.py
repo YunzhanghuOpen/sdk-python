@@ -26,9 +26,9 @@ def init_config():
     XXXXX
     -----END PUBLIC KEY-----
     '''
-    config = Config(
-        # 生产环境请求域名
-        host = "https://api-service.yunzhanghu.com",
+    # 平台企业 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
+    dealer_id = ""
+    # 综合服务主体 ID，登录云账户综合服务平台，选择“业务中心 > 业务管理 > 对接信息”获取
         # 沙箱环境请求域名
         # host = "https://api-service.yunzhanghu.com/sandbox",
         # 个体工商户注册请求域名
@@ -42,7 +42,4 @@ def init_config():
         des3key = des3key,
         dealer_private_key = dealer_private_key,
         yzh_public_key = yzh_public_key,
-        # 自定义超时时间
-        timeout = 30,
-    )
     return config
